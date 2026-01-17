@@ -1,0 +1,34 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+storybook-static/
+coverage/
+
+# Env / config
+.env
+.env.local
+.env.*.local
+
+# Editor / OS cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Jest
+jest-html-reporters-*.html
+
+# Misc
+*.tsbuildinfo
