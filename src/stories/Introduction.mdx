@@ -1,0 +1,72 @@
+import {
+  Meta,
+  Subtitle,
+  Title,
+  Description,
+} from "@storybook/addon-docs/blocks";
+
+<Meta title="Welcome" />
+<Title>Bryn Mawr Design UI</Title>
+
+<Subtitle>
+  Internal React + TypeScript UI component library for Bryn Mawr Design.
+</Subtitle>
+<>
+  Bryn Mawr Design UI is a small, focused set of reusable UI primitives used
+  across <code>brynmawrdesign-web</code> and other internal projects. It exists
+  to capture stable patterns&mdash;like buttons, form fields, layout primitives,
+  and feedback components&mdash;in one place, with a consistent visual language
+  and accessible behavior.
+</>
+## Goals
+
+- Provide a consistent, token-driven visual foundation.
+- Encapsulate shared interaction patterns (hover, focus, disabled, error).
+- Make it easy to compose product UIs without re-solving basic UI problems.
+- Serve as a clear artifact of my front-end and design-systems work.
+
+---
+
+## Design tokens
+
+This library uses CSS custom properties defined in `tokens.css` to express:
+
+- **Color**: brand, surface, text, borders, and semantic colors.
+- **Spacing**: a small, predictable spacing scale.
+- **Radius & shadow**: primitives for cards, buttons, and surfaces.
+- **Typography**: font family and a simple size scale.
+
+Components consume these tokens so that themes and visual refinements can
+happen in one place instead of per-component.
+
+---
+
+## Components
+
+The initial set of components focuses on small, composable building blocks:
+
+- <strong>Button</strong> – primary, secondary, and ghost button variants with
+  size options.
+- <strong>TextField</strong> – basic text input with consistent styling.
+- <strong>FormField</strong> – label + help text + error messaging wrapper.
+- <strong>Layout primitives</strong> – simple building blocks like
+  <code>Stack</code> and <code>Box</code>.
+- <strong>Feedback</strong> – components such as <code>Modal</code> or
+  <code>Toast</code> (added incrementally).
+
+You can explore these in the <em>Components</em> section of the sidebar.
+
+---
+
+## Usage
+
+In a consuming app (for example, <code>brynmawrdesign-web</code>), components
+are imported from the library and composed into product UIs:
+
+```tsx
+import { Button } from "@brynmawrdesign/ui";
+
+export function Example() {
+  return <Button variant="primary">Save changes</Button>;
+}
+```
