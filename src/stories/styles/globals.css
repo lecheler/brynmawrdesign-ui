@@ -1,0 +1,77 @@
+/* src/styles/globals.css */
+
+@import "./tokens.css";
+
+/* Box sizing + layout sanity */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.sb-show-main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Base body styles */
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Typography defaults */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--space-3);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+}
+
+p {
+  margin: 0 0 var(--space-3);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons, inputs inherit font */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Images & media */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Root container in Storybook (for layout: centered, etc.) */
+.sb-story {
+  padding: var(--space-4);
+}
