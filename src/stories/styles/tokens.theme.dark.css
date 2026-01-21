@@ -1,0 +1,19 @@
+[data-theme="dark"] {
+  /* Text */
+  --color-text-primary: var(--color-gray-100);
+  --color-text-secondary: var(--color-gray-400);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-inverse: var(--color-gray-900);
+
+  /* Surfaces */
+  --color-bg-canvas: var(--color-gray-900);
+  --color-bg-surface: var(--color-gray-800);
+  --color-bg-muted: var(--color-gray-700);
+
+  /* Borders */
+  --color-border-default: var(--color-gray-700);
+
+  /* Actions */
+  --color-action-primary: var(--color-primary-400);
+  --color-action-hover: var(--color-primary-300);
+}

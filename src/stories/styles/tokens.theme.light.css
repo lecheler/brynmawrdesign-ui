@@ -1,0 +1,19 @@
+:root {
+  /* Text */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-inverse: white;
+
+  /* Surfaces */
+  --color-bg-canvas: var(--color-gray-50);
+  --color-bg-surface: white;
+  --color-bg-muted: var(--color-gray-100);
+
+  /* Borders */
+  --color-border-default: var(--color-gray-200);
+
+  /* Actions */
+  --color-action-primary: var(--color-primary-500);
+  --color-action-hover: var(--color-primary-600);
+}
