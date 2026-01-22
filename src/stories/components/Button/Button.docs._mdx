@@ -1,0 +1,102 @@
+import { Meta, Primary, Canvas, Story } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The Button is the primary interactive affordance in the system. It favors
+clarity and calm over decoration:
+
+- **Inter** as the default typeface via a `--font-sans` token
+- Compact sizing with padding driving hit area, not line-height hacks
+- Sentence case labels for better scannability and localization
+- Icon slots that maintain alignment and rhythm at all sizes
+
+---
+
+## Usage
+
+Use the Button for primary and secondary actions, especially where a clear label
+beats an icon-only affordance. Reserved, predictable behavior is more valuable
+than clever styling.
+
+<Canvas>
+  <Story id="components-button--playground" />
+</Canvas>
+
+---
+
+## Variants
+
+Variants are **semantic**, not purely visual. They map to intent:
+
+- `primary` – high-emphasis, single best next action on a surface
+- `secondary` – supporting actions that are still important
+- `ghost` – low-emphasis actions, often inline or tertiary options
+
+<Canvas>
+  <Story id="components-button--variants" of={ButtonStories.Primary} />
+</Canvas>
+
+> **Guideline:** Avoid having more than one `primary` Button per view. If
+> everything is emphasized, nothing is.
+
+---
+
+## Sizes
+
+Button size is driven by layout density and input method:
+
+- `sm` – dense UIs, tables, secondary actions
+- `md` – default for desktop product surfaces
+- `lg` – high-emphasis actions, mobile-first contexts
+
+Text remains relatively small and neutral; padding establishes the touch target.
+
+<Canvas>
+  <Story id="components-button--sizes" />
+</Canvas>
+
+---
+
+## Icons
+
+Buttons support both leading and trailing icons via `iconLeading` and
+`iconTrailing` props. Icon sizing is tokenized (`--icon-size-*`) so that
+motion and layout remain consistent across the system.
+
+<Canvas>
+  <Story id="components-button--with-leading-icon" />
+</Canvas>
+
+<Canvas>
+  <Story id="components-button--with-trailing-icon" />
+</Canvas>
+
+> **Guideline:** Icons should clarify, not replace, the label. Avoid icon-only
+> Buttons except for well-established patterns (e.g., a close or settings icon).
+
+---
+
+## API
+
+### Props
+
+{/* <ArgsTable of={ButtonStories.Playground} /> */}
+
+### Design tokens
+
+The Button consumes, but does not define, the following tokens:
+
+- `--font-sans`
+- `--font-size-xs`, `--font-size-sm`
+- `--line-height-tight`
+- `--space-1` through `--space-4`
+- `--radius-sm`, `--radius-md`
+- `--icon-size-xs`, `--icon-size-sm`
+- `--button-primary-*`, `--button-secondary-*`, `--button-ghost-*`
+- `--focus-ring-color`
+
+This makes the component themeable across products while expressing a strong
+default look and feel.

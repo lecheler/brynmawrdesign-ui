@@ -1,6 +1,12 @@
-import "./button.css";
+import React from "react";
 
-export interface ButtonProps {
+import { cx } from "../../utils/classNames.ts";
+import "./Button.css";
+
+export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonSize = "sm" | "md" | "lg";
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Is this the principal call to action on the page? */
   primary?: boolean;
   /** What background color to use */
@@ -27,9 +33,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " ",
-      )}
+      className={cx("storybook-button", `storybook-button--${size}`, mode)}
       style={{ backgroundColor }}
       {...props}
     >

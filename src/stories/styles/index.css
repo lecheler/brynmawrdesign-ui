@@ -1,8 +1,9 @@
-@import "./tokens.colors.css";
-@import "./tokens.type.css";
-@import "./tokens.space.css";
-@import "./tokens.radii.css";
-@import "./tokens.theme.light.css";
-@import "./tokens.theme.dark.css";
+@import "../foundations/tokens/colors.css";
+@import "../foundations/tokens/type.css";
+@import "../foundations/tokens/space.css";
+@import "../foundations/tokens/radii.css";
+
+@import "../foundations/tokens/tokens.theme.light.css";
+@import "../foundations/tokens/tokens.theme.dark.css";
 
 @import "./globals.css";

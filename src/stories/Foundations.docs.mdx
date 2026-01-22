@@ -1,0 +1,63 @@
+import {
+  Meta,
+  Subtitle,
+  Title,
+  Description,
+} from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Overview" />
+
+# Foundations
+
+This system is built on a small set of stable foundations designed to disappear
+in day-to-day product work while remaining flexible across products.
+
+---
+
+## Design tokens
+
+Tokens define **design decisions**, not implementation details. Components
+consume tokens; applications may override them.
+
+- Color, spacing, typography, radius, motion
+- No element selectors
+- Portable across CSS, JS, and design tools
+
+---
+
+## Typography
+
+Typography favors neutrality and clarity:
+
+- Inter as the default UI sans-serif
+- Compact sizes with generous spacing
+- Sentence case for labels
+
+Use `Text` and `Heading` primitives instead of styling raw elements.
+
+---
+
+## Layout
+
+Layout primitives (`Stack`, `Inline`) replace margin-based composition.
+They encode spacing intent and improve consistency across features.
+
+---
+
+## Accessibility
+
+- Visible focus rings via tokens
+- Buttons meet minimum touch targets
+- Text sizes chosen for readability at common viewing distances
+
+---
+
+## Philosophy
+
+This system optimizes for:
+
+- Calm defaults
+- Predictable behavior
+- Consumer autonomy
+
+Opinionated where it helps consistency, flexible where it supports adoption.
