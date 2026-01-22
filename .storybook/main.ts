@@ -6,6 +6,7 @@ export default defineMain({
   addons: [
     "@chromatic-com/storybook",
     "@vueless/storybook-dark-mode",
+    "@storybook/addon-themes",
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
