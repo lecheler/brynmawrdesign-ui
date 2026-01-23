@@ -15,15 +15,23 @@
   --color-border-subtle: var(--color-gray-200);
   --color-border-strong: var(--color-gray-400);
 
-  /* Brand / Accent */
-  --color-accent: var(--color-primary-500);
-  --color-accent-hover: var(--color-primary-600);
+  /* Accent */
+  --color-accent: var(--color-blue-500);
+  --color-accent-hover: var(--color-blue-600);
 
-  /* Danger */
-  --color-danger: var(--color-red-500);
-  --color-danger-hover: var(--color-red-600);
+  /* Destructive */
+  --color-destructive: var(--color-red-500);
+  --color-destructive-hover: var(--color-red-600);
+
+  /* Positive */
+  --color-positive: var(--color-green-500);
+  --color-positive-hover: var(--color-green-600);
+
+  /* Caution */
+  --color-caution: var(--color-yellow-500);
+  --color-caution-hover: var(--color-yellow-600);
 
   /* Neutral emphasis (for “neutral” tone) */
-  --color-neutral-strong: var(--color-gray-700);
-  --color-neutral-strong-hover: var(--color-gray-800);
+  --color-neutral: var(--color-gray-500);
+  --color-neutral-hover: var(--color-gray-600);
 }

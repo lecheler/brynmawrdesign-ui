@@ -4,14 +4,18 @@ import { cx } from "../../utils/classNames.ts";
 import "./Button.css";
 
 export type ButtonVariant = "solid" | "outlined" | "soft" | "subtle" | "ghost";
-export type ButtonTone = "primary" | "danger" | "neutral";
+export type ButtonTone =
+  | "primary"
+  | "danger"
+  | "success"
+  | "warning"
+  | "neutral";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: ButtonVariant;
   tone?: ButtonTone;
-  backgroundColor?: string;
   size?: "sm" | "md" | "lg";
   onClick?: () => void;
 }
@@ -22,7 +26,6 @@ export const Button = ({
   variant = "solid",
   tone = "primary",
   size = "md",
-  backgroundColor,
   ...props
 }: ButtonProps) => {
   return (
@@ -31,7 +34,6 @@ export const Button = ({
       data-tone={tone}
       type="button"
       className={cx("bmd-button", `bmd-button--${size}`)}
-      style={{ backgroundColor }}
       {...props}
     >
       {label}

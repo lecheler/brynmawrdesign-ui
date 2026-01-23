@@ -15,11 +15,10 @@
   /* Radius */
   --button-radius-sm: var(--radius-sm);
   --button-radius-md: var(--radius-md);
+  --button-radius-lg: var(--radius-lg);
 }
 
-/* BUTTON TONE NORMALIZATION
-   (default = primary) */
-
+/* BUTTON TONE NORMALIZATION (default = primary) */
 .bmd-button {
   --button-tone: var(--tone-primary);
   --button-tone-hover: var(--tone-primary-hover);
@@ -27,6 +26,11 @@
 }
 
 /* Explicit tones */
+.bmd-button[data-tone="primary"] {
+  --button-tone: var(--tone-primary);
+  --button-tone-hover: var(--tone-primary-hover);
+  --button-tone-contrast: var(--tone-primary-contrast);
+}
 
 .bmd-button[data-tone="danger"] {
   --button-tone: var(--tone-danger);
@@ -38,4 +42,16 @@
   --button-tone: var(--tone-neutral);
   --button-tone-hover: var(--tone-neutral-hover);
   --button-tone-contrast: var(--tone-neutral-contrast);
+}
+
+.bmd-button[data-tone="success"] {
+  --button-tone: var(--tone-success);
+  --button-tone-hover: var(--tone-success-hover);
+  --button-tone-contrast: var(--tone-success-contrast);
+}
+
+.bmd-button[data-tone="warning"] {
+  --button-tone: var(--tone-warning);
+  --button-tone-hover: var(--tone-warning-hover);
+  --button-tone-contrast: var(--tone-warning-contrast);
 }

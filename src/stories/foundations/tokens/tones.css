@@ -1,33 +1,54 @@
 /* src/foundations/tokens/tones.css */
 /* This is the “semantic + intensity” layer that buttons, badges, chips, pills share. */
 
+/*
+--tone-primary
+--tone-danger
+--tone-neutral
+--tone-success
+--tone-warning
+*/
+
 :root {
   /* ─────────────────────────────
-     TONE: PRIMARY
+     TONE: PRIMARY (Main action / emphasis)
      ───────────────────────────── */
   --tone-primary: var(--color-accent);
   --tone-primary-hover: var(--color-accent-hover);
   --tone-primary-contrast: var(--color-text-inverse);
 
   /* ─────────────────────────────
-     TONE: DANGER
+     TONE: DANGER (Destructive / risky)
      ───────────────────────────── */
-  --tone-danger: var(--color-danger);
-  --tone-danger-hover: var(--color-danger-hover);
+  --tone-danger: var(--color-destructive);
+  --tone-danger-hover: var(--color-destructive-hover);
   --tone-danger-contrast: var(--color-text-inverse);
 
   /* ─────────────────────────────
-     TONE: NEUTRAL
+     TONE: SUCCESS (Positive confirmation)
      ───────────────────────────── */
-  --tone-neutral: var(--color-neutral-strong);
-  --tone-neutral-hover: var(--color-neutral-strong-hover);
+  --tone-success: var(--color-positive);
+  --tone-success-hover: var(--color-positive-hover);
+  --tone-success-contrast: var(--color-text-inverse);
+
+  /* ─────────────────────────────
+     TONE: WARNING (Caution / attention)
+     ───────────────────────────── */
+  --tone-warning: var(--color-caution);
+  --tone-warning-hover: var(--color-caution-hover);
+  --tone-warning-contrast: var(--color-text-inverse);
+
+  /* ─────────────────────────────
+     TONE: NEUTRAL (Low-emphasis, safe)
+     ───────────────────────────── */
+  --tone-neutral: var(--color-neutral);
+  --tone-neutral-hover: var(--color-neutral-hover);
   --tone-neutral-contrast: var(--color-text-inverse);
 
   /* Shared alpha helpers for soft/subtle variants */
   --tone-soft-alpha: 0.12;
   --tone-soft-hover-alpha: 0.18;
-  --tone-subtle-alpha: 0.06;
 
   /* Focus */
-  --tone-focus-ring-alpha: 0.4;
+  /* --tone-focus-ring-alpha: 0.4; */
 }
