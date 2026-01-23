@@ -1,0 +1,29 @@
+/* Semantic Color Tokens */
+/* What is this color for? These are app-level roles: background, text, borders, etc. */
+
+:root {
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-subtle: var(--color-gray-50);
+
+  /* Text */
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+  --color-text-inverse: #ffffff;
+
+  /* Borders */
+  --color-border-subtle: var(--color-gray-200);
+  --color-border-strong: var(--color-gray-400);
+
+  /* Brand / Accent */
+  --color-accent: var(--color-primary-500);
+  --color-accent-hover: var(--color-primary-600);
+
+  /* Danger */
+  --color-danger: var(--color-red-500);
+  --color-danger-hover: var(--color-red-600);
+
+  /* Neutral emphasis (for “neutral” tone) */
+  --color-neutral-strong: var(--color-gray-700);
+  --color-neutral-strong-hover: var(--color-gray-800);
+}

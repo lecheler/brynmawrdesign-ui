@@ -3,37 +3,34 @@ import React from "react";
 import { cx } from "../../utils/classNames.ts";
 import "./Button.css";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonVariant = "solid" | "outlined" | "soft" | "subtle" | "ghost";
+export type ButtonTone = "primary" | "danger" | "neutral";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
-  /** How large should the button be? */
-  size?: "small" | "medium" | "large";
-  /** Button contents */
   label: string;
-  /** Optional click handler */
+  variant?: ButtonVariant;
+  tone?: ButtonTone;
+  backgroundColor?: string;
+  size?: "sm" | "md" | "lg";
   onClick?: () => void;
 }
 
 /** Primary UI component for user interaction */
 export const Button = ({
-  primary = false,
-  size = "medium",
-  backgroundColor,
   label,
+  variant = "solid",
+  tone = "primary",
+  size = "md",
+  backgroundColor,
   ...props
 }: ButtonProps) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
   return (
     <button
+      data-variant={variant}
+      data-tone={tone}
       type="button"
-      className={cx("storybook-button", `storybook-button--${size}`, mode)}
+      className={cx("bmd-button", `bmd-button--${size}`)}
       style={{ backgroundColor }}
       {...props}
     >

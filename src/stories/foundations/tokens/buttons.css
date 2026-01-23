@@ -1,0 +1,41 @@
+/* src/foundations/tokens/buttons.tokens.css */
+
+/* BUTTON GEOMETRY */
+:root {
+  /* Padding (mapped from spacing tokens somewhere else) */
+  --button-padding-y-sm: var(--space-1);
+  --button-padding-x-sm: var(--space-2);
+
+  --button-padding-y-md: var(--space-2);
+  --button-padding-x-md: var(--space-3);
+
+  --button-padding-y-lg: var(--space-3);
+  --button-padding-x-lg: var(--space-4);
+
+  /* Radius */
+  --button-radius-sm: var(--radius-sm);
+  --button-radius-md: var(--radius-md);
+}
+
+/* BUTTON TONE NORMALIZATION
+   (default = primary) */
+
+.bmd-button {
+  --button-tone: var(--tone-primary);
+  --button-tone-hover: var(--tone-primary-hover);
+  --button-tone-contrast: var(--tone-primary-contrast);
+}
+
+/* Explicit tones */
+
+.bmd-button[data-tone="danger"] {
+  --button-tone: var(--tone-danger);
+  --button-tone-hover: var(--tone-danger-hover);
+  --button-tone-contrast: var(--tone-danger-contrast);
+}
+
+.bmd-button[data-tone="neutral"] {
+  --button-tone: var(--tone-neutral);
+  --button-tone-hover: var(--tone-neutral-hover);
+  --button-tone-contrast: var(--tone-neutral-contrast);
+}

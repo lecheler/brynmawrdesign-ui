@@ -1,0 +1,33 @@
+/* src/foundations/tokens/tones.css */
+/* This is the “semantic + intensity” layer that buttons, badges, chips, pills share. */
+
+:root {
+  /* ─────────────────────────────
+     TONE: PRIMARY
+     ───────────────────────────── */
+  --tone-primary: var(--color-accent);
+  --tone-primary-hover: var(--color-accent-hover);
+  --tone-primary-contrast: var(--color-text-inverse);
+
+  /* ─────────────────────────────
+     TONE: DANGER
+     ───────────────────────────── */
+  --tone-danger: var(--color-danger);
+  --tone-danger-hover: var(--color-danger-hover);
+  --tone-danger-contrast: var(--color-text-inverse);
+
+  /* ─────────────────────────────
+     TONE: NEUTRAL
+     ───────────────────────────── */
+  --tone-neutral: var(--color-neutral-strong);
+  --tone-neutral-hover: var(--color-neutral-strong-hover);
+  --tone-neutral-contrast: var(--color-text-inverse);
+
+  /* Shared alpha helpers for soft/subtle variants */
+  --tone-soft-alpha: 0.12;
+  --tone-soft-hover-alpha: 0.18;
+  --tone-subtle-alpha: 0.06;
+
+  /* Focus */
+  --tone-focus-ring-alpha: 0.4;
+}

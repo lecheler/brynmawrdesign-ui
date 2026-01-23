@@ -1,6 +1,10 @@
+import * as React from "react";
+
 import preview from "../../../../.storybook/preview";
 import { fn } from "storybook/test";
 import { Button } from "./Button";
+import { Inline } from "../../foundations/layout/Inline";
+import { Stack } from "../../foundations/layout/Stack";
 
 const meta = preview.meta({
   title: "Components/Button",
@@ -11,19 +15,81 @@ const meta = preview.meta({
   argTypes: {
     backgroundColor: { control: "color" },
   },
-  args: { onClick: fn() },
+  args: { label: "Button", onClick: fn() },
 });
 
-export const Primary = meta.story({
-  args: {
-    primary: true,
-    label: "Button",
-  },
+export const Default = meta.story({
+  args: { label: "Button" },
 });
 
-export const Secondary = meta.story({
-  args: {
-    primary: false,
-    label: "Button",
-  },
+export const Variants = meta.story({
+  args: { label: "Button" },
+  render: (_args) => (
+    <Inline gap={1} align="center">
+      <Button variant="solid" label="solid" />
+      <Button variant="outlined" label="outlined" />
+      <Button variant="soft" label="soft" />
+      <Button variant="subtle" label="subtle" />
+      <Button variant="ghost" label="ghost" />
+    </Inline>
+  ),
+});
+
+export const Round = meta.story({
+  args: { label: "Button" },
+  render: (_args) => (
+    <Inline gap={1} align="center">
+      <Button variant="solid" label="Save" />
+      <Button variant="outlined" label="Cancel" />
+      <Button variant="soft" label="Preview" />
+      <Button variant="subtle" label="Duplicate" />
+      <Button variant="ghost" label="Learn more" />
+    </Inline>
+  ),
+});
+
+export const Disabled = meta.story({
+  args: { label: "Button" },
+  render: (_args) => (
+    <Inline gap={1} align="center">
+      <Button variant="solid" label="Save" />
+      <Button variant="outlined" label="Cancel" />
+      <Button variant="soft" label="Preview" />
+      <Button variant="subtle" label="Duplicate" />
+      <Button variant="ghost" label="Learn more" />
+    </Inline>
+  ),
+});
+
+export const Tones = meta.story({
+  args: { label: "Button" },
+  render: (_args) => (
+    <Stack gap={2}>
+      <Inline gap={1} align="center">
+        <Button variant="solid" tone="primary" label="Primary" />
+        <Button variant="solid" tone="danger" label="Danger" />
+        <Button variant="solid" tone="neutral" label="Neutral" />
+      </Inline>
+      <Inline gap={1} align="center">
+        <Button variant="outlined" tone="primary" label="Primary" />
+        <Button variant="outlined" tone="danger" label="Danger" />
+        <Button variant="outlined" tone="neutral" label="Neutral" />
+      </Inline>
+      <Inline gap={1} align="center">
+        <Button variant="soft" tone="primary" label="Primary" />
+        <Button variant="soft" tone="danger" label="Danger" />
+        <Button variant="soft" tone="neutral" label="Neutral" />
+      </Inline>
+      <Inline gap={1} align="center">
+        <Button variant="subtle" tone="primary" label="Primary" />
+        <Button variant="subtle" tone="danger" label="Danger" />
+        <Button variant="subtle" tone="neutral" label="Neutral" />
+      </Inline>
+      <Inline gap={1} align="center">
+        <Button variant="ghost" tone="primary" label="Primary" />
+        <Button variant="ghost" tone="danger" label="Danger" />
+        <Button variant="ghost" tone="neutral" label="Neutral" />
+      </Inline>
+    </Stack>
+  ),
 });

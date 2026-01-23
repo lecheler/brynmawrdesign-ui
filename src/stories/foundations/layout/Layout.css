@@ -1,0 +1,32 @@
+/* src/foundations/layout/Layout.css */
+
+.bmd-Stack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inline row layout */
+.bmd-Inline {
+  display: inline-flex;
+}
+
+/* Gap scale (reuses spacing tokens) */
+.bmd-Stack[data-gap="1"],
+.bmd-Inline[data-gap="1"] {
+  gap: var(--space-1);
+}
+
+.bmd-Stack[data-gap="2"],
+.bmd-Inline[data-gap="2"] {
+  gap: var(--space-2);
+}
+
+.bmd-Stack[data-gap="3"],
+.bmd-Inline[data-gap="3"] {
+  gap: var(--space-3);
+}
+
+.bmd-Stack[data-gap="4"],
+.bmd-Inline[data-gap="4"] {
+  gap: var(--space-4);
+}

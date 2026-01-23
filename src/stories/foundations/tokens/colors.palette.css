@@ -1,0 +1,84 @@
+/* Color Palette */
+/* raw color steps (no semantics) */
+
+:root {
+  /* ---------- Primary ---------- */
+  --color-primary-base: #2ecc71; /* Base primary color */
+
+  /* Tints (lighter shades mixed with white) */
+  --color-primary-50: color-mix(in oklab, var(--color-primary-base) 10%, white);
+  --color-primary-100: color-mix(
+    in oklab,
+    var(--color-primary-base) 20%,
+    white
+  );
+  --color-primary-200: color-mix(
+    in oklab,
+    var(--color-primary-base) 40%,
+    white
+  );
+  --color-primary-300: color-mix(
+    in oklab,
+    var(--color-primary-base) 60%,
+    white
+  );
+  --color-primary-400: color-mix(
+    in oklab,
+    var(--color-primary-base) 80%,
+    white
+  );
+
+  /* Base color (often 500 in design systems) */
+  --color-primary-500: var(--color-primary-base);
+
+  /* Shades (darker shades mixed with black) */
+  --color-primary-600: color-mix(
+    in oklab,
+    var(--color-primary-base) 80%,
+    black
+  );
+  --color-primary-700: color-mix(
+    in oklab,
+    var(--color-primary-base) 60%,
+    black
+  );
+  --color-primary-800: color-mix(
+    in oklab,
+    var(--color-primary-base) 40%,
+    black
+  );
+  --color-primary-900: color-mix(
+    in oklab,
+    var(--color-primary-base) 20%,
+    black
+  );
+
+  /* ---------- Neutrals ---------- */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-600: #52525b;
+  --color-gray-700: #3f3f46;
+  --color-gray-800: #27272a;
+  --color-gray-900: #1b1c1d;
+
+  /* ---------- Accent ---------- */
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+  --color-accent-700: #c2410c;
+
+  /* ---------- Danger ---------- */
+  /* Base red color */
+  --color-red-base: #e74c3c;
+  --color-red-500: var(--color-red-base);
+  /* Shades (darker shades mixed with black) */
+  --color-red-600: color-mix(in oklab, var(--color-red-base) 80%, black);
+}
