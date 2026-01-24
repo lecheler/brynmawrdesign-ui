@@ -1,23 +1,25 @@
 import React from "react";
 
-import { cx } from "../../utils/classNames.ts";
 import "./Button.css";
 
-export type ButtonVariant = "solid" | "outlined" | "soft" | "subtle" | "ghost";
+export type ButtonVariant = "solid" | "outlined" | "soft" | "ghost";
 export type ButtonTone =
   | "primary"
   | "danger"
   | "success"
   | "warning"
   | "neutral";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
+export type ButtonShape = "default" | "rounded" | "pill";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: ButtonVariant;
   tone?: ButtonTone;
-  size?: "sm" | "md" | "lg";
+  size?: ButtonSize;
+  shape?: ButtonShape;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 /** Primary UI component for user interaction */
@@ -26,14 +28,19 @@ export const Button = ({
   variant = "solid",
   tone = "primary",
   size = "md",
+  shape = "default",
+  disabled = false,
   ...props
 }: ButtonProps) => {
   return (
     <button
+      type="button"
+      className={"bmd-button"}
+      disabled={disabled}
       data-variant={variant}
       data-tone={tone}
-      type="button"
-      className={cx("bmd-button", `bmd-button--${size}`)}
+      data-size={size}
+      data-shape={shape}
       {...props}
     >
       {label}

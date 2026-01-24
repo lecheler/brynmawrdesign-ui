@@ -1,8 +1,7 @@
 import * as React from "react";
 
 import preview from "../../../../.storybook/preview";
-import { fn } from "storybook/test";
-import { Button } from "./Button";
+import { Button, type ButtonSize } from "./Button";
 import { Inline } from "../../foundations/layout/Inline";
 import { Stack } from "../../foundations/layout/Stack";
 
@@ -12,108 +11,139 @@ const meta = preview.meta({
   parameters: {
     layout: "centered",
   },
-
-  args: { label: "Button", onClick: fn() },
+  args: {
+    label: "Button",
+    variant: "solid",
+    tone: "primary",
+    size: "md",
+    shape: "default",
+    disabled: false,
+  },
 });
 
 export const Default = meta.story({
-  args: { label: "Button" },
+  args: {
+    label: "Button",
+    variant: "solid",
+    tone: "primary",
+    size: "md",
+    shape: "default",
+    disabled: false,
+  },
 });
 
-// export const Variants = meta.story({
-//   args: { label: "Button" },
-//   render: (_args) => (
-//     <Inline gap={2} align="center">
-//       <Button variant="solid" label="solid" />
-//       <Button variant="outlined" label="outlined" />
-//       <Button variant="soft" label="soft" />
-//       <Button variant="subtle" label="subtle" />
-//       <Button variant="ghost" label="ghost" />
-//     </Inline>
-//   ),
-// });
-
-// export const Tones = meta.story({
-//   args: { label: "Button" },
-//   render: (_args) => (
-//     <Inline gap={2} align="center">
-//       <Button variant="solid" label="solid" />
-//       <Button variant="outlined" label="outlined" />
-//       <Button variant="soft" label="soft" />
-//       <Button variant="subtle" label="subtle" />
-//       <Button variant="ghost" label="ghost" />
-//     </Inline>
-//   ),
-// });
-
-export const TonesAndVariants = meta.story({
-  args: { label: "Button" },
-  render: (_args) => {
-    const sGap = 4;
-    const iGap = 2;
+export const Sizes = meta.story({
+  args: { label: "Button", variant: "solid", size: "md", shape: "default" },
+  argTypes: {
+    label: { control: false },
+    size: { control: false },
+  },
+  render: (args) => {
     return (
-      <Stack gap={sGap}>
-        <Inline gap={iGap} align="center">
-          <Button variant="solid" tone="primary" label="Primary" />
-          <Button variant="solid" tone="danger" label="Danger" />
-          <Button variant="solid" tone="success" label="Success" />
-          <Button variant="solid" tone="warning" label="Warning" />
-          <Button variant="solid" tone="neutral" label="Neutral" />
-        </Inline>
-        <Inline gap={iGap} align="center">
-          <Button variant="outlined" tone="primary" label="Primary" />
-          <Button variant="outlined" tone="danger" label="Danger" />
-          <Button variant="outlined" tone="success" label="Success" />
-          <Button variant="outlined" tone="warning" label="Warning" />
-          <Button variant="outlined" tone="neutral" label="Neutral" />
-        </Inline>
-        <Inline gap={iGap} align="center">
-          <Button variant="soft" tone="primary" label="Primary" />
-          <Button variant="soft" tone="danger" label="Danger" />
-          <Button variant="soft" tone="success" label="Success" />
-          <Button variant="soft" tone="warning" label="Warning" />
-          <Button variant="soft" tone="neutral" label="Neutral" />
-        </Inline>
-        <Inline gap={iGap} align="center">
-          <Button variant="subtle" tone="primary" label="Primary" />
-          <Button variant="subtle" tone="danger" label="Danger" />
-          <Button variant="subtle" tone="success" label="Success" />
-          <Button variant="subtle" tone="warning" label="Warning" />
-          <Button variant="subtle" tone="neutral" label="Neutral" />
-        </Inline>
-        <Inline gap={iGap} align="center">
-          <Button variant="ghost" tone="primary" label="Primary" />
-          <Button variant="ghost" tone="danger" label="Danger" />
-          <Button variant="ghost" tone="success" label="Success" />
-          <Button variant="ghost" tone="warning" label="Warning" />
-          <Button variant="ghost" tone="neutral" label="Neutral" />
-        </Inline>
-      </Stack>
+      <Inline gap={2} align="center">
+        {["xs", "sm", "md", "lg", "xl"].map((size) => (
+          <Button
+            key={size}
+            tone={args.tone}
+            label={size}
+            variant={args.variant}
+            size={size as ButtonSize}
+            shape={args.shape}
+            disabled={args.disabled}
+          />
+        ))}
+      </Inline>
     );
   },
 });
-export const Round = meta.story({
-  args: { label: "Button" },
-  render: (_args) => (
-    <Inline gap={1} align="center">
-      <Button variant="solid" label="Save" />
-      <Button variant="outlined" label="Cancel" />
-      <Button variant="soft" label="Preview" />
-      <Button variant="subtle" label="Duplicate" />
-      <Button variant="ghost" label="Learn more" />
-    </Inline>
-  ),
+
+export const Variants = meta.story({
+  args: { label: "Button", tone: "primary", size: "md", shape: "default" },
+  argTypes: {
+    label: { control: false },
+    variant: { control: false },
+  },
+  render: (args) => {
+    return (
+      <Inline gap={1} align="center">
+        {
+          /* Each variant button should inherit tone, size, and shape from args */
+          ["solid", "outlined", "soft", "ghost"].map((variant) => (
+            <Button
+              key={variant}
+              variant={variant as any}
+              label={variant}
+              tone={args.tone}
+              size={args.size}
+              shape={args.shape}
+              disabled={args.disabled}
+            />
+          ))
+        }
+      </Inline>
+    );
+  },
 });
 
-export const Disabled = meta.story({
+export const Tones = meta.story({
+  args: { label: "Button", variant: "solid", size: "md", shape: "default" },
+  argTypes: {
+    label: { control: false },
+    tone: { control: false },
+  },
+  render: (args) => {
+    return (
+      <Inline gap={1} align="center">
+        {
+          /* Each tone button should inherit varient, size, and shape from args */
+          ["primary", "danger", "success", "warning", "neutral"].map((tone) => (
+            <Button
+              key={tone}
+              tone={tone as any}
+              label={tone}
+              variant={args.variant}
+              size={args.size}
+              shape={args.shape}
+              disabled={args.disabled}
+            />
+          ))
+        }
+      </Inline>
+    );
+  },
+});
+
+export const TonesAndVariants = meta.story({
   args: { label: "Button" },
-  render: (_args) => (
-    <Inline gap={1} align="center">
-      <Button variant="solid" label="Save" />
-      <Button variant="outlined" label="Cancel" />
-      <Button variant="soft" label="Preview" />
-      <Button variant="subtle" label="Duplicate" />
-      <Button variant="ghost" label="Learn more" />
-    </Inline>
-  ),
+  argTypes: {
+    label: { control: false },
+    variant: { control: false },
+    tone: { control: false },
+  },
+  render: (args) => {
+    return (
+      <Stack gap={2}>
+        {
+          /* Each row is a variant with all tones */
+          ["solid", "outlined", "soft", "ghost"].map((variant) => (
+            <Inline key={variant} gap={3} align="center">
+              {["primary", "danger", "success", "warning", "neutral"].map(
+                (tone) => (
+                  <Button
+                    key={tone}
+                    variant={variant as any}
+                    tone={tone as any}
+                    label={tone}
+                    size={args.size}
+                    shape={args.shape}
+                    disabled={args.disabled}
+                  />
+                ),
+              )}
+            </Inline>
+          ))
+        }
+      </Stack>
+    );
+  },
 });

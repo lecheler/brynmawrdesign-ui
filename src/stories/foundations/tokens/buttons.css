@@ -1,37 +1,38 @@
 /* src/foundations/tokens/buttons.tokens.css */
 
-/* BUTTON GEOMETRY */
 :root {
-  /* Padding (mapped from spacing tokens somewhere else) */
-  --button-padding-y-sm: var(--space-1);
-  --button-padding-x-sm: var(--space-2);
+  /* BUTTON GEOMETRY */
+  --button-padding-y-xs: calc(var(--font-size-xs) / 2);
+  --button-padding-x-xs: calc(var(--font-size-xs) / 2 * 3);
 
-  --button-padding-y-md: var(--space-2);
-  --button-padding-x-md: var(--space-3);
+  --button-padding-y-sm: calc(var(--font-size-sm) / 2);
+  --button-padding-x-sm: calc(var(--font-size-sm) / 2 * 3);
 
-  --button-padding-y-lg: var(--space-3);
-  --button-padding-x-lg: var(--space-4);
+  --button-padding-y-md: calc(var(--font-size-md) / 2);
+  --button-padding-x-md: calc(var(--font-size-md) / 2 * 3);
+
+  --button-padding-y-lg: calc(var(--font-size-lg) / 2);
+  --button-padding-x-lg: calc(var(--font-size-lg) / 2 * 3);
+
+  --button-padding-y-xl: calc(var(--font-size-xl) / 2);
+  --button-padding-x-xl: calc(var(--font-size-xl) / 2 * 3);
 
   /* Radius */
-  --button-radius-sm: var(--radius-sm);
-  --button-radius-md: var(--radius-md);
-  --button-radius-lg: var(--radius-lg);
-}
+  --button-radius-default: var(--radius-xs);
+  --button-radius-rounded: var(--radius-lg);
+  --button-radius-pill: var(--radius-pill);
 
-/* BUTTON TONE NORMALIZATION (default = primary) */
-.bmd-button {
+  /* Tone (default = primary) */
   --button-tone: var(--tone-primary);
   --button-tone-hover: var(--tone-primary-hover);
   --button-tone-contrast: var(--tone-primary-contrast);
+
+  /* Transition */
+  --button-transition-easing: var(--easing-standard);
+  --button-transition-duration: var(--duration-medium);
 }
 
 /* Explicit tones */
-.bmd-button[data-tone="primary"] {
-  --button-tone: var(--tone-primary);
-  --button-tone-hover: var(--tone-primary-hover);
-  --button-tone-contrast: var(--tone-primary-contrast);
-}
-
 .bmd-button[data-tone="danger"] {
   --button-tone: var(--tone-danger);
   --button-tone-hover: var(--tone-danger-hover);

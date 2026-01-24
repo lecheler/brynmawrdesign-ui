@@ -1,14 +1,22 @@
+/* Colors */
 @import "../foundations/tokens/colors.palette.css";
-
 @import "../foundations/tokens/colors.semantic.css";
 @import "../foundations/tokens/tones.css";
 
+/* Typography */
 @import "../foundations/tokens/types.css";
 @import "../foundations/tokens/spaces.css";
 @import "../foundations/tokens/radii.css";
+
+/* Transitions */
+@import "../foundations/tokens/transitions.css";
+
+/* Components */
 @import "../foundations/tokens/buttons.css";
 
-/* @import "../foundations/themes/light.css";
-@import "../foundations/themes/dark.css"; */
+/* Themes */
+@import "../foundations/themes/light.css";
+@import "../foundations/themes/dark.css";
 
+/* Global styles */
 @import "./globals.css";
