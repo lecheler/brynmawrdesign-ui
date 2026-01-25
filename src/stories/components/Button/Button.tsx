@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon, type IconProps } from "../../foundations/icons/Icon";
 
 import "./Button.css";
 
@@ -9,11 +10,15 @@ export type ButtonTone =
   | "success"
   | "warning"
   | "neutral";
+
 export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 export type ButtonShape = "default" | "rounded" | "pill";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  label?: string; // Optional text label
+  children?: React.ReactNode; // Optional children for more complex content
+  icon?: IconProps; // Optional React node for the icon
+  iconPosition?: "left" | "right"; // Determines icon placement
   variant?: ButtonVariant;
   tone?: ButtonTone;
   size?: ButtonSize;
@@ -25,6 +30,10 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 /** Primary UI component for user interaction */
 export const Button = ({
   label,
+  children,
+  icon,
+  iconPosition = "left",
+  "aria-label": ariaLabel,
   variant = "solid",
   tone = "primary",
   size = "md",
@@ -32,10 +41,18 @@ export const Button = ({
   disabled = false,
   ...props
 }: ButtonProps) => {
+  // Basic validation: ensure at least an icon or label is provided
+  if (!label && !icon && !children) {
+    console.error(
+      "Warning: Button must contain either a label, icon, or children.",
+    );
+    // Render nothing, or a default accessible element
+    return null;
+  }
   return (
     <button
       type="button"
-      className={"bmd-button"}
+      className="bmd-button"
       disabled={disabled}
       data-variant={variant}
       data-tone={tone}
@@ -43,7 +60,15 @@ export const Button = ({
       data-shape={shape}
       {...props}
     >
-      {label}
+      {icon ? (
+        <>
+          <span>{iconPosition === "left" && <Icon {...icon} />}</span>
+          {label && <span>{label}</span>}
+          <span>{iconPosition === "right" && icon && <Icon {...icon} />}</span>
+        </>
+      ) : (
+        <>{children || label}</>
+      )}
     </button>
   );
 };

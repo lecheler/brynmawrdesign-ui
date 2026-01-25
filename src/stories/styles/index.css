@@ -8,6 +8,12 @@
 @import "../foundations/tokens/spaces.css";
 @import "../foundations/tokens/radii.css";
 
+/* Shadows */
+@import "../foundations/tokens/shadows.css";
+
+/* Icons */
+@import "../foundations/tokens/icons.css";
+
 /* Transitions */
 @import "../foundations/tokens/transitions.css";
 

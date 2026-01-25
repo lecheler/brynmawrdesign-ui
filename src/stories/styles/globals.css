@@ -61,7 +61,7 @@ h3 {
 /* ---------- Text ---------- */
 p {
   margin: 0;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
 }
 
 /* ---------- Links ---------- */
@@ -110,7 +110,7 @@ select {
 }
 
 /* ---------- Selection ---------- */
-::selection {
+/* ::selection {
   background-color: var(--color-action-primary);
   color: var(--color-text-inverse);
-}
+} */

@@ -1,9 +1,8 @@
 [data-theme="dark"] {
   /* Text */
-  --color-text-primary: var(--color-gray-100);
-  --color-text-secondary: var(--color-gray-400);
-  --color-text-muted: var(--color-gray-500);
-  --color-text-inverse: var(--color-gray-900);
+  --color-text-primary: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: white;
 
   /* Surfaces */
   --color-bg-canvas: var(--color-gray-900);

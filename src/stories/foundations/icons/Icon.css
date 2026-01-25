@@ -1,0 +1,7 @@
+.bmd-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em; /* optical baseline alignment */
+  flex-shrink: 0;
+  fill: currentColor;
+}

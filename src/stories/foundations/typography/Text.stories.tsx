@@ -1,6 +1,7 @@
 import * as React from "react";
 import preview from "../../../../.storybook/preview";
 import { Text } from "./Text";
+import { Icon } from "../icons/Icon";
 
 const meta = preview.meta({
   title: "Foundations/Typography",
@@ -40,10 +41,12 @@ export const TextSizes = meta.story({
   render: (args) => (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
       <Text {...args} size="sm">
-        Small body text – good for secondary or dense content.
+        <Icon name="x" aria-label="X icon" /> Small body text – good for
+        secondary or dense content.
       </Text>
       <Text {...args} size="md">
-        Medium body text – default size for most content.
+        <Icon name="check" aria-label="Check icon" /> Medium body text – default
+        size for most content.
       </Text>
       <Text {...args} size="lg">
         Large body text – for emphasis or key summaries.

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import preview from "../../../../.storybook/preview";
-import { Button, type ButtonSize } from "./Button";
+import { Button, type ButtonShape, type ButtonSize } from "./Button";
 import { Inline } from "../../foundations/layout/Inline";
 import { Stack } from "../../foundations/layout/Stack";
 
@@ -32,6 +32,52 @@ export const Default = meta.story({
   },
 });
 
+export const WithIcon = meta.story({
+  args: {
+    label: "Button",
+  },
+  argTypes: {
+    label: { control: false },
+    tone: { control: false },
+  },
+  render: (args) => {
+    return (
+      <Inline gap={2} align="center">
+        <Button
+          key={"download"}
+          label={"Download"}
+          tone={"neutral"}
+          variant={args.variant}
+          size={args.size}
+          shape={args.shape}
+          disabled={args.disabled}
+          icon={{ name: "download" }}
+        />
+        <Button
+          key={"star"}
+          tone={"primary"}
+          variant={args.variant}
+          size={args.size}
+          shape={args.shape}
+          disabled={args.disabled}
+          icon={{ name: "star" }}
+        />
+        <Button
+          key={"warning"}
+          label={"There was an error"}
+          tone={"warning"}
+          variant={args.variant}
+          size={args.size}
+          shape={args.shape}
+          disabled={args.disabled}
+          icon={{ name: "warning" }}
+          iconPosition="right"
+        />
+      </Inline>
+    );
+  },
+});
+
 export const Sizes = meta.story({
   args: { label: "Button", variant: "solid", size: "md", shape: "default" },
   argTypes: {
@@ -57,6 +103,31 @@ export const Sizes = meta.story({
   },
 });
 
+export const Shapes = meta.story({
+  args: { label: "Button", variant: "solid", size: "md", shape: "default" },
+  argTypes: {
+    label: { control: false },
+    shape: { control: false },
+  },
+  render: (args) => {
+    return (
+      <Inline gap={2} align="center">
+        {["default", "rounded", "pill"].map((shape) => (
+          <Button
+            key={shape}
+            tone={args.tone}
+            label={shape}
+            variant={args.variant}
+            size={args.size}
+            shape={shape as ButtonShape}
+            disabled={args.disabled}
+          />
+        ))}
+      </Inline>
+    );
+  },
+});
+
 export const Variants = meta.story({
   args: { label: "Button", tone: "primary", size: "md", shape: "default" },
   argTypes: {
@@ -65,21 +136,18 @@ export const Variants = meta.story({
   },
   render: (args) => {
     return (
-      <Inline gap={1} align="center">
-        {
-          /* Each variant button should inherit tone, size, and shape from args */
-          ["solid", "outlined", "soft", "ghost"].map((variant) => (
-            <Button
-              key={variant}
-              variant={variant as any}
-              label={variant}
-              tone={args.tone}
-              size={args.size}
-              shape={args.shape}
-              disabled={args.disabled}
-            />
-          ))
-        }
+      <Inline gap={2} align="center">
+        {["solid", "outlined", "soft", "ghost"].map((variant) => (
+          <Button
+            key={variant}
+            variant={variant as any}
+            label={variant}
+            tone={args.tone}
+            size={args.size}
+            shape={args.shape}
+            disabled={args.disabled}
+          />
+        ))}
       </Inline>
     );
   },
@@ -93,27 +161,24 @@ export const Tones = meta.story({
   },
   render: (args) => {
     return (
-      <Inline gap={1} align="center">
-        {
-          /* Each tone button should inherit varient, size, and shape from args */
-          ["primary", "danger", "success", "warning", "neutral"].map((tone) => (
-            <Button
-              key={tone}
-              tone={tone as any}
-              label={tone}
-              variant={args.variant}
-              size={args.size}
-              shape={args.shape}
-              disabled={args.disabled}
-            />
-          ))
-        }
+      <Inline gap={2} align="center">
+        {["primary", "danger", "success", "warning", "neutral"].map((tone) => (
+          <Button
+            key={tone}
+            tone={tone as any}
+            label={tone}
+            variant={args.variant}
+            size={args.size}
+            shape={args.shape}
+            disabled={args.disabled}
+          />
+        ))}
       </Inline>
     );
   },
 });
 
-export const TonesAndVariants = meta.story({
+export const KitchenSink = meta.story({
   args: { label: "Button" },
   argTypes: {
     label: { control: false },

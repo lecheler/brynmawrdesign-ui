@@ -1,8 +1,7 @@
 :root {
   /* Text */
-  --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted: var(--color-gray-500);
+  --color-text-primary: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
   --color-text-inverse: white;
 
   /* Surfaces */
