@@ -11,5 +11,7 @@ export default defineMain({
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
   ],
-  staticDirs: ["../public"],
+  typescript: {
+    reactDocgen: false,
+  },
 });
