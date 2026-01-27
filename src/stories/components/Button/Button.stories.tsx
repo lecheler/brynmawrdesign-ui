@@ -64,6 +64,18 @@ export const WithIcon = meta.story({
           aria-label="Add this to your favorites"
         />
         <Button
+          key={"search"}
+          tone={"neutral"}
+          variant={args.variant}
+          size={args.size}
+          shape={args.shape}
+          disabled={args.disabled}
+          icon={{ name: "search" }}
+          iconPosition="left"
+        >
+          Search
+        </Button>
+        <Button
           key={"warning"}
           tone={"warning"}
           variant={args.variant}

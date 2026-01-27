@@ -1,16 +1,30 @@
 // src/icons/Icon.tsx
 import React from "react";
 import type { SVGProps } from "react";
-import { CheckIcon, Download, ExclamationIcon, StarIcon, XIcon } from "./index";
+import {
+  CheckIcon,
+  DownloadIcon,
+  ExclamationIcon,
+  SearchIcon,
+  StarIcon,
+  XIcon,
+} from "./index";
 
 import "./Icon.css";
 
-export type IconName = "check" | "download" | "star" | "warning" | "x";
+export type IconName =
+  | "check"
+  | "download"
+  | "search"
+  | "star"
+  | "warning"
+  | "x";
 
 // Use semantic icon names:
 const ICONS: Record<IconName, React.FC<SVGProps<SVGSVGElement>>> = {
   check: CheckIcon,
-  download: Download,
+  download: DownloadIcon,
+  search: SearchIcon,
   star: StarIcon,
   x: XIcon,
   warning: ExclamationIcon,
