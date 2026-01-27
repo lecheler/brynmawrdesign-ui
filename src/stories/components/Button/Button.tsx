@@ -33,7 +33,6 @@ export const Button = ({
   children,
   icon,
   iconPosition = "left",
-  "aria-label": ariaLabel,
   variant = "solid",
   tone = "primary",
   size = "md",
@@ -62,9 +61,19 @@ export const Button = ({
     >
       {icon ? (
         <>
-          <span>{iconPosition === "left" && <Icon {...icon} />}</span>
-          {label && <span>{label}</span>}
-          <span>{iconPosition === "right" && icon && <Icon {...icon} />}</span>
+          {iconPosition === "left" && (
+            <>
+              <Icon {...icon} />
+            </>
+          )}
+
+          {(children || label) && <span>{children || label}</span>}
+
+          {iconPosition === "right" && (
+            <span>
+              <Icon {...icon} />
+            </span>
+          )}
         </>
       ) : (
         <>{children || label}</>

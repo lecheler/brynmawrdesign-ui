@@ -61,10 +61,10 @@ export const WithIcon = meta.story({
           shape={args.shape}
           disabled={args.disabled}
           icon={{ name: "star" }}
+          aria-label="Add this to your favorites"
         />
         <Button
           key={"warning"}
-          label={"There was an error"}
           tone={"warning"}
           variant={args.variant}
           size={args.size}
@@ -72,7 +72,9 @@ export const WithIcon = meta.story({
           disabled={args.disabled}
           icon={{ name: "warning" }}
           iconPosition="right"
-        />
+        >
+          Warning
+        </Button>
       </Inline>
     );
   },

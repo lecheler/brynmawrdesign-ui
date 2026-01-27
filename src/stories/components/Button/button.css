@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  /* gap: var(--button-gap); */
+  gap: var(--button-gap);
 
   border-radius: var(--button-radius-default);
   border: 1px solid transparent;
