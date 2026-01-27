@@ -1,16 +1,17 @@
 [data-theme="dark"] {
   /* Text */
-  --color-text-primary: var(--color-text);
-  --color-text-muted: var(--color-text-muted);
-  --color-text-inverse: white;
+  --color-text: #fff;
+  --color-text-muted: var(--color-gray-300);
+  --color-text-inverse: var(--color-gray-800);
 
   /* Surfaces */
-  --color-bg-canvas: var(--color-gray-900);
+  --color-surface: var(--color-gray-800);
+  /* --color-bg-canvas: var(--color-gray-900);
   --color-bg-surface: var(--color-gray-800);
-  --color-bg-muted: var(--color-gray-700);
+  --color-bg-muted: var(--color-gray-700); */
 
   /* Borders */
-  --color-border-default: var(--color-gray-700);
+  /* --color-border-default: var(--color-border-strong); */
 
   /* Actions */
   --color-action-primary: var(--color-primary-400);

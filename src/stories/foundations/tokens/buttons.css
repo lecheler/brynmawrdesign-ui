@@ -2,7 +2,6 @@
 
 :root {
   /* Fonts */
-  --button-font-family: var(--font-sans);
   --button-font-weight: var(--font-weight-semibold);
   --button-font-size: var(--font-size-md);
   --button-line-height: var(--line-height-tight);
@@ -28,7 +27,6 @@
   --button-radius-default: 0px;
   --button-radius-rounded: var(--radius-sm);
   --button-radius-pill: var(--radius-pill);
-  --button-radius-circle: var(--radius-circle);
 
   /* Tone (default = primary) */
   --button-tone: var(--tone-primary);

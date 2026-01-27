@@ -40,6 +40,7 @@ export const TextSizes = meta.story({
   },
   render: (args) => (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      <div>This is just text in a div for testing!</div>
       <Text {...args} size="sm">
         <Icon name="x" aria-label="X icon" /> Small body text – good for
         secondary or dense content.

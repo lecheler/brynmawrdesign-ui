@@ -1,0 +1,39 @@
+:root {
+  --input-color-text: var(--color-text);
+  /* Sizing */
+  --input-height-sm: 2rem;
+  --input-height-md: 2.5rem;
+  --input-height-lg: 3rem;
+
+  /* Padding */
+  --input-padding-y-md: calc(var(--font-size-md) / 2);
+  --input-padding-x-md: var(--font-size-md);
+
+  /* Typography */
+  --input-font-weight: var(--font-weight-regular);
+  --input-font-size: var(--font-size-md);
+
+  /* Borders */
+  --input-border-width: 1px;
+  --input-radius: var(--radius-sm);
+
+  /* Tone (default = primary) */
+  --input-tone: var(--tone-primary);
+  --input-tone-hover: var(--tone-primary-hover);
+  --input-tone-contrast: var(--tone-primary-contrast);
+
+  /* Colors (semantic) */
+  /* --input-bg: var(--surface-default);
+  --input-border: var(--border-muted);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-muted);
+
+  --input-border-hover: var(--border-default);
+  --input-border-focus: var(--tone-primary);
+
+  --input-border-error: var(--tone-danger);
+  --input-border-success: var(--tone-success);
+
+  --input-disabled-bg: var(--surface-muted);
+  --input-disabled-text: var(--text-disabled); */
+}

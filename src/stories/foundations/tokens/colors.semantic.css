@@ -7,7 +7,7 @@
   --color-surface-subtle: var(--color-gray-50);
 
   /* Text */
-  --color-text: var(--color-gray-900);
+  --color-text: var(--color-gray-700);
   --color-text-muted: var(--color-gray-600);
   --color-text-inverse: #ffffff;
 
@@ -31,7 +31,7 @@
   --color-caution: var(--color-yellow-500);
   --color-caution-hover: var(--color-yellow-600);
 
-  /* Neutral emphasis (for “neutral” tone) */
+  /* Neutral */
   --color-neutral: var(--color-gray-500);
   --color-neutral-hover: var(--color-gray-600);
 }

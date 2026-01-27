@@ -36,5 +36,5 @@ export function Text<E extends React.ElementType = "p">({
 }: TextProps<E>) {
   const Comp = (as || "p") as React.ElementType;
 
-  return <Comp className="bmd-Text" data-size={size} {...props} />;
+  return <Comp className="bmd-text" data-size={size} {...props} />;
 }

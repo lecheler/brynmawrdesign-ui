@@ -38,5 +38,5 @@ export function Heading<E extends React.ElementType = "h2">({
   const defaultTag = `h${level}` as keyof JSX.IntrinsicElements;
   const Comp = (as || defaultTag) as React.ElementType;
 
-  return <Comp className="bmd-Heading" data-level={level} {...props} />;
+  return <Comp className="bmd-heading" data-level={level} {...props} />;
 }

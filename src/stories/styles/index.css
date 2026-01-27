@@ -5,7 +5,11 @@
 
 /* Typography */
 @import "../foundations/tokens/types.css";
+
+/* Spaces */
 @import "../foundations/tokens/spaces.css";
+
+/* Radii */
 @import "../foundations/tokens/radii.css";
 
 /* Shadows */
@@ -19,6 +23,7 @@
 
 /* Components */
 @import "../foundations/tokens/buttons.css";
+@import "../foundations//tokens/inputs.css";
 
 /* Themes */
 @import "../foundations/themes/light.css";
