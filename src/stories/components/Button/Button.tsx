@@ -17,7 +17,7 @@ export type ButtonShape = "default" | "rounded" | "pill";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string; // Optional text label
   children?: React.ReactNode; // Optional children for more complex content
-  icon?: IconProps; // Optional React node for the icon
+  icon?: IconProps; // Optional icon
   iconPosition?: "left" | "right"; // Determines icon placement
   variant?: ButtonVariant;
   tone?: ButtonTone;

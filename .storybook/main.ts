@@ -5,13 +5,10 @@ export default defineMain({
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@chromatic-com/storybook",
-    // "@vueless/storybook-dark-mode",
+    "@vueless/storybook-dark-mode",
     "@storybook/addon-themes",
     "@storybook/addon-vitest",
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
   ],
-  typescript: {
-    reactDocgen: false,
-  },
 });

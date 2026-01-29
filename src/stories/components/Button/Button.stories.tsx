@@ -5,6 +5,12 @@ import { Button, type ButtonShape, type ButtonSize } from "./Button";
 import { Inline } from "../../foundations/layout/Inline";
 import { Stack } from "../../foundations/layout/Stack";
 
+const TONES = ["primary", "danger", "success", "warning", "neutral"];
+const SIZES = ["xs", "sm", "md", "lg", "xl"];
+const SHAPES = ["default", "rounded", "pill"];
+const VARIANTS = ["solid", "outlined", "soft", "ghost"];
+const ICON_NAMES = ["check", "download", "search", "star", "warning", "x"];
+
 const meta = preview.meta({
   title: "Components/Button",
   component: Button,
@@ -18,6 +24,22 @@ const meta = preview.meta({
     size: "md",
     shape: "default",
     disabled: false,
+    icon: undefined,
+    iconPosition: "left",
+  },
+  argTypes: {
+    label: { control: { type: "text" } },
+    tone: { control: { type: "radio" }, options: TONES },
+    size: { control: { type: "radio" }, options: SIZES },
+    shape: { control: { type: "radio" }, options: SHAPES },
+    variant: { control: { type: "radio" }, options: VARIANTS },
+    icon: {
+      control: { type: "select" },
+      options: ICON_NAMES,
+      mapping: Object.fromEntries(
+        ICON_NAMES.map((key) => [key, { name: `${key}` }] as [string, any]),
+      ),
+    },
   },
 });
 
@@ -38,7 +60,7 @@ export const WithIcon = meta.story({
   },
   argTypes: {
     label: { control: false },
-    tone: { control: false },
+    tone: { control: { disable: true } },
   },
   render: (args) => {
     return (
@@ -101,7 +123,7 @@ export const Sizes = meta.story({
   render: (args) => {
     return (
       <Inline gap={2} align="center">
-        {["xs", "sm", "md", "lg", "xl"].map((size) => (
+        {SIZES.map((size) => (
           <Button
             key={size}
             tone={args.tone}
@@ -110,6 +132,8 @@ export const Sizes = meta.story({
             size={size as ButtonSize}
             shape={args.shape}
             disabled={args.disabled}
+            icon={args.icon}
+            iconPosition={args.iconPosition}
           />
         ))}
       </Inline>
@@ -126,7 +150,7 @@ export const Shapes = meta.story({
   render: (args) => {
     return (
       <Inline gap={2} align="center">
-        {["default", "rounded", "pill"].map((shape) => (
+        {SHAPES.map((shape) => (
           <Button
             key={shape}
             tone={args.tone}
@@ -135,6 +159,8 @@ export const Shapes = meta.story({
             size={args.size}
             shape={shape as ButtonShape}
             disabled={args.disabled}
+            icon={args.icon}
+            iconPosition={args.iconPosition}
           />
         ))}
       </Inline>
@@ -151,7 +177,7 @@ export const Variants = meta.story({
   render: (args) => {
     return (
       <Inline gap={2} align="center">
-        {["solid", "outlined", "soft", "ghost"].map((variant) => (
+        {VARIANTS.map((variant) => (
           <Button
             key={variant}
             variant={variant as any}
@@ -160,6 +186,8 @@ export const Variants = meta.story({
             size={args.size}
             shape={args.shape}
             disabled={args.disabled}
+            icon={args.icon}
+            iconPosition={args.iconPosition}
           />
         ))}
       </Inline>
@@ -176,7 +204,7 @@ export const Tones = meta.story({
   render: (args) => {
     return (
       <Inline gap={2} align="center">
-        {["primary", "danger", "success", "warning", "neutral"].map((tone) => (
+        {TONES.map((tone) => (
           <Button
             key={tone}
             tone={tone as any}
@@ -185,6 +213,8 @@ export const Tones = meta.story({
             size={args.size}
             shape={args.shape}
             disabled={args.disabled}
+            icon={args.icon}
+            iconPosition={args.iconPosition}
           />
         ))}
       </Inline>
@@ -204,21 +234,21 @@ export const KitchenSink = meta.story({
       <Stack gap={2}>
         {
           /* Each row is a variant with all tones */
-          ["solid", "outlined", "soft", "ghost"].map((variant) => (
+          VARIANTS.map((variant) => (
             <Inline key={variant} gap={3} align="center">
-              {["primary", "danger", "success", "warning", "neutral"].map(
-                (tone) => (
-                  <Button
-                    key={tone}
-                    variant={variant as any}
-                    tone={tone as any}
-                    label={tone}
-                    size={args.size}
-                    shape={args.shape}
-                    disabled={args.disabled}
-                  />
-                ),
-              )}
+              {TONES.map((tone) => (
+                <Button
+                  key={tone}
+                  variant={variant as any}
+                  tone={tone as any}
+                  label={tone}
+                  size={args.size}
+                  shape={args.shape}
+                  disabled={args.disabled}
+                  icon={args.icon}
+                  iconPosition={args.iconPosition}
+                />
+              ))}
             </Inline>
           ))
         }
