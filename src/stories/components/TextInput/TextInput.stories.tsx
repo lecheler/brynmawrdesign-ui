@@ -21,9 +21,9 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: "grid", gap: "1rem", maxWidth: 300 }}>
-      <TextInput size="sm" placeholder="Small" />
-      <TextInput size="md" placeholder="Medium" />
-      <TextInput size="lg" placeholder="Large" />
+      <TextInput placeholder="Small" />
+      <TextInput placeholder="Medium" />
+      <TextInput placeholder="Large" />
     </div>
   ),
 };
