@@ -11,6 +11,6 @@
     "declaration": true /* Generate declaration files (.d.ts) */,
     "outDir": "./dist" /* Output directory for compiled files */
   },
-  "include": ["src"],
+  "include": ["src", ".storybook"],
   "exclude": ["node_modules", "dist"]
 }

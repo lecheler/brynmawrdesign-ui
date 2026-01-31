@@ -8,7 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# Remove dist ignore for simplicity in importing components in web apps
+# dist
 dist-ssr
 *.local
 notes.txt
