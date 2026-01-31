@@ -78,12 +78,6 @@ __export(index_exports, {
 });
 module.exports = __toCommonJS(index_exports);
 
-// src/stories/components/Button/Button.tsx
-var import_react3 = __toESM(require("react"));
-
-// src/stories/foundations/icons/Icon.tsx
-var import_react2 = __toESM(require("react"));
-
 // src/stories/foundations/icons/index.ts
 var import_react = __toESM(require("react"));
 var CheckIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_check())));
@@ -108,15 +102,12 @@ var ICONS = {
 };
 var Icon = ({ name, className, ...rest }) => {
   const Svg = ICONS[name];
-  return /* @__PURE__ */ import_react2.default.createElement(
-    Svg,
-    {
-      className: ["bmd-icon", className].filter(Boolean).join(" "),
-      "aria-hidden": rest["aria-label"] ? void 0 : true,
-      focusable: "false",
-      ...rest
-    }
-  );
+  return <Svg
+    className={["bmd-icon", className].filter(Boolean).join(" ")}
+    aria-hidden={rest["aria-label"] ? void 0 : true}
+    focusable="false"
+    {...rest}
+  />;
 };
 
 // src/stories/components/Button/Button.tsx
@@ -138,22 +129,31 @@ var Button = ({
     );
     return null;
   }
-  return /* @__PURE__ */ import_react3.default.createElement(
-    "button",
-    {
-      type: "button",
-      className: "bmd-button",
-      disabled,
-      "data-variant": variant,
-      "data-tone": tone,
-      "data-size": size,
-      "data-shape": shape,
-      ...props
-    },
-    icon ? /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, iconPosition === "left" && /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ import_react3.default.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ import_react3.default.createElement("span", null, /* @__PURE__ */ import_react3.default.createElement(Icon, { ...icon }))) : /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, children || label)
-  );
+  return <button
+    type="button"
+    className="bmd-button"
+    disabled={disabled}
+    data-variant={variant}
+    data-tone={tone}
+    data-size={size}
+    data-shape={shape}
+    {...props}
+  >
+      {icon ? <>
+          {iconPosition === "left" && <>
+              <Icon {...icon} />
+            </>}
+
+          {(children || label) && <span>{children || label}</span>}
+
+          {iconPosition === "right" && <span>
+              <Icon {...icon} />
+            </span>}
+        </> : <>{children || label}</>}
+    </button>;
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button
 });
+//# sourceMappingURL=index.js.map
