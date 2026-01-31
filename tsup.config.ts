@@ -9,6 +9,6 @@ export default defineConfig({
   outDir: "dist",
   external: ["react", "react-dom"],
   esbuildOptions(options) {
-    options.jsx = "preserve";
+    options.jsx = "automatic";
   },
 });
