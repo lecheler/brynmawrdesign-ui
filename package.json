@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": false,
   "description": "Internal React + TypeScript UI component library for Bryn Mawr Design.",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
