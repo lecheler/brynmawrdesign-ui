@@ -75,35 +75,14 @@ var require_x = __commonJS({
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
+  Heading: () => Heading,
+  Icon: () => Icon,
+  Inline: () => Inline,
+  Stack: () => Stack,
+  Text: () => Text,
   TextInput: () => TextInput
 });
 module.exports = __toCommonJS(index_exports);
-
-// src/stories/components/TextInput/TextInput.tsx
-var React = __toESM(require("react"));
-
-// src/stories/utils/classNames.ts
-function cx(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-// src/stories/components/TextInput/TextInput.tsx
-var TextInput = React.forwardRef(
-  function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
-    return /* @__PURE__ */ React.createElement(
-      "div",
-      {
-        className: cx("bmd-text-input", className),
-        "data-size": size,
-        "data-state": state !== "default" ? state : void 0
-      },
-      /* @__PURE__ */ React.createElement("input", { ref, className: "bmd-text-input__control", ...props })
-    );
-  }
-);
-
-// src/stories/components/Button/Button.tsx
-var import_react3 = __toESM(require("react"));
 
 // src/stories/foundations/icons/Icon.tsx
 var import_react2 = __toESM(require("react"));
@@ -143,7 +122,69 @@ var Icon = ({ name, className, ...rest }) => {
   );
 };
 
+// src/stories/foundations/layout/Inline.tsx
+var React3 = __toESM(require("react"));
+function Inline({
+  as,
+  gap = 2,
+  align = "center",
+  wrap = false,
+  style,
+  ...props
+}) {
+  const Comp = as || "div";
+  return /* @__PURE__ */ React3.createElement(
+    Comp,
+    {
+      className: "bmd-Inline",
+      "data-gap": gap,
+      style: {
+        alignItems: align,
+        flexWrap: wrap ? "wrap" : "nowrap",
+        ...style
+      },
+      ...props
+    }
+  );
+}
+
+// src/stories/foundations/layout/Stack.tsx
+var React4 = __toESM(require("react"));
+function Stack({
+  as,
+  gap = 3,
+  style,
+  ...props
+}) {
+  const Comp = as || "div";
+  return /* @__PURE__ */ React4.createElement(Comp, { className: "bmd-Stack", "data-gap": gap, style, ...props });
+}
+
+// src/stories/foundations/typography/Heading.tsx
+var React5 = __toESM(require("react"));
+function Heading({
+  level = 2,
+  as,
+  ...props
+}) {
+  const defaultTag = `h${level}`;
+  const Comp = as || defaultTag;
+  return /* @__PURE__ */ React5.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
+}
+
+// src/stories/foundations/typography/Text.tsx
+var React6 = __toESM(require("react"));
+function Text({
+  as,
+  size = "md",
+  ...props
+}) {
+  const Comp = as || "p";
+  return /* @__PURE__ */ React6.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
+}
+
 // src/stories/components/Button/Button.tsx
+var import_react3 = __toESM(require("react"));
 var Button = ({
   label,
   children,
@@ -177,9 +218,37 @@ var Button = ({
     icon ? /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, iconPosition === "left" && /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, /* @__PURE__ */ import_react3.default.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ import_react3.default.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ import_react3.default.createElement("span", null, /* @__PURE__ */ import_react3.default.createElement(Icon, { ...icon }))) : /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, children || label)
   );
 };
+
+// src/stories/components/TextInput/TextInput.tsx
+var React8 = __toESM(require("react"));
+
+// src/stories/utils/classNames.ts
+function cx(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+// src/stories/components/TextInput/TextInput.tsx
+var TextInput = React8.forwardRef(
+  function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
+    return /* @__PURE__ */ React8.createElement(
+      "div",
+      {
+        className: cx("bmd-text-input", className),
+        "data-size": size,
+        "data-state": state !== "default" ? state : void 0
+      },
+      /* @__PURE__ */ React8.createElement("input", { ref, className: "bmd-text-input__control", ...props })
+    );
+  }
+);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
+  Heading,
+  Icon,
+  Inline,
+  Stack,
+  Text,
   TextInput
 });
 //# sourceMappingURL=index.js.map

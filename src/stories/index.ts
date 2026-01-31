@@ -1,8 +1,12 @@
 import "./styles/index.css";
 
-export * from "./components/TextInput/TextInput";
+/* Foundations */
+export * from "./foundations/icons/Icon";
+export * from "./foundations/layout/Inline";
+export * from "./foundations/layout/Stack";
+export * from "./foundations/typography/Heading";
+export * from "./foundations/typography/Text";
+
+/* Components */
 export * from "./components/Button/Button";
-// later:
-// export * from "./components/input/TextInput";
-// export * from "./components/icon/Icon";
-// etc.
+export * from "./components/TextInput/TextInput";

@@ -1,6 +1,6 @@
 {
   "name": "brynmawrdesign-ui",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "private": false,
   "description": "Internal React + TypeScript UI component library for Bryn Mawr Design.",
   "main": "./dist/index.js",
