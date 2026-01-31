@@ -74,9 +74,33 @@ var require_x = __commonJS({
 // src/stories/index.ts
 var index_exports = {};
 __export(index_exports, {
-  Button: () => Button
+  Button: () => Button,
+  TextInput: () => TextInput
 });
 module.exports = __toCommonJS(index_exports);
+
+// src/stories/components/TextInput/TextInput.tsx
+var React = __toESM(require("react"));
+
+// src/stories/utils/classNames.ts
+function cx(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+// src/stories/components/TextInput/TextInput.tsx
+var TextInput = React.forwardRef(
+  function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
+    return /* @__PURE__ */ React.createElement(
+      "div",
+      {
+        className: cx("bmd-text-input", className),
+        "data-size": size,
+        "data-state": state !== "default" ? state : void 0
+      },
+      /* @__PURE__ */ React.createElement("input", { ref, className: "bmd-text-input__control", ...props })
+    );
+  }
+);
 
 // src/stories/components/Button/Button.tsx
 var import_react3 = __toESM(require("react"));
@@ -155,6 +179,7 @@ var Button = ({
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  Button
+  Button,
+  TextInput
 });
 //# sourceMappingURL=index.js.map

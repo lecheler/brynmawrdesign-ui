@@ -1,3 +1,354 @@
+/* src/stories/foundations/tokens/colors.palette.css */
+:root {
+  --color-green-base: #27ae60;
+  --color-green-50: color-mix(in oklab, var(--color-green-base) 10%, white);
+  --color-green-100: color-mix(in oklab, var(--color-green-base) 20%, white);
+  --color-green-200: color-mix(in oklab, var(--color-green-base) 40%, white);
+  --color-green-300: color-mix(in oklab, var(--color-green-base) 60%, white);
+  --color-green-400: color-mix(in oklab, var(--color-green-base) 80%, white);
+  --color-green-500: var(--color-green-base);
+  --color-green-600: color-mix(in oklab, var(--color-green-base) 80%, black);
+  --color-green-700: color-mix(in oklab, var(--color-green-base) 60%, black);
+  --color-green-800: color-mix(in oklab, var(--color-primary-base) 40%, black);
+  --color-green-900: color-mix(in oklab, var(--color-primary-base) 20%, black);
+  --color-blue-base: #287bb3;
+  --color-blue-400: color-mix(in oklab, var(--color-blue-base) 80%, white);
+  --color-blue-500: var(--color-blue-base);
+  --color-blue-600: color-mix(in oklab, var(--color-blue-base) 80%, black);
+  --color-red-base: #e74c3c;
+  --color-red-400: color-mix(in oklab, var(--color-red-base) 10%, white);
+  --color-red-500: var(--color-red-base);
+  --color-red-600: color-mix(in oklab, var(--color-red-base) 80%, black);
+  --color-yellow-base: #f1c40f;
+  --color-yellow-400: color-mix(in oklab, var(--color-yellow-base) 80%, white);
+  --color-yellow-500: var(--color-yellow-base);
+  --color-yellow-600: color-mix(in oklab, var(--color-yellow-base) 80%, black);
+  --color-gray-base: #95a5a6;
+  --color-gray-50: color-mix(in oklab, var(--color-gray-base) 10%, white);
+  --color-gray-100: color-mix(in oklab, var(--color-gray-base) 20%, white);
+  --color-gray-200: color-mix(in oklab, var(--color-gray-base) 40%, white);
+  --color-gray-300: color-mix(in oklab, var(--color-gray-base) 60%, white);
+  --color-gray-400: color-mix(in oklab, var(--color-gray-base) 80%, white);
+  --color-gray-500: var(--color-gray-base);
+  --color-gray-600: color-mix(in oklab, var(--color-gray-base) 80%, black);
+  --color-gray-700: color-mix(in oklab, var(--color-gray-base) 60%, black);
+  --color-gray-800: color-mix(in oklab, var(--color-gray-base) 40%, black);
+  --color-gray-900: color-mix(in oklab, var(--color-gray-base) 20%, black);
+}
+
+/* src/stories/foundations/tokens/colors.semantic.css */
+:root {
+  --color-surface: #ffffff;
+  --color-surface-subtle: var(--color-gray-50);
+  --color-text: var(--color-gray-700);
+  --color-text-muted: var(--color-gray-600);
+  --color-text-inverse: #ffffff;
+  --color-border-subtle: var(--color-gray-200);
+  --color-border-strong: var(--color-gray-400);
+  --color-accent: var(--color-blue-500);
+  --color-accent-hover: var(--color-blue-600);
+  --color-destructive: var(--color-red-500);
+  --color-destructive-hover: var(--color-red-600);
+  --color-positive: var(--color-green-500);
+  --color-positive-hover: var(--color-green-600);
+  --color-caution: var(--color-yellow-500);
+  --color-caution-hover: var(--color-yellow-600);
+  --color-neutral: var(--color-gray-500);
+  --color-neutral-hover: var(--color-gray-600);
+}
+
+/* src/stories/foundations/tokens/tones.css */
+:root {
+  --tone-primary: var(--color-accent);
+  --tone-primary-hover: var(--color-accent-hover);
+  --tone-primary-contrast: var(--color-text-inverse);
+  --tone-danger: var(--color-destructive);
+  --tone-danger-hover: var(--color-destructive-hover);
+  --tone-danger-contrast: var(--color-text-inverse);
+  --tone-success: var(--color-positive);
+  --tone-success-hover: var(--color-positive-hover);
+  --tone-success-contrast: var(--color-text-inverse);
+  --tone-warning: var(--color-caution);
+  --tone-warning-hover: var(--color-caution-hover);
+  --tone-warning-contrast: var(--color-text-inverse);
+  --tone-neutral: var(--color-neutral);
+  --tone-neutral-hover: var(--color-neutral-hover);
+  --tone-neutral-contrast: var(--color-text-inverse);
+}
+
+/* src/stories/foundations/tokens/types.css */
+:root {
+  --font-sans:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  --font-mono:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.4;
+  --line-height-loose: 1.6;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+}
+
+/* src/stories/foundations/tokens/spaces.css */
+:root {
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.125rem;
+  --space-6: 1.25rem;
+  --space-7: 1.5rem;
+  --space-8: 2rem;
+}
+
+/* src/stories/foundations/tokens/radii.css */
+:root {
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.625rem;
+  --radius-pill: 999px;
+  --radius-circle: 100%;
+}
+
+/* src/stories/foundations/tokens/shadows.css */
+:root {
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 8px rgba(15, 23, 42, 0.1);
+}
+
+/* src/stories/foundations/tokens/icons.css */
+:root {
+  --icon-scale-default: 1;
+  --icon-scale-tight: 0.875;
+}
+
+/* src/stories/foundations/tokens/transitions.css */
+:root {
+  --easing-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-medium: 250ms;
+}
+
+/* src/stories/foundations/tokens/buttons.css */
+:root {
+  --button-font-weight: var(--font-weight-semibold);
+  --button-font-size: var(--font-size-md);
+  --button-line-height: var(--line-height-tight);
+  --button-gap: var(--space-2);
+  --button-padding-y-xs: calc(var(--font-size-xs) / 2);
+  --button-padding-x-xs: var(--font-size-xs);
+  --button-padding-y-sm: calc(var(--font-size-sm) / 2);
+  --button-padding-x-sm: var(--font-size-sm);
+  --button-padding-y-md: calc(var(--font-size-md) / 2);
+  --button-padding-x-md: var(--font-size-md);
+  --button-padding-y-lg: calc(var(--font-size-lg) / 2);
+  --button-padding-x-lg: var(--font-size-lg);
+  --button-padding-y-xl: calc(var(--font-size-xl) / 2);
+  --button-padding-x-xl: var(--font-size-xl);
+  --button-radius-default: 0px;
+  --button-radius-rounded: var(--radius-sm);
+  --button-radius-pill: var(--radius-pill);
+  --button-tone: var(--tone-primary);
+  --button-tone-hover: var(--tone-primary-hover);
+  --button-tone-contrast: var(--tone-primary-contrast);
+  --button-transition-easing: var(--easing-standard);
+  --button-transition-duration: var(--duration-medium);
+}
+.bmd-button[data-tone=danger] {
+  --button-tone: var(--tone-danger);
+  --button-tone-hover: var(--tone-danger-hover);
+  --button-tone-contrast: var(--tone-danger-contrast);
+}
+.bmd-button[data-tone=neutral] {
+  --button-tone: var(--tone-neutral);
+  --button-tone-hover: var(--tone-neutral-hover);
+  --button-tone-contrast: var(--tone-neutral-contrast);
+}
+.bmd-button[data-tone=success] {
+  --button-tone: var(--tone-success);
+  --button-tone-hover: var(--tone-success-hover);
+  --button-tone-contrast: var(--tone-success-contrast);
+}
+.bmd-button[data-tone=warning] {
+  --button-tone: var(--tone-warning);
+  --button-tone-hover: var(--tone-warning-hover);
+  --button-tone-contrast: var(--tone-warning-contrast);
+}
+
+/* src/stories/foundations/tokens/inputs.css */
+:root {
+  --input-color-text: var(--color-text);
+  --input-height-sm: 2rem;
+  --input-height-md: 2.5rem;
+  --input-height-lg: 3rem;
+  --input-padding-y-md: calc(var(--font-size-md) / 2);
+  --input-padding-x-md: var(--font-size-md);
+  --input-font-weight: var(--font-weight-regular);
+  --input-font-size: var(--font-size-md);
+  --input-border-width: 1px;
+  --input-radius: var(--radius-sm);
+  --input-tone: var(--tone-primary);
+  --input-tone-hover: var(--tone-primary-hover);
+  --input-tone-contrast: var(--tone-primary-contrast);
+}
+
+/* src/stories/foundations/themes/light.css */
+:root {
+  --color-border-default: var(--color-border-strong);
+}
+
+/* src/stories/foundations/themes/dark.css */
+[data-theme=dark] {
+  --color-text: #fff;
+  --color-text-muted: var(--color-gray-300);
+  --color-text-inverse: var(--color-gray-800);
+  --color-surface: var(--color-gray-800);
+  --color-action-primary: var(--color-primary-400);
+  --color-action-hover: var(--color-primary-300);
+}
+
+/* src/stories/styles/globals.css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  font-family: var(--font-sans);
+  line-height: var(--text-body-line-height);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: inherit;
+  color: inherit;
+  font-size: var(--text-body-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: var(--text-heading-weight);
+  color: var(--color-text);
+}
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+a {
+  color: var(--color-action-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-text);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+:focus-visible {
+  outline: 2px solid var(--color-action-primary);
+  outline-offset: 2px;
+}
+:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* src/stories/styles/index.css */
+
+/* src/stories/components/TextInput/TextInput.css */
+.bmd-text-input {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+.bmd-text-input__control {
+  width: 100%;
+  height: var(--input-height);
+  padding: var(--input-padding-y-md) var(--input-padding-x-md);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  background-color: var(--input-bg);
+  border: var(--input-border-width) solid var(--input-tone);
+  border-radius: var(--input-radius);
+  outline: none;
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease;
+}
+.bmd-text-input__control::placeholder {
+  color: var(--input-placeholder);
+}
+.bmd-text-input__control:hover:not(:disabled) {
+  border-color: var(--input-border-hover);
+}
+.bmd-text-input__control:focus-visible {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--input-border-focus), transparent 75%);
+}
+.bmd-text-input__control:disabled {
+  background-color: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
 /* src/stories/foundations/icons/Icon.css */
 .bmd-icon {
   width: 1em;
