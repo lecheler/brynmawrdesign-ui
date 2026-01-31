@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import React from "react";
 import preview from "../../../../.storybook/preview";
 import { Button, type ButtonShape, type ButtonSize } from "./Button";
 import { Inline } from "../../foundations/layout/Inline";

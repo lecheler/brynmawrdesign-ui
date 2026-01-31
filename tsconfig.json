@@ -1,7 +1,16 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  // "references": [
+  //   { "path": "./tsconfig.app.json" },
+  //   { "path": "./tsconfig.node.json" }
+  // ],
+  "compilerOptions": {
+    /* ... other options ... */
+    "jsx": "react",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true /* Generate declaration files (.d.ts) */,
+    "outDir": "./dist" /* Output directory for compiled files */
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
