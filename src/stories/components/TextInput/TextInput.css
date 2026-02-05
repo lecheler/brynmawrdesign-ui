@@ -6,7 +6,7 @@
 
 .bmd-text-input__control {
   width: 100%;
-  height: var(--input-height);
+  /* height: var(--input-height); */
   padding: var(--input-padding-y-md) var(--input-padding-x-md);
 
   font-size: var(--input-font-size);

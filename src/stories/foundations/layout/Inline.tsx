@@ -1,6 +1,6 @@
 // src/foundations/layout/Inline.tsx
 import * as React from "react";
-import "./Layout.css";
+import "./layout.css";
 
 // --- polymorphic helper types (same pattern as Stack) ---
 type AsProp<E extends React.ElementType> = {

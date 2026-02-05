@@ -1,0 +1,31 @@
+:root {
+  --card-tone: var(--tone-neutral);
+  --card-surface: var(--color-surface);
+  --card-border: var(--color-border-subtle);
+  --card-surface-raised: var(--color-surface-subtle);
+
+  /* Radius */
+  --card-radius-default: 0px;
+  --card-radius-rounded: var(--radius-sm);
+  --card-radius-pill: var(--radius-pill);
+}
+/* Tone hooks – wire to your tone tokens */
+
+.bmd-card[data-tone="neutral"] {
+  --card-tone: var(--tone-neutral);
+  --card-surface: var(--color-surface);
+  --card-border: var(--color-border-strong);
+  --card-surface-raised: var(--color-surface-subtle);
+}
+
+.bmd-card[data-tone="danger"] {
+  --card-tone: var(--tone-danger);
+  --card-surface: var(--color-surface);
+  --card-border: var(--tone-danger);
+  --card-surface-raised: var(--color-surface-subtle);
+}
+
+.bmd-card[data-tone="success"] {
+  --card-tone: var(--tone-success);
+  --card-border: var(--tone-success);
+}

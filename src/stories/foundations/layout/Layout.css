@@ -1,4 +1,86 @@
 /* src/foundations/layout/Layout.css */
+.bmd-layout-container {
+  width: 100%;
+  /* This is what makes @container work */
+  container-type: inline-size;
+  container-name: bmd-layout;
+}
+
+/* Match ../tokens/breakpoints.css:
+   --bp-sm: 480px;
+   --bp-md: 768px;
+   --bp-lg: 1024px;
+*/
+
+.bmd-layout-container[data-max="page"] {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .bmd-layout-container[data-max="page"] {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bmd-layout-container[data-max="page"] {
+    max-width: 960px;
+  }
+}
+
+.bmd-layout-container[data-max="section"] {
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .bmd-layout-container[data-max="section"] {
+    max-width: 56rem; /* ~896px */
+  }
+}
+
+.bmd-grid {
+  display: grid;
+  gap: var(--space-3, 0.75rem);
+}
+
+/* Column count controlled via data-columns on larger viewports */
+.bmd-grid[data-columns="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.bmd-grid[data-columns="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.bmd-grid[data-columns="4"] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* MEDIA: collapse to single column on narrow viewports,
+   but only for grids that opt into responsive behavior
+*/
+@media (max-width: 768px) {
+  .bmd-grid[data-responsive="true"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* CONTAINER: auto-calc columns based on min item width */
+.bmd-grid[data-auto="true"] {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--bmd-grid-min, 14rem), 1fr)
+  );
+}
+
+/* If the container is tiny, force single column even in auto mode */
+@container bmd-layout (max-width: 480px) {
+  .bmd-grid[data-auto="true"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 
 .bmd-Stack {
   display: flex;

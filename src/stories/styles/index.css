@@ -15,6 +15,9 @@
 /* Shadows */
 @import "../foundations/tokens/shadows.css";
 
+/* Breakpoints */
+@import "../foundations/tokens/breakpoints.css";
+
 /* Icons */
 @import "../foundations/tokens/icons.css";
 
@@ -23,6 +26,7 @@
 
 /* Components */
 @import "../foundations/tokens/buttons.css";
+@import "../foundations/tokens/cards.css";
 @import "../foundations//tokens/inputs.css";
 
 /* Themes */

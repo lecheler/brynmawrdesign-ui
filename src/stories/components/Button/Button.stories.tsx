@@ -1,5 +1,6 @@
 import React from "react";
 import preview from "../../../../.storybook/preview";
+
 import { Button, type ButtonShape, type ButtonSize } from "./Button";
 import { Inline } from "../../foundations/layout/Inline";
 import { Stack } from "../../foundations/layout/Stack";
@@ -13,6 +14,7 @@ const ICON_NAMES = ["check", "download", "search", "star", "warning", "x"];
 const meta = preview.meta({
   title: "Components/Button",
   component: Button,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },

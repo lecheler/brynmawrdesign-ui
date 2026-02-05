@@ -1,0 +1,10 @@
+/*
+  NOTE: We cannot use var(--bp-md), etc. directly inside @media in plain CSS, so these
+  tokens are the source of truth for hardcoded matching values
+  in @media queries.
+*/
+:root {
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+}

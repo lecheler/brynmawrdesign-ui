@@ -1,0 +1,88 @@
+.bmd-card {
+  /* Surface basics */
+  background-color: var(--card-surface, var(--card-surface-raised, #ffffff));
+  /* color: var(--text-primary, #111827); */
+  border-radius: var(--card-radius-rounded);
+  border: 1px solid var(--card-border, rgba(15, 23, 42, 0.06));
+  box-shadow: var(--shadow-sm);
+
+  /* Layout */
+  display: block;
+  position: relative;
+  overflow: hidden;
+  /* transition:
+    box-shadow 150ms ease-out,
+    transform 150ms ease-out,
+    border-color 150ms ease-out,
+    background-color 150ms ease-out; */
+}
+
+/* Variants */
+
+.bmd-card[data-variant="elevated"] {
+  box-shadow: var(--shadow-md, 0 4px 10px rgba(15, 23, 42, 0.12));
+  border-color: transparent;
+}
+
+.bmd-card[data-variant="outlined"] {
+  box-shadow: none;
+  border-color: var(--card-border, rgba(15, 23, 42, 0.16));
+}
+
+.bmd-card[data-variant="subtle"] {
+  box-shadow: none;
+  border-color: transparent;
+  background-color: var(--color-surface-subtle, rgba(15, 23, 42, 0.03));
+}
+
+/* Slots */
+
+.bmd-card__header {
+  /* full-bleed by default */
+  width: 100%;
+  /* Let consumers control background/image via inline style or extra class */
+}
+
+/* Common pattern: if you want default padding on header/footer: */
+.bmd-card__header--padded,
+.bmd-card__footer--padded {
+  padding: var(--space-3, 0.75rem);
+}
+
+.bmd-card__body {
+  width: 100%;
+}
+
+/* Padding scales apply to body only */
+.bmd-card[data-padding="sm"] .bmd-card__body {
+  padding: var(--space-3, 0.75rem);
+}
+
+.bmd-card[data-padding="md"] .bmd-card__body {
+  padding: var(--space-4, 1rem);
+}
+
+.bmd-card[data-padding="lg"] .bmd-card__body {
+  padding: var(--space-5, 1.5rem);
+}
+
+.bmd-card__footer {
+  width: 100%;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* Interactive */
+
+.bmd-card[data-interactive="true"] {
+  cursor: pointer;
+}
+
+.bmd-card[data-interactive="true"]:hover {
+  box-shadow: var(--shadow-lg, 0 10px 30px rgba(15, 23, 42, 0.18));
+  transform: translateY(-1px);
+}
+
+.bmd-card[data-interactive="true"]:focus-visible {
+  outline: 2px solid var(--focus-ring, var(--tone-primary));
+  outline-offset: 2px;
+}

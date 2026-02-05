@@ -11,7 +11,7 @@ export default defineMain({
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
   ],
-  typescript: {
-    reactDocgen: false,
-  },
+  // typescript: {
+  //   reactDocgen: false,
+  // },
 });

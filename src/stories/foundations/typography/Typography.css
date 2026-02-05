@@ -1,6 +1,7 @@
 .bmd-text {
   font-family: var(--font-sans);
   font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body);
   line-height: var(--line-height-normal);
 }
 
@@ -16,7 +17,7 @@
 
 .bmd-heading {
   font-family: var(--font-sans);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
 }
 

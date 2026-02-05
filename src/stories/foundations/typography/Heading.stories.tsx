@@ -1,6 +1,7 @@
 import * as React from "react";
 import preview from "../../../../.storybook/preview";
-import { Heading } from "./Heading";
+import { Heading, HeadingProps } from "./Heading";
+import { Text } from "./Text";
 
 const meta = preview.meta({
   title: "Foundations/Typography",
@@ -29,11 +30,18 @@ export const HeadingPlayground = meta.story({
 });
 
 export const HeadingLevels = meta.story({
-  render: (args) => (
+  render: (args: HeadingProps) => (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
       <Heading {...args} level={1}>
         Page title (level 1)
       </Heading>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+        dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+        quis enim.
+      </Text>
       <Heading {...args} level={2}>
         Section heading (level 2)
       </Heading>

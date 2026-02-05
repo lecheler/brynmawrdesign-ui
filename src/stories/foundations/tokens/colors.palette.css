@@ -4,47 +4,72 @@
 
 :root {
   /* ---------- Greens ---------- */
-  --color-green-base: #27ae60;
-  --color-green-50: color-mix(in oklab, var(--color-green-base) 10%, white);
-  --color-green-100: color-mix(in oklab, var(--color-green-base) 20%, white);
-  --color-green-200: color-mix(in oklab, var(--color-green-base) 40%, white);
-  --color-green-300: color-mix(in oklab, var(--color-green-base) 60%, white);
-  --color-green-400: color-mix(in oklab, var(--color-green-base) 80%, white);
-  --color-green-500: var(--color-green-base);
-  --color-green-600: color-mix(in oklab, var(--color-green-base) 80%, black);
-  --color-green-700: color-mix(in oklab, var(--color-green-base) 60%, black);
-  --color-green-800: color-mix(in oklab, var(--color-primary-base) 40%, black);
-  --color-green-900: color-mix(in oklab, var(--color-primary-base) 20%, black);
+  --green-base: #27ae60;
+
+  --color-green-50: color-mix(in oklab, var(--green-base) 10%, white);
+  --color-green-100: color-mix(in oklab, var(--green-base) 20%, white);
+  --color-green-200: color-mix(in oklab, var(--green-base) 40%, white);
+  --color-green-300: color-mix(in oklab, var(--green-base) 60%, white);
+  --color-green-400: color-mix(in oklab, var(--green-base) 80%, white);
+  --color-green-500: var(--green-base);
+  --color-green-600: color-mix(in oklab, var(--green-base) 80%, black);
+  --color-green-700: color-mix(in oklab, var(--green-base) 60%, black);
+  --color-green-800: color-mix(in oklab, var(--green-base) 40%, black);
+  --color-green-900: color-mix(in oklab, var(--green-base) 20%, black);
 
   /* ---------- Blues ---------- */
-  --color-blue-base: #287bb3;
-  --color-blue-400: color-mix(in oklab, var(--color-blue-base) 80%, white);
-  --color-blue-500: var(--color-blue-base);
-  --color-blue-600: color-mix(in oklab, var(--color-blue-base) 80%, black);
+  --blue-base: #287bb3;
+
+  --color-blue-50: color-mix(in oklab, var(--blue-base) 10%, white);
+  --color-blue-100: color-mix(in oklab, var(--blue-base) 20%, white);
+  --color-blue-200: color-mix(in oklab, var(--blue-base) 40%, white);
+  --color-blue-300: color-mix(in oklab, var(--blue-base) 60%, white);
+  --color-blue-400: color-mix(in oklab, var(--blue-base) 80%, white);
+  --color-blue-500: var(--blue-base);
+  --color-blue-600: color-mix(in oklab, var(--blue-base) 80%, black);
+  --color-blue-700: color-mix(in oklab, var(--blue-base) 60%, black);
+  --color-blue-800: color-mix(in oklab, var(--blue-base) 40%, black);
+  --color-blue-900: color-mix(in oklab, var(--blue-base) 20%, black);
 
   /* ---------- Reds ---------- */
-  /* Base red color */
-  --color-red-base: #e74c3c;
-  --color-red-400: color-mix(in oklab, var(--color-red-base) 10%, white);
-  --color-red-500: var(--color-red-base);
-  --color-red-600: color-mix(in oklab, var(--color-red-base) 80%, black);
+  --red-base: #e74c3c;
+
+  --color-red-50: color-mix(in oklab, var(--red-base) 10%, white);
+  --color-red-100: color-mix(in oklab, var(--red-base) 20%, white);
+  --color-red-200: color-mix(in oklab, var(--red-base) 40%, white);
+  --color-red-300: color-mix(in oklab, var(--red-base) 60%, white);
+  --color-red-400: color-mix(in oklab, var(--red-base) 10%, white);
+  --color-red-500: var(--red-base);
+  --color-red-600: color-mix(in oklab, var(--red-base) 80%, black);
+  --color-red-700: color-mix(in oklab, var(--red-base) 60%, black);
+  --color-red-800: color-mix(in oklab, var(--red-base) 40%, black);
+  --color-red-900: color-mix(in oklab, var(--red-base) 20%, black);
 
   /* --------- Yellows ---------- */
-  --color-yellow-base: #f1c40f;
-  --color-yellow-400: color-mix(in oklab, var(--color-yellow-base) 80%, white);
-  --color-yellow-500: var(--color-yellow-base);
-  --color-yellow-600: color-mix(in oklab, var(--color-yellow-base) 80%, black);
+  --yellow-base: #f1c40f;
+
+  --color-yellow-50: color-mix(in oklab, var(--yellow-base) 10%, white);
+  --color-yellow-100: color-mix(in oklab, var(--yellow-base) 20%, white);
+  --color-yellow-200: color-mix(in oklab, var(--yellow-base) 40%, white);
+  --color-yellow-300: color-mix(in oklab, var(--yellow-base) 60%, white);
+  --color-yellow-400: color-mix(in oklab, var(--yellow-base) 80%, white);
+  --color-yellow-500: var(--yellow-base);
+  --color-yellow-600: color-mix(in oklab, var(--yellow-base) 80%, black);
+  --color-yellow-700: color-mix(in oklab, var(--yellow-base) 60%, black);
+  --color-yellow-800: color-mix(in oklab, var(--yellow-base) 40%, black);
+  --color-yellow-900: color-mix(in oklab, var(--yellow-base) 20%, black);
 
   /* ---------- Grays ---------- */
-  --color-gray-base: #95a5a6;
-  --color-gray-50: color-mix(in oklab, var(--color-gray-base) 10%, white);
-  --color-gray-100: color-mix(in oklab, var(--color-gray-base) 20%, white);
-  --color-gray-200: color-mix(in oklab, var(--color-gray-base) 40%, white);
-  --color-gray-300: color-mix(in oklab, var(--color-gray-base) 60%, white);
-  --color-gray-400: color-mix(in oklab, var(--color-gray-base) 80%, white);
-  --color-gray-500: var(--color-gray-base);
-  --color-gray-600: color-mix(in oklab, var(--color-gray-base) 80%, black);
-  --color-gray-700: color-mix(in oklab, var(--color-gray-base) 60%, black);
-  --color-gray-800: color-mix(in oklab, var(--color-gray-base) 40%, black);
-  --color-gray-900: color-mix(in oklab, var(--color-gray-base) 20%, black);
+  --gray-base: #cccccc;
+
+  --color-gray-50: color-mix(in oklab, var(--gray-base) 10%, white);
+  --color-gray-100: color-mix(in oklab, var(--gray-base) 20%, white);
+  --color-gray-200: color-mix(in oklab, var(--gray-base) 40%, white);
+  --color-gray-300: color-mix(in oklab, var(--gray-base) 60%, white);
+  --color-gray-400: color-mix(in oklab, var(--gray-base) 80%, white);
+  --color-gray-500: var(--gray-base);
+  --color-gray-600: color-mix(in oklab, var(--gray-base) 80%, black);
+  --color-gray-700: color-mix(in oklab, var(--gray-base) 60%, black);
+  --color-gray-800: color-mix(in oklab, var(--gray-base) 40%, black);
+  --color-gray-900: color-mix(in oklab, var(--gray-base) 20%, black);
 }

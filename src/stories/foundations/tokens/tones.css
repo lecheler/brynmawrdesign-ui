@@ -13,6 +13,7 @@
      TONE: DANGER (Destructive / risky)
      ───────────────────────────── */
   --tone-danger: var(--color-destructive);
+  --tone-danger-soft: var(--color-destructive-soft);
   --tone-danger-hover: var(--color-destructive-hover);
   --tone-danger-contrast: var(--color-text-inverse);
 
