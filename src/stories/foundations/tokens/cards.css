@@ -4,6 +4,10 @@
   --card-border: var(--color-border-subtle);
   --card-surface-raised: var(--color-surface-subtle);
 
+  /* Padding */
+  --card-padding-y-md: calc(var(--font-size-md) / 2);
+  --card-padding-x-md: var(--font-size-md);
+
   /* Radius */
   --card-radius-default: 0px;
   --card-radius-rounded: var(--radius-sm);

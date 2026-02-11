@@ -14,7 +14,7 @@
   --font-size-lg: 1.125rem; /* 18 */
   --font-size-xl: 1.25rem; /* 20 */
   --font-size-2xl: 1.5rem; /* 24 */
-  --font-size-body: clamp(0.75rem, 0.75rem + 0.8vw, 1.125rem);
+  /* --font-size-body: clamp(0.75rem, 0.75rem + 0.8vw, 1rem); */
 
   /* Line heights */
   --line-height-tight: 1.2;

@@ -12,7 +12,7 @@ export type ButtonTone =
   | "neutral";
 
 export type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
-export type ButtonShape = "default" | "rounded" | "pill";
+export type ButtonShape = "square" | "rounded" | "pill";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string; // Optional text label
@@ -35,8 +35,8 @@ export const Button = ({
   iconPosition = "left",
   variant = "solid",
   tone = "primary",
-  size = "md",
-  shape = "default",
+  size = "sm",
+  shape = "rounded",
   disabled = false,
   ...props
 }: ButtonProps) => {

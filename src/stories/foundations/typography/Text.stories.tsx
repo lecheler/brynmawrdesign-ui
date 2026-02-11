@@ -1,11 +1,15 @@
 import * as React from "react";
 import preview from "../../../../.storybook/preview";
 import { Text } from "./Text";
-import { Icon } from "../icons/Icon";
+import { Stack } from "../layout/Stack";
 
 const meta = preview.meta({
   title: "Foundations/Typography",
   component: Text,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
 });
 export const TextPlayground = meta.story({
   args: {
@@ -17,7 +21,7 @@ export const TextPlayground = meta.story({
   argTypes: {
     size: {
       control: { type: "inline-radio" },
-      options: ["sm", "md", "lg"],
+      options: ["xs", "sm", "md", "lg", "xl", "2xl"],
     },
     as: {
       control: { type: "select" },
@@ -39,19 +43,25 @@ export const TextSizes = meta.story({
     children: { control: false },
   },
   render: (args) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-      <div>This is just text in a div for testing!</div>
+    <Stack gap={2}>
+      <Text {...args} size="xs">
+        Extra small body text – good for footer, etc.
+      </Text>
       <Text {...args} size="sm">
-        <Icon name="x" aria-label="X icon" /> Small body text – good for
-        secondary or dense content.
+        Small body text – good for secondary or dense content.
       </Text>
       <Text {...args} size="md">
-        <Icon name="check" aria-label="Check icon" /> Medium body text – default
-        size for most content.
+        Medium body text – default size for most content.
       </Text>
       <Text {...args} size="lg">
         Large body text – for emphasis or key summaries.
       </Text>
-    </div>
+      <Text {...args} size="xl">
+        Extra large body text.
+      </Text>
+      <Text {...args} size="2xl">
+        Double-xl body text.
+      </Text>
+    </Stack>
   ),
 });

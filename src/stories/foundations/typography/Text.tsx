@@ -15,7 +15,7 @@ type PolymorphicProps<E extends React.ElementType, P> = React.PropsWithChildren<
   Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit<E, P>>;
 // ---------------------------------------------------------
 
-type TextSize = "sm" | "md" | "lg";
+type TextSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
 type TextOwnProps = {
   /**

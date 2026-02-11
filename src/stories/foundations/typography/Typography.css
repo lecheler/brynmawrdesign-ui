@@ -1,10 +1,13 @@
 .bmd-text {
   font-family: var(--font-sans);
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-body);
+  font-size: var(--font-size-md);
   line-height: var(--line-height-normal);
 }
 
+.bmd-text[data-size="xs"] {
+  font-size: var(--font-size-xs);
+}
 .bmd-text[data-size="sm"] {
   font-size: var(--font-size-sm);
 }
@@ -13,6 +16,12 @@
 }
 .bmd-text[data-size="lg"] {
   font-size: var(--font-size-lg);
+}
+.bmd-text[data-size="xl"] {
+  font-size: var(--font-size-xl);
+}
+.bmd-text[data-size="2xl"] {
+  font-size: var(--font-size-2xl);
 }
 
 .bmd-heading {

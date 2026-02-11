@@ -7,7 +7,7 @@ import { Stack } from "../../foundations/layout/Stack";
 
 const TONES = ["primary", "danger", "success", "warning", "neutral"];
 const SIZES = ["xs", "sm", "md", "lg", "xl"];
-const SHAPES = ["default", "rounded", "pill"];
+const SHAPES = ["square", "rounded", "pill"];
 const VARIANTS = ["solid", "outlined", "soft", "ghost"];
 const ICON_NAMES = ["check", "download", "search", "star", "warning", "x"];
 
@@ -23,7 +23,7 @@ const meta = preview.meta({
     variant: "solid",
     tone: "primary",
     size: "md",
-    shape: "default",
+    shape: "rounded",
     disabled: false,
     icon: undefined,
     iconPosition: "left",
@@ -50,7 +50,7 @@ export const Default = meta.story({
     variant: "solid",
     tone: "primary",
     size: "md",
-    shape: "default",
+    shape: "rounded",
     disabled: false,
   },
 });
@@ -116,7 +116,7 @@ export const WithIcon = meta.story({
 });
 
 export const Sizes = meta.story({
-  args: { label: "Button", variant: "solid", size: "md", shape: "default" },
+  args: { label: "Button", variant: "solid", size: "md", shape: "rounded" },
   argTypes: {
     label: { control: false },
     size: { control: false },
@@ -143,7 +143,7 @@ export const Sizes = meta.story({
 });
 
 export const Shapes = meta.story({
-  args: { label: "Button", variant: "solid", size: "md", shape: "default" },
+  args: { label: "Button", variant: "solid", size: "md", shape: "rounded" },
   argTypes: {
     label: { control: false },
     shape: { control: false },
@@ -170,7 +170,7 @@ export const Shapes = meta.story({
 });
 
 export const Variants = meta.story({
-  args: { label: "Button", tone: "primary", size: "md", shape: "default" },
+  args: { label: "Button", tone: "primary", size: "md", shape: "rounded" },
   argTypes: {
     label: { control: false },
     variant: { control: false },
@@ -197,7 +197,7 @@ export const Variants = meta.story({
 });
 
 export const Tones = meta.story({
-  args: { label: "Button", variant: "solid", size: "md", shape: "default" },
+  args: { label: "Button", variant: "solid", size: "md", shape: "rounded" },
   argTypes: {
     label: { control: false },
     tone: { control: false },

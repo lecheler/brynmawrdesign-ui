@@ -3,7 +3,8 @@
   background-color: var(--card-surface, var(--card-surface-raised, #ffffff));
   /* color: var(--text-primary, #111827); */
   border-radius: var(--card-radius-rounded);
-  border: 1px solid var(--card-border, rgba(15, 23, 42, 0.06));
+  border: 1px solid transparent;
+
   box-shadow: var(--shadow-sm);
 
   /* Layout */
@@ -21,7 +22,7 @@
 
 .bmd-card[data-variant="elevated"] {
   box-shadow: var(--shadow-md, 0 4px 10px rgba(15, 23, 42, 0.12));
-  border-color: transparent;
+  border: 1px solid transparent;
 }
 
 .bmd-card[data-variant="outlined"] {
@@ -32,7 +33,7 @@
 .bmd-card[data-variant="subtle"] {
   box-shadow: none;
   border-color: transparent;
-  background-color: var(--color-surface-subtle, rgba(15, 23, 42, 0.03));
+  background-color: var(--card-surface, rgba(15, 23, 42, 0.03));
 }
 
 /* Slots */
@@ -59,7 +60,7 @@
 }
 
 .bmd-card[data-padding="md"] .bmd-card__body {
-  padding: var(--space-4, 1rem);
+  padding: var(--card-padding-y-md) var(--card-padding-x-md);
 }
 
 .bmd-card[data-padding="lg"] .bmd-card__body {

@@ -1,7 +1,7 @@
 :root {
   /* Fonts */
   --button-font-weight: var(--font-weight-semibold);
-  --button-font-size: var(--font-size-md);
+  --button-font-size: var(--font-size-sm);
   --button-line-height: var(--line-height-tight);
 
   /* Gap & Padding */

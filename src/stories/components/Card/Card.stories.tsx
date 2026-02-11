@@ -8,6 +8,10 @@ import { Card } from "./Card";
 import { LayoutContainer } from "../../foundations/layout/LayoutContainer";
 import { Grid } from "../../foundations/layout/Grid";
 import { Heading } from "../../foundations/typography/Heading";
+import { Text } from "../../foundations/typography/Text";
+
+import { Button } from "../Button/Button";
+import { Inline } from "../../foundations/layout/Inline";
 
 const meta = preview.meta({
   title: "Components/Card",
@@ -53,13 +57,8 @@ export default meta;
 export const Playground = meta.story({
   render: (args) => (
     <Card {...args}>
-      <Card.Header
-        style={{
-          padding: "0.75rem 1rem",
-          borderBottom: "1px solid rgba(15, 23, 42, 0.06)",
-        }}
-      >
-        <h3 style={{ margin: 0 }}>Card title</h3>
+      <Card.Header>
+        <Heading>Card title</Heading>
       </Card.Header>
 
       <Card.Body>
@@ -101,13 +100,10 @@ export const FullBleedHeader = meta.story({
           background:
             "linear-gradient(135deg, var(--tone-primary, #2563eb), var(--tone-primary-soft, #93c5fd))",
           color: "white",
-          padding: "0.75rem 1rem",
+          // padding: "0.75rem 1rem",
         }}
       >
-        <h3 style={{ margin: 0 }}>Pro plan</h3>
-        <p style={{ margin: 0, fontSize: "0.875rem", opacity: 0.9 }}>
-          Best for growing teams.
-        </p>
+        <Heading level={3}>Pro Plan</Heading>
       </Card.Header>
 
       <Card.Body>
@@ -155,27 +151,15 @@ export const ImageHeader = meta.story({
       </Card.Header>
 
       <Card.Body>
-        <h3 style={{ marginTop: 0, marginBottom: "0.25rem" }}>
-          Loose Morals, No Substance
-        </h3>
-        <p style={{ margin: 0, marginBottom: "0.5rem", opacity: 0.9 }}>
-          Solo record • Classic country, folk, Americana, punk heart.
-        </p>
-        <p style={{ margin: 0, fontSize: "0.875rem", opacity: 0.75 }}>
-          Minneapolis · 2026
-        </p>
+        <Heading>Example Card</Heading>
+        <Text>This card has an imge header.</Text>
       </Card.Body>
 
-      <Card.Footer
-        className="bmd-card__footer--padded"
-        style={{ display: "flex", justifyContent: "flex-end", gap: "0.5rem" }}
-      >
-        <button className="bmd-button" data-tone="neutral">
-          Details
-        </button>
-        <button className="bmd-button" data-tone="primary">
-          Listen
-        </button>
+      <Card.Footer className="bmd-card__footer--padded">
+        <Inline gap={1} align="flex-end">
+          <Button label="Cancel" variant="soft" />
+          <Button label="Continue" />
+        </Inline>
       </Card.Footer>
     </Card>
   ),
