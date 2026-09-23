@@ -29,6 +29,9 @@
 @import "../foundations/tokens/cards.css";
 @import "../foundations//tokens/inputs.css";
 
+/* Charts */
+@import "../foundations/tokens/charts.css";
+
 /* Themes */
 @import "../foundations/themes/light.css";
 @import "../foundations/themes/dark.css";

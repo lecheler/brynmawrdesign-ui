@@ -1,0 +1,7 @@
+:root {
+  --chart-tone: var(--color-surface-subtle);
+
+  --pie-radius-sm: 80px;
+  --pie-radius-md: 120px;
+  --pie-radius-lg: 160px;
+}

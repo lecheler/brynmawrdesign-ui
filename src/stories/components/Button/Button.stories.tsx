@@ -204,7 +204,7 @@ export const Tones = meta.story({
   },
   render: (args) => {
     return (
-      <Inline gap={2} align="center">
+      <Inline gap={1} align="center">
         {TONES.map((tone) => (
           <Button
             key={tone}

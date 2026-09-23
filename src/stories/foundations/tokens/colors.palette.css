@@ -5,7 +5,7 @@
 :root {
   /* ---------- Greens ---------- */
   --green-base: #27ae60;
-
+  /* --green-base: #218c74; */
   --color-green-50: color-mix(in oklab, var(--green-base) 10%, white);
   --color-green-100: color-mix(in oklab, var(--green-base) 20%, white);
   --color-green-200: color-mix(in oklab, var(--green-base) 40%, white);
@@ -32,8 +32,8 @@
   --color-blue-900: color-mix(in oklab, var(--blue-base) 20%, black);
 
   /* ---------- Reds ---------- */
-  --red-base: #e74c3c;
-
+  /* --red-base: #e74c3c; */
+  --red-base: #d63d3d;
   --color-red-50: color-mix(in oklab, var(--red-base) 10%, white);
   --color-red-100: color-mix(in oklab, var(--red-base) 20%, white);
   --color-red-200: color-mix(in oklab, var(--red-base) 40%, white);
