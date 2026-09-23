@@ -68,7 +68,7 @@ type AsProp<E extends React.ElementType> = {
 };
 type PropsToOmit<E extends React.ElementType, P> = keyof (AsProp<E> & P);
 type PolymorphicProps<E extends React.ElementType, P> = React.PropsWithChildren<P & AsProp<E>> & Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit<E, P>>;
-type TextSize = "sm" | "md" | "lg";
+type TextSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 type TextOwnProps = {
     /**
      * Visual size of the text.
@@ -81,7 +81,7 @@ declare function Text<E extends React.ElementType = "p">({ as, size, ...props }:
 type ButtonVariant = "solid" | "outlined" | "soft" | "ghost";
 type ButtonTone = "primary" | "danger" | "success" | "warning" | "neutral";
 type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
-type ButtonShape = "default" | "rounded" | "pill";
+type ButtonShape = "square" | "rounded" | "pill";
 interface ButtonProps extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
     label?: string;
     children?: React__default.ReactNode;
@@ -102,4 +102,17 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 declare const TextInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
 
-export { Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Stack, type StackProps, Text, TextInput, type TextInputProps, type TextProps };
+interface PieData {
+    value: number;
+    category: string;
+    color: string;
+}
+interface PieProps extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
+    data: PieData[];
+    title?: string;
+    size?: number;
+}
+/** Primary UI component for user interaction */
+declare const Pie: ({ title, size, ...props }: PieProps) => React__default.JSX.Element;
+
+export { Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Pie, type PieData, Stack, type StackProps, Text, TextInput, type TextInputProps, type TextProps };
