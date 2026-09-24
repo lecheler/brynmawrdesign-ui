@@ -48,6 +48,17 @@ type StackOwnProps = {
 type StackProps<E extends React.ElementType = "div"> = PolymorphicProps$2<E, StackOwnProps>;
 declare function Stack<E extends React.ElementType = "div">({ as, gap, style, ...props }: StackProps<E>): React.JSX.Element;
 
+type GridProps = React__default.HTMLAttributes<HTMLDivElement> & {
+    /** Fixed column count (ignored if auto is true) */
+    columns?: 2 | 3 | 4;
+    /** Use auto-fit with a minimum width instead of fixed columns */
+    auto?: boolean;
+    /** Minimum column width when auto=true */
+    minItemWidth?: string;
+    responsive?: boolean;
+};
+declare function Grid({ columns, auto, minItemWidth, responsive, className, style, ...props }: GridProps): React__default.JSX.Element;
+
 type AsProp$2<E extends React.ElementType> = {
     as?: E;
 };
@@ -141,4 +152,4 @@ interface PieProps extends React__default.ButtonHTMLAttributes<HTMLButtonElement
 /** Primary UI component for user interaction */
 declare const Pie: ({ title, size, ...props }: PieProps) => React__default.JSX.Element;
 
-export { Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Pie, type PieData, Stack, type StackProps, Text, TextInput, type TextInputProps, type TextProps };
+export { Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Pie, type PieData, Stack, type StackProps, Text, TextInput, type TextInputProps, type TextProps };

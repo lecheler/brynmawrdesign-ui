@@ -74,8 +74,42 @@ function Stack({
   return /* @__PURE__ */ React4.createElement(Comp, { className: "bmd-Stack", "data-gap": gap, style, ...props });
 }
 
+// src/stories/foundations/layout/Grid.tsx
+import React5 from "react";
+
+// src/stories/utils/classNames.ts
+function cx(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+// src/stories/foundations/layout/Grid.tsx
+function Grid({
+  columns,
+  auto: auto2,
+  minItemWidth = "14rem",
+  responsive,
+  className,
+  style,
+  ...props
+}) {
+  return /* @__PURE__ */ React5.createElement(
+    "div",
+    {
+      className: cx("bmd-grid", className),
+      "data-columns": !auto2 ? columns : void 0,
+      "data-auto": auto2 ? "true" : void 0,
+      "data-responsive": responsive ? "true" : void 0,
+      style: {
+        "--bmd-grid-min": minItemWidth,
+        ...style
+      },
+      ...props
+    }
+  );
+}
+
 // src/stories/foundations/typography/Heading.tsx
-import * as React5 from "react";
+import * as React6 from "react";
 function Heading({
   level = 2,
   as,
@@ -83,22 +117,22 @@ function Heading({
 }) {
   const defaultTag = `h${level}`;
   const Comp = as || defaultTag;
-  return /* @__PURE__ */ React5.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
+  return /* @__PURE__ */ React6.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
 }
 
 // src/stories/foundations/typography/Text.tsx
-import * as React6 from "react";
+import * as React7 from "react";
 function Text({
   as,
   size = "md",
   ...props
 }) {
   const Comp = as || "p";
-  return /* @__PURE__ */ React6.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
+  return /* @__PURE__ */ React7.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
 }
 
 // src/stories/components/Button/Button.tsx
-import React7 from "react";
+import React8 from "react";
 var Button = ({
   label,
   children,
@@ -117,7 +151,7 @@ var Button = ({
     );
     return null;
   }
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ React8.createElement(
     "button",
     {
       type: "button",
@@ -129,35 +163,28 @@ var Button = ({
       "data-shape": shape,
       ...props
     },
-    icon ? /* @__PURE__ */ React7.createElement(React7.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React7.createElement(React7.Fragment, null, /* @__PURE__ */ React7.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ React7.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React7.createElement("span", null, /* @__PURE__ */ React7.createElement(Icon, { ...icon }))) : /* @__PURE__ */ React7.createElement(React7.Fragment, null, children || label)
+    icon ? /* @__PURE__ */ React8.createElement(React8.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React8.createElement(React8.Fragment, null, /* @__PURE__ */ React8.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ React8.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React8.createElement("span", null, /* @__PURE__ */ React8.createElement(Icon, { ...icon }))) : /* @__PURE__ */ React8.createElement(React8.Fragment, null, children || label)
   );
 };
 
 // src/stories/components/TextInput/TextInput.tsx
-import * as React8 from "react";
-
-// src/stories/utils/classNames.ts
-function cx(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-// src/stories/components/TextInput/TextInput.tsx
-var TextInput = React8.forwardRef(
+import * as React9 from "react";
+var TextInput = React9.forwardRef(
   function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
-    return /* @__PURE__ */ React8.createElement(
+    return /* @__PURE__ */ React9.createElement(
       "div",
       {
         className: cx("bmd-text-input", className),
         "data-size": size,
         "data-state": state !== "default" ? state : void 0
       },
-      /* @__PURE__ */ React8.createElement("input", { ref, className: "bmd-text-input__control", ...props })
+      /* @__PURE__ */ React9.createElement("input", { ref, className: "bmd-text-input__control", ...props })
     );
   }
 );
 
 // src/stories/components/Card/Card.tsx
-import React9 from "react";
+import React10 from "react";
 function CardRoot({
   as,
   variant = "elevated",
@@ -168,7 +195,7 @@ function CardRoot({
   ...props
 }) {
   const Component2 = as || "div";
-  return /* @__PURE__ */ React9.createElement(
+  return /* @__PURE__ */ React10.createElement(
     Component2,
     {
       className: cx("bmd-card", className),
@@ -181,13 +208,13 @@ function CardRoot({
   );
 }
 function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ React9.createElement("div", { className: cx("bmd-card__header", className), ...props });
+  return /* @__PURE__ */ React10.createElement("div", { className: cx("bmd-card__header", className), ...props });
 }
 function CardBody({ className, ...props }) {
-  return /* @__PURE__ */ React9.createElement("div", { className: cx("bmd-card__body", className), ...props });
+  return /* @__PURE__ */ React10.createElement("div", { className: cx("bmd-card__body", className), ...props });
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ React9.createElement("div", { className: cx("bmd-card__footer", className), ...props });
+  return /* @__PURE__ */ React10.createElement("div", { className: cx("bmd-card__footer", className), ...props });
 }
 var Card = Object.assign(CardRoot, {
   Header: CardHeader,
@@ -196,7 +223,7 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/stories/charts/Pie/Pie.tsx
-import React10 from "react";
+import React11 from "react";
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
 import { createContext } from "react";
@@ -8915,7 +8942,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React10.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React10.createElement(Heading, null, title), /* @__PURE__ */ React10.createElement(
+  return /* @__PURE__ */ React11.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React11.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React11.createElement(Heading, null, title), /* @__PURE__ */ React11.createElement(
     motion2.svg,
     {
       width: size,
@@ -8923,7 +8950,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React10.createElement(
+    /* @__PURE__ */ React11.createElement(
       motion2.circle,
       {
         cx: center,
@@ -8939,7 +8966,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React10.createElement(
+      return /* @__PURE__ */ React11.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -8985,6 +9012,7 @@ export {
   CardFooter,
   CardHeader,
   CardRoot,
+  Grid,
   Heading,
   Icon,
   Inline,
