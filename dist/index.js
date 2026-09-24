@@ -75,6 +75,11 @@ var require_x = __commonJS({
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
+  Card: () => Card,
+  CardBody: () => CardBody,
+  CardFooter: () => CardFooter,
+  CardHeader: () => CardHeader,
+  CardRoot: () => CardRoot,
   Heading: () => Heading,
   Icon: () => Icon,
   Inline: () => Inline,
@@ -243,17 +248,56 @@ var TextInput = React8.forwardRef(
   }
 );
 
+// src/stories/components/Card/Card.tsx
+var import_react4 = __toESM(require("react"));
+function CardRoot({
+  as,
+  variant = "elevated",
+  tone = "neutral",
+  padding = "md",
+  interactive,
+  className,
+  ...props
+}) {
+  const Component2 = as || "div";
+  return /* @__PURE__ */ import_react4.default.createElement(
+    Component2,
+    {
+      className: cx("bmd-card", className),
+      "data-variant": variant,
+      "data-tone": tone,
+      "data-padding": padding,
+      "data-interactive": interactive ? "true" : void 0,
+      ...props
+    }
+  );
+}
+function CardHeader({ className, ...props }) {
+  return /* @__PURE__ */ import_react4.default.createElement("div", { className: cx("bmd-card__header", className), ...props });
+}
+function CardBody({ className, ...props }) {
+  return /* @__PURE__ */ import_react4.default.createElement("div", { className: cx("bmd-card__body", className), ...props });
+}
+function CardFooter({ className, ...props }) {
+  return /* @__PURE__ */ import_react4.default.createElement("div", { className: cx("bmd-card__footer", className), ...props });
+}
+var Card = Object.assign(CardRoot, {
+  Header: CardHeader,
+  Body: CardBody,
+  Footer: CardFooter
+});
+
 // src/stories/charts/Pie/Pie.tsx
-var import_react23 = __toESM(require("react"));
+var import_react24 = __toESM(require("react"));
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
-var import_react4 = require("react");
-var LayoutGroupContext = (0, import_react4.createContext)({});
+var import_react5 = require("react");
+var LayoutGroupContext = (0, import_react5.createContext)({});
 
 // node_modules/framer-motion/dist/es/utils/use-constant.mjs
-var import_react5 = require("react");
+var import_react6 = require("react");
 function useConstant(init) {
-  const ref = (0, import_react5.useRef)(null);
+  const ref = (0, import_react6.useRef)(null);
   if (ref.current === null) {
     ref.current = init();
   }
@@ -261,17 +305,17 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var import_react6 = require("react");
+var import_react7 = require("react");
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? import_react6.useLayoutEffect : import_react6.useEffect;
+var useIsomorphicLayoutEffect = isBrowser ? import_react7.useLayoutEffect : import_react7.useEffect;
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
-var import_react7 = require("react");
-var PresenceContext = /* @__PURE__ */ (0, import_react7.createContext)(null);
+var import_react8 = require("react");
+var PresenceContext = /* @__PURE__ */ (0, import_react8.createContext)(null);
 
 // node_modules/motion-utils/dist/es/array.mjs
 function addUniqueItem(arr, item) {
@@ -7078,33 +7122,33 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
-var import_react8 = require("react");
-var MotionConfigContext = (0, import_react8.createContext)({
+var import_react9 = require("react");
+var MotionConfigContext = (0, import_react9.createContext)({
   transformPagePoint: (p) => p,
   isStatic: false,
   reducedMotion: "never"
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-var import_react9 = require("react");
+var import_react10 = require("react");
 function usePresence(subscribe = true) {
-  const context = (0, import_react9.useContext)(PresenceContext);
+  const context = (0, import_react10.useContext)(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
-  const id3 = (0, import_react9.useId)();
-  (0, import_react9.useEffect)(() => {
+  const id3 = (0, import_react10.useId)();
+  (0, import_react10.useEffect)(() => {
     if (subscribe) {
       return register(id3);
     }
   }, [subscribe]);
-  const safeToRemove = (0, import_react9.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
+  const safeToRemove = (0, import_react10.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
   return !isPresent && onExitComplete ? [false, safeToRemove] : [true];
 }
 
 // node_modules/framer-motion/dist/es/context/LazyContext.mjs
-var import_react10 = require("react");
-var LazyContext = (0, import_react10.createContext)({ strict: false });
+var import_react11 = require("react");
+var LazyContext = (0, import_react11.createContext)({ strict: false });
 
 // node_modules/framer-motion/dist/es/motion/features/definitions.mjs
 var featureProps = {
@@ -7159,14 +7203,14 @@ function loadFeatures(features) {
 
 // node_modules/framer-motion/dist/es/motion/index.mjs
 var import_jsx_runtime = require("react/jsx-runtime");
-var import_react20 = require("react");
+var import_react21 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
-var import_react11 = require("react");
-var MotionContext = /* @__PURE__ */ (0, import_react11.createContext)({});
+var import_react12 = require("react");
+var MotionContext = /* @__PURE__ */ (0, import_react12.createContext)({});
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
-var import_react12 = require("react");
+var import_react13 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
 function getCurrentTreeVariants(props, context) {
@@ -7182,18 +7226,18 @@ function getCurrentTreeVariants(props, context) {
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
 function useCreateMotionContext(props) {
-  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react12.useContext)(MotionContext));
-  return (0, import_react12.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
+  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react13.useContext)(MotionContext));
+  return (0, import_react13.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
 }
 function variantLabelsAsDependency(prop) {
   return Array.isArray(prop) ? prop.join(" ") : prop;
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-var import_react15 = require("react");
+var import_react16 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/use-props.mjs
-var import_react13 = require("react");
+var import_react14 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
 var createHtmlRenderState = () => ({
@@ -7212,7 +7256,7 @@ function copyRawValuesOnly(target, source, props) {
   }
 }
 function useInitialMotionValues({ transformTemplate }, visualState) {
-  return (0, import_react13.useMemo)(() => {
+  return (0, import_react14.useMemo)(() => {
     const state = createHtmlRenderState();
     buildHTMLStyles(state, visualState, transformTemplate);
     return Object.assign({}, state.vars, state.style);
@@ -7241,7 +7285,7 @@ function useHTMLProps(props, visualState) {
 }
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
-var import_react14 = require("react");
+var import_react15 = require("react");
 
 // node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
 var createSvgRenderState = () => ({
@@ -7251,7 +7295,7 @@ var createSvgRenderState = () => ({
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
 function useSVGProps(props, visualState, _isStatic, Component2) {
-  const visualProps = (0, import_react14.useMemo)(() => {
+  const visualProps = (0, import_react15.useMemo)(() => {
     const state = createSvgRenderState();
     buildSVGAttrs(state, visualState, isSVGTag(Component2), props.transformTemplate, props.style);
     return {
@@ -7385,17 +7429,17 @@ function useRender(Component2, props, ref, { latestValues }, isStatic, forwardMo
   const useVisualProps = isSVG ?? isSVGComponent(Component2) ? useSVGProps : useHTMLProps;
   const visualProps = useVisualProps(props, latestValues, isStatic, Component2);
   const filteredProps = filterProps(props, typeof Component2 === "string", forwardMotionProps, isValidProp);
-  const elementProps = Component2 !== import_react15.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
+  const elementProps = Component2 !== import_react16.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
   const { children } = props;
-  const renderedChildren = (0, import_react15.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
-  return (0, import_react15.createElement)(Component2, {
+  const renderedChildren = (0, import_react16.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
+  return (0, import_react16.createElement)(Component2, {
     ...elementProps,
     children: renderedChildren
   });
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
-var import_react16 = require("react");
+var import_react17 = require("react");
 function makeState({ scrapeMotionValuesFromProps: scrapeMotionValuesFromProps3, createRenderState }, props, context, presenceContext) {
   const state = {
     latestValues: makeLatestValues(props, context, presenceContext, scrapeMotionValuesFromProps3),
@@ -7446,8 +7490,8 @@ function makeLatestValues(props, context, presenceContext, scrapeMotionValues) {
   return values;
 }
 var makeUseVisualState = (config) => (props, isStatic) => {
-  const context = (0, import_react16.useContext)(MotionContext);
-  const presenceContext = (0, import_react16.useContext)(PresenceContext);
+  const context = (0, import_react17.useContext)(MotionContext);
+  const presenceContext = (0, import_react17.useContext)(PresenceContext);
   const make = () => makeState(config, props, context, presenceContext);
   return isStatic ? make() : useConstant(make);
 };
@@ -7468,14 +7512,14 @@ var useSVGVisualState = /* @__PURE__ */ makeUseVisualState({
 var motionComponentSymbol = /* @__PURE__ */ Symbol.for("motionComponentSymbol");
 
 // node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
-var import_react17 = require("react");
+var import_react18 = require("react");
 function useMotionRef(visualState, visualElement, externalRef) {
-  const externalRefContainer = (0, import_react17.useRef)(externalRef);
-  (0, import_react17.useInsertionEffect)(() => {
+  const externalRefContainer = (0, import_react18.useRef)(externalRef);
+  (0, import_react18.useInsertionEffect)(() => {
     externalRefContainer.current = externalRef;
   });
-  const refCleanup = (0, import_react17.useRef)(null);
-  return (0, import_react17.useCallback)((instance) => {
+  const refCleanup = (0, import_react18.useRef)(null);
+  return (0, import_react18.useCallback)((instance) => {
     var _a2;
     if (instance) {
       (_a2 = visualState.onMount) == null ? void 0 : _a2.call(visualState, instance);
@@ -7503,11 +7547,11 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-var import_react19 = require("react");
+var import_react20 = require("react");
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
-var import_react18 = require("react");
-var SwitchLayoutGroupContext = (0, import_react18.createContext)({});
+var import_react19 = require("react");
+var SwitchLayoutGroupContext = (0, import_react19.createContext)({});
 
 // node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
 function isRefObject(ref) {
@@ -7517,14 +7561,14 @@ function isRefObject(ref) {
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
 function useVisualElement(Component2, visualState, props, createVisualElement, ProjectionNodeConstructor, isSVG) {
   var _a2, _b;
-  const { visualElement: parent } = (0, import_react19.useContext)(MotionContext);
-  const lazyContext = (0, import_react19.useContext)(LazyContext);
-  const presenceContext = (0, import_react19.useContext)(PresenceContext);
-  const motionConfig = (0, import_react19.useContext)(MotionConfigContext);
+  const { visualElement: parent } = (0, import_react20.useContext)(MotionContext);
+  const lazyContext = (0, import_react20.useContext)(LazyContext);
+  const presenceContext = (0, import_react20.useContext)(PresenceContext);
+  const motionConfig = (0, import_react20.useContext)(MotionConfigContext);
   const reducedMotionConfig = motionConfig.reducedMotion;
   const skipAnimations = motionConfig.skipAnimations;
-  const visualElementRef = (0, import_react19.useRef)(null);
-  const hasMountedOnce = (0, import_react19.useRef)(false);
+  const visualElementRef = (0, import_react20.useRef)(null);
+  const hasMountedOnce = (0, import_react20.useRef)(false);
   createVisualElement = createVisualElement || lazyContext.renderer;
   if (!visualElementRef.current && createVisualElement) {
     visualElementRef.current = createVisualElement(Component2, {
@@ -7542,18 +7586,18 @@ function useVisualElement(Component2, visualState, props, createVisualElement, P
     }
   }
   const visualElement = visualElementRef.current;
-  const initialLayoutGroupConfig = (0, import_react19.useContext)(SwitchLayoutGroupContext);
+  const initialLayoutGroupConfig = (0, import_react20.useContext)(SwitchLayoutGroupContext);
   if (visualElement && !visualElement.projection && ProjectionNodeConstructor && (visualElement.type === "html" || visualElement.type === "svg")) {
     createProjectionNode2(visualElementRef.current, props, ProjectionNodeConstructor, initialLayoutGroupConfig);
   }
-  const isMounted = (0, import_react19.useRef)(false);
-  (0, import_react19.useInsertionEffect)(() => {
+  const isMounted = (0, import_react20.useRef)(false);
+  (0, import_react20.useInsertionEffect)(() => {
     if (visualElement && isMounted.current) {
       visualElement.update(props, presenceContext);
     }
   });
   const optimisedAppearId = props[optimizedAppearDataAttribute];
-  const wantsHandoff = (0, import_react19.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
+  const wantsHandoff = (0, import_react20.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
   useIsomorphicLayoutEffect(() => {
     hasMountedOnce.current = true;
     if (!visualElement)
@@ -7566,7 +7610,7 @@ function useVisualElement(Component2, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  (0, import_react19.useEffect)(() => {
+  (0, import_react20.useEffect)(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -7620,7 +7664,7 @@ function createMotionComponent(Component2, { forwardMotionProps = false, type } 
   function MotionDOMComponent(props, externalRef) {
     let MeasureLayout2;
     const configAndProps = {
-      ...(0, import_react20.useContext)(MotionConfigContext),
+      ...(0, import_react21.useContext)(MotionConfigContext),
       ...props,
       layoutId: useLayoutId(props)
     };
@@ -7636,16 +7680,16 @@ function createMotionComponent(Component2, { forwardMotionProps = false, type } 
     return (0, import_jsx_runtime.jsxs)(MotionContext.Provider, { value: context, children: [MeasureLayout2 && context.visualElement ? (0, import_jsx_runtime.jsx)(MeasureLayout2, { visualElement: context.visualElement, ...configAndProps }) : null, useRender(Component2, props, useMotionRef(visualState, context.visualElement, externalRef), visualState, isStatic, forwardMotionProps, isSVG, isValidProp)] });
   }
   MotionDOMComponent.displayName = `motion.${typeof Component2 === "string" ? Component2 : `create(${Component2.displayName ?? Component2.name ?? ""})`}`;
-  const ForwardRefMotionComponent = (0, import_react20.forwardRef)(MotionDOMComponent);
+  const ForwardRefMotionComponent = (0, import_react21.forwardRef)(MotionDOMComponent);
   ForwardRefMotionComponent[motionComponentSymbol] = Component2;
   return ForwardRefMotionComponent;
 }
 function useLayoutId({ layoutId }) {
-  const layoutGroupId = (0, import_react20.useContext)(LayoutGroupContext).id;
+  const layoutGroupId = (0, import_react21.useContext)(LayoutGroupContext).id;
   return layoutGroupId && layoutId !== void 0 ? layoutGroupId + "-" + layoutId : layoutId;
 }
 function useStrictMode(configAndProps, preloadedFeatures) {
-  const isStrict = (0, import_react20.useContext)(LazyContext).strict;
+  const isStrict = (0, import_react21.useContext)(LazyContext).strict;
   if (process.env.NODE_ENV !== "production" && preloadedFeatures && isStrict) {
     const strictMessage = "You have rendered a `motion` component within a `LazyMotion` component. This will break tree shaking. Import and render a `m` component instead.";
     configAndProps.ignoreStrict ? warning(false, strictMessage, "lazy-strict-mode") : invariant(false, strictMessage, "lazy-strict-mode");
@@ -7696,11 +7740,11 @@ function createMotionProxy(preloadedFeatures, createVisualElement) {
 }
 
 // node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
-var import_react21 = require("react");
+var import_react22 = require("react");
 var createDomVisualElement = (Component2, options) => {
   const isSVG = options.isSVG ?? isSVGComponent(Component2);
   return isSVG ? new SVGVisualElement(options) : new HTMLVisualElement(options, {
-    allowProjection: Component2 !== import_react21.Fragment
+    allowProjection: Component2 !== import_react22.Fragment
   });
 };
 
@@ -8613,9 +8657,9 @@ var PanGesture = class extends Feature {
 
 // node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var import_react22 = require("react");
+var import_react23 = require("react");
 var hasTakenAnySnapshot = false;
-var MeasureLayoutWithContext = class extends import_react22.Component {
+var MeasureLayoutWithContext = class extends import_react23.Component {
   /**
    * This only mounts projection nodes for components that
    * need measuring, we might want to do it for all components
@@ -8711,8 +8755,8 @@ var MeasureLayoutWithContext = class extends import_react22.Component {
 };
 function MeasureLayout(props) {
   const [isPresent, safeToRemove] = usePresence();
-  const layoutGroup = (0, import_react22.useContext)(LayoutGroupContext);
-  return (0, import_jsx_runtime2.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react22.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
+  const layoutGroup = (0, import_react23.useContext)(LayoutGroupContext);
+  return (0, import_jsx_runtime2.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react23.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
 }
 
 // node_modules/framer-motion/dist/es/motion/features/drag.mjs
@@ -8963,7 +9007,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ import_react23.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react23.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react23.default.createElement(Heading, null, title), /* @__PURE__ */ import_react23.default.createElement(
+  return /* @__PURE__ */ import_react24.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react24.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react24.default.createElement(Heading, null, title), /* @__PURE__ */ import_react24.default.createElement(
     motion2.svg,
     {
       width: size,
@@ -8971,7 +9015,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ import_react23.default.createElement(
+    /* @__PURE__ */ import_react24.default.createElement(
       motion2.circle,
       {
         cx: center,
@@ -8987,7 +9031,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ import_react23.default.createElement(
+      return /* @__PURE__ */ import_react24.default.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9029,6 +9073,11 @@ var Pie = ({
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  CardRoot,
   Heading,
   Icon,
   Inline,

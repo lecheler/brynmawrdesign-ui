@@ -10,6 +10,7 @@ export * from "./foundations/typography/Text";
 /* Components */
 export * from "./components/Button/Button";
 export * from "./components/TextInput/TextInput";
+export * from "./components/Card/Card";
 
 /* Charts */
 export * from "./charts/Pie/Pie";
