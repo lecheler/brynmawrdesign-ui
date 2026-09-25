@@ -1,6 +1,6 @@
 {
   "name": "brynmawrdesign-ui",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "Internal React + TypeScript UI component library for Bryn Mawr Design.",
   "main": "./dist/index.js",
@@ -14,11 +14,11 @@
       "require": "./dist/index.js"
     },
     "./style.css": "./dist/index.css",
-    "./tokens/*": "./src/foundations/tokens/*"
+    "./tokens.css": "./src/stories/styles/index.css"
   },
   "files": [
     "dist",
-    "foundations"
+    "src"
   ],
   "scripts": {
     "dev": "tsup --watch",
