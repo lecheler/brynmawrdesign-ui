@@ -13,12 +13,10 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./style.css": "./dist/index.css",
-    "./tokens.css": "./src/stories/styles/index.css"
+    "./style.css": "./dist/index.css"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "dev": "tsup --watch",
