@@ -37,10 +37,10 @@
   --color-neutral-hover: var(--color-gray-700);
 
   /* Accent Colors for Data */
-  --color-data-1: var(--color-red-500);
-  --color-data-2: var(--color-orange-500);
-  --color-data-3: var(--color-yellow-500);
-  --color-data-4: var(--color-green-500);
-  --color-data-5: var(--color-blue-500);
+  --color-data-1: var(--color-blue-500);
+  --color-data-2: var(--color-green-500);
+  --color-data-3: var(--color-orange-500);
+  --color-data-4: var(--color-red-500);
+  --color-data-5: var(--color-yellow-500);
   --color-data-6: var(--color-purple-500);
 }
