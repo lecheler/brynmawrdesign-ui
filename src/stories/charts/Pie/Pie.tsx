@@ -91,12 +91,11 @@ export const Pie = ({
                   strokeWidth: strokeWidth,
                   strokeDashoffset: strokeDashoffset,
                   transition: {
-                    duration: 0.5,
                     delay: 0.25 * index,
                     ease: "circIn",
 
-                    // type: "spring",
-                    // stiffness: 100,
+                    type: "spring",
+                    stiffness: 120,
                   },
                 }}
                 // exit={{

@@ -228,12 +228,12 @@ export const ResponsiveGrid = meta.story({
     <LayoutContainer max="page">
       <Grid auto responsive minItemWidth="16rem">
         {[
-          { title: "Billing", color: "var(--tone-primary, #2563eb)" },
-          { title: "Team", color: "var(--tone-success, #16a34a)" },
-          { title: "Notifications", color: "var(--tone-warning, #f59e0b)" },
-          { title: "Security", color: "var(--tone-danger, #dc2626)" },
-          { title: "API Access", color: "var(--tone-neutral, #4b5563)" },
-          { title: "Usage", color: "var(--tone-primary-soft, #93c5fd)" },
+          { title: "Billing", color: "var(--color-data-1)" },
+          { title: "Team", color: "var(--color-data-2)" },
+          { title: "Notifications", color: "var(--color-data-3)" },
+          { title: "Security", color: "var(--color-data-4)" },
+          { title: "API Access", color: "var(--color-data-5)" },
+          { title: "Usage", color: "var(--color-data-6)" },
         ].map((item) => (
           <Card key={item.title} {...args}>
             <Card.Header

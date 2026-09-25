@@ -8993,11 +8993,10 @@ var Pie = ({
             strokeWidth,
             strokeDashoffset,
             transition: {
-              duration: 0.5,
               delay: 0.25 * index,
-              ease: "circIn"
-              // type: "spring",
-              // stiffness: 100,
+              ease: "circIn",
+              type: "spring",
+              stiffness: 120
             }
           }
         }

@@ -11,7 +11,7 @@
   --color-green-700: color-mix(in oklab, var(--green-base) 60%, black);
   --color-green-800: color-mix(in oklab, var(--green-base) 40%, black);
   --color-green-900: color-mix(in oklab, var(--green-base) 20%, black);
-  --blue-base: #287bb3;
+  --blue-base: #3498db;
   --color-blue-50: color-mix(in oklab, var(--blue-base) 10%, white);
   --color-blue-100: color-mix(in oklab, var(--blue-base) 20%, white);
   --color-blue-200: color-mix(in oklab, var(--blue-base) 40%, white);
@@ -22,7 +22,7 @@
   --color-blue-700: color-mix(in oklab, var(--blue-base) 60%, black);
   --color-blue-800: color-mix(in oklab, var(--blue-base) 40%, black);
   --color-blue-900: color-mix(in oklab, var(--blue-base) 20%, black);
-  --red-base: #d63d3d;
+  --red-base: #e74c3c;
   --color-red-50: color-mix(in oklab, var(--red-base) 10%, white);
   --color-red-100: color-mix(in oklab, var(--red-base) 20%, white);
   --color-red-200: color-mix(in oklab, var(--red-base) 40%, white);
@@ -33,6 +33,10 @@
   --color-red-700: color-mix(in oklab, var(--red-base) 60%, black);
   --color-red-800: color-mix(in oklab, var(--red-base) 40%, black);
   --color-red-900: color-mix(in oklab, var(--red-base) 20%, black);
+  --orange-base: #f39c12;
+  --color-orange-500: var(--orange-base);
+  --purple-base: #9b59b6;
+  --color-purple-500: var(--purple-base);
   --yellow-base: #f1c40f;
   --color-yellow-50: color-mix(in oklab, var(--yellow-base) 10%, white);
   --color-yellow-100: color-mix(in oklab, var(--yellow-base) 20%, white);
@@ -44,7 +48,7 @@
   --color-yellow-700: color-mix(in oklab, var(--yellow-base) 60%, black);
   --color-yellow-800: color-mix(in oklab, var(--yellow-base) 40%, black);
   --color-yellow-900: color-mix(in oklab, var(--yellow-base) 20%, black);
-  --gray-base: #cccccc;
+  --gray-base: #bdc3c7;
   --color-gray-50: color-mix(in oklab, var(--gray-base) 10%, white);
   --color-gray-100: color-mix(in oklab, var(--gray-base) 20%, white);
   --color-gray-200: color-mix(in oklab, var(--gray-base) 40%, white);
@@ -77,12 +81,12 @@
   --color-caution-hover: var(--color-yellow-600);
   --color-neutral: var(--color-gray-600);
   --color-neutral-hover: var(--color-gray-700);
-  --color-data-1: var(--color-blue-500);
-  --color-data-2: var(--color-green-500);
-  --color-data-3: var(--color-red-100);
-  --color-data-4: var(--color-yellow-500);
-  --color-data-5: var(--color-blue-100);
-  --color-data-6: var(--color-red-500);
+  --color-data-1: var(--color-red-500);
+  --color-data-2: var(--color-orange-500);
+  --color-data-3: var(--color-yellow-500);
+  --color-data-4: var(--color-green-500);
+  --color-data-5: var(--color-blue-500);
+  --color-data-6: var(--color-purple-500);
 }
 
 /* src/stories/foundations/tokens/tones.css */
