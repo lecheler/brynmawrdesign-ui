@@ -100,7 +100,7 @@ export const FullBleedHeader = meta.story({
           background:
             "linear-gradient(135deg, var(--tone-primary, #2563eb), var(--tone-primary-soft, #93c5fd))",
           color: "white",
-          // padding: "0.75rem 1rem",
+          padding: "0.75rem 1rem",
         }}
       >
         <Heading level={3}>Pro Plan</Heading>
