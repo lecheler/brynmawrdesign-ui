@@ -74,6 +74,7 @@ var require_x = __commonJS({
 // src/stories/index.ts
 var index_exports = {};
 __export(index_exports, {
+  BarChart: () => BarChart,
   Button: () => Button,
   Card: () => Card,
   CardBody: () => CardBody,
@@ -287,9 +288,9 @@ function CardRoot({
   className,
   ...props
 }) {
-  const Component2 = as || "div";
+  const Component3 = as || "div";
   return /* @__PURE__ */ import_react5.default.createElement(
-    Component2,
+    Component3,
     {
       className: cx("bmd-card", className),
       "data-variant": variant,
@@ -316,7 +317,11 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/stories/charts/Pie/Pie.tsx
-var import_react25 = __toESM(require("react"));
+var import_react29 = __toESM(require("react"));
+
+// node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
+var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_react15 = require("react");
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
 var import_react6 = require("react");
@@ -341,9 +346,17 @@ var isBrowser = typeof window !== "undefined";
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
 var useIsomorphicLayoutEffect = isBrowser ? import_react8.useLayoutEffect : import_react8.useEffect;
 
+// node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
+var import_jsx_runtime2 = require("react/jsx-runtime");
+var React13 = __toESM(require("react"), 1);
+var import_react12 = require("react");
+
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
 var import_react9 = require("react");
 var PresenceContext = /* @__PURE__ */ (0, import_react9.createContext)(null);
+
+// node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
+var import_jsx_runtime = require("react/jsx-runtime");
 
 // node_modules/motion-utils/dist/es/array.mjs
 function addUniqueItem(arr, item) {
@@ -7149,6 +7162,10 @@ var HTMLProjectionNode = createProjectionNode({
   checkIsScrollRoot: (instance) => Boolean(window.getComputedStyle(instance).position === "fixed")
 });
 
+// node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
+var React12 = __toESM(require("react"), 1);
+var import_react11 = require("react");
+
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
 var import_react10 = require("react");
 var MotionConfigContext = (0, import_react10.createContext)({
@@ -7157,26 +7174,291 @@ var MotionConfigContext = (0, import_react10.createContext)({
   reducedMotion: "never"
 });
 
+// node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
+var React11 = __toESM(require("react"), 1);
+function setRef(ref, value) {
+  if (typeof ref === "function") {
+    return ref(value);
+  } else if (ref !== null && ref !== void 0) {
+    ref.current = value;
+  }
+}
+function composeRefs(...refs) {
+  return (node) => {
+    let hasCleanup = false;
+    const cleanups = refs.map((ref) => {
+      const cleanup = setRef(ref, node);
+      if (!hasCleanup && typeof cleanup === "function") {
+        hasCleanup = true;
+      }
+      return cleanup;
+    });
+    if (hasCleanup) {
+      return () => {
+        for (let i = 0; i < cleanups.length; i++) {
+          const cleanup = cleanups[i];
+          if (typeof cleanup === "function") {
+            cleanup();
+          } else {
+            setRef(refs[i], null);
+          }
+        }
+      };
+    }
+  };
+}
+function useComposedRefs(...refs) {
+  return React11.useCallback(composeRefs(...refs), refs);
+}
+
+// node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
+var PopChildMeasure = class extends React12.Component {
+  getSnapshotBeforeUpdate(prevProps) {
+    const element = this.props.childRef.current;
+    if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
+      const parent = element.offsetParent;
+      const parentWidth = isHTMLElement(parent) ? parent.offsetWidth || 0 : 0;
+      const parentHeight = isHTMLElement(parent) ? parent.offsetHeight || 0 : 0;
+      const computedStyle = getComputedStyle(element);
+      const size = this.props.sizeRef.current;
+      size.height = parseFloat(computedStyle.height);
+      size.width = parseFloat(computedStyle.width);
+      size.top = element.offsetTop;
+      size.left = element.offsetLeft;
+      size.right = parentWidth - size.width - size.left;
+      size.bottom = parentHeight - size.height - size.top;
+      size.direction = computedStyle.direction;
+    }
+    return null;
+  }
+  /**
+   * Required with getSnapshotBeforeUpdate to stop React complaining.
+   */
+  componentDidUpdate() {
+  }
+  render() {
+    return this.props.children;
+  }
+};
+function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
+  var _a2;
+  const id3 = (0, import_react11.useId)();
+  const ref = (0, import_react11.useRef)(null);
+  const size = (0, import_react11.useRef)({
+    width: 0,
+    height: 0,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    direction: "ltr"
+  });
+  const { nonce } = (0, import_react11.useContext)(MotionConfigContext);
+  const childRef = pop !== false ? ((_a2 = children.props) == null ? void 0 : _a2.ref) ?? (children == null ? void 0 : children.ref) : void 0;
+  const composedRef = useComposedRefs(ref, childRef);
+  (0, import_react11.useInsertionEffect)(() => {
+    const { width, height, top, left, right, bottom, direction } = size.current;
+    if (isPresent || pop === false || !ref.current || !width || !height)
+      return;
+    const isRTL = direction === "rtl";
+    const x = anchorX === "left" ? isRTL ? `right: ${right}` : `left: ${left}` : isRTL ? `left: ${left}` : `right: ${right}`;
+    const y = anchorY === "bottom" ? `bottom: ${bottom}` : `top: ${top}`;
+    ref.current.dataset.motionPopId = id3;
+    const style = document.createElement("style");
+    if (nonce)
+      style.nonce = nonce;
+    const parent = root ?? document.head;
+    parent.appendChild(style);
+    if (style.sheet) {
+      style.sheet.insertRule(`
+          [data-motion-pop-id="${id3}"] {
+            position: absolute !important;
+            width: ${width}px !important;
+            height: ${height}px !important;
+            ${x}px !important;
+            ${y}px !important;
+          }
+        `);
+    }
+    return () => {
+      var _a3;
+      (_a3 = ref.current) == null ? void 0 : _a3.removeAttribute("data-motion-pop-id");
+      if (parent.contains(style)) {
+        parent.removeChild(style);
+      }
+    };
+  }, [isPresent]);
+  return (0, import_jsx_runtime.jsx)(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React12.cloneElement(children, { ref: composedRef }) });
+}
+
+// node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
+var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, presenceAffectsLayout, mode, anchorX, anchorY, root }) => {
+  const presenceChildren = useConstant(newChildrenMap);
+  const id3 = (0, import_react12.useId)();
+  const isPresentRef = (0, import_react12.useRef)(isPresent);
+  const onExitCompleteRef = (0, import_react12.useRef)(onExitComplete);
+  useIsomorphicLayoutEffect(() => {
+    isPresentRef.current = isPresent;
+    onExitCompleteRef.current = onExitComplete;
+  });
+  let isReusedContext = true;
+  let context = (0, import_react12.useMemo)(() => {
+    isReusedContext = false;
+    return {
+      id: id3,
+      initial,
+      isPresent,
+      custom,
+      onExitComplete: (childId) => {
+        presenceChildren.set(childId, true);
+        for (const isComplete of presenceChildren.values()) {
+          if (!isComplete)
+            return;
+        }
+        onExitComplete && onExitComplete();
+      },
+      register: (childId) => {
+        presenceChildren.set(childId, false);
+        return () => {
+          var _a2;
+          presenceChildren.delete(childId);
+          !isPresentRef.current && !presenceChildren.size && ((_a2 = onExitCompleteRef.current) == null ? void 0 : _a2.call(onExitCompleteRef));
+        };
+      }
+    };
+  }, [isPresent, presenceChildren, onExitComplete]);
+  if (presenceAffectsLayout && isReusedContext) {
+    context = { ...context };
+  }
+  (0, import_react12.useMemo)(() => {
+    presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
+  }, [isPresent]);
+  React13.useEffect(() => {
+    !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
+  }, [isPresent]);
+  children = (0, import_jsx_runtime2.jsx)(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
+  return (0, import_jsx_runtime2.jsx)(PresenceContext.Provider, { value: context, children });
+};
+function newChildrenMap() {
+  return /* @__PURE__ */ new Map();
+}
+
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-var import_react11 = require("react");
+var import_react13 = require("react");
 function usePresence(subscribe = true) {
-  const context = (0, import_react11.useContext)(PresenceContext);
+  const context = (0, import_react13.useContext)(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
-  const id3 = (0, import_react11.useId)();
-  (0, import_react11.useEffect)(() => {
+  const id3 = (0, import_react13.useId)();
+  (0, import_react13.useEffect)(() => {
     if (subscribe) {
       return register(id3);
     }
   }, [subscribe]);
-  const safeToRemove = (0, import_react11.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
+  const safeToRemove = (0, import_react13.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
   return !isPresent && onExitComplete ? [false, safeToRemove] : [true];
 }
 
+// node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs
+var import_react14 = require("react");
+var getChildKey = (child) => child.key || "";
+function onlyElements(children) {
+  const filtered = [];
+  import_react14.Children.forEach(children, (child) => {
+    if ((0, import_react14.isValidElement)(child))
+      filtered.push(child);
+  });
+  return filtered;
+}
+
+// node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
+var AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", anchorY = "top", root }) => {
+  const [isParentPresent, safeToRemove] = usePresence(propagate);
+  const presentChildren = (0, import_react15.useMemo)(() => onlyElements(children), [children]);
+  const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(getChildKey);
+  const isInitialRender = (0, import_react15.useRef)(true);
+  const pendingPresentChildren = (0, import_react15.useRef)(presentChildren);
+  const exitComplete = useConstant(() => /* @__PURE__ */ new Map());
+  const exitingComponents = (0, import_react15.useRef)(/* @__PURE__ */ new Set());
+  const [diffedChildren, setDiffedChildren] = (0, import_react15.useState)(presentChildren);
+  const [renderedChildren, setRenderedChildren] = (0, import_react15.useState)(presentChildren);
+  useIsomorphicLayoutEffect(() => {
+    if (propagate && !isParentPresent && !renderedChildren.length) {
+      safeToRemove == null ? void 0 : safeToRemove();
+    }
+  }, [isParentPresent, propagate, renderedChildren.length, safeToRemove]);
+  useIsomorphicLayoutEffect(() => {
+    isInitialRender.current = false;
+    pendingPresentChildren.current = presentChildren;
+    for (let i = 0; i < renderedChildren.length; i++) {
+      const key = getChildKey(renderedChildren[i]);
+      if (!presentKeys.includes(key)) {
+        if (exitComplete.get(key) !== true) {
+          exitComplete.set(key, false);
+        }
+      } else {
+        exitComplete.delete(key);
+        exitingComponents.current.delete(key);
+      }
+    }
+  }, [renderedChildren, presentKeys.length, presentKeys.join("-")]);
+  const exitingChildren = [];
+  if (presentChildren !== diffedChildren) {
+    let nextChildren = [...presentChildren];
+    let insertionIndex = 0;
+    for (const child of renderedChildren) {
+      const presentIndex = presentKeys.indexOf(getChildKey(child));
+      if (presentIndex === -1) {
+        nextChildren.splice(insertionIndex++, 0, child);
+        exitingChildren.push(child);
+      } else {
+        insertionIndex = presentIndex + exitingChildren.length + 1;
+      }
+    }
+    if (mode === "wait" && exitingChildren.length) {
+      nextChildren = exitingChildren;
+    }
+    setRenderedChildren(onlyElements(nextChildren));
+    setDiffedChildren(presentChildren);
+    return null;
+  }
+  if (process.env.NODE_ENV !== "production" && mode === "wait" && renderedChildren.length > 1) {
+    console.warn(`You're attempting to animate multiple children within AnimatePresence, but its mode is set to "wait". This will lead to odd visual behaviour.`);
+  }
+  const { forceRender } = (0, import_react15.useContext)(LayoutGroupContext);
+  return (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: renderedChildren.map((child) => {
+    const key = getChildKey(child);
+    const isPresent = propagate && !isParentPresent ? false : presentChildren === renderedChildren || presentKeys.includes(key);
+    const onExit = () => {
+      if (exitingComponents.current.has(key)) {
+        return;
+      }
+      if (exitComplete.has(key)) {
+        exitingComponents.current.add(key);
+        exitComplete.set(key, true);
+      } else {
+        return;
+      }
+      let isEveryExitComplete = true;
+      exitComplete.forEach((isExitComplete) => {
+        if (!isExitComplete)
+          isEveryExitComplete = false;
+      });
+      if (isEveryExitComplete) {
+        forceRender == null ? void 0 : forceRender();
+        setRenderedChildren(pendingPresentChildren.current);
+        propagate && (safeToRemove == null ? void 0 : safeToRemove());
+        onExitComplete && onExitComplete();
+      }
+    };
+    return (0, import_jsx_runtime3.jsx)(PresenceChild, { isPresent, initial: !isInitialRender.current || initial ? void 0 : false, custom, presenceAffectsLayout, mode, root, onExitComplete: isPresent ? void 0 : onExit, anchorX, anchorY, children: child }, key);
+  }) });
+};
+
 // node_modules/framer-motion/dist/es/context/LazyContext.mjs
-var import_react12 = require("react");
-var LazyContext = (0, import_react12.createContext)({ strict: false });
+var import_react16 = require("react");
+var LazyContext = (0, import_react16.createContext)({ strict: false });
 
 // node_modules/framer-motion/dist/es/motion/features/definitions.mjs
 var featureProps = {
@@ -7230,15 +7512,15 @@ function loadFeatures(features) {
 }
 
 // node_modules/framer-motion/dist/es/motion/index.mjs
-var import_jsx_runtime = require("react/jsx-runtime");
-var import_react22 = require("react");
+var import_jsx_runtime4 = require("react/jsx-runtime");
+var import_react26 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
-var import_react13 = require("react");
-var MotionContext = /* @__PURE__ */ (0, import_react13.createContext)({});
+var import_react17 = require("react");
+var MotionContext = /* @__PURE__ */ (0, import_react17.createContext)({});
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
-var import_react14 = require("react");
+var import_react18 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
 function getCurrentTreeVariants(props, context) {
@@ -7254,18 +7536,18 @@ function getCurrentTreeVariants(props, context) {
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
 function useCreateMotionContext(props) {
-  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react14.useContext)(MotionContext));
-  return (0, import_react14.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
+  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react18.useContext)(MotionContext));
+  return (0, import_react18.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
 }
 function variantLabelsAsDependency(prop) {
   return Array.isArray(prop) ? prop.join(" ") : prop;
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-var import_react17 = require("react");
+var import_react21 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/use-props.mjs
-var import_react15 = require("react");
+var import_react19 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
 var createHtmlRenderState = () => ({
@@ -7284,7 +7566,7 @@ function copyRawValuesOnly(target, source, props) {
   }
 }
 function useInitialMotionValues({ transformTemplate }, visualState) {
-  return (0, import_react15.useMemo)(() => {
+  return (0, import_react19.useMemo)(() => {
     const state = createHtmlRenderState();
     buildHTMLStyles(state, visualState, transformTemplate);
     return Object.assign({}, state.vars, state.style);
@@ -7313,7 +7595,7 @@ function useHTMLProps(props, visualState) {
 }
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
-var import_react16 = require("react");
+var import_react20 = require("react");
 
 // node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
 var createSvgRenderState = () => ({
@@ -7322,10 +7604,10 @@ var createSvgRenderState = () => ({
 });
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
-function useSVGProps(props, visualState, _isStatic, Component2) {
-  const visualProps = (0, import_react16.useMemo)(() => {
+function useSVGProps(props, visualState, _isStatic, Component3) {
+  const visualProps = (0, import_react20.useMemo)(() => {
     const state = createSvgRenderState();
-    buildSVGAttrs(state, visualState, isSVGTag(Component2), props.transformTemplate, props.style);
+    buildSVGAttrs(state, visualState, isSVGTag(Component3), props.transformTemplate, props.style);
     return {
       ...state.attrs,
       style: { ...state.style }
@@ -7426,26 +7708,26 @@ var lowercaseSVGElements = [
 ];
 
 // node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs
-function isSVGComponent(Component2) {
+function isSVGComponent(Component3) {
   if (
     /**
      * If it's not a string, it's a custom React component. Currently we only support
      * HTML custom React components.
      */
-    typeof Component2 !== "string" || /**
+    typeof Component3 !== "string" || /**
      * If it contains a dash, the element is a custom HTML webcomponent.
      */
-    Component2.includes("-")
+    Component3.includes("-")
   ) {
     return false;
   } else if (
     /**
      * If it's in our list of lowercase SVG tags, it's an SVG component
      */
-    lowercaseSVGElements.indexOf(Component2) > -1 || /**
+    lowercaseSVGElements.indexOf(Component3) > -1 || /**
      * If it contains a capital letter, it's an SVG component
      */
-    /[A-Z]/u.test(Component2)
+    /[A-Z]/u.test(Component3)
   ) {
     return true;
   }
@@ -7453,21 +7735,21 @@ function isSVGComponent(Component2) {
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-function useRender(Component2, props, ref, { latestValues }, isStatic, forwardMotionProps = false, isSVG, isValidProp) {
-  const useVisualProps = isSVG ?? isSVGComponent(Component2) ? useSVGProps : useHTMLProps;
-  const visualProps = useVisualProps(props, latestValues, isStatic, Component2);
-  const filteredProps = filterProps(props, typeof Component2 === "string", forwardMotionProps, isValidProp);
-  const elementProps = Component2 !== import_react17.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
+function useRender(Component3, props, ref, { latestValues }, isStatic, forwardMotionProps = false, isSVG, isValidProp) {
+  const useVisualProps = isSVG ?? isSVGComponent(Component3) ? useSVGProps : useHTMLProps;
+  const visualProps = useVisualProps(props, latestValues, isStatic, Component3);
+  const filteredProps = filterProps(props, typeof Component3 === "string", forwardMotionProps, isValidProp);
+  const elementProps = Component3 !== import_react21.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
   const { children } = props;
-  const renderedChildren = (0, import_react17.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
-  return (0, import_react17.createElement)(Component2, {
+  const renderedChildren = (0, import_react21.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
+  return (0, import_react21.createElement)(Component3, {
     ...elementProps,
     children: renderedChildren
   });
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
-var import_react18 = require("react");
+var import_react22 = require("react");
 function makeState({ scrapeMotionValuesFromProps: scrapeMotionValuesFromProps3, createRenderState }, props, context, presenceContext) {
   const state = {
     latestValues: makeLatestValues(props, context, presenceContext, scrapeMotionValuesFromProps3),
@@ -7518,8 +7800,8 @@ function makeLatestValues(props, context, presenceContext, scrapeMotionValues) {
   return values;
 }
 var makeUseVisualState = (config) => (props, isStatic) => {
-  const context = (0, import_react18.useContext)(MotionContext);
-  const presenceContext = (0, import_react18.useContext)(PresenceContext);
+  const context = (0, import_react22.useContext)(MotionContext);
+  const presenceContext = (0, import_react22.useContext)(PresenceContext);
   const make = () => makeState(config, props, context, presenceContext);
   return isStatic ? make() : useConstant(make);
 };
@@ -7540,14 +7822,14 @@ var useSVGVisualState = /* @__PURE__ */ makeUseVisualState({
 var motionComponentSymbol = /* @__PURE__ */ Symbol.for("motionComponentSymbol");
 
 // node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
-var import_react19 = require("react");
+var import_react23 = require("react");
 function useMotionRef(visualState, visualElement, externalRef) {
-  const externalRefContainer = (0, import_react19.useRef)(externalRef);
-  (0, import_react19.useInsertionEffect)(() => {
+  const externalRefContainer = (0, import_react23.useRef)(externalRef);
+  (0, import_react23.useInsertionEffect)(() => {
     externalRefContainer.current = externalRef;
   });
-  const refCleanup = (0, import_react19.useRef)(null);
-  return (0, import_react19.useCallback)((instance) => {
+  const refCleanup = (0, import_react23.useRef)(null);
+  return (0, import_react23.useCallback)((instance) => {
     var _a2;
     if (instance) {
       (_a2 = visualState.onMount) == null ? void 0 : _a2.call(visualState, instance);
@@ -7575,11 +7857,11 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-var import_react21 = require("react");
+var import_react25 = require("react");
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
-var import_react20 = require("react");
-var SwitchLayoutGroupContext = (0, import_react20.createContext)({});
+var import_react24 = require("react");
+var SwitchLayoutGroupContext = (0, import_react24.createContext)({});
 
 // node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
 function isRefObject(ref) {
@@ -7587,19 +7869,19 @@ function isRefObject(ref) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-function useVisualElement(Component2, visualState, props, createVisualElement, ProjectionNodeConstructor, isSVG) {
+function useVisualElement(Component3, visualState, props, createVisualElement, ProjectionNodeConstructor, isSVG) {
   var _a2, _b;
-  const { visualElement: parent } = (0, import_react21.useContext)(MotionContext);
-  const lazyContext = (0, import_react21.useContext)(LazyContext);
-  const presenceContext = (0, import_react21.useContext)(PresenceContext);
-  const motionConfig = (0, import_react21.useContext)(MotionConfigContext);
+  const { visualElement: parent } = (0, import_react25.useContext)(MotionContext);
+  const lazyContext = (0, import_react25.useContext)(LazyContext);
+  const presenceContext = (0, import_react25.useContext)(PresenceContext);
+  const motionConfig = (0, import_react25.useContext)(MotionConfigContext);
   const reducedMotionConfig = motionConfig.reducedMotion;
   const skipAnimations = motionConfig.skipAnimations;
-  const visualElementRef = (0, import_react21.useRef)(null);
-  const hasMountedOnce = (0, import_react21.useRef)(false);
+  const visualElementRef = (0, import_react25.useRef)(null);
+  const hasMountedOnce = (0, import_react25.useRef)(false);
   createVisualElement = createVisualElement || lazyContext.renderer;
   if (!visualElementRef.current && createVisualElement) {
-    visualElementRef.current = createVisualElement(Component2, {
+    visualElementRef.current = createVisualElement(Component3, {
       visualState,
       parent,
       props,
@@ -7614,18 +7896,18 @@ function useVisualElement(Component2, visualState, props, createVisualElement, P
     }
   }
   const visualElement = visualElementRef.current;
-  const initialLayoutGroupConfig = (0, import_react21.useContext)(SwitchLayoutGroupContext);
+  const initialLayoutGroupConfig = (0, import_react25.useContext)(SwitchLayoutGroupContext);
   if (visualElement && !visualElement.projection && ProjectionNodeConstructor && (visualElement.type === "html" || visualElement.type === "svg")) {
     createProjectionNode2(visualElementRef.current, props, ProjectionNodeConstructor, initialLayoutGroupConfig);
   }
-  const isMounted = (0, import_react21.useRef)(false);
-  (0, import_react21.useInsertionEffect)(() => {
+  const isMounted = (0, import_react25.useRef)(false);
+  (0, import_react25.useInsertionEffect)(() => {
     if (visualElement && isMounted.current) {
       visualElement.update(props, presenceContext);
     }
   });
   const optimisedAppearId = props[optimizedAppearDataAttribute];
-  const wantsHandoff = (0, import_react21.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
+  const wantsHandoff = (0, import_react25.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
   useIsomorphicLayoutEffect(() => {
     hasMountedOnce.current = true;
     if (!visualElement)
@@ -7638,7 +7920,7 @@ function useVisualElement(Component2, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  (0, import_react21.useEffect)(() => {
+  (0, import_react25.useEffect)(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -7685,14 +7967,14 @@ function getClosestProjectingNode(visualElement) {
 }
 
 // node_modules/framer-motion/dist/es/motion/index.mjs
-function createMotionComponent(Component2, { forwardMotionProps = false, type } = {}, preloadedFeatures, createVisualElement) {
+function createMotionComponent(Component3, { forwardMotionProps = false, type } = {}, preloadedFeatures, createVisualElement) {
   preloadedFeatures && loadFeatures(preloadedFeatures);
-  const isSVG = type ? type === "svg" : isSVGComponent(Component2);
+  const isSVG = type ? type === "svg" : isSVGComponent(Component3);
   const useVisualState = isSVG ? useSVGVisualState : useHTMLVisualState;
   function MotionDOMComponent(props, externalRef) {
     let MeasureLayout2;
     const configAndProps = {
-      ...(0, import_react22.useContext)(MotionConfigContext),
+      ...(0, import_react26.useContext)(MotionConfigContext),
       ...props,
       layoutId: useLayoutId(props)
     };
@@ -7703,21 +7985,21 @@ function createMotionComponent(Component2, { forwardMotionProps = false, type } 
       useStrictMode(configAndProps, preloadedFeatures);
       const layoutProjection = getProjectionFunctionality(configAndProps);
       MeasureLayout2 = layoutProjection.MeasureLayout;
-      context.visualElement = useVisualElement(Component2, visualState, configAndProps, createVisualElement, layoutProjection.ProjectionNode, isSVG);
+      context.visualElement = useVisualElement(Component3, visualState, configAndProps, createVisualElement, layoutProjection.ProjectionNode, isSVG);
     }
-    return (0, import_jsx_runtime.jsxs)(MotionContext.Provider, { value: context, children: [MeasureLayout2 && context.visualElement ? (0, import_jsx_runtime.jsx)(MeasureLayout2, { visualElement: context.visualElement, ...configAndProps }) : null, useRender(Component2, props, useMotionRef(visualState, context.visualElement, externalRef), visualState, isStatic, forwardMotionProps, isSVG, isValidProp)] });
+    return (0, import_jsx_runtime4.jsxs)(MotionContext.Provider, { value: context, children: [MeasureLayout2 && context.visualElement ? (0, import_jsx_runtime4.jsx)(MeasureLayout2, { visualElement: context.visualElement, ...configAndProps }) : null, useRender(Component3, props, useMotionRef(visualState, context.visualElement, externalRef), visualState, isStatic, forwardMotionProps, isSVG, isValidProp)] });
   }
-  MotionDOMComponent.displayName = `motion.${typeof Component2 === "string" ? Component2 : `create(${Component2.displayName ?? Component2.name ?? ""})`}`;
-  const ForwardRefMotionComponent = (0, import_react22.forwardRef)(MotionDOMComponent);
-  ForwardRefMotionComponent[motionComponentSymbol] = Component2;
+  MotionDOMComponent.displayName = `motion.${typeof Component3 === "string" ? Component3 : `create(${Component3.displayName ?? Component3.name ?? ""})`}`;
+  const ForwardRefMotionComponent = (0, import_react26.forwardRef)(MotionDOMComponent);
+  ForwardRefMotionComponent[motionComponentSymbol] = Component3;
   return ForwardRefMotionComponent;
 }
 function useLayoutId({ layoutId }) {
-  const layoutGroupId = (0, import_react22.useContext)(LayoutGroupContext).id;
+  const layoutGroupId = (0, import_react26.useContext)(LayoutGroupContext).id;
   return layoutGroupId && layoutId !== void 0 ? layoutGroupId + "-" + layoutId : layoutId;
 }
 function useStrictMode(configAndProps, preloadedFeatures) {
-  const isStrict = (0, import_react22.useContext)(LazyContext).strict;
+  const isStrict = (0, import_react26.useContext)(LazyContext).strict;
   if (process.env.NODE_ENV !== "production" && preloadedFeatures && isStrict) {
     const strictMessage = "You have rendered a `motion` component within a `LazyMotion` component. This will break tree shaking. Import and render a `m` component instead.";
     configAndProps.ignoreStrict ? warning(false, strictMessage, "lazy-strict-mode") : invariant(false, strictMessage, "lazy-strict-mode");
@@ -7741,14 +8023,14 @@ function createMotionProxy(preloadedFeatures, createVisualElement) {
     return createMotionComponent;
   }
   const componentCache = /* @__PURE__ */ new Map();
-  const factory = (Component2, options) => {
-    return createMotionComponent(Component2, options, preloadedFeatures, createVisualElement);
+  const factory = (Component3, options) => {
+    return createMotionComponent(Component3, options, preloadedFeatures, createVisualElement);
   };
-  const deprecatedFactoryFunction = (Component2, options) => {
+  const deprecatedFactoryFunction = (Component3, options) => {
     if (process.env.NODE_ENV !== "production") {
       warnOnce(false, "motion() is deprecated. Use motion.create() instead.");
     }
-    return factory(Component2, options);
+    return factory(Component3, options);
   };
   return new Proxy(deprecatedFactoryFunction, {
     /**
@@ -7768,11 +8050,11 @@ function createMotionProxy(preloadedFeatures, createVisualElement) {
 }
 
 // node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
-var import_react23 = require("react");
-var createDomVisualElement = (Component2, options) => {
-  const isSVG = options.isSVG ?? isSVGComponent(Component2);
+var import_react27 = require("react");
+var createDomVisualElement = (Component3, options) => {
+  const isSVG = options.isSVG ?? isSVGComponent(Component3);
   return isSVG ? new SVGVisualElement(options) : new HTMLVisualElement(options, {
-    allowProjection: Component2 !== import_react23.Fragment
+    allowProjection: Component3 !== import_react27.Fragment
   });
 };
 
@@ -8684,10 +8966,10 @@ var PanGesture = class extends Feature {
 };
 
 // node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
-var import_jsx_runtime2 = require("react/jsx-runtime");
-var import_react24 = require("react");
+var import_jsx_runtime5 = require("react/jsx-runtime");
+var import_react28 = require("react");
 var hasTakenAnySnapshot = false;
-var MeasureLayoutWithContext = class extends import_react24.Component {
+var MeasureLayoutWithContext = class extends import_react28.Component {
   /**
    * This only mounts projection nodes for components that
    * need measuring, we might want to do it for all components
@@ -8783,8 +9065,8 @@ var MeasureLayoutWithContext = class extends import_react24.Component {
 };
 function MeasureLayout(props) {
   const [isPresent, safeToRemove] = usePresence();
-  const layoutGroup = (0, import_react24.useContext)(LayoutGroupContext);
-  return (0, import_jsx_runtime2.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react24.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
+  const layoutGroup = (0, import_react28.useContext)(LayoutGroupContext);
+  return (0, import_jsx_runtime5.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react28.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
 }
 
 // node_modules/framer-motion/dist/es/motion/features/drag.mjs
@@ -9035,7 +9317,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ import_react25.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react25.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react25.default.createElement(Heading, null, title), /* @__PURE__ */ import_react25.default.createElement(
+  return /* @__PURE__ */ import_react29.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react29.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react29.default.createElement(Heading, null, title), /* @__PURE__ */ import_react29.default.createElement(
     motion2.svg,
     {
       width: size,
@@ -9043,7 +9325,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ import_react25.default.createElement(
+    /* @__PURE__ */ import_react29.default.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9059,7 +9341,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ import_react25.default.createElement(
+      return /* @__PURE__ */ import_react29.default.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9086,10 +9368,10 @@ var Pie = ({
             strokeWidth,
             strokeDashoffset,
             transition: {
-              delay: 0.25 * index,
-              ease: "circIn",
+              delay: 0.1 * index,
               type: "spring",
-              stiffness: 120
+              visualDuration: 0.25,
+              bounce: 0.3
             }
           }
         }
@@ -9097,8 +9379,136 @@ var Pie = ({
     })
   )));
 };
+
+// src/stories/charts/Bar/BarChart.tsx
+var import_react31 = __toESM(require("react"));
+var BarChart = ({
+  title = "Bar Chart",
+  size = "md",
+  height = 500,
+  ...props
+}) => {
+  const columnsMap = props.data.reduce(
+    (acc, item) => {
+      if (!acc[item.groupId]) {
+        acc[item.groupId] = {
+          groupId: item.groupId,
+          axisLabel: item.label,
+          // 👈 Capture the display label safely from the first item
+          segments: [],
+          totalValue: 0
+          // Keep running total of values per column
+        };
+      }
+      acc[item.groupId].segments.push(item);
+      acc[item.groupId].totalValue += item.value;
+      return acc;
+    },
+    {}
+  );
+  const columnsList = Object.values(columnsMap);
+  let maxValue = props.maxValue || columnsList.reduce(
+    (max, current) => Math.max(max, current.totalValue),
+    -Infinity
+  );
+  const ANIMATE_TIME = 0.25;
+  const ANIMATE_DELAY = ANIMATE_TIME / 5;
+  return /* @__PURE__ */ import_react31.default.createElement("div", { className: "bmd-bar-chart", "data-size": size }, /* @__PURE__ */ import_react31.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ import_react31.default.createElement(
+      motion2.div,
+      {
+        key: `bar-${bar.groupId}-${index}`,
+        className: "bmd-bar-chart__value-wrapper"
+      },
+      bar.totalValue > 0 && /* @__PURE__ */ import_react31.default.createElement(
+        motion2.div,
+        {
+          key: `val-${bar.groupId}`,
+          className: "bmd-bar-chart__value-text",
+          initial: { opacity: 0, y: 20 },
+          animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: ANIMATE_TIME + ANIMATE_DELAY * index,
+              type: "spring",
+              visualDuration: ANIMATE_TIME,
+              bounce: 0.4
+            }
+          },
+          exit: { opacity: 0 }
+        },
+        bar.totalValue
+      ),
+      /* @__PURE__ */ import_react31.default.createElement(
+        motion2.div,
+        {
+          className: "bmd-bar-chart__value-bar-wrapper",
+          style: { height: bar.totalValue / maxValue * height }
+        },
+        /* @__PURE__ */ import_react31.default.createElement(
+          motion2.div,
+          {
+            className: "bmd-bar-chart__value-bar-total",
+            initial: {
+              height: 0,
+              opacity: 0
+            },
+            animate: {
+              height: "100%",
+              opacity: 1,
+              transition: {
+                height: {
+                  delay: ANIMATE_DELAY * index,
+                  type: "spring",
+                  visualDuration: ANIMATE_TIME,
+                  bounce: 0.4
+                }
+              }
+            },
+            exit: { opacity: 0 }
+          },
+          bar.segments.map((segment) => {
+            return /* @__PURE__ */ import_react31.default.createElement(
+              motion2.div,
+              {
+                key: `label-${segment.id}`,
+                style: {
+                  backgroundColor: segment.color || "var(--color-data-1)",
+                  height: `${segment.value / bar.totalValue * 100}%`
+                }
+              }
+            );
+          })
+        )
+      ),
+      /* @__PURE__ */ import_react31.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ import_react31.default.createElement(
+        motion2.div,
+        {
+          className: "bmd-bar-chart__value-label",
+          key: `label-${bar.groupId}`,
+          initial: { opacity: 0, y: -10 },
+          animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: ANIMATE_TIME + ANIMATE_DELAY * index,
+              type: "spring",
+              visualDuration: ANIMATE_TIME,
+              bounce: 0.4
+            }
+          },
+          exit: { opacity: 0 }
+        },
+        bar.axisLabel
+      )
+    );
+  })));
+};
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  BarChart,
   Button,
   Card,
   CardBody,
