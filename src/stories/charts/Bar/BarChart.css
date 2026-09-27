@@ -1,0 +1,66 @@
+.bmd-bar-chart {
+  display: flex;
+  /* align-items: flex-end;
+  overflow-x: scroll; */
+  border-radius: var(--bar-radius-rounded);
+  background-color: var(--color-surface-subtle);
+  gap: var(--chart-gap-x);
+  padding: var(--chart-padding-y) var(--chart-padding-x);
+}
+
+/* div wrapping value text, bar, and label */
+.bmd-bar-chart__value-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  justify-content: space-between;
+  align-items: center;
+
+  height: 300px;
+  gap: var(--chart-gap-y);
+  /* background-color: beige; */
+}
+
+/* total value as text on top of bar (e.g., total shows) */
+.bmd-bar-chart__value-text {
+  font-weight: var(--chart-font-weight);
+  font-size: var(--chart-font-size);
+}
+
+/* div wrapping each bar (including stacked bars) */
+.bmd-bar-chart__value-bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+/* wrapper for stacked bars calculating total height */
+.bmd-bar-chart__value-bar-total {
+  overflow: hidden;
+  border-radius: var(--bar-radius-rounded);
+  background-color: var(--color-surface);
+}
+
+.bmd-bar-chart__value-bar-fill {
+  width: 100%;
+}
+
+.bmd-bar-chart__value-sep {
+  width: 100%;
+  height: 1px;
+  margin: 0.5em 0em;
+  background-color: var(--color-text);
+}
+
+.bmd-bar-chart__value-label {
+  /* position: absolute; */
+  background-color: aqua;
+}
+/* Sizes */
+.bmd-button[data-size="xs"] {
+  padding: var(--button-padding-y-xs) var(--button-padding-x-xs);
+  font-size: var(--font-size-xs);
+}

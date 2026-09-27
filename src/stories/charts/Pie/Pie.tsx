@@ -7,11 +7,13 @@ import { Heading } from "../../foundations/typography/Heading";
 import { Stack } from "../../foundations/layout/Stack";
 
 export interface PieData {
+  id: number;
   value: number;
   category: string;
-  color: string;
+  color?: string;
+  label?: string;
 }
-interface PieProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface PieProps {
   data: PieData[];
   title?: string;
   size?: number;
@@ -91,20 +93,12 @@ export const Pie = ({
                   strokeWidth: strokeWidth,
                   strokeDashoffset: strokeDashoffset,
                   transition: {
-                    delay: 0.25 * index,
-                    ease: "circIn",
-
+                    delay: 0.1 * index,
                     type: "spring",
-                    stiffness: 120,
+                    visualDuration: 0.25,
+                    bounce: 0.3,
                   },
                 }}
-                // exit={{
-                //   opacity: 0.25,
-                //   strokeWidth: 0,
-                //   transition: {
-                //     delay: 0,
-                //   },
-                // }}
               />
             );
           })}

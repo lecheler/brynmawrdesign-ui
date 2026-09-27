@@ -15,3 +15,4 @@ export * from "./components/Card/Card";
 
 /* Charts */
 export * from "./charts/Pie/Pie";
+export * from "./charts/Bar/BarChart";

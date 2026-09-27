@@ -1,7 +1,27 @@
 :root {
   --chart-tone: var(--color-surface-subtle);
 
+  --chart-padding-y: var(--space-4);
+  --chart-padding-x: var(--space-8);
+  --chart-gap-x: var(--space-2);
+  --chart-gap-y: var(--space-1);
+
+  --chart-font-weight: var(--font-weight-semibold);
+  --chart-font-size: var(--font-size-xs);
+  --chart-line-height: var(--line-height-tight);
+
   --pie-radius-sm: 80px;
   --pie-radius-md: 120px;
   --pie-radius-lg: 160px;
+
+  --bar-radius-rounded: var(--radius-sm);
+
+  /* Default colors for chart data */
+  --color-data-empty: var(--color-surface);
+  --color-data-1: var(--color-blue-500);
+  --color-data-2: var(--color-green-500);
+  --color-data-3: var(--color-yellow-500);
+  --color-data-4: var(--color-red-500);
+  --color-data-5: var(--color-orange-500);
+  --color-data-6: var(--color-purple-500);
 }
