@@ -17,6 +17,7 @@ export interface BarChartItem {
 export interface BarChartProps {
   data: BarChartItem[];
   title?: string;
+  height?: number;
   size: BarChartSize;
   maxValue?: number;
 }
@@ -25,6 +26,7 @@ export interface BarChartProps {
 export const BarChart = ({
   title = "Bar Chart",
   size = "md",
+  height = 500,
   ...props
 }: BarChartProps) => {
   const columnsMap = props.data.reduce(
@@ -61,24 +63,16 @@ export const BarChart = ({
       -Infinity,
     );
 
+  const ANIMATE_TIME = 0.25;
+  const ANIMATE_DELAY = ANIMATE_TIME / 5;
   return (
-    <div className="bmd-bar-chart">
+    <div className="bmd-bar-chart" data-size={size}>
       <AnimatePresence>
         {columnsList.map((bar, index) => {
-          const heightPercent =
-            bar.totalValue === 0 ? 3 : `${(bar.totalValue / maxValue) * 100}%`;
           return (
             <motion.div
               key={`bar-${bar.groupId}-${index}`}
               className="bmd-bar-chart__value-wrapper"
-              // style={{ height: height }}
-              // transition={{
-              //   type: "spring",
-              //   visualDuration: 0.2,
-              //   bounce: 0.2,
-              //   delay: 0,
-              // }}
-              // layout={true}
             >
               {bar.totalValue > 0 && (
                 <motion.div
@@ -88,29 +82,37 @@ export const BarChart = ({
                   animate={{
                     opacity: 1,
                     y: 0,
-                    transition: { delay: 0.6 * index * 0.05 },
+                    transition: {
+                      delay: ANIMATE_TIME + ANIMATE_DELAY * index,
+                      type: "spring",
+                      visualDuration: ANIMATE_TIME,
+                      bounce: 0.4,
+                    },
                   }}
                   exit={{ opacity: 0 }}
                 >
                   {bar.totalValue}
                 </motion.div>
               )}
-              <motion.div className="bmd-bar-chart__value-bar-wrapper">
+              <motion.div
+                className="bmd-bar-chart__value-bar-wrapper"
+                style={{ height: (bar.totalValue / maxValue) * height }}
+              >
                 <motion.div
                   className="bmd-bar-chart__value-bar-total"
                   initial={{
-                    // height: 0,
+                    height: 0,
                     opacity: 0,
                   }}
                   animate={{
-                    height: heightPercent,
+                    height: "100%",
                     opacity: 1.0,
                     transition: {
                       height: {
-                        delay: 0.05 * index,
+                        delay: ANIMATE_DELAY * index,
                         type: "spring",
-                        visualDuration: 0.2,
-                        bounce: 0.2,
+                        visualDuration: ANIMATE_TIME,
+                        bounce: 0.4,
                       },
                     },
                   }}
@@ -120,7 +122,6 @@ export const BarChart = ({
                     return (
                       <motion.div
                         key={`label-${segment.id}`}
-                        className="bmd-bar-chart__value-bar-fil"
                         style={{
                           backgroundColor:
                             segment.color || "var(--color-data-1)",
@@ -132,7 +133,7 @@ export const BarChart = ({
                 </motion.div>
               </motion.div>
 
-              {/* <motion.div className="bmd-bar-chart__value-sep" /> */}
+              <motion.div className="bmd-bar-chart__value-sep" />
               <motion.div
                 className="bmd-bar-chart__value-label"
                 key={`label-${bar.groupId}`}
@@ -140,7 +141,12 @@ export const BarChart = ({
                 animate={{
                   opacity: 1,
                   y: 0,
-                  transition: { delay: 1 * index * 0.05 },
+                  transition: {
+                    delay: ANIMATE_TIME + ANIMATE_DELAY * index,
+                    type: "spring",
+                    visualDuration: ANIMATE_TIME,
+                    bounce: 0.4,
+                  },
                 }}
                 exit={{ opacity: 0 }}
               >

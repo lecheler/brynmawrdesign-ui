@@ -14,7 +14,7 @@ const meta = preview.meta({
 export const Default = meta.story({
   args: {
     title: "Default Bar Chart",
-    maxValue: 120,
+    // maxValue: 120,
     data: [
       {
         id: 1,
@@ -55,6 +55,46 @@ export const Default = meta.story({
         category: "nato",
         label: "'12",
         value: 50,
+        color: "var(--color-data-1)",
+      },
+      {
+        id: 7,
+        groupId: "2013",
+        category: "nato",
+        label: "'13",
+        value: 10,
+        color: "var(--color-data-1)",
+      },
+      {
+        id: 8,
+        groupId: "2014",
+        category: "nato",
+        label: "'14",
+        value: 20,
+        color: "var(--color-data-1)",
+      },
+      {
+        id: 9,
+        groupId: "2015",
+        category: "nato",
+        label: "'15",
+        value: 50,
+        color: "var(--color-data-1)",
+      },
+      {
+        id: 10,
+        groupId: "2016",
+        category: "nato",
+        label: "'16",
+        value: 30,
+        color: "var(--color-data-1)",
+      },
+      {
+        id: 11,
+        groupId: "2017",
+        category: "nato",
+        label: "'17",
+        value: 12,
         color: "var(--color-data-1)",
       },
     ],

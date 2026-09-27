@@ -3,7 +3,7 @@
 
   --chart-padding-y: var(--space-4);
   --chart-padding-x: var(--space-8);
-  --chart-gap-x: var(--space-2);
+  --chart-gap-x: var(--space-1);
   --chart-gap-y: var(--space-1);
 
   --chart-font-weight: var(--font-weight-semibold);

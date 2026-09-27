@@ -1,7 +1,5 @@
 .bmd-bar-chart {
   display: flex;
-  /* align-items: flex-end;
-  overflow-x: scroll; */
   border-radius: var(--bar-radius-rounded);
   background-color: var(--color-surface-subtle);
   gap: var(--chart-gap-x);
@@ -13,19 +11,20 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-
-  justify-content: space-between;
   align-items: center;
-
-  height: 300px;
   gap: var(--chart-gap-y);
-  /* background-color: beige; */
+  /* background-color: yellow; */
 }
 
 /* total value as text on top of bar (e.g., total shows) */
 .bmd-bar-chart__value-text {
   font-weight: var(--chart-font-weight);
   font-size: var(--chart-font-size);
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  align-items: center;
+  /* background-color: beige; */
 }
 
 /* div wrapping each bar (including stacked bars) */
@@ -33,19 +32,19 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
   width: 100%;
+  /* background-color: beige; */
 }
 
 /* wrapper for stacked bars calculating total height */
 .bmd-bar-chart__value-bar-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   overflow: hidden;
   border-radius: var(--bar-radius-rounded);
-  background-color: var(--color-surface);
-}
-
-.bmd-bar-chart__value-bar-fill {
-  width: 100%;
+  /* background-color: var(--color-surface); */
 }
 
 .bmd-bar-chart__value-sep {
@@ -56,11 +55,5 @@
 }
 
 .bmd-bar-chart__value-label {
-  /* position: absolute; */
   background-color: aqua;
-}
-/* Sizes */
-.bmd-button[data-size="xs"] {
-  padding: var(--button-padding-y-xs) var(--button-padding-x-xs);
-  font-size: var(--font-size-xs);
 }
