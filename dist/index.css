@@ -118,6 +118,7 @@
     SFMono-Regular,
     Menlo,
     monospace;
+  --font-size-2xs: 0.625rem;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
@@ -280,11 +281,14 @@
   --chart-tone: var(--color-surface-subtle);
   --chart-padding-y: var(--space-4);
   --chart-padding-x: var(--space-8);
-  --chart-gap-x: var(--space-1);
+  --chart-gap-x: var(--space-2);
   --chart-gap-y: var(--space-1);
-  --chart-font-weight: var(--font-weight-semibold);
-  --chart-font-size: var(--font-size-xs);
   --chart-line-height: var(--line-height-tight);
+  --chart-font-color: var(--color-text-muted);
+  --chart-font-label-weight: var(--font-weight-bold);
+  --chart-font-label-size: var(--font-size-xs);
+  --chart-font-value-weight: var(--font-weight-semibold);
+  --chart-font-value-size: var(--font-size-2xs);
   --pie-radius-sm: 80px;
   --pie-radius-md: 120px;
   --pie-radius-lg: 160px;
@@ -714,6 +718,7 @@ select {
   background-color: var(--color-surface-subtle);
   gap: var(--chart-gap-x);
   padding: var(--chart-padding-y) var(--chart-padding-x);
+  color: var(--chart-font-color);
 }
 .bmd-bar-chart__value-wrapper {
   display: flex;
@@ -723,8 +728,8 @@ select {
   gap: var(--chart-gap-y);
 }
 .bmd-bar-chart__value-text {
-  font-weight: var(--chart-font-weight);
-  font-size: var(--chart-font-size);
+  font-size: var(--chart-font-value-size);
+  font-weight: var(--chart-font-value-weight);
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
@@ -745,11 +750,13 @@ select {
 }
 .bmd-bar-chart__value-sep {
   width: 100%;
-  height: 1px;
-  margin: 0.5em 0em;
-  background-color: var(--color-text);
+  height: 2px;
+  margin: var(--chart-gap-y);
+  background-color: var(--color-surface);
 }
 .bmd-bar-chart__value-label {
-  background-color: aqua;
+  font-weight: var(--chart-font-label-weight);
+  font-size: var(--chart-font-label-size);
+  color: var(--chart-font-color);
 }
 /*# sourceMappingURL=index.css.map */

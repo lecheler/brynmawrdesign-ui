@@ -9384,7 +9384,6 @@ var Pie = ({
 var import_react31 = __toESM(require("react"));
 var BarChart = ({
   title = "Bar Chart",
-  size = "md",
   height = 500,
   ...props
 }) => {
@@ -9413,7 +9412,7 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ import_react31.default.createElement("div", { className: "bmd-bar-chart", "data-size": size }, /* @__PURE__ */ import_react31.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+  return /* @__PURE__ */ import_react31.default.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ import_react31.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
     return /* @__PURE__ */ import_react31.default.createElement(
       motion2.div,
       {

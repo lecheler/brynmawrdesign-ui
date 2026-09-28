@@ -154,7 +154,6 @@ interface PieProps {
 /** Primary UI component for user interaction */
 declare const Pie: ({ title, size, ...props }: PieProps) => React__default.JSX.Element;
 
-type BarChartSize = "xs" | "sm" | "md" | "lg" | "xl";
 interface BarChartItem {
     id: string | number;
     groupId: string;
@@ -167,10 +166,9 @@ interface BarChartProps {
     data: BarChartItem[];
     title?: string;
     height?: number;
-    size: BarChartSize;
     maxValue?: number;
 }
 /** Primary UI component for user interaction */
-declare const BarChart: ({ title, size, height, ...props }: BarChartProps) => React__default.JSX.Element;
+declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, type BarChartSize, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Pie, type PieData, Stack, type StackProps, Text, TextInput, type TextInputProps, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Pie, type PieData, Stack, type StackProps, Text, TextInput, type TextInputProps, type TextProps };
