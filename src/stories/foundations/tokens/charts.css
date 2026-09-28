@@ -3,12 +3,15 @@
 
   --chart-padding-y: var(--space-4);
   --chart-padding-x: var(--space-8);
-  --chart-gap-x: var(--space-1);
+  --chart-gap-x: var(--space-2);
   --chart-gap-y: var(--space-1);
 
-  --chart-font-weight: var(--font-weight-semibold);
-  --chart-font-size: var(--font-size-xs);
   --chart-line-height: var(--line-height-tight);
+  --chart-font-color: var(--color-text-muted);
+  --chart-font-label-weight: var(--font-weight-bold);
+  --chart-font-label-size: var(--font-size-xs);
+  --chart-font-value-weight: var(--font-weight-semibold);
+  --chart-font-value-size: var(--font-size-2xs);
 
   --pie-radius-sm: 80px;
   --pie-radius-md: 120px;

@@ -3,8 +3,6 @@ import { AnimatePresence, motion } from "motion/react";
 
 import "./BarChart.css";
 
-export type BarChartSize = "xs" | "sm" | "md" | "lg" | "xl";
-
 export interface BarChartItem {
   id: string | number; // Absolute unique key for React's reconciliation loop loop
   groupId: string; // 🔑 Programmatic key used to group items into the same vertical stack
@@ -18,14 +16,12 @@ export interface BarChartProps {
   data: BarChartItem[];
   title?: string;
   height?: number;
-  size: BarChartSize;
   maxValue?: number;
 }
 
 /** Primary UI component for user interaction */
 export const BarChart = ({
   title = "Bar Chart",
-  size = "md",
   height = 500,
   ...props
 }: BarChartProps) => {
@@ -66,7 +62,7 @@ export const BarChart = ({
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
   return (
-    <div className="bmd-bar-chart" data-size={size}>
+    <div className="bmd-bar-chart">
       <AnimatePresence>
         {columnsList.map((bar, index) => {
           return (

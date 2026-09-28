@@ -8,6 +8,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Font sizes */
+  --font-size-2xs: 0.625rem; /* 10 */
   --font-size-xs: 0.75rem; /* 12 */
   --font-size-sm: 0.875rem; /* 14 */
   --font-size-md: 1rem; /* 16 */

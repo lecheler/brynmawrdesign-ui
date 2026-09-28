@@ -4,6 +4,7 @@
   background-color: var(--color-surface-subtle);
   gap: var(--chart-gap-x);
   padding: var(--chart-padding-y) var(--chart-padding-x);
+  color: var(--chart-font-color);
 }
 
 /* div wrapping value text, bar, and label */
@@ -13,18 +14,16 @@
   flex: 1;
   align-items: center;
   gap: var(--chart-gap-y);
-  /* background-color: yellow; */
 }
 
 /* total value as text on top of bar (e.g., total shows) */
 .bmd-bar-chart__value-text {
-  font-weight: var(--chart-font-weight);
-  font-size: var(--chart-font-size);
+  font-size: var(--chart-font-value-size);
+  font-weight: var(--chart-font-value-weight);
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
   align-items: center;
-  /* background-color: beige; */
 }
 
 /* div wrapping each bar (including stacked bars) */
@@ -33,7 +32,6 @@
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
-  /* background-color: beige; */
 }
 
 /* wrapper for stacked bars calculating total height */
@@ -44,16 +42,17 @@
 
   overflow: hidden;
   border-radius: var(--bar-radius-rounded);
-  /* background-color: var(--color-surface); */
 }
 
 .bmd-bar-chart__value-sep {
   width: 100%;
-  height: 1px;
-  margin: 0.5em 0em;
-  background-color: var(--color-text);
+  height: 2px;
+  margin: var(--chart-gap-y);
+  background-color: var(--color-surface);
 }
 
 .bmd-bar-chart__value-label {
-  background-color: aqua;
+  font-weight: var(--chart-font-label-weight);
+  font-size: var(--chart-font-label-size);
+  color: var(--chart-font-color);
 }
