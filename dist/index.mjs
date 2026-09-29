@@ -9325,7 +9325,7 @@ var BarChart = ({
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      bar.totalValue > 0 && /* @__PURE__ */ React15.createElement(
+      /* @__PURE__ */ React15.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,

@@ -70,26 +70,24 @@ export const BarChart = ({
               key={`bar-${bar.groupId}-${index}`}
               className="bmd-bar-chart__value-wrapper"
             >
-              {bar.totalValue > 0 && (
-                <motion.div
-                  key={`val-${bar.groupId}`}
-                  className="bmd-bar-chart__value-text"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      delay: ANIMATE_TIME + ANIMATE_DELAY * index,
-                      type: "spring",
-                      visualDuration: ANIMATE_TIME,
-                      bounce: 0.4,
-                    },
-                  }}
-                  exit={{ opacity: 0 }}
-                >
-                  {bar.totalValue}
-                </motion.div>
-              )}
+              <motion.div
+                key={`val-${bar.groupId}`}
+                className="bmd-bar-chart__value-text"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delay: ANIMATE_TIME + ANIMATE_DELAY * index,
+                    type: "spring",
+                    visualDuration: ANIMATE_TIME,
+                    bounce: 0.4,
+                  },
+                }}
+                exit={{ opacity: 0 }}
+              >
+                {bar.totalValue}
+              </motion.div>
               <motion.div
                 className="bmd-bar-chart__value-bar-wrapper"
                 style={{ height: (bar.totalValue / maxValue) * height }}

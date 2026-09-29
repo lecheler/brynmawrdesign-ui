@@ -9419,7 +9419,7 @@ var BarChart = ({
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      bar.totalValue > 0 && /* @__PURE__ */ import_react31.default.createElement(
+      /* @__PURE__ */ import_react31.default.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,

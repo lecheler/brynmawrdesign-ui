@@ -281,7 +281,7 @@
   --chart-tone: var(--color-surface-subtle);
   --chart-padding-y: var(--space-4);
   --chart-padding-x: var(--space-8);
-  --chart-gap-x: var(--space-2);
+  --chart-gap-x: var(--space-1);
   --chart-gap-y: var(--space-1);
   --chart-line-height: var(--line-height-tight);
   --chart-font-color: var(--color-text-muted);
