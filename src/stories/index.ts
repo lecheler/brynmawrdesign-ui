@@ -5,6 +5,7 @@ export * from "./foundations/icons/Icon";
 export * from "./foundations/layout/Inline";
 export * from "./foundations/layout/Stack";
 export * from "./foundations/layout/Grid";
+export * from "./foundations/layout/LayoutContainer";
 export * from "./foundations/typography/Heading";
 export * from "./foundations/typography/Text";
 

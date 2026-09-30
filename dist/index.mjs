@@ -108,8 +108,25 @@ function Grid({
   );
 }
 
+// src/stories/foundations/layout/LayoutContainer.tsx
+import React6 from "react";
+function LayoutContainer({
+  max = "none",
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ React6.createElement(
+    "div",
+    {
+      className: cx("bmd-layout-container", className),
+      "data-max": max !== "none" ? max : void 0,
+      ...props
+    }
+  );
+}
+
 // src/stories/foundations/typography/Heading.tsx
-import * as React6 from "react";
+import * as React7 from "react";
 function Heading({
   level = 2,
   as,
@@ -117,22 +134,22 @@ function Heading({
 }) {
   const defaultTag = `h${level}`;
   const Comp = as || defaultTag;
-  return /* @__PURE__ */ React6.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
+  return /* @__PURE__ */ React7.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
 }
 
 // src/stories/foundations/typography/Text.tsx
-import * as React7 from "react";
+import * as React8 from "react";
 function Text({
   as,
   size = "md",
   ...props
 }) {
   const Comp = as || "p";
-  return /* @__PURE__ */ React7.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
+  return /* @__PURE__ */ React8.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
 }
 
 // src/stories/components/Button/Button.tsx
-import React8 from "react";
+import React9 from "react";
 var Button = ({
   label,
   children,
@@ -151,7 +168,7 @@ var Button = ({
     );
     return null;
   }
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ React9.createElement(
     "button",
     {
       type: "button",
@@ -163,28 +180,28 @@ var Button = ({
       "data-shape": shape,
       ...props
     },
-    icon ? /* @__PURE__ */ React8.createElement(React8.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React8.createElement(React8.Fragment, null, /* @__PURE__ */ React8.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ React8.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React8.createElement("span", null, /* @__PURE__ */ React8.createElement(Icon, { ...icon }))) : /* @__PURE__ */ React8.createElement(React8.Fragment, null, children || label)
+    icon ? /* @__PURE__ */ React9.createElement(React9.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React9.createElement(React9.Fragment, null, /* @__PURE__ */ React9.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ React9.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React9.createElement("span", null, /* @__PURE__ */ React9.createElement(Icon, { ...icon }))) : /* @__PURE__ */ React9.createElement(React9.Fragment, null, children || label)
   );
 };
 
 // src/stories/components/TextInput/TextInput.tsx
-import * as React9 from "react";
-var TextInput = React9.forwardRef(
+import * as React10 from "react";
+var TextInput = React10.forwardRef(
   function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
-    return /* @__PURE__ */ React9.createElement(
+    return /* @__PURE__ */ React10.createElement(
       "div",
       {
         className: cx("bmd-text-input", className),
         "data-size": size,
         "data-state": state !== "default" ? state : void 0
       },
-      /* @__PURE__ */ React9.createElement("input", { ref, className: "bmd-text-input__control", ...props })
+      /* @__PURE__ */ React10.createElement("input", { ref, className: "bmd-text-input__control", ...props })
     );
   }
 );
 
 // src/stories/components/Card/Card.tsx
-import React10 from "react";
+import React11 from "react";
 function CardRoot({
   as,
   variant = "elevated",
@@ -195,7 +212,7 @@ function CardRoot({
   ...props
 }) {
   const Component3 = as || "div";
-  return /* @__PURE__ */ React10.createElement(
+  return /* @__PURE__ */ React11.createElement(
     Component3,
     {
       className: cx("bmd-card", className),
@@ -208,13 +225,13 @@ function CardRoot({
   );
 }
 function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ React10.createElement("div", { className: cx("bmd-card__header", className), ...props });
+  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__header", className), ...props });
 }
 function CardBody({ className, ...props }) {
-  return /* @__PURE__ */ React10.createElement("div", { className: cx("bmd-card__body", className), ...props });
+  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__body", className), ...props });
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ React10.createElement("div", { className: cx("bmd-card__footer", className), ...props });
+  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__footer", className), ...props });
 }
 var Card = Object.assign(CardRoot, {
   Header: CardHeader,
@@ -223,7 +240,7 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/stories/charts/Pie/Pie.tsx
-import React14 from "react";
+import React15 from "react";
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 import { jsx as jsx3, Fragment } from "react/jsx-runtime";
@@ -254,7 +271,7 @@ var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 import { jsx as jsx2 } from "react/jsx-runtime";
-import * as React13 from "react";
+import * as React14 from "react";
 import { useId as useId2, useRef as useRef3, useMemo } from "react";
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
@@ -7069,7 +7086,7 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-import * as React12 from "react";
+import * as React13 from "react";
 import { useId, useRef as useRef2, useContext, useInsertionEffect } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
@@ -7081,7 +7098,7 @@ var MotionConfigContext = createContext3({
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-import * as React11 from "react";
+import * as React12 from "react";
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7114,11 +7131,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React11.useCallback(composeRefs(...refs), refs);
+  return React12.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React12.Component {
+var PopChildMeasure = class extends React13.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7194,7 +7211,7 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React12.cloneElement(children, { ref: composedRef }) });
+  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React13.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
@@ -7239,7 +7256,7 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   useMemo(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React13.useEffect(() => {
+  React14.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = jsx2(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -9223,7 +9240,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React14.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React14.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React14.createElement(Heading, null, title), /* @__PURE__ */ React14.createElement(
+  return /* @__PURE__ */ React15.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React15.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React15.createElement(Heading, null, title), /* @__PURE__ */ React15.createElement(
     motion2.svg,
     {
       width: size,
@@ -9231,7 +9248,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React14.createElement(
+    /* @__PURE__ */ React15.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9247,7 +9264,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React14.createElement(
+      return /* @__PURE__ */ React15.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9287,7 +9304,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-import React15 from "react";
+import React16 from "react";
 var BarChart = ({
   title = "Bar Chart",
   height = 500,
@@ -9318,14 +9335,14 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ React15.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React15.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React15.createElement(
+  return /* @__PURE__ */ React16.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React16.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React16.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React15.createElement(
+      /* @__PURE__ */ React16.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9345,13 +9362,13 @@ var BarChart = ({
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React15.createElement(
+      /* @__PURE__ */ React16.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           style: { height: bar.totalValue / maxValue * height }
         },
-        /* @__PURE__ */ React15.createElement(
+        /* @__PURE__ */ React16.createElement(
           motion2.div,
           {
             className: "bmd-bar-chart__value-bar-total",
@@ -9374,7 +9391,7 @@ var BarChart = ({
             exit: { opacity: 0 }
           },
           bar.segments.map((segment) => {
-            return /* @__PURE__ */ React15.createElement(
+            return /* @__PURE__ */ React16.createElement(
               motion2.div,
               {
                 key: `label-${segment.id}`,
@@ -9387,8 +9404,8 @@ var BarChart = ({
           })
         )
       ),
-      /* @__PURE__ */ React15.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React15.createElement(
+      /* @__PURE__ */ React16.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React16.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -9423,6 +9440,7 @@ export {
   Heading,
   Icon,
   Inline,
+  LayoutContainer,
   Pie,
   Stack,
   Text,
