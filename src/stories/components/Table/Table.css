@@ -1,0 +1,4 @@
+.bmd-table {
+  /* Surface basics */
+  background-color: var(--card-surface, var(--card-surface-raised, #ffffff));
+}
