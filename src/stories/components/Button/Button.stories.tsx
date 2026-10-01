@@ -9,7 +9,18 @@ const TONES = ["primary", "danger", "success", "warning", "neutral"];
 const SIZES = ["xs", "sm", "md", "lg", "xl"];
 const SHAPES = ["square", "rounded", "pill"];
 const VARIANTS = ["solid", "outlined", "soft", "ghost"];
-const ICON_NAMES = ["check", "download", "search", "star", "warning", "x"];
+const ICON_NAMES = [
+  "check",
+  "chevronRight",
+  "chevronLeft",
+  "chevronsRight",
+  "chevronsLeft",
+  "download",
+  "search",
+  "star",
+  "warning",
+  "x",
+];
 
 const meta = preview.meta({
   title: "Components/Button",

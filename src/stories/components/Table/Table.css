@@ -1,8 +1,12 @@
 .bmd-table {
-  /* background-color: beige; */
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: none;
+  text-align: left;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+  }
 
   th,
   td {
@@ -16,7 +20,6 @@
   }
 
   th {
-    text-align: left;
     cursor: pointer;
     font-size: var(--table-header-font-size);
     background-color: var(--color-accent);
@@ -32,4 +35,15 @@
       background-color: var(--table-row-even);
     }
   }
+}
+
+.bmd-table__sortable-header {
+  display: flex;
+  align-items: center;
+  gap: var(--table-icon-padding-x);
+}
+
+.bmd-table__pagination-controls-wrapper {
+  display: flex;
+  font-size: var(--table-row-font-size);
 }

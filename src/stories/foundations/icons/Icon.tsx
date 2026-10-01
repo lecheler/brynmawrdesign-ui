@@ -2,7 +2,13 @@
 import React from "react";
 import type { SVGProps } from "react";
 import {
+  ArrowDown,
+  ArrowUp,
   CheckIcon,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
   DownloadIcon,
   ExclamationIcon,
   SearchIcon,
@@ -13,7 +19,13 @@ import {
 import "./Icon.css";
 
 export type IconName =
+  | "arrowUp"
+  | "arrowDown"
   | "check"
+  | "chevronRight"
+  | "chevronLeft"
+  | "chevronsRight"
+  | "chevronsLeft"
   | "download"
   | "search"
   | "star"
@@ -22,6 +34,12 @@ export type IconName =
 
 // Use semantic icon names:
 const ICONS: Record<IconName, React.FC<SVGProps<SVGSVGElement>>> = {
+  arrowUp: ArrowUp,
+  arrowDown: ArrowDown,
+  chevronRight: ChevronRight,
+  chevronLeft: ChevronLeft,
+  chevronsRight: ChevronsRight,
+  chevronsLeft: ChevronsLeft,
   check: CheckIcon,
   download: DownloadIcon,
   search: SearchIcon,

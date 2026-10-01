@@ -11,6 +11,8 @@ import {
 
 import preview from "../../../../.storybook/preview";
 
+import { mockShowsData } from "../../data/shows.mock";
+
 import { Table } from "./Table";
 
 interface User {
@@ -64,7 +66,7 @@ const columns: Array<ColumnDef<typeof features, User>> = [
   },
 ];
 
-// 3. Define the actual raw dataset matching the User interface
+// Define the actual raw dataset matching the User interface
 const mockUsers: User[] = [
   {
     id: 1,
@@ -102,7 +104,7 @@ const mockUsers: User[] = [
     status: "Inactive",
   },
 ];
-// 4. Create the story variant and pass data down via args
+// Create the story variant and pass data down via args
 export const DefaultLayout = meta.story({
   args: {
     data: mockUsers,
@@ -111,10 +113,25 @@ export const DefaultLayout = meta.story({
   },
 });
 
-// 5. You can easily spin up another variant (e.g., an empty state)
+// You can easily spin up another variant (e.g., an empty state)
 export const EmptyState = meta.story({
   args: {
     data: [],
     columns: columns,
+  },
+});
+
+export const Shows = meta.story({
+  args: {
+    columns: [
+      { accessorKey: "date", header: "Date" },
+      { accessorKey: "band_name", header: "Band" },
+      { accessorKey: "venue_name", header: "Venue" },
+      { accessorKey: "locality", header: "City" },
+      { accessorKey: "administrative_area", header: "State/Region" },
+      { accessorKey: "country_code", header: "Country" },
+    ],
+    data: mockShowsData,
+    tableClassName: "my-custom-design-system-table",
   },
 });

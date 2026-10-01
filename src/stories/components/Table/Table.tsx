@@ -8,30 +8,21 @@ import {
   sortFn_text,
   sortFn_datetime,
   ColumnDef,
+  createPaginatedRowModel,
+  rowPaginationFeature,
 } from "@tanstack/react-table";
 
 import "./Table.css";
+import { Icon, IconName } from "../../foundations/icons/Icon";
+import { Button } from "../Button/Button";
+import { Inline } from "../../foundations/layout/Inline";
 
 interface TableProps<TData> {
   data: TData[];
   columns: Array<ColumnDef<typeof features, TData>>;
 }
 
-// 1. Define the shape of your data
-// type Person = {
-//   firstName: string;
-//   lastName: string;
-//   age: number;
-// };
-
-// 2. Give your data a stable reference (module scope, useState, useQuery, etc.)
-// const data: Array<Person> = [
-//   { firstName: "tanner", lastName: "linsley", age: 24 },
-//   { firstName: "tandy", lastName: "miller", age: 40 },
-//   { firstName: "joe", lastName: "dirte", age: 45 },
-// ];
-
-// // 3. New in v9: declare which features this table uses (none yet)
+// New in v9: declare which features this table uses
 const features = tableFeatures({
   rowSortingFeature,
   sortedRowModel: createSortedRowModel(),
@@ -40,94 +31,156 @@ const features = tableFeatures({
     text: sortFn_text,
     datetime: sortFn_datetime,
   },
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel(),
 });
 
-// // 4. Define your columns
-// const columns: Array<ColumnDef<typeof features, Person>> = [
-//   {
-//     accessorKey: "firstName", // accessorKey shorthand
-//     header: "First Name",
-//     cell: (info) => info.getValue(),
-//     sortFn: "alphanumeric",
-//   },
-//   {
-//     accessorFn: (row) => row.lastName, // accessorFn alternative with a custom id
-//     id: "lastName",
-//     header: () => <span>Last Name</span>,
-//     cell: (info) => <i>{info.getValue<string>()}</i>,
-//   },
-//   {
-//     accessorKey: "age",
-//     header: () => "Age",
-//   },
-// ];
-
 export function Table<TData>({ data, columns }: TableProps<TData>) {
-  // 5. Create the table instance
-  // const table = useTable({
-  //   key: "person-table", // needed for devtools, omit if you don't want to use the devtools
-  //   features,
-  //   columns,
-  //   data,
-  // });
-
-  // 6. Render markup from the table instance APIs
   const table = useTable({
-    key: "person-table",
     columns: columns,
     data: data,
     features: features,
   });
   return (
-    <table className="bmd-table">
-      <thead>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id}>
-            {headerGroup.headers.map((header) => (
-              <th key={header.id} colSpan={header.colSpan}>
-                {header.isPlaceholder ? null : (
-                  <div
-                    className={
-                      header.column.getCanSort()
-                        ? "bmd-table__sortable-header"
-                        : ""
-                    }
-                    onClick={header.column.getToggleSortingHandler()}
-                    title={
-                      header.column.getCanSort()
-                        ? header.column.getNextSortingOrder() === "asc"
-                          ? "Sort ascending"
-                          : header.column.getNextSortingOrder() === "desc"
-                            ? "Sort descending"
-                            : "Clear sort"
-                        : undefined
-                    }
-                  >
-                    <table.FlexRender header={header} />
-                    {{
-                      asc: " 🔼",
-                      desc: " 🔽",
-                    }[header.column.getIsSorted() as string] ?? null}
-                  </div>
-                )}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody>
-        {table.getRowModel().rows.map((row) => (
-          <tr key={row.id}>
-            {row.getAllCells().map((cell) => (
-              <td key={cell.id}>
-                <table.FlexRender cell={cell} />
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="bmd-table">
+      <table>
+        <thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th key={header.id} colSpan={header.colSpan}>
+                  {header.isPlaceholder ? null : (
+                    <div
+                      className={
+                        header.column.getCanSort()
+                          ? "bmd-table__sortable-header"
+                          : ""
+                      }
+                      onClick={header.column.getToggleSortingHandler()}
+                      title={
+                        header.column.getCanSort()
+                          ? header.column.getNextSortingOrder() === "asc"
+                            ? "Sort ascending"
+                            : header.column.getNextSortingOrder() === "desc"
+                              ? "Sort descending"
+                              : "Clear sort"
+                          : undefined
+                      }
+                    >
+                      <table.FlexRender header={header} />
+                      {{
+                        asc: <Icon name="arrowUp" />,
+                        desc: <Icon name="arrowDown" />,
+                      }[header.column.getIsSorted() as string] ?? null}
+                    </div>
+                  )}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getAllCells().map((cell) => (
+                <td key={cell.id}>
+                  <table.FlexRender cell={cell} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <PaginationControls table={table} />
+    </div>
   );
 }
+interface PaginationControlsProps {
+  table: any;
+}
+const PaginationControls = ({ table }: PaginationControlsProps) => {
+  const paginationButtons = [
+    {
+      icon: "chevronsLeft" as IconName,
+      onClick: () => table.firstPage(),
+      disabled: !table.getCanPreviousPage(),
+    },
+    {
+      icon: "chevronLeft" as IconName,
+      onClick: () => table.previousPage(),
+      disabled: !table.getCanPreviousPage(),
+    },
+    {
+      icon: "chevronRight" as IconName,
+      onClick: () => table.nextPage(),
+      disabled: !table.getCanNextPage(),
+    },
+    {
+      icon: "chevronsRight" as IconName,
+      onClick: () => table.lastPage(),
+      disabled: !table.getCanLastPage(),
+    },
+  ];
+  return (
+    <div className="bmd-table__pagination-controls-wrapper">
+      <div className="controls">
+        <Inline gap={4}>
+          <div>
+            {paginationButtons.map(({ icon, onClick, disabled }) => (
+              <Button
+                key={icon} // Unique identifier
+                icon={{ name: icon }}
+                onClick={onClick}
+                disabled={disabled}
+                size="xs"
+                shape="square"
+                tone="neutral"
+                variant="ghost"
+              />
+            ))}
+          </div>
+          <Inline>
+            <Inline gap={1}>
+              Page
+              <strong>
+                {(table.state.pagination.pageIndex + 1).toLocaleString()} of{" "}
+                {table.getPageCount().toLocaleString()}
+              </strong>
+              | Go to page:
+              <input
+                type="number"
+                min="1"
+                max={table.getPageCount()}
+                value={table.state.pagination.pageIndex + 1}
+                onChange={(e) => {
+                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                  table.setPageIndex(page);
+                }}
+                className="page-size-input"
+              />
+              <select
+                value={table.state.pagination.pageSize}
+                onChange={(e) => {
+                  table.setPageSize(Number(e.target.value));
+                }}
+              >
+                {[10, 20, 30, 40, 50].map((pageSize) => (
+                  <option key={pageSize} value={pageSize}>
+                    Show {pageSize}
+                  </option>
+                ))}
+                <option value={Infinity}>Show All</option>
+              </select>
+            </Inline>
+          </Inline>
+        </Inline>
+      </div>
+
+      {/* <pre data-testid="table-state">
+        {JSON.stringify(table.state, null, 2)}
+      </pre> */}
+    </div>
+  );
+};
 
 // https://tanstack.com/table/latest/docs/framework/react/examples/sorting
