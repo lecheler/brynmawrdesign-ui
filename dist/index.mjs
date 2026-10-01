@@ -2,25 +2,59 @@
 import React2 from "react";
 
 // src/stories/foundations/icons/index.ts
-import React from "react";
-var ArrowUp = React.lazy(() => import("./arrow-up-PHIGANYJ.mjs"));
-var ArrowDown = React.lazy(() => import("./arrow-down-6BEH5XEB.mjs"));
-var ChevronRight = React.lazy(() => import("./chevron-right-RAB2DBNQ.mjs"));
-var ChevronLeft = React.lazy(() => import("./chevron-left-2VQCHJUS.mjs"));
-var ChevronsRight = React.lazy(
-  () => import("./chevrons-right-YDA4VWSX.mjs")
+import React, { lazy } from "react";
+var makeSvgComponent = (importPromise) => {
+  return lazy(async () => {
+    const module = await importPromise;
+    const rawSvgText = module.default;
+    const attrMatch = rawSvgText.match(/<svg([^>]*)>/);
+    const attributesString = attrMatch ? attrMatch[1] : "";
+    const innerHTML = rawSvgText.replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "");
+    const attrs = {};
+    const attrRegex = /([\w:-]+)=["']([^"']*)["']/g;
+    let match;
+    while ((match = attrRegex.exec(attributesString)) !== null) {
+      const key = match[1];
+      const value = match[2];
+      if (key.toLowerCase() === "viewbox") {
+        attrs["viewBox"] = value;
+      } else {
+        attrs[key] = value;
+      }
+    }
+    return {
+      default: (props) => React.createElement("svg", {
+        ...attrs,
+        ...props,
+        dangerouslySetInnerHTML: { __html: innerHTML }
+      })
+    };
+  });
+};
+var ArrowUp = makeSvgComponent(import("./arrow-up-NQT5II3V.mjs"));
+var ArrowDown = makeSvgComponent(import("./arrow-down-NRCHQWOD.mjs"));
+var ChevronRight = makeSvgComponent(
+  import("./chevron-right-4PL2HYPO.mjs")
 );
-var ChevronsLeft = React.lazy(() => import("./chevrons-left-UXZOGBC5.mjs"));
-var CheckIcon = React.lazy(() => import("./check-FMSAIFD3.mjs"));
-var DownloadIcon = React.lazy(() => import("./download-3I7BTR64.mjs"));
-var ExclamationIcon = React.lazy(
-  () => import("./exclamation-C7WM4IXG.mjs")
+var ChevronLeft = makeSvgComponent(
+  import("./chevron-left-MXEMFBWN.mjs")
 );
-var SearchIcon = React.lazy(
-  () => import("./magnifying-glass-V4RSPSB6.mjs")
+var ChevronsRight = makeSvgComponent(
+  import("./chevrons-right-CZPNIJZL.mjs")
 );
-var StarIcon = React.lazy(() => import("./star-6KL4VQDK.mjs"));
-var XIcon = React.lazy(() => import("./x-QMWFAJT3.mjs"));
+var ChevronsLeft = makeSvgComponent(
+  import("./chevrons-left-OM52VYZN.mjs")
+);
+var CheckIcon = makeSvgComponent(import("./check-LRYIHNOS.mjs"));
+var DownloadIcon = makeSvgComponent(import("./download-2HBERQEU.mjs"));
+var ExclamationIcon = makeSvgComponent(
+  import("./exclamation-B2VEKSUR.mjs")
+);
+var SearchIcon = makeSvgComponent(
+  import("./magnifying-glass-6EKD4IL2.mjs")
+);
+var StarIcon = makeSvgComponent(import("./star-V26TDG3R.mjs"));
+var XIcon = makeSvgComponent(import("./x-G3M4HCDP.mjs"));
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {

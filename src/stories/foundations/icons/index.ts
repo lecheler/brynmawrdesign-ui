@@ -1,38 +1,70 @@
-import React from "react";
+import React, { lazy } from "react";
 
-// see: https://www.npmjs.com/package/vite-plugin-svgr
-const ArrowUp = React.lazy(() => import("./svgs/arrow-up.svg?react"));
-const ArrowDown = React.lazy(() => import("./svgs/arrow-down.svg?react"));
+const makeSvgComponent = (importPromise: Promise<{ default: string }>) => {
+  return lazy(async () => {
+    const module = await importPromise;
+    const rawSvgText = module.default;
 
-const ChevronRight = React.lazy(() => import("./svgs/chevron-right.svg?react"));
-const ChevronLeft = React.lazy(() => import("./svgs/chevron-left.svg?react"));
-const ChevronsRight = React.lazy(
-  () => import("./svgs/chevrons-right.svg?react"),
-);
-const ChevronsLeft = React.lazy(() => import("./svgs/chevrons-left.svg?react"));
+    // 1. Correctly isolate everything inside the opening <svg ...> tag
+    const attrMatch = rawSvgText.match(/<svg([^>]*)>/);
+    const attributesString = attrMatch ? attrMatch[1] : "";
 
-const CheckIcon = React.lazy(() => import("./svgs/check.svg?react"));
-const DownloadIcon = React.lazy(() => import("./svgs/download.svg?react"));
-const ExclamationIcon = React.lazy(
-  () => import("./svgs/exclamation.svg?react"),
-);
-const SearchIcon = React.lazy(
-  () => import("./svgs/magnifying-glass.svg?react"),
-);
-const StarIcon = React.lazy(() => import("./svgs/star.svg?react"));
-const XIcon = React.lazy(() => import("./svgs/x.svg?react"));
+    // 2. Extract everything inside the opening and closing tags
+    const innerHTML = rawSvgText
+      .replace(/<svg[^>]*>/, "")
+      .replace(/<\/svg>/, "");
 
-export {
-  ArrowUp,
-  ArrowDown,
-  CheckIcon,
-  ChevronRight,
-  ChevronLeft,
-  ChevronsRight,
-  ChevronsLeft,
-  DownloadIcon,
-  ExclamationIcon,
-  SearchIcon,
-  StarIcon,
-  XIcon,
+    // 3. Map the raw string attributes into a clean JavaScript object
+    const attrs: Record<string, string> = {};
+    const attrRegex = /([\w:-]+)=["']([^"']*)["']/g;
+    let match;
+
+    while ((match = attrRegex.exec(attributesString)) !== null) {
+      const key = match[1];
+      const value = match[2];
+
+      // Preserve essential viewBox rendering rules or react-specific naming conventions
+      if (key.toLowerCase() === "viewbox") {
+        attrs["viewBox"] = value;
+      } else {
+        attrs[key] = value;
+      }
+    }
+
+    // Return the clean object tree that React.lazy expects to render
+    return {
+      default: (props: React.SVGProps<SVGSVGElement>) =>
+        React.createElement("svg", {
+          ...attrs,
+          ...props,
+          dangerouslySetInnerHTML: { __html: innerHTML },
+        }),
+    };
+  });
 };
+
+// Your loaders remain identical:
+export const ArrowUp = makeSvgComponent(import("./svgs/arrow-up.svg?raw"));
+export const ArrowDown = makeSvgComponent(import("./svgs/arrow-down.svg?raw"));
+export const ChevronRight = makeSvgComponent(
+  import("./svgs/chevron-right.svg?raw"),
+);
+export const ChevronLeft = makeSvgComponent(
+  import("./svgs/chevron-left.svg?raw"),
+);
+export const ChevronsRight = makeSvgComponent(
+  import("./svgs/chevrons-right.svg?raw"),
+);
+export const ChevronsLeft = makeSvgComponent(
+  import("./svgs/chevrons-left.svg?raw"),
+);
+export const CheckIcon = makeSvgComponent(import("./svgs/check.svg?raw"));
+export const DownloadIcon = makeSvgComponent(import("./svgs/download.svg?raw"));
+export const ExclamationIcon = makeSvgComponent(
+  import("./svgs/exclamation.svg?raw"),
+);
+export const SearchIcon = makeSvgComponent(
+  import("./svgs/magnifying-glass.svg?raw"),
+);
+export const StarIcon = makeSvgComponent(import("./svgs/star.svg?raw"));
+export const XIcon = makeSvgComponent(import("./svgs/x.svg?raw"));

@@ -29,87 +29,87 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/stories/foundations/icons/svgs/arrow-up.svg?react
+// src/stories/foundations/icons/svgs/arrow-up.svg?raw
 var require_arrow_up = __commonJS({
-  "src/stories/foundations/icons/svgs/arrow-up.svg?react"(exports2, module2) {
-    module2.exports = "./arrow-up-FT5MG5QD.svg?react";
+  "src/stories/foundations/icons/svgs/arrow-up.svg?raw"(exports2, module2) {
+    module2.exports = "./arrow-up-FT5MG5QD.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/arrow-down.svg?react
+// src/stories/foundations/icons/svgs/arrow-down.svg?raw
 var require_arrow_down = __commonJS({
-  "src/stories/foundations/icons/svgs/arrow-down.svg?react"(exports2, module2) {
-    module2.exports = "./arrow-down-VCCFSVB3.svg?react";
+  "src/stories/foundations/icons/svgs/arrow-down.svg?raw"(exports2, module2) {
+    module2.exports = "./arrow-down-VCCFSVB3.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/chevron-right.svg?react
+// src/stories/foundations/icons/svgs/chevron-right.svg?raw
 var require_chevron_right = __commonJS({
-  "src/stories/foundations/icons/svgs/chevron-right.svg?react"(exports2, module2) {
-    module2.exports = "./chevron-right-WNL7UYAV.svg?react";
+  "src/stories/foundations/icons/svgs/chevron-right.svg?raw"(exports2, module2) {
+    module2.exports = "./chevron-right-WNL7UYAV.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/chevron-left.svg?react
+// src/stories/foundations/icons/svgs/chevron-left.svg?raw
 var require_chevron_left = __commonJS({
-  "src/stories/foundations/icons/svgs/chevron-left.svg?react"(exports2, module2) {
-    module2.exports = "./chevron-left-G3SBE5GB.svg?react";
+  "src/stories/foundations/icons/svgs/chevron-left.svg?raw"(exports2, module2) {
+    module2.exports = "./chevron-left-G3SBE5GB.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/chevrons-right.svg?react
+// src/stories/foundations/icons/svgs/chevrons-right.svg?raw
 var require_chevrons_right = __commonJS({
-  "src/stories/foundations/icons/svgs/chevrons-right.svg?react"(exports2, module2) {
-    module2.exports = "./chevrons-right-FNKBHNQS.svg?react";
+  "src/stories/foundations/icons/svgs/chevrons-right.svg?raw"(exports2, module2) {
+    module2.exports = "./chevrons-right-FNKBHNQS.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/chevrons-left.svg?react
+// src/stories/foundations/icons/svgs/chevrons-left.svg?raw
 var require_chevrons_left = __commonJS({
-  "src/stories/foundations/icons/svgs/chevrons-left.svg?react"(exports2, module2) {
-    module2.exports = "./chevrons-left-VW2JFNKN.svg?react";
+  "src/stories/foundations/icons/svgs/chevrons-left.svg?raw"(exports2, module2) {
+    module2.exports = "./chevrons-left-VW2JFNKN.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/check.svg?react
+// src/stories/foundations/icons/svgs/check.svg?raw
 var require_check = __commonJS({
-  "src/stories/foundations/icons/svgs/check.svg?react"(exports2, module2) {
-    module2.exports = "./check-NRM6WQNT.svg?react";
+  "src/stories/foundations/icons/svgs/check.svg?raw"(exports2, module2) {
+    module2.exports = "./check-NRM6WQNT.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/download.svg?react
+// src/stories/foundations/icons/svgs/download.svg?raw
 var require_download = __commonJS({
-  "src/stories/foundations/icons/svgs/download.svg?react"(exports2, module2) {
-    module2.exports = "./download-LO4EVFVQ.svg?react";
+  "src/stories/foundations/icons/svgs/download.svg?raw"(exports2, module2) {
+    module2.exports = "./download-LO4EVFVQ.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/exclamation.svg?react
+// src/stories/foundations/icons/svgs/exclamation.svg?raw
 var require_exclamation = __commonJS({
-  "src/stories/foundations/icons/svgs/exclamation.svg?react"(exports2, module2) {
-    module2.exports = "./exclamation-45S2GXVS.svg?react";
+  "src/stories/foundations/icons/svgs/exclamation.svg?raw"(exports2, module2) {
+    module2.exports = "./exclamation-45S2GXVS.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/magnifying-glass.svg?react
+// src/stories/foundations/icons/svgs/magnifying-glass.svg?raw
 var require_magnifying_glass = __commonJS({
-  "src/stories/foundations/icons/svgs/magnifying-glass.svg?react"(exports2, module2) {
-    module2.exports = "./magnifying-glass-B4KJJ7B6.svg?react";
+  "src/stories/foundations/icons/svgs/magnifying-glass.svg?raw"(exports2, module2) {
+    module2.exports = "./magnifying-glass-B4KJJ7B6.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/star.svg?react
+// src/stories/foundations/icons/svgs/star.svg?raw
 var require_star = __commonJS({
-  "src/stories/foundations/icons/svgs/star.svg?react"(exports2, module2) {
-    module2.exports = "./star-NACEYLM7.svg?react";
+  "src/stories/foundations/icons/svgs/star.svg?raw"(exports2, module2) {
+    module2.exports = "./star-NACEYLM7.svg?raw";
   }
 });
 
-// src/stories/foundations/icons/svgs/x.svg?react
+// src/stories/foundations/icons/svgs/x.svg?raw
 var require_x = __commonJS({
-  "src/stories/foundations/icons/svgs/x.svg?react"(exports2, module2) {
-    module2.exports = "./x-2HNMQE4D.svg?react";
+  "src/stories/foundations/icons/svgs/x.svg?raw"(exports2, module2) {
+    module2.exports = "./x-2HNMQE4D.svg?raw";
   }
 });
 
@@ -141,24 +141,58 @@ var import_react2 = __toESM(require("react"));
 
 // src/stories/foundations/icons/index.ts
 var import_react = __toESM(require("react"));
-var ArrowUp = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_arrow_up())));
-var ArrowDown = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_arrow_down())));
-var ChevronRight = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_chevron_right())));
-var ChevronLeft = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_chevron_left())));
-var ChevronsRight = import_react.default.lazy(
-  () => Promise.resolve().then(() => __toESM(require_chevrons_right()))
+var makeSvgComponent = (importPromise) => {
+  return (0, import_react.lazy)(async () => {
+    const module2 = await importPromise;
+    const rawSvgText = module2.default;
+    const attrMatch = rawSvgText.match(/<svg([^>]*)>/);
+    const attributesString = attrMatch ? attrMatch[1] : "";
+    const innerHTML = rawSvgText.replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "");
+    const attrs = {};
+    const attrRegex = /([\w:-]+)=["']([^"']*)["']/g;
+    let match;
+    while ((match = attrRegex.exec(attributesString)) !== null) {
+      const key = match[1];
+      const value = match[2];
+      if (key.toLowerCase() === "viewbox") {
+        attrs["viewBox"] = value;
+      } else {
+        attrs[key] = value;
+      }
+    }
+    return {
+      default: (props) => import_react.default.createElement("svg", {
+        ...attrs,
+        ...props,
+        dangerouslySetInnerHTML: { __html: innerHTML }
+      })
+    };
+  });
+};
+var ArrowUp = makeSvgComponent(Promise.resolve().then(() => __toESM(require_arrow_up())));
+var ArrowDown = makeSvgComponent(Promise.resolve().then(() => __toESM(require_arrow_down())));
+var ChevronRight = makeSvgComponent(
+  Promise.resolve().then(() => __toESM(require_chevron_right()))
 );
-var ChevronsLeft = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_chevrons_left())));
-var CheckIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_check())));
-var DownloadIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_download())));
-var ExclamationIcon = import_react.default.lazy(
-  () => Promise.resolve().then(() => __toESM(require_exclamation()))
+var ChevronLeft = makeSvgComponent(
+  Promise.resolve().then(() => __toESM(require_chevron_left()))
 );
-var SearchIcon = import_react.default.lazy(
-  () => Promise.resolve().then(() => __toESM(require_magnifying_glass()))
+var ChevronsRight = makeSvgComponent(
+  Promise.resolve().then(() => __toESM(require_chevrons_right()))
 );
-var StarIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_star())));
-var XIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_x())));
+var ChevronsLeft = makeSvgComponent(
+  Promise.resolve().then(() => __toESM(require_chevrons_left()))
+);
+var CheckIcon = makeSvgComponent(Promise.resolve().then(() => __toESM(require_check())));
+var DownloadIcon = makeSvgComponent(Promise.resolve().then(() => __toESM(require_download())));
+var ExclamationIcon = makeSvgComponent(
+  Promise.resolve().then(() => __toESM(require_exclamation()))
+);
+var SearchIcon = makeSvgComponent(
+  Promise.resolve().then(() => __toESM(require_magnifying_glass()))
+);
+var StarIcon = makeSvgComponent(Promise.resolve().then(() => __toESM(require_star())));
+var XIcon = makeSvgComponent(Promise.resolve().then(() => __toESM(require_x())));
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {
