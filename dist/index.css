@@ -286,6 +286,7 @@
   --table-header-padding-x: var(--space-4);
   --table-row-padding-y: var(--space-3);
   --table-row-padding-x: var(--space-4);
+  --table-icon-padding-x: var(--space-1);
 }
 
 /* src/stories/foundations/tokens/charts.css */
@@ -659,9 +660,13 @@ select {
 
 /* src/stories/components/Table/Table.css */
 .bmd-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  border: none;
+  text-align: left;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+  }
   th,
   td {
     border: none !important;
@@ -670,7 +675,6 @@ select {
     padding: var(--table-row-padding-y) var(--table-row-padding-x);
   }
   th {
-    text-align: left;
     cursor: pointer;
     font-size: var(--table-header-font-size);
     background-color: var(--color-accent);
@@ -684,6 +688,15 @@ select {
       background-color: var(--table-row-even);
     }
   }
+}
+.bmd-table__sortable-header {
+  display: flex;
+  align-items: center;
+  gap: var(--table-icon-padding-x);
+}
+.bmd-table__pagination-controls-wrapper {
+  display: flex;
+  font-size: var(--table-row-font-size);
 }
 
 /* src/stories/components/Card/Card.css */

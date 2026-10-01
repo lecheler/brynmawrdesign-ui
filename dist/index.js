@@ -29,6 +29,48 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
+// src/stories/foundations/icons/svgs/arrow-up.svg?react
+var require_arrow_up = __commonJS({
+  "src/stories/foundations/icons/svgs/arrow-up.svg?react"(exports2, module2) {
+    module2.exports = "./arrow-up-FT5MG5QD.svg?react";
+  }
+});
+
+// src/stories/foundations/icons/svgs/arrow-down.svg?react
+var require_arrow_down = __commonJS({
+  "src/stories/foundations/icons/svgs/arrow-down.svg?react"(exports2, module2) {
+    module2.exports = "./arrow-down-VCCFSVB3.svg?react";
+  }
+});
+
+// src/stories/foundations/icons/svgs/chevron-right.svg?react
+var require_chevron_right = __commonJS({
+  "src/stories/foundations/icons/svgs/chevron-right.svg?react"(exports2, module2) {
+    module2.exports = "./chevron-right-WNL7UYAV.svg?react";
+  }
+});
+
+// src/stories/foundations/icons/svgs/chevron-left.svg?react
+var require_chevron_left = __commonJS({
+  "src/stories/foundations/icons/svgs/chevron-left.svg?react"(exports2, module2) {
+    module2.exports = "./chevron-left-G3SBE5GB.svg?react";
+  }
+});
+
+// src/stories/foundations/icons/svgs/chevrons-right.svg?react
+var require_chevrons_right = __commonJS({
+  "src/stories/foundations/icons/svgs/chevrons-right.svg?react"(exports2, module2) {
+    module2.exports = "./chevrons-right-FNKBHNQS.svg?react";
+  }
+});
+
+// src/stories/foundations/icons/svgs/chevrons-left.svg?react
+var require_chevrons_left = __commonJS({
+  "src/stories/foundations/icons/svgs/chevrons-left.svg?react"(exports2, module2) {
+    module2.exports = "./chevrons-left-VW2JFNKN.svg?react";
+  }
+});
+
 // src/stories/foundations/icons/svgs/check.svg?react
 var require_check = __commonJS({
   "src/stories/foundations/icons/svgs/check.svg?react"(exports2, module2) {
@@ -99,6 +141,14 @@ var import_react2 = __toESM(require("react"));
 
 // src/stories/foundations/icons/index.ts
 var import_react = __toESM(require("react"));
+var ArrowUp = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_arrow_up())));
+var ArrowDown = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_arrow_down())));
+var ChevronRight = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_chevron_right())));
+var ChevronLeft = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_chevron_left())));
+var ChevronsRight = import_react.default.lazy(
+  () => Promise.resolve().then(() => __toESM(require_chevrons_right()))
+);
+var ChevronsLeft = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_chevrons_left())));
 var CheckIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_check())));
 var DownloadIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM(require_download())));
 var ExclamationIcon = import_react.default.lazy(
@@ -112,6 +162,12 @@ var XIcon = import_react.default.lazy(() => Promise.resolve().then(() => __toESM
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {
+  arrowUp: ArrowUp,
+  arrowDown: ArrowDown,
+  chevronRight: ChevronRight,
+  chevronLeft: ChevronLeft,
+  chevronsRight: ChevronsRight,
+  chevronsLeft: ChevronsLeft,
   check: CheckIcon,
   download: DownloadIcon,
   search: SearchIcon,
@@ -306,16 +362,17 @@ var features = (0, import_react_table.tableFeatures)({
     alphanumeric: import_react_table.sortFn_alphanumeric,
     text: import_react_table.sortFn_text,
     datetime: import_react_table.sortFn_datetime
-  }
+  },
+  rowPaginationFeature: import_react_table.rowPaginationFeature,
+  paginatedRowModel: (0, import_react_table.createPaginatedRowModel)()
 });
 function Table({ data, columns }) {
   const table = (0, import_react_table.useTable)({
-    key: "person-table",
     columns,
     data,
     features
   });
-  return /* @__PURE__ */ import_react7.default.createElement("table", { className: "bmd-table" }, /* @__PURE__ */ import_react7.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react7.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ import_react7.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react7.default.createElement(
+  return /* @__PURE__ */ import_react7.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react7.default.createElement("table", null, /* @__PURE__ */ import_react7.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react7.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ import_react7.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react7.default.createElement(
     "div",
     {
       className: header.column.getCanSort() ? "bmd-table__sortable-header" : "",
@@ -324,11 +381,71 @@ function Table({ data, columns }) {
     },
     /* @__PURE__ */ import_react7.default.createElement(table.FlexRender, { header }),
     {
-      asc: " \u{1F53C}",
-      desc: " \u{1F53D}"
+      asc: /* @__PURE__ */ import_react7.default.createElement(Icon, { name: "arrowUp" }),
+      desc: /* @__PURE__ */ import_react7.default.createElement(Icon, { name: "arrowDown" })
     }[header.column.getIsSorted()] ?? null
-  )))))), /* @__PURE__ */ import_react7.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react7.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react7.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react7.default.createElement(table.FlexRender, { cell })))))));
+  )))))), /* @__PURE__ */ import_react7.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react7.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react7.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react7.default.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ import_react7.default.createElement(PaginationControls, { table }));
 }
+var PaginationControls = ({ table }) => {
+  const paginationButtons = [
+    {
+      icon: "chevronsLeft",
+      onClick: () => table.firstPage(),
+      disabled: !table.getCanPreviousPage()
+    },
+    {
+      icon: "chevronLeft",
+      onClick: () => table.previousPage(),
+      disabled: !table.getCanPreviousPage()
+    },
+    {
+      icon: "chevronRight",
+      onClick: () => table.nextPage(),
+      disabled: !table.getCanNextPage()
+    },
+    {
+      icon: "chevronsRight",
+      onClick: () => table.lastPage(),
+      disabled: !table.getCanLastPage()
+    }
+  ];
+  return /* @__PURE__ */ import_react7.default.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "controls" }, /* @__PURE__ */ import_react7.default.createElement(Inline, { gap: 4 }, /* @__PURE__ */ import_react7.default.createElement("div", null, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ import_react7.default.createElement(
+    Button,
+    {
+      key: icon,
+      icon: { name: icon },
+      onClick,
+      disabled,
+      size: "xs",
+      shape: "square",
+      tone: "neutral",
+      variant: "ghost"
+    }
+  ))), /* @__PURE__ */ import_react7.default.createElement(Inline, null, /* @__PURE__ */ import_react7.default.createElement(Inline, { gap: 1 }, "Page", /* @__PURE__ */ import_react7.default.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), "| Go to page:", /* @__PURE__ */ import_react7.default.createElement(
+    "input",
+    {
+      type: "number",
+      min: "1",
+      max: table.getPageCount(),
+      value: table.state.pagination.pageIndex + 1,
+      onChange: (e) => {
+        const page = e.target.value ? Number(e.target.value) - 1 : 0;
+        table.setPageIndex(page);
+      },
+      className: "page-size-input"
+    }
+  ), /* @__PURE__ */ import_react7.default.createElement(
+    "select",
+    {
+      value: table.state.pagination.pageSize,
+      onChange: (e) => {
+        table.setPageSize(Number(e.target.value));
+      }
+    },
+    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ import_react7.default.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
+    /* @__PURE__ */ import_react7.default.createElement("option", { value: Infinity }, "Show All")
+  ))))));
+};
 
 // src/stories/components/Card/Card.tsx
 var import_react8 = __toESM(require("react"));

@@ -3,6 +3,14 @@ import React2 from "react";
 
 // src/stories/foundations/icons/index.ts
 import React from "react";
+var ArrowUp = React.lazy(() => import("./arrow-up-PHIGANYJ.mjs"));
+var ArrowDown = React.lazy(() => import("./arrow-down-6BEH5XEB.mjs"));
+var ChevronRight = React.lazy(() => import("./chevron-right-RAB2DBNQ.mjs"));
+var ChevronLeft = React.lazy(() => import("./chevron-left-2VQCHJUS.mjs"));
+var ChevronsRight = React.lazy(
+  () => import("./chevrons-right-YDA4VWSX.mjs")
+);
+var ChevronsLeft = React.lazy(() => import("./chevrons-left-UXZOGBC5.mjs"));
 var CheckIcon = React.lazy(() => import("./check-FMSAIFD3.mjs"));
 var DownloadIcon = React.lazy(() => import("./download-3I7BTR64.mjs"));
 var ExclamationIcon = React.lazy(
@@ -16,6 +24,12 @@ var XIcon = React.lazy(() => import("./x-QMWFAJT3.mjs"));
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {
+  arrowUp: ArrowUp,
+  arrowDown: ArrowDown,
+  chevronRight: ChevronRight,
+  chevronLeft: ChevronLeft,
+  chevronsRight: ChevronsRight,
+  chevronsLeft: ChevronsLeft,
   check: CheckIcon,
   download: DownloadIcon,
   search: SearchIcon,
@@ -209,7 +223,9 @@ import {
   createSortedRowModel,
   sortFn_alphanumeric,
   sortFn_text,
-  sortFn_datetime
+  sortFn_datetime,
+  createPaginatedRowModel,
+  rowPaginationFeature
 } from "@tanstack/react-table";
 var features = tableFeatures({
   rowSortingFeature,
@@ -218,16 +234,17 @@ var features = tableFeatures({
     alphanumeric: sortFn_alphanumeric,
     text: sortFn_text,
     datetime: sortFn_datetime
-  }
+  },
+  rowPaginationFeature,
+  paginatedRowModel: createPaginatedRowModel()
 });
 function Table({ data, columns }) {
   const table = useTable({
-    key: "person-table",
     columns,
     data,
     features
   });
-  return /* @__PURE__ */ React11.createElement("table", { className: "bmd-table" }, /* @__PURE__ */ React11.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React11.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React11.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React11.createElement(
+  return /* @__PURE__ */ React11.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React11.createElement("table", null, /* @__PURE__ */ React11.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React11.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React11.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React11.createElement(
     "div",
     {
       className: header.column.getCanSort() ? "bmd-table__sortable-header" : "",
@@ -236,11 +253,71 @@ function Table({ data, columns }) {
     },
     /* @__PURE__ */ React11.createElement(table.FlexRender, { header }),
     {
-      asc: " \u{1F53C}",
-      desc: " \u{1F53D}"
+      asc: /* @__PURE__ */ React11.createElement(Icon, { name: "arrowUp" }),
+      desc: /* @__PURE__ */ React11.createElement(Icon, { name: "arrowDown" })
     }[header.column.getIsSorted()] ?? null
-  )))))), /* @__PURE__ */ React11.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React11.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React11.createElement("td", { key: cell.id }, /* @__PURE__ */ React11.createElement(table.FlexRender, { cell })))))));
+  )))))), /* @__PURE__ */ React11.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React11.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React11.createElement("td", { key: cell.id }, /* @__PURE__ */ React11.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React11.createElement(PaginationControls, { table }));
 }
+var PaginationControls = ({ table }) => {
+  const paginationButtons = [
+    {
+      icon: "chevronsLeft",
+      onClick: () => table.firstPage(),
+      disabled: !table.getCanPreviousPage()
+    },
+    {
+      icon: "chevronLeft",
+      onClick: () => table.previousPage(),
+      disabled: !table.getCanPreviousPage()
+    },
+    {
+      icon: "chevronRight",
+      onClick: () => table.nextPage(),
+      disabled: !table.getCanNextPage()
+    },
+    {
+      icon: "chevronsRight",
+      onClick: () => table.lastPage(),
+      disabled: !table.getCanLastPage()
+    }
+  ];
+  return /* @__PURE__ */ React11.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ React11.createElement("div", { className: "controls" }, /* @__PURE__ */ React11.createElement(Inline, { gap: 4 }, /* @__PURE__ */ React11.createElement("div", null, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ React11.createElement(
+    Button,
+    {
+      key: icon,
+      icon: { name: icon },
+      onClick,
+      disabled,
+      size: "xs",
+      shape: "square",
+      tone: "neutral",
+      variant: "ghost"
+    }
+  ))), /* @__PURE__ */ React11.createElement(Inline, null, /* @__PURE__ */ React11.createElement(Inline, { gap: 1 }, "Page", /* @__PURE__ */ React11.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), "| Go to page:", /* @__PURE__ */ React11.createElement(
+    "input",
+    {
+      type: "number",
+      min: "1",
+      max: table.getPageCount(),
+      value: table.state.pagination.pageIndex + 1,
+      onChange: (e) => {
+        const page = e.target.value ? Number(e.target.value) - 1 : 0;
+        table.setPageIndex(page);
+      },
+      className: "page-size-input"
+    }
+  ), /* @__PURE__ */ React11.createElement(
+    "select",
+    {
+      value: table.state.pagination.pageSize,
+      onChange: (e) => {
+        table.setPageSize(Number(e.target.value));
+      }
+    },
+    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ React11.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
+    /* @__PURE__ */ React11.createElement("option", { value: Infinity }, "Show All")
+  ))))));
+};
 
 // src/stories/components/Card/Card.tsx
 import React12 from "react";

@@ -3,7 +3,7 @@ import React__default, { SVGProps, JSX } from 'react';
 import * as _tanstack_react_table from '@tanstack/react-table';
 import { ColumnDef } from '@tanstack/react-table';
 
-type IconName = "check" | "download" | "search" | "star" | "warning" | "x";
+type IconName = "arrowUp" | "arrowDown" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "search" | "star" | "warning" | "x";
 interface IconProps extends SVGProps<SVGSVGElement> {
     name: IconName;
     className?: string;
@@ -132,6 +132,8 @@ declare const features: {
         text: _tanstack_react_table.CreatedSortFn<any, any>;
         datetime: _tanstack_react_table.CreatedSortFn<any, any>;
     };
+    rowPaginationFeature: _tanstack_react_table.TableFeature;
+    paginatedRowModel: (table: _tanstack_react_table.Table<any, any>) => () => _tanstack_react_table.RowModel<any, any>;
 };
 declare function Table<TData>({ data, columns }: TableProps<TData>): React__default.JSX.Element;
 
