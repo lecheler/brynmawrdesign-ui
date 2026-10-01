@@ -1,19 +1,17 @@
-// src/icons/Icon.tsx
 import React from "react";
-import type { SVGProps } from "react";
 import {
   ArrowDown,
   ArrowUp,
-  CheckIcon,
+  Check,
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-  DownloadIcon,
-  ExclamationIcon,
-  SearchIcon,
-  StarIcon,
-  XIcon,
+  Download,
+  Exclamation,
+  Search,
+  Star,
+  X,
 } from "./index";
 
 import "./Icon.css";
@@ -32,36 +30,43 @@ export type IconName =
   | "warning"
   | "x";
 
-// Use semantic icon names:
-const ICONS: Record<IconName, React.FC<SVGProps<SVGSVGElement>>> = {
+const ICONS: Record<IconName, string> = {
   arrowUp: ArrowUp,
   arrowDown: ArrowDown,
   chevronRight: ChevronRight,
   chevronLeft: ChevronLeft,
   chevronsRight: ChevronsRight,
   chevronsLeft: ChevronsLeft,
-  check: CheckIcon,
-  download: DownloadIcon,
-  search: SearchIcon,
-  star: StarIcon,
-  x: XIcon,
-  warning: ExclamationIcon,
+  check: Check,
+  download: Download,
+  search: Search,
+  star: Star,
+  x: X,
+  warning: Exclamation,
 };
 
-export interface IconProps extends SVGProps<SVGSVGElement> {
+// 1. FIX: Extend HTMLAttributes for a span element instead of SVGProps
+export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   name: IconName;
   className?: string;
 }
 
 export const Icon: React.FC<IconProps> = ({ name, className, ...rest }) => {
-  const Svg = ICONS[name];
+  const iconUrl = ICONS[name] as unknown as string;
 
   return (
-    <Svg
+    <span
       className={["bmd-icon", className].filter(Boolean).join(" ")}
       aria-hidden={rest["aria-label"] ? undefined : true}
-      focusable="false"
-      {...rest}
+      /* 2. Move standard HTML attributes right down to the element */
+      style={
+        {
+          maskImage: `url(${iconUrl})`,
+          WebkitMaskImage: `url(${iconUrl})`,
+          ...rest.style, // Allows custom inline override styles if needed
+        } as React.CSSProperties
+      }
+      {...rest} // 3. Clean spread: safe because all props are valid span attributes now!
     />
   );
 };

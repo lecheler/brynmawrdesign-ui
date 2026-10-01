@@ -1,60 +1,22 @@
 // src/stories/foundations/icons/Icon.tsx
-import React2 from "react";
+import React from "react";
 
 // src/stories/foundations/icons/index.ts
-import React, { lazy } from "react";
-var makeSvgComponent = (importPromise) => {
-  return lazy(async () => {
-    const module = await importPromise;
-    const rawSvgText = module.default;
-    const attrMatch = rawSvgText.match(/<svg([^>]*)>/);
-    const attributesString = attrMatch ? attrMatch[1] : "";
-    const innerHTML = rawSvgText.replace(/<svg[^>]*>/, "").replace(/<\/svg>/, "");
-    const attrs = {};
-    const attrRegex = /([\w:-]+)=["']([^"']*)["']/g;
-    let match;
-    while ((match = attrRegex.exec(attributesString)) !== null) {
-      const key = match[1];
-      const value = match[2];
-      if (key.toLowerCase() === "viewbox") {
-        attrs["viewBox"] = value;
-      } else {
-        attrs[key] = value;
-      }
-    }
-    return {
-      default: (props) => React.createElement("svg", {
-        ...attrs,
-        ...props,
-        dangerouslySetInnerHTML: { __html: innerHTML }
-      })
-    };
-  });
+var getIconUrl = (path) => {
+  return new URL(path, import.meta.url).href;
 };
-var ArrowUp = makeSvgComponent(import("./arrow-up-NQT5II3V.mjs"));
-var ArrowDown = makeSvgComponent(import("./arrow-down-NRCHQWOD.mjs"));
-var ChevronRight = makeSvgComponent(
-  import("./chevron-right-4PL2HYPO.mjs")
-);
-var ChevronLeft = makeSvgComponent(
-  import("./chevron-left-MXEMFBWN.mjs")
-);
-var ChevronsRight = makeSvgComponent(
-  import("./chevrons-right-CZPNIJZL.mjs")
-);
-var ChevronsLeft = makeSvgComponent(
-  import("./chevrons-left-OM52VYZN.mjs")
-);
-var CheckIcon = makeSvgComponent(import("./check-LRYIHNOS.mjs"));
-var DownloadIcon = makeSvgComponent(import("./download-2HBERQEU.mjs"));
-var ExclamationIcon = makeSvgComponent(
-  import("./exclamation-B2VEKSUR.mjs")
-);
-var SearchIcon = makeSvgComponent(
-  import("./magnifying-glass-6EKD4IL2.mjs")
-);
-var StarIcon = makeSvgComponent(import("./star-V26TDG3R.mjs"));
-var XIcon = makeSvgComponent(import("./x-G3M4HCDP.mjs"));
+var ArrowUp = getIconUrl("./svgs/arrow-up.svg");
+var ArrowDown = getIconUrl("./svgs/arrow-down.svg");
+var ChevronRight = getIconUrl("./svgs/chevron-right.svg");
+var ChevronLeft = getIconUrl("./svgs/chevron-left.svg");
+var ChevronsRight = getIconUrl("./svgs/chevrons-right.svg");
+var ChevronsLeft = getIconUrl("./svgs/chevrons-left.svg");
+var Check = getIconUrl("./svgs/check.svg");
+var Download = getIconUrl("./svgs/download.svg");
+var Exclamation = getIconUrl("./svgs/exclamation.svg");
+var Search = getIconUrl("./svgs/magnifying-glass.svg");
+var Star = getIconUrl("./svgs/star.svg");
+var X = getIconUrl("./svgs/x.svg");
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {
@@ -64,28 +26,33 @@ var ICONS = {
   chevronLeft: ChevronLeft,
   chevronsRight: ChevronsRight,
   chevronsLeft: ChevronsLeft,
-  check: CheckIcon,
-  download: DownloadIcon,
-  search: SearchIcon,
-  star: StarIcon,
-  x: XIcon,
-  warning: ExclamationIcon
+  check: Check,
+  download: Download,
+  search: Search,
+  star: Star,
+  x: X,
+  warning: Exclamation
 };
 var Icon = ({ name, className, ...rest }) => {
-  const Svg = ICONS[name];
-  return /* @__PURE__ */ React2.createElement(
-    Svg,
+  const iconUrl = ICONS[name];
+  return /* @__PURE__ */ React.createElement(
+    "span",
     {
       className: ["bmd-icon", className].filter(Boolean).join(" "),
       "aria-hidden": rest["aria-label"] ? void 0 : true,
-      focusable: "false",
+      style: {
+        maskImage: `url(${iconUrl})`,
+        WebkitMaskImage: `url(${iconUrl})`,
+        ...rest.style
+        // Allows custom inline override styles if needed
+      },
       ...rest
     }
   );
 };
 
 // src/stories/foundations/layout/Inline.tsx
-import * as React3 from "react";
+import * as React2 from "react";
 function Inline({
   as,
   gap = 2,
@@ -95,7 +62,7 @@ function Inline({
   ...props
 }) {
   const Comp = as || "div";
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ React2.createElement(
     Comp,
     {
       className: "bmd-Inline",
@@ -111,7 +78,7 @@ function Inline({
 }
 
 // src/stories/foundations/layout/Stack.tsx
-import * as React4 from "react";
+import * as React3 from "react";
 function Stack({
   as,
   gap = 3,
@@ -119,11 +86,11 @@ function Stack({
   ...props
 }) {
   const Comp = as || "div";
-  return /* @__PURE__ */ React4.createElement(Comp, { className: "bmd-Stack", "data-gap": gap, style, ...props });
+  return /* @__PURE__ */ React3.createElement(Comp, { className: "bmd-Stack", "data-gap": gap, style, ...props });
 }
 
 // src/stories/foundations/layout/Grid.tsx
-import React5 from "react";
+import React4 from "react";
 
 // src/stories/utils/classNames.ts
 function cx(...classes) {
@@ -140,7 +107,7 @@ function Grid({
   style,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ React4.createElement(
     "div",
     {
       className: cx("bmd-grid", className),
@@ -157,13 +124,13 @@ function Grid({
 }
 
 // src/stories/foundations/layout/LayoutContainer.tsx
-import React6 from "react";
+import React5 from "react";
 function LayoutContainer({
   max = "none",
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React6.createElement(
+  return /* @__PURE__ */ React5.createElement(
     "div",
     {
       className: cx("bmd-layout-container", className),
@@ -174,7 +141,7 @@ function LayoutContainer({
 }
 
 // src/stories/foundations/typography/Heading.tsx
-import * as React7 from "react";
+import * as React6 from "react";
 function Heading({
   level = 2,
   as,
@@ -182,22 +149,22 @@ function Heading({
 }) {
   const defaultTag = `h${level}`;
   const Comp = as || defaultTag;
-  return /* @__PURE__ */ React7.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
+  return /* @__PURE__ */ React6.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
 }
 
 // src/stories/foundations/typography/Text.tsx
-import * as React8 from "react";
+import * as React7 from "react";
 function Text({
   as,
   size = "md",
   ...props
 }) {
   const Comp = as || "p";
-  return /* @__PURE__ */ React8.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
+  return /* @__PURE__ */ React7.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
 }
 
 // src/stories/components/Button/Button.tsx
-import React9 from "react";
+import React8 from "react";
 var Button = ({
   label,
   children,
@@ -216,7 +183,7 @@ var Button = ({
     );
     return null;
   }
-  return /* @__PURE__ */ React9.createElement(
+  return /* @__PURE__ */ React8.createElement(
     "button",
     {
       type: "button",
@@ -228,28 +195,28 @@ var Button = ({
       "data-shape": shape,
       ...props
     },
-    icon ? /* @__PURE__ */ React9.createElement(React9.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React9.createElement(React9.Fragment, null, /* @__PURE__ */ React9.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ React9.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React9.createElement("span", null, /* @__PURE__ */ React9.createElement(Icon, { ...icon }))) : /* @__PURE__ */ React9.createElement(React9.Fragment, null, children || label)
+    icon ? /* @__PURE__ */ React8.createElement(React8.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React8.createElement(React8.Fragment, null, /* @__PURE__ */ React8.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ React8.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React8.createElement("span", null, /* @__PURE__ */ React8.createElement(Icon, { ...icon }))) : /* @__PURE__ */ React8.createElement(React8.Fragment, null, children || label)
   );
 };
 
 // src/stories/components/TextInput/TextInput.tsx
-import React10 from "react";
-var TextInput = React10.forwardRef(
+import React9 from "react";
+var TextInput = React9.forwardRef(
   function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
-    return /* @__PURE__ */ React10.createElement(
+    return /* @__PURE__ */ React9.createElement(
       "div",
       {
         className: cx("bmd-text-input", className),
         "data-size": size,
         "data-state": state !== "default" ? state : void 0
       },
-      /* @__PURE__ */ React10.createElement("input", { ref, className: "bmd-text-input__control", ...props })
+      /* @__PURE__ */ React9.createElement("input", { ref, className: "bmd-text-input__control", ...props })
     );
   }
 );
 
 // src/stories/components/Table/Table.tsx
-import React11 from "react";
+import React10 from "react";
 import {
   useTable,
   tableFeatures,
@@ -278,19 +245,19 @@ function Table({ data, columns }) {
     data,
     features
   });
-  return /* @__PURE__ */ React11.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React11.createElement("table", null, /* @__PURE__ */ React11.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React11.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React11.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React11.createElement(
+  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement(
     "div",
     {
       className: header.column.getCanSort() ? "bmd-table__sortable-header" : "",
       onClick: header.column.getToggleSortingHandler(),
       title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
     },
-    /* @__PURE__ */ React11.createElement(table.FlexRender, { header }),
+    /* @__PURE__ */ React10.createElement(table.FlexRender, { header }),
     {
-      asc: /* @__PURE__ */ React11.createElement(Icon, { name: "arrowUp" }),
-      desc: /* @__PURE__ */ React11.createElement(Icon, { name: "arrowDown" })
+      asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
+      desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
     }[header.column.getIsSorted()] ?? null
-  )))))), /* @__PURE__ */ React11.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React11.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React11.createElement("td", { key: cell.id }, /* @__PURE__ */ React11.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React11.createElement(PaginationControls, { table }));
+  )))))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [
@@ -315,7 +282,7 @@ var PaginationControls = ({ table }) => {
       disabled: !table.getCanLastPage()
     }
   ];
-  return /* @__PURE__ */ React11.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ React11.createElement("div", { className: "controls" }, /* @__PURE__ */ React11.createElement(Inline, { gap: 4 }, /* @__PURE__ */ React11.createElement("div", null, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ React11.createElement(
+  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ React10.createElement("div", { className: "controls" }, /* @__PURE__ */ React10.createElement(Inline, { gap: 4 }, /* @__PURE__ */ React10.createElement("div", null, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ React10.createElement(
     Button,
     {
       key: icon,
@@ -327,7 +294,7 @@ var PaginationControls = ({ table }) => {
       tone: "neutral",
       variant: "ghost"
     }
-  ))), /* @__PURE__ */ React11.createElement(Inline, null, /* @__PURE__ */ React11.createElement(Inline, { gap: 1 }, "Page", /* @__PURE__ */ React11.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), "| Go to page:", /* @__PURE__ */ React11.createElement(
+  ))), /* @__PURE__ */ React10.createElement(Inline, null, /* @__PURE__ */ React10.createElement(Inline, { gap: 1 }, "Page", /* @__PURE__ */ React10.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), "| Go to page:", /* @__PURE__ */ React10.createElement(
     "input",
     {
       type: "number",
@@ -340,7 +307,7 @@ var PaginationControls = ({ table }) => {
       },
       className: "page-size-input"
     }
-  ), /* @__PURE__ */ React11.createElement(
+  ), /* @__PURE__ */ React10.createElement(
     "select",
     {
       value: table.state.pagination.pageSize,
@@ -348,13 +315,13 @@ var PaginationControls = ({ table }) => {
         table.setPageSize(Number(e.target.value));
       }
     },
-    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ React11.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
-    /* @__PURE__ */ React11.createElement("option", { value: Infinity }, "Show All")
+    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ React10.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
+    /* @__PURE__ */ React10.createElement("option", { value: Infinity }, "Show All")
   ))))));
 };
 
 // src/stories/components/Card/Card.tsx
-import React12 from "react";
+import React11 from "react";
 function CardRoot({
   as,
   variant = "elevated",
@@ -365,7 +332,7 @@ function CardRoot({
   ...props
 }) {
   const Component3 = as || "div";
-  return /* @__PURE__ */ React12.createElement(
+  return /* @__PURE__ */ React11.createElement(
     Component3,
     {
       className: cx("bmd-card", className),
@@ -378,13 +345,13 @@ function CardRoot({
   );
 }
 function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ React12.createElement("div", { className: cx("bmd-card__header", className), ...props });
+  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__header", className), ...props });
 }
 function CardBody({ className, ...props }) {
-  return /* @__PURE__ */ React12.createElement("div", { className: cx("bmd-card__body", className), ...props });
+  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__body", className), ...props });
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ React12.createElement("div", { className: cx("bmd-card__footer", className), ...props });
+  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__footer", className), ...props });
 }
 var Card = Object.assign(CardRoot, {
   Header: CardHeader,
@@ -393,7 +360,7 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/stories/charts/Pie/Pie.tsx
-import React16 from "react";
+import React15 from "react";
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 import { jsx as jsx3, Fragment } from "react/jsx-runtime";
@@ -424,7 +391,7 @@ var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 import { jsx as jsx2 } from "react/jsx-runtime";
-import * as React15 from "react";
+import * as React14 from "react";
 import { useId as useId2, useRef as useRef3, useMemo } from "react";
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
@@ -7239,7 +7206,7 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-import * as React14 from "react";
+import * as React13 from "react";
 import { useId, useRef as useRef2, useContext, useInsertionEffect } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
@@ -7251,7 +7218,7 @@ var MotionConfigContext = createContext3({
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-import * as React13 from "react";
+import * as React12 from "react";
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7284,11 +7251,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React13.useCallback(composeRefs(...refs), refs);
+  return React12.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React14.Component {
+var PopChildMeasure = class extends React13.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7364,7 +7331,7 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React14.cloneElement(children, { ref: composedRef }) });
+  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React13.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
@@ -7409,7 +7376,7 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   useMemo(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React15.useEffect(() => {
+  React14.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = jsx2(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -9393,7 +9360,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React16.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React16.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React16.createElement(Heading, null, title), /* @__PURE__ */ React16.createElement(
+  return /* @__PURE__ */ React15.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React15.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React15.createElement(Heading, null, title), /* @__PURE__ */ React15.createElement(
     motion2.svg,
     {
       width: size,
@@ -9401,7 +9368,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React16.createElement(
+    /* @__PURE__ */ React15.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9417,7 +9384,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React16.createElement(
+      return /* @__PURE__ */ React15.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9457,7 +9424,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-import React17 from "react";
+import React16 from "react";
 var BarChart = ({
   title = "Bar Chart",
   height = 500,
@@ -9488,14 +9455,14 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ React17.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React17.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React17.createElement(
+  return /* @__PURE__ */ React16.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React16.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React16.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React17.createElement(
+      /* @__PURE__ */ React16.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9515,13 +9482,13 @@ var BarChart = ({
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React17.createElement(
+      /* @__PURE__ */ React16.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           style: { height: bar.totalValue / maxValue * height }
         },
-        /* @__PURE__ */ React17.createElement(
+        /* @__PURE__ */ React16.createElement(
           motion2.div,
           {
             className: "bmd-bar-chart__value-bar-total",
@@ -9544,7 +9511,7 @@ var BarChart = ({
             exit: { opacity: 0 }
           },
           bar.segments.map((segment) => {
-            return /* @__PURE__ */ React17.createElement(
+            return /* @__PURE__ */ React16.createElement(
               motion2.div,
               {
                 key: `label-${segment.id}`,
@@ -9557,8 +9524,8 @@ var BarChart = ({
           })
         )
       ),
-      /* @__PURE__ */ React17.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React17.createElement(
+      /* @__PURE__ */ React16.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React16.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",

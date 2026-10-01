@@ -1,10 +1,10 @@
 import * as React from 'react';
-import React__default, { SVGProps, JSX } from 'react';
+import React__default, { JSX } from 'react';
 import * as _tanstack_react_table from '@tanstack/react-table';
 import { ColumnDef } from '@tanstack/react-table';
 
 type IconName = "arrowUp" | "arrowDown" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "search" | "star" | "warning" | "x";
-interface IconProps extends SVGProps<SVGSVGElement> {
+interface IconProps extends React__default.HTMLAttributes<HTMLSpanElement> {
     name: IconName;
     className?: string;
 }
