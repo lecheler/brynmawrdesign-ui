@@ -68,6 +68,7 @@ var ICONS = {
 };
 var Icon = ({ name, className, ...rest }) => {
   const iconUrl = ICONS[name];
+  console.log(`Icon registry lookup for "${name}":`, iconUrl);
   return /* @__PURE__ */ React.createElement(
     "span",
     {

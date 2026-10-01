@@ -54,7 +54,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
 export const Icon: React.FC<IconProps> = ({ name, className, ...rest }) => {
   const iconUrl = ICONS[name] as unknown as string;
   // 🌟 Temporary diagnostic log
-  // console.log(`Icon registry lookup for "${name}":`, iconUrl);
+  console.log(`Icon registry lookup for "${name}":`, iconUrl);
   return (
     <span
       {...rest}
