@@ -4,8 +4,9 @@
   --table-row-font-size: var(--font-size-xs);
 
   /* Colors */
-  --table-row-even: var(--color-surface);
-  --table-row-odd: var(--color-surface-subtle);
+  --table-row-even-color: var(--color-surface);
+  --table-row-odd-color: var(--color-surface-subtle);
+  --table-controls-color: var(--color-surface);
 
   /* Padding and Spacing */
   --table-header-padding-y: var(--space-2);
@@ -13,4 +14,6 @@
   --table-row-padding-y: var(--space-3);
   --table-row-padding-x: var(--space-4);
   --table-icon-padding-x: var(--space-1);
+  --table-controls-padding-y: var(--space-4);
+  --table-controls-padding-x: var(--space-0);
 }

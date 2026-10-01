@@ -30,9 +30,9 @@
 
   tr {
     font-size: var(--table-row-font-size);
-    background-color: var(--table-row-odd);
+    background-color: var(--table-row-odd-color);
     &:nth-child(even) {
-      background-color: var(--table-row-even);
+      background-color: var(--table-row-even-color);
     }
   }
 }
@@ -45,5 +45,14 @@
 
 .bmd-table__pagination-controls-wrapper {
   display: flex;
+  justify-content: flex-end;
+
+  border-top: solid 1px var(--table-row-odd-color);
   font-size: var(--table-row-font-size);
+  padding: var(--table-controls-padding-y) var(--table-controls-padding-x);
+  background-color: var(--table-controls-color);
+
+  select {
+    padding: var(--input-padding-y-md) var(--input-padding-x-md);
+  }
 }

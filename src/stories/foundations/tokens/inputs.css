@@ -6,8 +6,8 @@
   --input-height-lg: 3rem;
 
   /* Padding */
-  --input-padding-y-md: calc(var(--font-size-md) / 2);
-  --input-padding-x-md: var(--font-size-md);
+  --input-padding-y-md: var(--space-1);
+  --input-padding-x-md: var(--space-2);
 
   /* Typography */
   --input-font-weight: var(--font-weight-regular);

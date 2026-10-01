@@ -16,6 +16,7 @@ import "./Table.css";
 import { Icon, IconName } from "../../foundations/icons/Icon";
 import { Button } from "../Button/Button";
 import { Inline } from "../../foundations/layout/Inline";
+import { TextInput } from "../TextInput/TextInput";
 
 interface TableProps<TData> {
   data: TData[];
@@ -123,59 +124,56 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
   ];
   return (
     <div className="bmd-table__pagination-controls-wrapper">
-      <div className="controls">
-        <Inline gap={4}>
-          <div>
-            {paginationButtons.map(({ icon, onClick, disabled }) => (
-              <Button
-                key={icon} // Unique identifier
-                icon={{ name: icon }}
-                onClick={onClick}
-                disabled={disabled}
-                size="xs"
-                shape="square"
-                tone="neutral"
-                variant="ghost"
-              />
-            ))}
-          </div>
-          <Inline>
-            <Inline gap={1}>
-              Page
-              <strong>
-                {(table.state.pagination.pageIndex + 1).toLocaleString()} of{" "}
-                {table.getPageCount().toLocaleString()}
-              </strong>
-              | Go to page:
-              <input
-                type="number"
-                min="1"
-                max={table.getPageCount()}
-                value={table.state.pagination.pageIndex + 1}
-                onChange={(e) => {
-                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                  table.setPageIndex(page);
-                }}
-                className="page-size-input"
-              />
-              <select
-                value={table.state.pagination.pageSize}
-                onChange={(e) => {
-                  table.setPageSize(Number(e.target.value));
-                }}
-              >
-                {[10, 20, 30, 40, 50].map((pageSize) => (
-                  <option key={pageSize} value={pageSize}>
-                    Show {pageSize}
-                  </option>
-                ))}
-                <option value={Infinity}>Show All</option>
-              </select>
-            </Inline>
-          </Inline>
+      <Inline gap={3}>
+        <Inline gap={0}>
+          {paginationButtons.map(({ icon, onClick, disabled }) => (
+            <Button
+              key={icon} // Unique identifier
+              icon={{ name: icon }}
+              onClick={onClick}
+              disabled={disabled}
+              size="xs"
+              shape="square"
+              tone="neutral"
+              variant="ghost"
+            />
+          ))}
         </Inline>
-      </div>
 
+        <Inline gap={1}>
+          <span>Page</span>
+          <strong>
+            {(table.state.pagination.pageIndex + 1).toLocaleString()} of{" "}
+            {table.getPageCount().toLocaleString()}
+          </strong>
+          <span>| Go to page:</span>
+          <TextInput
+            name="page-index"
+            type="number"
+            min="1"
+            max={table.getPageCount()}
+            value={table.state.pagination.pageIndex + 1}
+            onChange={(e) => {
+              const page = e.target.value ? Number(e.target.value) - 1 : 0;
+              table.setPageIndex(page);
+            }}
+          />
+        </Inline>
+        <select
+          name="page-row-size"
+          value={table.state.pagination.pageSize}
+          onChange={(e) => {
+            table.setPageSize(Number(e.target.value));
+          }}
+        >
+          {[10, 20, 30, 40, 50].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+          <option value={Infinity}>Show All</option>
+        </select>
+      </Inline>
       {/* <pre data-testid="table-state">
         {JSON.stringify(table.state, null, 2)}
       </pre> */}
