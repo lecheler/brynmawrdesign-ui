@@ -28,6 +28,7 @@
 @import "../foundations/tokens/buttons.css";
 @import "../foundations/tokens/cards.css";
 @import "../foundations/tokens/inputs.css";
+@import "../foundations/tokens/tables.css";
 
 /* Charts */
 @import "../foundations/tokens/charts.css";

@@ -276,6 +276,18 @@
   --input-tone-contrast: var(--tone-primary-contrast);
 }
 
+/* src/stories/foundations/tokens/tables.css */
+:root {
+  --table-header-font-size: var(--font-size-sm);
+  --table-row-font-size: var(--font-size-xs);
+  --table-row-even: var(--color-surface);
+  --table-row-odd: var(--color-surface-subtle);
+  --table-header-padding-y: var(--space-2);
+  --table-header-padding-x: var(--space-4);
+  --table-row-padding-y: var(--space-3);
+  --table-row-padding-x: var(--space-4);
+}
+
 /* src/stories/foundations/tokens/charts.css */
 :root {
   --chart-tone: var(--color-surface-subtle);
@@ -643,6 +655,35 @@ select {
   background-color: var(--input-disabled-bg);
   color: var(--input-disabled-text);
   cursor: not-allowed;
+}
+
+/* src/stories/components/Table/Table.css */
+.bmd-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  th,
+  td {
+    border: none !important;
+    outline: 1px solid transparent;
+    background-clip: padding-box;
+    padding: var(--table-row-padding-y) var(--table-row-padding-x);
+  }
+  th {
+    text-align: left;
+    cursor: pointer;
+    font-size: var(--table-header-font-size);
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
+    padding: var(--table-header-padding-y) var(--table-header-padding-x);
+  }
+  tr {
+    font-size: var(--table-row-font-size);
+    background-color: var(--table-row-odd);
+    &:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+  }
 }
 
 /* src/stories/components/Card/Card.css */

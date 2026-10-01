@@ -88,7 +88,9 @@ export function Table<TData>({ data, columns }: TableProps<TData>) {
                 {header.isPlaceholder ? null : (
                   <div
                     className={
-                      header.column.getCanSort() ? "sortable-header" : ""
+                      header.column.getCanSort()
+                        ? "bmd-table__sortable-header"
+                        : ""
                     }
                     onClick={header.column.getToggleSortingHandler()}
                     title={

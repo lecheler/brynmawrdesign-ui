@@ -1,4 +1,35 @@
 .bmd-table {
-  /* Surface basics */
-  background-color: var(--card-surface, var(--card-surface-raised, #ffffff));
+  /* background-color: beige; */
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+
+  th,
+  td {
+    /* Explicitly wipe out borders on individual cells */
+    border: none !important;
+
+    /* Subpixel fix if using sticky headers (prevents background-gap bleeding) */
+    outline: 1px solid transparent;
+    background-clip: padding-box;
+    padding: var(--table-row-padding-y) var(--table-row-padding-x);
+  }
+
+  th {
+    text-align: left;
+    cursor: pointer;
+    font-size: var(--table-header-font-size);
+    background-color: var(--color-accent);
+    color: var(--color-text-inverse);
+
+    padding: var(--table-header-padding-y) var(--table-header-padding-x);
+  }
+
+  tr {
+    font-size: var(--table-row-font-size);
+    background-color: var(--table-row-odd);
+    &:nth-child(even) {
+      background-color: var(--table-row-even);
+    }
+  }
 }

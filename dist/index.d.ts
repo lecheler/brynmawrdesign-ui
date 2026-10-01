@@ -1,5 +1,7 @@
 import * as React from 'react';
 import React__default, { SVGProps, JSX } from 'react';
+import * as _tanstack_react_table from '@tanstack/react-table';
+import { ColumnDef } from '@tanstack/react-table';
 
 type IconName = "check" | "download" | "search" | "star" | "warning" | "x";
 interface IconProps extends SVGProps<SVGSVGElement> {
@@ -113,10 +115,25 @@ interface ButtonProps extends React__default.ButtonHTMLAttributes<HTMLButtonElem
 /** Primary UI component for user interaction */
 declare const Button: ({ label, children, icon, iconPosition, variant, tone, size, shape, disabled, ...props }: ButtonProps) => React__default.JSX.Element;
 
-interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface TextInputProps extends React__default.InputHTMLAttributes<HTMLInputElement> {
     state?: "default" | "error" | "success";
 }
-declare const TextInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
+declare const TextInput: React__default.ForwardRefExoticComponent<TextInputProps & React__default.RefAttributes<HTMLInputElement>>;
+
+interface TableProps<TData> {
+    data: TData[];
+    columns: Array<ColumnDef<typeof features, TData>>;
+}
+declare const features: {
+    rowSortingFeature: _tanstack_react_table.TableFeature;
+    sortedRowModel: (table: _tanstack_react_table.Table<any, any>) => () => _tanstack_react_table.RowModel<any, any>;
+    sortFns: {
+        alphanumeric: _tanstack_react_table.CreatedSortFn<any, any>;
+        text: _tanstack_react_table.CreatedSortFn<any, any>;
+        datetime: _tanstack_react_table.CreatedSortFn<any, any>;
+    };
+};
+declare function Table<TData>({ data, columns }: TableProps<TData>): React__default.JSX.Element;
 
 type CardVariant = "elevated" | "outlined" | "subtle";
 type CardTone = "neutral" | "danger" | "success";
@@ -176,4 +193,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, LayoutContainer, Pie, type PieData, Stack, type StackProps, Text, TextInput, type TextInputProps, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, LayoutContainer, Pie, type PieData, Stack, type StackProps, Table, Text, TextInput, type TextInputProps, type TextProps };

@@ -1,18 +1,301 @@
+import {
+  __commonJS,
+  __require,
+  __toESM
+} from "./chunk-LZOMFHX3.mjs";
+
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.production.js
+var require_use_sync_external_store_shim_production = __commonJS({
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.production.js"(exports) {
+    "use strict";
+    var React19 = __require("react");
+    function is(x, y) {
+      return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+    }
+    var objectIs = "function" === typeof Object.is ? Object.is : is;
+    var useState3 = React19.useState;
+    var useEffect6 = React19.useEffect;
+    var useLayoutEffect3 = React19.useLayoutEffect;
+    var useDebugValue = React19.useDebugValue;
+    function useSyncExternalStore$2(subscribe, getSnapshot) {
+      var value = getSnapshot(), _useState = useState3({ inst: { value, getSnapshot } }), inst = _useState[0].inst, forceUpdate = _useState[1];
+      useLayoutEffect3(
+        function() {
+          inst.value = value;
+          inst.getSnapshot = getSnapshot;
+          checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+        },
+        [subscribe, value, getSnapshot]
+      );
+      useEffect6(
+        function() {
+          checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+          return subscribe(function() {
+            checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+          });
+        },
+        [subscribe]
+      );
+      useDebugValue(value);
+      return value;
+    }
+    function checkIfSnapshotChanged(inst) {
+      var latestGetSnapshot = inst.getSnapshot;
+      inst = inst.value;
+      try {
+        var nextValue = latestGetSnapshot();
+        return !objectIs(inst, nextValue);
+      } catch (error) {
+        return true;
+      }
+    }
+    function useSyncExternalStore$1(subscribe, getSnapshot) {
+      return getSnapshot();
+    }
+    var shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
+    exports.useSyncExternalStore = void 0 !== React19.useSyncExternalStore ? React19.useSyncExternalStore : shim;
+  }
+});
+
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js
+var require_use_sync_external_store_shim_development = __commonJS({
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js"(exports) {
+    "use strict";
+    "production" !== process.env.NODE_ENV && (function() {
+      function is(x, y) {
+        return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+      }
+      function useSyncExternalStore$2(subscribe, getSnapshot) {
+        didWarnOld18Alpha || void 0 === React19.startTransition || (didWarnOld18Alpha = true, console.error(
+          "You are using an outdated, pre-release alpha of React 18 that does not support useSyncExternalStore. The use-sync-external-store shim will not work correctly. Upgrade to a newer pre-release."
+        ));
+        var value = getSnapshot();
+        if (!didWarnUncachedGetSnapshot) {
+          var cachedValue = getSnapshot();
+          objectIs(value, cachedValue) || (console.error(
+            "The result of getSnapshot should be cached to avoid an infinite loop"
+          ), didWarnUncachedGetSnapshot = true);
+        }
+        cachedValue = useState3({
+          inst: { value, getSnapshot }
+        });
+        var inst = cachedValue[0].inst, forceUpdate = cachedValue[1];
+        useLayoutEffect3(
+          function() {
+            inst.value = value;
+            inst.getSnapshot = getSnapshot;
+            checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+          },
+          [subscribe, value, getSnapshot]
+        );
+        useEffect6(
+          function() {
+            checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+            return subscribe(function() {
+              checkIfSnapshotChanged(inst) && forceUpdate({ inst });
+            });
+          },
+          [subscribe]
+        );
+        useDebugValue(value);
+        return value;
+      }
+      function checkIfSnapshotChanged(inst) {
+        var latestGetSnapshot = inst.getSnapshot;
+        inst = inst.value;
+        try {
+          var nextValue = latestGetSnapshot();
+          return !objectIs(inst, nextValue);
+        } catch (error) {
+          return true;
+        }
+      }
+      function useSyncExternalStore$1(subscribe, getSnapshot) {
+        return getSnapshot();
+      }
+      "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
+      var React19 = __require("react"), objectIs = "function" === typeof Object.is ? Object.is : is, useState3 = React19.useState, useEffect6 = React19.useEffect, useLayoutEffect3 = React19.useLayoutEffect, useDebugValue = React19.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
+      exports.useSyncExternalStore = void 0 !== React19.useSyncExternalStore ? React19.useSyncExternalStore : shim;
+      "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
+    })();
+  }
+});
+
+// node_modules/use-sync-external-store/shim/index.js
+var require_shim = __commonJS({
+  "node_modules/use-sync-external-store/shim/index.js"(exports, module) {
+    "use strict";
+    if (process.env.NODE_ENV === "production") {
+      module.exports = require_use_sync_external_store_shim_production();
+    } else {
+      module.exports = require_use_sync_external_store_shim_development();
+    }
+  }
+});
+
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.production.js
+var require_with_selector_production = __commonJS({
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.production.js"(exports) {
+    "use strict";
+    var React19 = __require("react");
+    var shim = require_shim();
+    function is(x, y) {
+      return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+    }
+    var objectIs = "function" === typeof Object.is ? Object.is : is;
+    var useSyncExternalStore = shim.useSyncExternalStore;
+    var useRef7 = React19.useRef;
+    var useEffect6 = React19.useEffect;
+    var useMemo8 = React19.useMemo;
+    var useDebugValue = React19.useDebugValue;
+    exports.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
+      var instRef = useRef7(null);
+      if (null === instRef.current) {
+        var inst = { hasValue: false, value: null };
+        instRef.current = inst;
+      } else inst = instRef.current;
+      instRef = useMemo8(
+        function() {
+          function memoizedSelector(nextSnapshot) {
+            if (!hasMemo) {
+              hasMemo = true;
+              memoizedSnapshot = nextSnapshot;
+              nextSnapshot = selector(nextSnapshot);
+              if (void 0 !== isEqual && inst.hasValue) {
+                var currentSelection = inst.value;
+                if (isEqual(currentSelection, nextSnapshot))
+                  return memoizedSelection = currentSelection;
+              }
+              return memoizedSelection = nextSnapshot;
+            }
+            currentSelection = memoizedSelection;
+            if (objectIs(memoizedSnapshot, nextSnapshot)) return currentSelection;
+            var nextSelection = selector(nextSnapshot);
+            if (void 0 !== isEqual && isEqual(currentSelection, nextSelection))
+              return memoizedSnapshot = nextSnapshot, currentSelection;
+            memoizedSnapshot = nextSnapshot;
+            return memoizedSelection = nextSelection;
+          }
+          var hasMemo = false, memoizedSnapshot, memoizedSelection, maybeGetServerSnapshot = void 0 === getServerSnapshot ? null : getServerSnapshot;
+          return [
+            function() {
+              return memoizedSelector(getSnapshot());
+            },
+            null === maybeGetServerSnapshot ? void 0 : function() {
+              return memoizedSelector(maybeGetServerSnapshot());
+            }
+          ];
+        },
+        [getSnapshot, getServerSnapshot, selector, isEqual]
+      );
+      var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
+      useEffect6(
+        function() {
+          inst.hasValue = true;
+          inst.value = value;
+        },
+        [value]
+      );
+      useDebugValue(value);
+      return value;
+    };
+  }
+});
+
+// node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js
+var require_with_selector_development = __commonJS({
+  "node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js"(exports) {
+    "use strict";
+    "production" !== process.env.NODE_ENV && (function() {
+      function is(x, y) {
+        return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
+      }
+      "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
+      var React19 = __require("react"), shim = require_shim(), objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = shim.useSyncExternalStore, useRef7 = React19.useRef, useEffect6 = React19.useEffect, useMemo8 = React19.useMemo, useDebugValue = React19.useDebugValue;
+      exports.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
+        var instRef = useRef7(null);
+        if (null === instRef.current) {
+          var inst = { hasValue: false, value: null };
+          instRef.current = inst;
+        } else inst = instRef.current;
+        instRef = useMemo8(
+          function() {
+            function memoizedSelector(nextSnapshot) {
+              if (!hasMemo) {
+                hasMemo = true;
+                memoizedSnapshot = nextSnapshot;
+                nextSnapshot = selector(nextSnapshot);
+                if (void 0 !== isEqual && inst.hasValue) {
+                  var currentSelection = inst.value;
+                  if (isEqual(currentSelection, nextSnapshot))
+                    return memoizedSelection = currentSelection;
+                }
+                return memoizedSelection = nextSnapshot;
+              }
+              currentSelection = memoizedSelection;
+              if (objectIs(memoizedSnapshot, nextSnapshot))
+                return currentSelection;
+              var nextSelection = selector(nextSnapshot);
+              if (void 0 !== isEqual && isEqual(currentSelection, nextSelection))
+                return memoizedSnapshot = nextSnapshot, currentSelection;
+              memoizedSnapshot = nextSnapshot;
+              return memoizedSelection = nextSelection;
+            }
+            var hasMemo = false, memoizedSnapshot, memoizedSelection, maybeGetServerSnapshot = void 0 === getServerSnapshot ? null : getServerSnapshot;
+            return [
+              function() {
+                return memoizedSelector(getSnapshot());
+              },
+              null === maybeGetServerSnapshot ? void 0 : function() {
+                return memoizedSelector(maybeGetServerSnapshot());
+              }
+            ];
+          },
+          [getSnapshot, getServerSnapshot, selector, isEqual]
+        );
+        var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
+        useEffect6(
+          function() {
+            inst.hasValue = true;
+            inst.value = value;
+          },
+          [value]
+        );
+        useDebugValue(value);
+        return value;
+      };
+      "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
+    })();
+  }
+});
+
+// node_modules/use-sync-external-store/shim/with-selector.js
+var require_with_selector = __commonJS({
+  "node_modules/use-sync-external-store/shim/with-selector.js"(exports, module) {
+    "use strict";
+    if (process.env.NODE_ENV === "production") {
+      module.exports = require_with_selector_production();
+    } else {
+      module.exports = require_with_selector_development();
+    }
+  }
+});
+
 // src/stories/foundations/icons/Icon.tsx
 import React2 from "react";
 
 // src/stories/foundations/icons/index.ts
 import React from "react";
-var CheckIcon = React.lazy(() => import("./check-FMSAIFD3.mjs"));
-var DownloadIcon = React.lazy(() => import("./download-3I7BTR64.mjs"));
+var CheckIcon = React.lazy(() => import("./check-QJPKK6WE.mjs"));
+var DownloadIcon = React.lazy(() => import("./download-P75PBA2H.mjs"));
 var ExclamationIcon = React.lazy(
-  () => import("./exclamation-C7WM4IXG.mjs")
+  () => import("./exclamation-S4WOGG2E.mjs")
 );
 var SearchIcon = React.lazy(
-  () => import("./magnifying-glass-V4RSPSB6.mjs")
+  () => import("./magnifying-glass-TXPYHBOH.mjs")
 );
-var StarIcon = React.lazy(() => import("./star-6KL4VQDK.mjs"));
-var XIcon = React.lazy(() => import("./x-QMWFAJT3.mjs"));
+var StarIcon = React.lazy(() => import("./star-WRG3WFC3.mjs"));
+var XIcon = React.lazy(() => import("./x-TEIPH5VX.mjs"));
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {
@@ -185,7 +468,7 @@ var Button = ({
 };
 
 // src/stories/components/TextInput/TextInput.tsx
-import * as React10 from "react";
+import React10 from "react";
 var TextInput = React10.forwardRef(
   function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
     return /* @__PURE__ */ React10.createElement(
@@ -200,8 +483,2390 @@ var TextInput = React10.forwardRef(
   }
 );
 
-// src/stories/components/Card/Card.tsx
+// src/stories/components/Table/Table.tsx
+import React12 from "react";
+
+// node_modules/@tanstack/react-table/dist/FlexRender.js
 import React11 from "react";
+function isReactComponent(component) {
+  return isClassComponent(component) || typeof component === "function" || isExoticComponent(component);
+}
+function isClassComponent(component) {
+  return typeof component === "function" && (() => {
+    const proto = Object.getPrototypeOf(component);
+    return proto.prototype && proto.prototype.isReactComponent;
+  })();
+}
+function isExoticComponent(component) {
+  return typeof component === "object" && typeof component.$$typeof === "symbol" && ["react.memo", "react.forward_ref"].includes(component.$$typeof.description);
+}
+function flexRender(Comp, props) {
+  if (Comp === null || Comp === void 0) return null;
+  return isReactComponent(Comp) ? /* @__PURE__ */ React11.createElement(Comp, props) : Comp;
+}
+function FlexRender(props) {
+  var _a2, _b;
+  if ("cell" in props && props.cell) {
+    const cell = props.cell;
+    const def = cell.column.columnDef;
+    const groupingCell = cell;
+    const groupingDef = def;
+    if ((_a2 = groupingCell.getIsAggregated) == null ? void 0 : _a2.call(groupingCell)) return flexRender(groupingDef.aggregatedCell ?? def.cell, cell.getContext());
+    if ((_b = groupingCell.getIsPlaceholder) == null ? void 0 : _b.call(groupingCell)) return null;
+    return flexRender(def.cell, cell.getContext());
+  }
+  if ("header" in props && props.header) return flexRender(props.header.column.columnDef.header, props.header.getContext());
+  if ("footer" in props && props.footer) return flexRender(props.footer.column.columnDef.footer, props.footer.getContext());
+  return null;
+}
+
+// node_modules/@tanstack/store/dist/alien.js
+// @__NO_SIDE_EFFECTS__
+function createReactiveSystem({ update, notify, unwatched }) {
+  return {
+    link: link2,
+    unlink: unlink2,
+    propagate: propagate2,
+    checkDirty: checkDirty2,
+    shallowPropagate: shallowPropagate2
+  };
+  function link2(dep, sub, version) {
+    const prevDep = sub.depsTail;
+    if (prevDep !== void 0 && prevDep.dep === dep) return;
+    const nextDep = prevDep !== void 0 ? prevDep.nextDep : sub.deps;
+    if (nextDep !== void 0 && nextDep.dep === dep) {
+      nextDep.version = version;
+      sub.depsTail = nextDep;
+      return;
+    }
+    const prevSub = dep.subsTail;
+    if (prevSub !== void 0 && prevSub.version === version && prevSub.sub === sub) return;
+    const newLink = sub.depsTail = dep.subsTail = {
+      version,
+      dep,
+      sub,
+      prevDep,
+      nextDep,
+      prevSub,
+      nextSub: void 0
+    };
+    if (nextDep !== void 0) nextDep.prevDep = newLink;
+    if (prevDep !== void 0) prevDep.nextDep = newLink;
+    else sub.deps = newLink;
+    if (prevSub !== void 0) prevSub.nextSub = newLink;
+    else dep.subs = newLink;
+  }
+  function unlink2(link3, sub = link3.sub) {
+    const dep = link3.dep;
+    const prevDep = link3.prevDep;
+    const nextDep = link3.nextDep;
+    const nextSub = link3.nextSub;
+    const prevSub = link3.prevSub;
+    if (nextDep !== void 0) nextDep.prevDep = prevDep;
+    else sub.depsTail = prevDep;
+    if (prevDep !== void 0) prevDep.nextDep = nextDep;
+    else sub.deps = nextDep;
+    if (nextSub !== void 0) nextSub.prevSub = prevSub;
+    else dep.subsTail = prevSub;
+    if (prevSub !== void 0) prevSub.nextSub = nextSub;
+    else if ((dep.subs = nextSub) === void 0) unwatched(dep);
+    return nextDep;
+  }
+  function propagate2(link3) {
+    let next = link3.nextSub;
+    let stack;
+    top: do {
+      const sub = link3.sub;
+      let flags = sub.flags;
+      if (!(flags & 60)) sub.flags = flags | 32;
+      else if (!(flags & (4 | 8))) flags = 0;
+      else if (!(flags & 4)) sub.flags = flags & ~8 | 32;
+      else if (!(flags & (16 | 32)) && isValidLink(link3, sub)) {
+        sub.flags = flags | (8 | 32);
+        flags &= 1;
+      } else flags = 0;
+      if (flags & 2) notify(sub);
+      if (flags & 1) {
+        const subSubs = sub.subs;
+        if (subSubs !== void 0) {
+          const nextSub = (link3 = subSubs).nextSub;
+          if (nextSub !== void 0) {
+            stack = {
+              value: next,
+              prev: stack
+            };
+            next = nextSub;
+          }
+          continue;
+        }
+      }
+      if ((link3 = next) !== void 0) {
+        next = link3.nextSub;
+        continue;
+      }
+      while (stack !== void 0) {
+        link3 = stack.value;
+        stack = stack.prev;
+        if (link3 !== void 0) {
+          next = link3.nextSub;
+          continue top;
+        }
+      }
+      break;
+    } while (true);
+  }
+  function checkDirty2(link3, sub) {
+    let stack;
+    let checkDepth = 0;
+    let dirty = false;
+    top: do {
+      const dep = link3.dep;
+      const flags = dep.flags;
+      if (sub.flags & 16) dirty = true;
+      else if ((flags & (1 | 16)) === (1 | 16)) {
+        if (update(dep)) {
+          const subs = dep.subs;
+          if (subs.nextSub !== void 0) shallowPropagate2(subs);
+          dirty = true;
+        }
+      } else if ((flags & (1 | 32)) === (1 | 32)) {
+        if (link3.nextSub !== void 0 || link3.prevSub !== void 0) stack = {
+          value: link3,
+          prev: stack
+        };
+        link3 = dep.deps;
+        sub = dep;
+        ++checkDepth;
+        continue;
+      }
+      if (!dirty) {
+        const nextDep = link3.nextDep;
+        if (nextDep !== void 0) {
+          link3 = nextDep;
+          continue;
+        }
+      }
+      while (checkDepth--) {
+        const firstSub = sub.subs;
+        const hasMultipleSubs = firstSub.nextSub !== void 0;
+        if (hasMultipleSubs) {
+          link3 = stack.value;
+          stack = stack.prev;
+        } else link3 = firstSub;
+        if (dirty) {
+          if (update(sub)) {
+            if (hasMultipleSubs) shallowPropagate2(firstSub);
+            sub = link3.sub;
+            continue;
+          }
+          dirty = false;
+        } else sub.flags &= ~32;
+        sub = link3.sub;
+        const nextDep = link3.nextDep;
+        if (nextDep !== void 0) {
+          link3 = nextDep;
+          continue top;
+        }
+      }
+      return dirty;
+    } while (true);
+  }
+  function shallowPropagate2(link3) {
+    do {
+      const sub = link3.sub;
+      const flags = sub.flags;
+      if ((flags & (32 | 16)) === 32) {
+        sub.flags = flags | 16;
+        if ((flags & (2 | 4)) === 2) notify(sub);
+      }
+    } while ((link3 = link3.nextSub) !== void 0);
+  }
+  function isValidLink(checkLink, sub) {
+    let link3 = sub.depsTail;
+    while (link3 !== void 0) {
+      if (link3 === checkLink) return true;
+      link3 = link3.prevDep;
+    }
+    return false;
+  }
+}
+
+// node_modules/@tanstack/store/dist/atom.js
+function toObserver(nextHandler, errorHandler, completionHandler) {
+  var _a2, _b, _c;
+  const isObserver = typeof nextHandler === "object";
+  const self = isObserver ? nextHandler : void 0;
+  return {
+    next: (_a2 = isObserver ? nextHandler.next : nextHandler) == null ? void 0 : _a2.bind(self),
+    error: (_b = isObserver ? nextHandler.error : errorHandler) == null ? void 0 : _b.bind(self),
+    complete: (_c = isObserver ? nextHandler.complete : completionHandler) == null ? void 0 : _c.bind(self)
+  };
+}
+var queuedEffects = [];
+var cycle = 0;
+var { link, unlink, propagate, checkDirty, shallowPropagate } = /* @__PURE__ */ createReactiveSystem({
+  update(atom) {
+    return atom._update();
+  },
+  notify(effect2) {
+    queuedEffects[queuedEffectsLength++] = effect2;
+    effect2.flags &= ~2;
+  },
+  unwatched(atom) {
+    if (atom.depsTail !== void 0) {
+      atom.depsTail = void 0;
+      atom.flags = 1 | 16;
+      purgeDeps(atom);
+    }
+  }
+});
+var notifyIndex = 0;
+var queuedEffectsLength = 0;
+var activeSub;
+var batchDepth = 0;
+function batch(fn) {
+  try {
+    ++batchDepth;
+    fn();
+  } finally {
+    if (!--batchDepth) flush();
+  }
+}
+function purgeDeps(sub) {
+  const depsTail = sub.depsTail;
+  let dep = depsTail !== void 0 ? depsTail.nextDep : sub.deps;
+  while (dep !== void 0) dep = unlink(dep, sub);
+}
+function flush() {
+  if (batchDepth > 0) return;
+  while (notifyIndex < queuedEffectsLength) {
+    const effect2 = queuedEffects[notifyIndex];
+    queuedEffects[notifyIndex++] = void 0;
+    effect2.notify();
+  }
+  notifyIndex = 0;
+  queuedEffectsLength = 0;
+}
+function createAtom(valueOrFn, options) {
+  const isComputed = typeof valueOrFn === "function";
+  const getter = valueOrFn;
+  const atom = {
+    _snapshot: isComputed ? void 0 : valueOrFn,
+    subs: void 0,
+    subsTail: void 0,
+    deps: void 0,
+    depsTail: void 0,
+    flags: isComputed ? 0 : 1,
+    get() {
+      if (activeSub !== void 0) link(atom, activeSub, cycle);
+      return atom._snapshot;
+    },
+    subscribe(observerOrFn) {
+      const obs = toObserver(observerOrFn);
+      const observed = { current: false };
+      const e = effect(() => {
+        var _a2;
+        atom.get();
+        if (!observed.current) observed.current = true;
+        else {
+          activeSub = void 0;
+          (_a2 = obs.next) == null ? void 0 : _a2.call(obs, atom._snapshot);
+        }
+      });
+      return { unsubscribe: () => {
+        e.stop();
+      } };
+    },
+    _update(getValue) {
+      const prevSub = activeSub;
+      const compare = (options == null ? void 0 : options.compare) ?? Object.is;
+      if (isComputed) {
+        activeSub = atom;
+        ++cycle;
+        atom.depsTail = void 0;
+      } else if (getValue === void 0) return false;
+      if (isComputed) atom.flags = 1 | 4;
+      try {
+        const oldValue = atom._snapshot;
+        const newValue = typeof getValue === "function" ? getValue(oldValue) : getValue === void 0 && isComputed ? getter(oldValue) : getValue;
+        if (oldValue === void 0 || !compare(oldValue, newValue)) {
+          atom._snapshot = newValue;
+          return true;
+        }
+        return false;
+      } finally {
+        activeSub = prevSub;
+        if (isComputed) atom.flags &= ~4;
+        purgeDeps(atom);
+      }
+    }
+  };
+  if (isComputed) {
+    atom.flags = 1 | 16;
+    atom.get = function() {
+      const flags = atom.flags;
+      if (flags & 16 || flags & 32 && checkDirty(atom.deps, atom)) {
+        if (atom._update()) {
+          const subs = atom.subs;
+          if (subs !== void 0) shallowPropagate(subs);
+        }
+      } else if (flags & 32) atom.flags = flags & ~32;
+      if (activeSub !== void 0) link(atom, activeSub, cycle);
+      return atom._snapshot;
+    };
+  } else atom.set = function(valueOrFn2) {
+    if (atom._update(valueOrFn2)) {
+      const subs = atom.subs;
+      if (subs !== void 0) {
+        propagate(subs);
+        shallowPropagate(subs);
+        flush();
+      }
+    }
+  };
+  return atom;
+}
+function effect(fn) {
+  const run = () => {
+    const prevSub = activeSub;
+    activeSub = effectObj;
+    ++cycle;
+    effectObj.depsTail = void 0;
+    effectObj.flags = 2 | 4;
+    try {
+      return fn();
+    } finally {
+      activeSub = prevSub;
+      effectObj.flags &= ~4;
+      purgeDeps(effectObj);
+    }
+  };
+  const effectObj = {
+    deps: void 0,
+    depsTail: void 0,
+    subs: void 0,
+    subsTail: void 0,
+    flags: 2 | 4,
+    notify() {
+      const flags = this.flags;
+      if (flags & 16 || flags & 32 && checkDirty(this.deps, this)) run();
+      else this.flags = 2;
+    },
+    stop() {
+      this.flags = 0;
+      this.depsTail = void 0;
+      purgeDeps(this);
+    }
+  };
+  run();
+  return effectObj;
+}
+
+// node_modules/@tanstack/store/dist/shallow.js
+function shallow(objA, objB) {
+  if (Object.is(objA, objB)) return true;
+  if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) return false;
+  if (objA instanceof Map && objB instanceof Map) {
+    if (objA.size !== objB.size) return false;
+    for (const [k, v] of objA) if (!objB.has(k) || !Object.is(v, objB.get(k))) return false;
+    return true;
+  }
+  if (objA instanceof Set && objB instanceof Set) {
+    if (objA.size !== objB.size) return false;
+    for (const v of objA) if (!objB.has(v)) return false;
+    return true;
+  }
+  if (objA instanceof Date && objB instanceof Date) {
+    if (objA.getTime() !== objB.getTime()) return false;
+    return true;
+  }
+  const keysA = getOwnKeys(objA);
+  if (keysA.length !== getOwnKeys(objB).length) return false;
+  for (let i = 0; i < keysA.length; i++) if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !Object.is(objA[keysA[i]], objB[keysA[i]])) return false;
+  return true;
+}
+function getOwnKeys(obj) {
+  return Object.keys(obj).concat(Object.getOwnPropertySymbols(obj));
+}
+
+// node_modules/@tanstack/react-store/dist/useSelector.js
+var import_with_selector = __toESM(require_with_selector(), 1);
+import { useCallback } from "react";
+function defaultCompare(a, b) {
+  return a === b;
+}
+function useSelector(source, selector = (s) => s, options) {
+  const compare = (options == null ? void 0 : options.compare) ?? defaultCompare;
+  const subscribe = useCallback((handleStoreChange) => {
+    const { unsubscribe } = source.subscribe(handleStoreChange);
+    return unsubscribe;
+  }, [source]);
+  const getSnapshot = useCallback(() => source.get(), [source]);
+  return (0, import_with_selector.useSyncExternalStoreWithSelector)(subscribe, getSnapshot, getSnapshot, selector, compare);
+}
+
+// node_modules/@tanstack/react-table/dist/Subscribe.js
+function Subscribe(props) {
+  const selected = useSelector(props.source, props.selector, { compare: shallow });
+  return typeof props.children === "function" ? props.children(selected) : props.children;
+}
+
+// node_modules/@tanstack/table-core/dist/core/reactivity/coreReactivityFeature.utils.js
+function atomToStore(atom) {
+  const store = atom;
+  Object.defineProperty(atom, "state", { get() {
+    return atom.get();
+  } });
+  if ("set" in atom) store.setState = atom.set.bind(atom);
+  return store;
+}
+
+// node_modules/@tanstack/table-core/dist/core/reactivity/renderPhaseReactivity.js
+function renderPhaseReactivity(primitives) {
+  const { createAtom: createAtom2, batch: batch2 } = primitives;
+  const commitAtom = createAtom2(0);
+  return {
+    createOptionsStore: false,
+    wrapExternalAtoms: false,
+    addSubscription: () => {
+      throw new Error("Feature not supported in current reactivity implementation");
+    },
+    unmount: () => {
+      throw new Error("Feature not supported in current reactivity implementation");
+    },
+    schedule: primitives.schedule ?? ((fn) => queueMicrotask(fn)),
+    batch: batch2,
+    untrack: (fn) => fn(),
+    createReadonlyAtom: (fn, atomOptions) => {
+      const compare = (atomOptions == null ? void 0 : atomOptions.compare) ?? Object.is;
+      let hasSnapshot = false;
+      let snapshot;
+      const getSnapshot = () => {
+        const nextSnapshot = fn();
+        if (!hasSnapshot || !compare(snapshot, nextSnapshot)) {
+          snapshot = nextSnapshot;
+          hasSnapshot = true;
+        }
+        return snapshot;
+      };
+      const reactiveAtom = createAtom2(() => {
+        commitAtom.get();
+        return getSnapshot();
+      }, { compare });
+      return {
+        get: getSnapshot,
+        subscribe: reactiveAtom.subscribe.bind(reactiveAtom)
+      };
+    },
+    createWritableAtom: (value, atomOptions) => {
+      return createAtom2(value, { compare: atomOptions == null ? void 0 : atomOptions.compare });
+    },
+    commit: () => {
+      commitAtom.set((version) => version + 1);
+    }
+  };
+}
+function createRenderPhaseSource(source, compare = Object.is) {
+  let hasCommittedSnapshot = false;
+  let committedSnapshot;
+  return {
+    get: source.get,
+    markCommitted: (snapshot) => {
+      committedSnapshot = snapshot;
+      hasCommittedSnapshot = true;
+    },
+    subscribe: (listener) => source.subscribe((value) => {
+      if (!hasCommittedSnapshot || !compare(committedSnapshot, value)) listener(value);
+    })
+  };
+}
+
+// node_modules/@tanstack/react-table/dist/reactivity.js
+function reactReactivity() {
+  return renderPhaseReactivity({
+    createAtom,
+    batch
+  });
+}
+
+// node_modules/@tanstack/table-core/dist/utils.js
+function functionalUpdate(updater, input) {
+  return typeof updater === "function" ? updater(input) : updater;
+}
+function cloneState(value) {
+  if (Array.isArray(value)) return value.map(cloneState);
+  if (value && typeof value === "object") {
+    const proto = Object.getPrototypeOf(value);
+    if (proto !== Object.prototype && proto !== null) return value;
+    const copy = proto === null ? makeObjectMap() : {};
+    const keys = Object.keys(value);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      Object.defineProperty(copy, key, {
+        configurable: true,
+        enumerable: true,
+        value: cloneState(value[key]),
+        writable: true
+      });
+    }
+    return copy;
+  }
+  return value;
+}
+function copyInstancePropertiesWithoutMemos(target, source) {
+  const keys = Object.keys(source);
+  const targetRecord = target;
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    if (!key.startsWith("_memo_") && key !== "_cellsCache") targetRecord[key] = source[key];
+  }
+  return target;
+}
+function makeObjectMap() {
+  return /* @__PURE__ */ Object.create(null);
+}
+function hasOwn(obj, key) {
+  return Object.prototype.hasOwnProperty.call(obj, key);
+}
+function makeStateUpdater(key, instance) {
+  return (updater) => {
+    var _a2;
+    (((_a2 = instance.options.atoms) == null ? void 0 : _a2[key]) ?? instance.baseAtoms[key]).set((old) => functionalUpdate(updater, old));
+  };
+}
+function isPlainContainer(value) {
+  if (typeof value !== "object" || value === null) return false;
+  if (Array.isArray(value)) return true;
+  const proto = Object.getPrototypeOf(value);
+  return proto === Object.prototype || proto === null;
+}
+function getEnumerableOwnKeys(value) {
+  return Reflect.ownKeys(value).filter((key) => Object.prototype.propertyIsEnumerable.call(value, key));
+}
+var MAX_STATE_COMPARE_DEPTH = 3;
+function stateSlicesEqual(a, b) {
+  return stateSlicesEqualAtDepth(a, b, MAX_STATE_COMPARE_DEPTH);
+}
+function stateSlicesEqualAtDepth(a, b, depth) {
+  if (Object.is(a, b)) return true;
+  if (depth <= 0 || !isPlainContainer(a) || !isPlainContainer(b)) return false;
+  if (Array.isArray(a) || Array.isArray(b)) {
+    if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+  }
+  const keysA = getEnumerableOwnKeys(a);
+  const keysB = getEnumerableOwnKeys(b);
+  if (keysA.length !== keysB.length) return false;
+  const recordA = a;
+  const recordB = b;
+  for (let i = 0; i < keysA.length; i++) {
+    const key = keysA[i];
+    if (!Object.prototype.propertyIsEnumerable.call(b, key)) return false;
+    if (!stateSlicesEqualAtDepth(recordA[key], recordB[key], depth - 1)) return false;
+  }
+  return true;
+}
+function setStateSlice(instance, key, updater, isEqual = stateSlicesEqual) {
+  const onChangeKey = `on${key.charAt(0).toUpperCase()}${key.slice(1)}Change`;
+  const onChange = instance.options[onChangeKey];
+  if (!onChange) return;
+  onChange((current) => {
+    const next = functionalUpdate(updater, current);
+    return isEqual(current, next) ? current : next;
+  });
+}
+function isFunction(d) {
+  return d instanceof Function;
+}
+function flattenBy(arr, getChildren) {
+  const flat = [];
+  const recurse = (subArr) => {
+    subArr.forEach((item) => {
+      flat.push(item);
+      const children = getChildren(item);
+      if (children.length) recurse(children);
+    });
+  };
+  recurse(arr);
+  return flat;
+}
+var memo = ({ fn, memoDeps, onAfterCompare, onAfterUpdate, onBeforeCompare, onBeforeUpdate }) => {
+  let deps = [];
+  let result;
+  const memoizedFn = (depArgs) => {
+    onBeforeCompare == null ? void 0 : onBeforeCompare();
+    const newDeps = memoDeps == null ? void 0 : memoDeps(depArgs);
+    let depsChanged = !newDeps || newDeps.length !== (deps == null ? void 0 : deps.length);
+    if (!depsChanged && newDeps) {
+      for (let i = 0; i < newDeps.length; i++) if (newDeps[i] !== deps[i]) {
+        depsChanged = true;
+        break;
+      }
+    }
+    onAfterCompare == null ? void 0 : onAfterCompare(depsChanged);
+    if (!depsChanged) return result;
+    deps = newDeps;
+    onBeforeUpdate == null ? void 0 : onBeforeUpdate();
+    result = fn(...newDeps ?? []);
+    onAfterUpdate == null ? void 0 : onAfterUpdate(result);
+    return result;
+  };
+  return memoizedFn;
+};
+function skipFirstRun(fn) {
+  let hasRun = false;
+  return () => {
+    if (!hasRun) {
+      hasRun = true;
+      return;
+    }
+    fn();
+  };
+}
+var pad = (str, num) => {
+  str = String(str);
+  while (str.length < num) str = " " + str;
+  return str;
+};
+function tableMemo({ feature, fnName, objectId, onAfterUpdate, table, ...memoOptions }) {
+  let startCalcTime;
+  let endCalcTime;
+  let runCount = 0;
+  let debug;
+  if (process.env.NODE_ENV === "development") {
+    const { debugAll } = table.options;
+    const { parentName } = getFunctionNameInfo(fnName, ".");
+    const debugByParent = table.options[`debug${(parentName != "table" ? parentName + "s" : parentName).replace(parentName, parentName.charAt(0).toUpperCase() + parentName.slice(1))}`];
+    const debugByFeature = feature ? table.options[`debug${feature.charAt(0).toUpperCase() + feature.slice(1)}`] : false;
+    debug = debugAll || debugByParent || debugByFeature;
+  }
+  function logTime(time2, depsChanged) {
+    var _a2;
+    const runType = runCount === 0 ? "(1st run)" : depsChanged ? "(rerun #" + runCount + ")" : "(cache)";
+    runCount++;
+    console.groupCollapsed(`%c\u23F1 ${pad(`${time2.toFixed(1)} ms`, 12)} %c${runType}%c ${fnName}%c ${objectId ? `(${fnName.split(".")[0]}Id: ${objectId})` : ""}`, `font-size: .6rem; font-weight: bold; ${depsChanged ? `color: hsl(
+        ${Math.max(0, Math.min(120 - Math.log10(time2) * 60, 120))}deg 100% 31%);` : ""} `, `color: ${runCount < 2 ? "#FF00FF" : "#FF1493"}`, "color: #666", "color: #87CEEB");
+    console.info({
+      feature,
+      state: table.store.state,
+      deps: (_a2 = memoOptions.memoDeps) == null ? void 0 : _a2.toString()
+    });
+    console.trace();
+    console.groupEnd();
+  }
+  const onAfterUpdateHandler = () => {
+    if (!onAfterUpdate) return;
+    const { schedule, untrack } = table._reactivity;
+    schedule(() => untrack(() => onAfterUpdate()));
+  };
+  const debugOptions = process.env.NODE_ENV === "development" ? {
+    onBeforeCompare: () => {
+    },
+    onAfterCompare: (depsChanged) => {
+    },
+    onBeforeUpdate: () => {
+      if (debug) startCalcTime = performance.now();
+    },
+    onAfterUpdate: () => {
+      if (debug) {
+        endCalcTime = performance.now();
+        logTime(Math.round((endCalcTime - startCalcTime) * 100) / 100, true);
+      }
+      onAfterUpdateHandler();
+    }
+  } : { onAfterUpdate: () => {
+    onAfterUpdateHandler();
+  } };
+  return memo({
+    ...memoOptions,
+    ...debugOptions
+  });
+}
+function getFunctionNameInfo(staticFnName, splitBy = "_") {
+  const [parentName, fnKey] = staticFnName.split(splitBy);
+  return {
+    fnKey,
+    fnName: `${parentName}.${fnKey}`,
+    parentName
+  };
+}
+function assignTableAPIs(feature, table, apis) {
+  for (const [staticFnName, { fn, memoDeps }] of Object.entries(apis)) {
+    const { fnKey, fnName } = getFunctionNameInfo(staticFnName);
+    table[fnKey] = memoDeps ? tableMemo({
+      memoDeps,
+      fn,
+      fnName,
+      table,
+      feature
+    }) : fn;
+  }
+}
+function assignPrototypeAPIs(feature, prototype, table, apis) {
+  for (const [staticFnName, { fn, memoDeps }] of Object.entries(apis)) {
+    const { fnKey, fnName } = getFunctionNameInfo(staticFnName);
+    if (memoDeps) {
+      const memoKey = `_memo_${fnKey}`;
+      prototype[fnKey] = function(...args) {
+        if (!this[memoKey]) {
+          const self = this;
+          this[memoKey] = tableMemo({
+            memoDeps: (depArgs) => memoDeps(self, depArgs),
+            fn: (...deps) => fn(self, ...deps),
+            fnName,
+            objectId: self.id,
+            table,
+            feature
+          });
+        }
+        return this[memoKey](...args);
+      };
+    } else prototype[fnKey] = function(...args) {
+      return fn(this, ...args);
+    };
+  }
+}
+function callMemoOrStaticFn(obj, fnKey, staticFn, ...args) {
+  var _a2;
+  return ((_a2 = obj[fnKey]) == null ? void 0 : _a2.call(obj, ...args)) ?? staticFn(obj, ...args);
+}
+
+// node_modules/@tanstack/table-core/dist/core/cells/coreCellsFeature.utils.js
+function cell_getValue(cell) {
+  return cell.row.getValue(cell.column.id);
+}
+function cell_renderValue(cell) {
+  return cell.getValue() ?? cell.table.options.renderFallbackValue;
+}
+function cell_getContext(cell) {
+  return {
+    table: cell.table,
+    column: cell.column,
+    row: cell.row,
+    cell,
+    getValue: () => cell.getValue(),
+    renderValue: () => cell.renderValue()
+  };
+}
+
+// node_modules/@tanstack/table-core/dist/core/cells/coreCellsFeature.js
+var coreCellsFeature = { assignCellPrototype: (prototype, table) => {
+  assignPrototypeAPIs("coreCellsFeature", prototype, table, {
+    cell_getValue: { fn: (cell) => cell_getValue(cell) },
+    cell_renderValue: { fn: (cell) => cell_renderValue(cell) },
+    cell_getContext: {
+      fn: (cell) => cell_getContext(cell),
+      memoDeps: (cell) => [cell]
+    }
+  });
+} };
+
+// node_modules/@tanstack/table-core/dist/core/headers/constructHeader.js
+function getHeaderPrototype(table) {
+  var _a2, _b;
+  if (!table._headerPrototype) {
+    table._headerPrototype = { table };
+    const features2 = Object.values(table._features);
+    for (let i = 0; i < features2.length; i++) (_b = (_a2 = features2[i]).assignHeaderPrototype) == null ? void 0 : _b.call(_a2, table._headerPrototype, table);
+  }
+  return table._headerPrototype;
+}
+function constructHeader(table, column, options) {
+  const headerPrototype = getHeaderPrototype(table);
+  const header = Object.create(headerPrototype);
+  header.colSpan = 0;
+  header.column = column;
+  header.depth = options.depth;
+  header.headerGroup = null;
+  header.id = options.id ?? column.id;
+  header.index = options.index;
+  header.isPlaceholder = !!options.isPlaceholder;
+  header.placeholderId = options.placeholderId;
+  header.rowSpan = 0;
+  header.subHeaders = [];
+  const initFns = table._headerInstanceInitFns;
+  for (let i = 0; i < initFns.length; i++) initFns[i](header);
+  return header;
+}
+
+// node_modules/@tanstack/table-core/dist/features/column-pinning/columnPinningFeature.utils.js
+function getDefaultColumnPinningState() {
+  return {
+    start: [],
+    end: []
+  };
+}
+
+// node_modules/@tanstack/table-core/dist/features/column-visibility/columnVisibilityFeature.utils.js
+function column_getIsVisible(column) {
+  var _a2;
+  const columnVisibility = (_a2 = column.table.atoms.columnVisibility) == null ? void 0 : _a2.get();
+  if (!columnVisibility) return true;
+  const childColumns = column.columns;
+  if (childColumns.length) return childColumns.some((childColumn) => callMemoOrStaticFn(childColumn, "getIsVisible", column_getIsVisible));
+  return (hasOwn(columnVisibility, column.id) ? columnVisibility[column.id] : void 0) ?? true;
+}
+function table_getVisibleLeafColumns(table) {
+  return table.getAllLeafColumns().filter((column) => callMemoOrStaticFn(column, "getIsVisible", column_getIsVisible));
+}
+
+// node_modules/@tanstack/table-core/dist/core/headers/buildHeaderGroups.js
+function getMaxHeaderDepth(columns, depth = 1) {
+  let maxDepth2 = depth;
+  for (let i = 0; i < columns.length; i++) {
+    const column = columns[i];
+    if (callMemoOrStaticFn(column, "getIsVisible", column_getIsVisible) && column.columns.length) maxDepth2 = Math.max(maxDepth2, getMaxHeaderDepth(column.columns, depth + 1));
+  }
+  return maxDepth2;
+}
+function formatHeaderGroupId(headerFamily, depth) {
+  return headerFamily ? `${headerFamily}_${depth}` : String(depth);
+}
+function formatHeaderId(headerFamily, depth, columnId, childHeaderId) {
+  let id3 = headerFamily ?? "";
+  if (depth) id3 = id3 ? `${id3}_${depth}` : String(depth);
+  if (columnId) id3 = id3 ? `${id3}_${columnId}` : columnId;
+  if (childHeaderId) id3 = id3 ? `${id3}_${childHeaderId}` : childHeaderId;
+  return id3;
+}
+function countPendingHeadersForColumn(headers, column) {
+  let count = 0;
+  for (let i = 0; i < headers.length; i++) if (headers[i].column === column) count++;
+  return count;
+}
+function constructHeaderGroup(headersToGroup, depth, table, headerFamily, headerGroups, headerGroupInitFns) {
+  const headerGroup = {
+    depth,
+    id: formatHeaderGroupId(headerFamily, depth),
+    headers: []
+  };
+  const pendingParentHeaders = [];
+  for (let i = 0; i < headersToGroup.length; i++) {
+    if (!(i in headersToGroup)) continue;
+    const headerToGroup = headersToGroup[i];
+    const latestPendingParentHeader = pendingParentHeaders[pendingParentHeaders.length - 1];
+    const isLeafHeader = headerToGroup.column.depth === headerGroup.depth;
+    let column;
+    let isPlaceholder = false;
+    if (isLeafHeader && headerToGroup.column.parent) column = headerToGroup.column.parent;
+    else {
+      column = headerToGroup.column;
+      isPlaceholder = true;
+    }
+    if (latestPendingParentHeader && latestPendingParentHeader.column === column) latestPendingParentHeader.subHeaders.push(headerToGroup);
+    else {
+      const header = constructHeader(table, column, {
+        id: formatHeaderId(headerFamily, depth, column.id, headerToGroup.id),
+        isPlaceholder,
+        placeholderId: isPlaceholder ? String(countPendingHeadersForColumn(pendingParentHeaders, column)) : void 0,
+        depth,
+        index: pendingParentHeaders.length
+      });
+      header.subHeaders.push(headerToGroup);
+      pendingParentHeaders.push(header);
+    }
+    headerGroup.headers.push(headerToGroup);
+    headerToGroup.headerGroup = headerGroup;
+  }
+  for (let i = 0; i < headerGroupInitFns.length; i++) headerGroupInitFns[i](headerGroup);
+  headerGroups.push(headerGroup);
+  if (depth > 0) constructHeaderGroup(pendingParentHeaders, depth - 1, table, headerFamily, headerGroups, headerGroupInitFns);
+}
+function updateHeaderSpans(headers) {
+  for (let i = 0; i < headers.length; i++) {
+    const header = headers[i];
+    if (!callMemoOrStaticFn(header.column, "getIsVisible", column_getIsVisible)) continue;
+    let colSpan = 0;
+    if (header.subHeaders.length) {
+      updateHeaderSpans(header.subHeaders);
+      for (let j = 0; j < header.subHeaders.length; j++) {
+        const child = header.subHeaders[j];
+        if (!callMemoOrStaticFn(child.column, "getIsVisible", column_getIsVisible)) continue;
+        colSpan += child.colSpan;
+      }
+    } else colSpan = 1;
+    header.colSpan = colSpan;
+    if (header.isPlaceholder && header.subHeaders.length === 1 && header.subHeaders[0].column === header.column) {
+      let rowSpan = 1;
+      let chainChild = header.subHeaders[0];
+      while (chainChild) {
+        chainChild.rowSpan = 0;
+        rowSpan++;
+        chainChild = chainChild.subHeaders.length === 1 && chainChild.subHeaders[0].column === header.column ? chainChild.subHeaders[0] : void 0;
+      }
+      header.rowSpan = rowSpan;
+    } else header.rowSpan = 1;
+  }
+}
+function buildHeaderGroups(allColumns, columnsToGroup, table, headerFamily) {
+  var _a2;
+  const maxDepth2 = getMaxHeaderDepth(allColumns);
+  const headerGroups = [];
+  const headerGroupInitFns = table._headerGroupInstanceInitFns;
+  const bottomHeaders = new Array(columnsToGroup.length);
+  for (let i = 0; i < columnsToGroup.length; i++) {
+    if (!(i in columnsToGroup)) continue;
+    bottomHeaders[i] = constructHeader(table, columnsToGroup[i], {
+      depth: maxDepth2,
+      index: i
+    });
+  }
+  constructHeaderGroup(bottomHeaders, maxDepth2 - 1, table, headerFamily, headerGroups, headerGroupInitFns);
+  headerGroups.reverse();
+  updateHeaderSpans(((_a2 = headerGroups[0]) == null ? void 0 : _a2.headers) ?? []);
+  return headerGroups;
+}
+
+// node_modules/@tanstack/table-core/dist/core/columns/constructColumn.js
+function getColumnPrototype(table) {
+  var _a2, _b;
+  if (!table._columnPrototype) {
+    table._columnPrototype = { table };
+    const features2 = Object.values(table._features);
+    for (let i = 0; i < features2.length; i++) (_b = (_a2 = features2[i]).assignColumnPrototype) == null ? void 0 : _b.call(_a2, table._columnPrototype, table);
+  }
+  return table._columnPrototype;
+}
+function constructColumn(table, columnDef, depth, parent) {
+  const resolvedColumnDef = {
+    ...table.getDefaultColumnDef(),
+    ...columnDef
+  };
+  const accessorKey = resolvedColumnDef.accessorKey;
+  const accessorKeyString = accessorKey === void 0 ? void 0 : String(accessorKey);
+  const id3 = resolvedColumnDef.id ?? (accessorKeyString == null ? void 0 : accessorKeyString.replaceAll(".", "_")) ?? (typeof resolvedColumnDef.header === "string" ? resolvedColumnDef.header : void 0);
+  let accessorFn;
+  if (resolvedColumnDef.accessorFn) accessorFn = resolvedColumnDef.accessorFn;
+  else if (accessorKey !== void 0) if (typeof accessorKey === "string" && accessorKey.includes(".")) {
+    const keys = accessorKey.split(".");
+    accessorFn = (originalRow) => {
+      let result = originalRow;
+      for (let i = 0; i < keys.length; i++) {
+        const key = keys[i];
+        result = result == null ? void 0 : result[key];
+        if (process.env.NODE_ENV === "development" && result === void 0) console.warn(`"${key}" in deeply nested key "${accessorKey}" returned undefined.`);
+      }
+      return result;
+    };
+  } else accessorFn = (originalRow) => originalRow[resolvedColumnDef.accessorKey];
+  if (!id3) {
+    if (process.env.NODE_ENV === "development") throw new Error(resolvedColumnDef.accessorFn ? `coreColumnsFeature require an id when using an accessorFn` : `coreColumnsFeature require an id when using a non-string header`);
+    throw new Error();
+  }
+  const columnPrototype = getColumnPrototype(table);
+  const column = Object.create(columnPrototype);
+  column.accessorFn = accessorFn;
+  column.columnDef = resolvedColumnDef;
+  column.columns = [];
+  column.depth = depth;
+  column.id = `${String(id3)}`;
+  column.parent = parent;
+  const initFns = table._columnInstanceInitFns;
+  for (let i = 0; i < initFns.length; i++) initFns[i](column);
+  return column;
+}
+
+// node_modules/@tanstack/table-core/dist/features/column-ordering/columnOrderingFeature.utils.js
+function table_getOrderColumnsFn(table) {
+  var _a2;
+  const columnOrder = (_a2 = table.atoms.columnOrder) == null ? void 0 : _a2.get();
+  return (columns) => {
+    let orderedColumns = [];
+    if (!(columnOrder == null ? void 0 : columnOrder.length)) orderedColumns = columns;
+    else {
+      const remaining = /* @__PURE__ */ new Map();
+      for (let i = 0; i < columns.length; i++) {
+        const column = columns[i];
+        remaining.set(column.id, column);
+      }
+      for (let i = 0; i < columnOrder.length; i++) {
+        const id3 = columnOrder[i];
+        const column = remaining.get(id3);
+        if (column) {
+          orderedColumns.push(column);
+          remaining.delete(id3);
+        }
+      }
+      for (let i = 0; i < columns.length; i++) {
+        const column = columns[i];
+        if (remaining.has(column.id)) orderedColumns.push(column);
+      }
+    }
+    return orderColumns(table, orderedColumns);
+  };
+}
+function orderColumns(table, leafColumns) {
+  var _a2;
+  const grouping = ((_a2 = table.atoms.grouping) == null ? void 0 : _a2.get()) ?? [];
+  const { groupedColumnMode } = table.options;
+  if (!grouping.length || !groupedColumnMode) return leafColumns;
+  const nonGroupingColumns = leafColumns.filter((col) => !grouping.includes(col.id));
+  if (groupedColumnMode === "remove") return nonGroupingColumns;
+  const leafColumnsById = /* @__PURE__ */ new Map();
+  for (let i = 0; i < leafColumns.length; i++) {
+    const col = leafColumns[i];
+    leafColumnsById.set(col.id, col);
+  }
+  const groupingColumns = [];
+  for (let i = 0; i < grouping.length; i++) {
+    const col = leafColumnsById.get(grouping[i]);
+    if (col) groupingColumns.push(col);
+  }
+  return [...groupingColumns, ...nonGroupingColumns];
+}
+
+// node_modules/@tanstack/table-core/dist/core/columns/coreColumnsFeature.utils.js
+function column_getFlatColumns(column) {
+  return [column, ...column.columns.flatMap((col) => col.getFlatColumns())];
+}
+function column_getLeafColumns(column) {
+  if (column.columns.length) {
+    const leafColumns = column.columns.flatMap((col) => col.getLeafColumns());
+    return callMemoOrStaticFn(column.table, "getOrderColumns", table_getOrderColumnsFn)(leafColumns);
+  }
+  return [column];
+}
+function table_getDefaultColumnDef(table) {
+  return {
+    header: (props) => {
+      const resolvedColumnDef = props.header.column.columnDef;
+      if (resolvedColumnDef.accessorKey) return resolvedColumnDef.accessorKey;
+      if (resolvedColumnDef.accessorFn) return resolvedColumnDef.id;
+      return null;
+    },
+    cell: (props) => {
+      var _a2, _b;
+      return ((_b = (_a2 = props.renderValue()) == null ? void 0 : _a2.toString) == null ? void 0 : _b.call(_a2)) ?? null;
+    },
+    ...Object.values(table._features).reduce((obj, feature) => {
+      var _a2;
+      return Object.assign(obj, (_a2 = feature.getDefaultColumnDef) == null ? void 0 : _a2.call(feature));
+    }, {}),
+    ...table.options.defaultColumn
+  };
+}
+function constructColumns(table, columnDefs, parent, depth = 0) {
+  const columns = new Array(columnDefs.length);
+  for (let i = 0; i < columnDefs.length; i++) {
+    if (!(i in columnDefs)) continue;
+    const columnDef = columnDefs[i];
+    const column = constructColumn(table, columnDef, depth, parent);
+    const groupingColumnDef = columnDef;
+    column.columns = groupingColumnDef.columns ? constructColumns(table, groupingColumnDef.columns, column, depth + 1) : [];
+    columns[i] = column;
+  }
+  return columns;
+}
+function table_getAllColumns(table) {
+  return constructColumns(table, table.options.columns);
+}
+function table_getAllFlatColumns(table) {
+  return table.getAllColumns().flatMap((column) => column.getFlatColumns());
+}
+function table_getAllFlatColumnsById(table) {
+  const result = makeObjectMap();
+  const flatColumns = table.getAllFlatColumns();
+  for (let i = 0; i < flatColumns.length; i++) {
+    const column = flatColumns[i];
+    result[column.id] = column;
+  }
+  return result;
+}
+function table_getAllLeafColumns(table) {
+  const leafColumns = table.getAllColumns().flatMap((c) => c.getLeafColumns());
+  return callMemoOrStaticFn(table, "getOrderColumns", table_getOrderColumnsFn)(leafColumns);
+}
+function table_getAllLeafColumnsById(table) {
+  const result = makeObjectMap();
+  const leafColumns = table.getAllLeafColumns();
+  for (let i = 0; i < leafColumns.length; i++) {
+    const column = leafColumns[i];
+    result[column.id] = column;
+  }
+  return result;
+}
+function table_getColumn(table, columnId) {
+  const column = table.getAllFlatColumnsById()[columnId];
+  if (process.env.NODE_ENV === "development" && !column) console.warn(`[Table] Column with id '${columnId}' does not exist.`);
+  return column;
+}
+
+// node_modules/@tanstack/table-core/dist/core/columns/coreColumnsFeature.js
+var coreColumnsFeature = {
+  assignColumnPrototype: (prototype, table) => {
+    assignPrototypeAPIs("coreColumnsFeature", prototype, table, {
+      column_getFlatColumns: {
+        fn: (column) => column_getFlatColumns(column),
+        memoDeps: (column) => [column.table.options.columns]
+      },
+      column_getLeafColumns: {
+        fn: (column) => column_getLeafColumns(column),
+        memoDeps: (column) => {
+          var _a2, _b;
+          return [
+            (_a2 = column.table.atoms.columnOrder) == null ? void 0 : _a2.get(),
+            (_b = column.table.atoms.grouping) == null ? void 0 : _b.get(),
+            column.table.options.columns,
+            column.table.options.groupedColumnMode
+          ];
+        }
+      }
+    });
+  },
+  constructTableAPIs: (table) => {
+    assignTableAPIs("coreColumnsFeature", table, {
+      table_getDefaultColumnDef: {
+        fn: () => table_getDefaultColumnDef(table),
+        memoDeps: () => [table.options.defaultColumn]
+      },
+      table_getAllColumns: {
+        fn: () => table_getAllColumns(table),
+        memoDeps: () => [table.options.columns]
+      },
+      table_getAllFlatColumns: {
+        fn: () => table_getAllFlatColumns(table),
+        memoDeps: () => [table.options.columns]
+      },
+      table_getAllFlatColumnsById: {
+        fn: () => table_getAllFlatColumnsById(table),
+        memoDeps: () => [table.options.columns]
+      },
+      table_getAllLeafColumns: {
+        fn: () => table_getAllLeafColumns(table),
+        memoDeps: () => {
+          var _a2, _b;
+          return [
+            (_a2 = table.atoms.columnOrder) == null ? void 0 : _a2.get(),
+            (_b = table.atoms.grouping) == null ? void 0 : _b.get(),
+            table.options.columns,
+            table.options.groupedColumnMode
+          ];
+        }
+      },
+      table_getAllLeafColumnsById: {
+        fn: () => table_getAllLeafColumnsById(table),
+        memoDeps: () => [table.getAllLeafColumns()]
+      },
+      table_getColumn: { fn: (columnId) => table_getColumn(table, columnId) }
+    });
+  }
+};
+
+// node_modules/@tanstack/table-core/dist/core/headers/coreHeadersFeature.utils.js
+function collectLeafHeaders(header, leafHeaders) {
+  for (let i = 0; i < header.subHeaders.length; i++) collectLeafHeaders(header.subHeaders[i], leafHeaders);
+  leafHeaders.push(header);
+}
+function header_getLeafHeaders(header) {
+  const leafHeaders = [];
+  collectLeafHeaders(header, leafHeaders);
+  return leafHeaders;
+}
+function header_getContext(header) {
+  return {
+    column: header.column,
+    header,
+    table: header.column.table
+  };
+}
+function table_getHeaderGroups(table) {
+  var _a2;
+  const { start, end } = ((_a2 = table.atoms.columnPinning) == null ? void 0 : _a2.get()) ?? getDefaultColumnPinningState();
+  const allColumns = table.getAllColumns();
+  const leafColumns = callMemoOrStaticFn(table, "getVisibleLeafColumns", table_getVisibleLeafColumns);
+  if (!start.length && !end.length) return buildHeaderGroups(allColumns, leafColumns, table);
+  const leafColumnsById = table.getAllLeafColumnsById();
+  const leftColumns = [];
+  for (let i = 0; i < start.length; i++) {
+    const column = leafColumnsById[start[i]];
+    if (column && callMemoOrStaticFn(column, "getIsVisible", column_getIsVisible)) leftColumns.push(column);
+  }
+  const rightColumns = [];
+  for (let i = 0; i < end.length; i++) {
+    const column = leafColumnsById[end[i]];
+    if (column && callMemoOrStaticFn(column, "getIsVisible", column_getIsVisible)) rightColumns.push(column);
+  }
+  const centerColumns = leafColumns.filter((column) => !start.includes(column.id) && !end.includes(column.id));
+  return buildHeaderGroups(allColumns, [
+    ...leftColumns,
+    ...centerColumns,
+    ...rightColumns
+  ], table);
+}
+function table_getFooterGroups(table) {
+  return [...table.getHeaderGroups()].reverse();
+}
+function table_getFlatHeaders(table) {
+  const headerGroups = table.getHeaderGroups();
+  const result = [];
+  for (let i = 0; i < headerGroups.length; i++) {
+    const headers = headerGroups[i].headers;
+    for (let j = 0; j < headers.length; j++) result.push(headers[j]);
+  }
+  return result;
+}
+function table_getLeafHeaders(table) {
+  var _a2;
+  const topHeaders = ((_a2 = table.getHeaderGroups()[0]) == null ? void 0 : _a2.headers) ?? [];
+  const result = [];
+  for (let i = 0; i < topHeaders.length; i++) {
+    const leafHeaders = topHeaders[i].getLeafHeaders();
+    for (let j = 0; j < leafHeaders.length; j++) result.push(leafHeaders[j]);
+  }
+  return result;
+}
+
+// node_modules/@tanstack/table-core/dist/core/headers/coreHeadersFeature.js
+var coreHeadersFeature = {
+  assignHeaderPrototype: (prototype, table) => {
+    assignPrototypeAPIs("coreHeadersFeature", prototype, table, {
+      header_getLeafHeaders: {
+        fn: (header) => header_getLeafHeaders(header),
+        memoDeps: (header) => [header.column.table.options.columns]
+      },
+      header_getContext: {
+        fn: (header) => header_getContext(header),
+        memoDeps: (header) => [header.column.table.options.columns]
+      }
+    });
+  },
+  constructTableAPIs: (table) => {
+    assignTableAPIs("coreHeadersFeature", table, {
+      table_getHeaderGroups: {
+        fn: () => table_getHeaderGroups(table),
+        memoDeps: () => {
+          var _a2, _b, _c, _d;
+          return [
+            table.options.columns,
+            (_a2 = table.atoms.columnOrder) == null ? void 0 : _a2.get(),
+            (_b = table.atoms.grouping) == null ? void 0 : _b.get(),
+            (_c = table.atoms.columnPinning) == null ? void 0 : _c.get(),
+            (_d = table.atoms.columnVisibility) == null ? void 0 : _d.get(),
+            table.options.groupedColumnMode
+          ];
+        }
+      },
+      table_getFooterGroups: {
+        fn: () => table_getFooterGroups(table),
+        memoDeps: () => [table.getHeaderGroups()]
+      },
+      table_getFlatHeaders: {
+        fn: () => table_getFlatHeaders(table),
+        memoDeps: () => [table.getHeaderGroups()]
+      },
+      table_getLeafHeaders: {
+        fn: () => table_getLeafHeaders(table),
+        memoDeps: () => [table.getHeaderGroups()]
+      }
+    });
+  }
+};
+
+// node_modules/@tanstack/table-core/dist/core/rows/constructRow.js
+function getRowPrototype(table) {
+  var _a2, _b;
+  if (!table._rowPrototype) {
+    table._rowPrototype = { table };
+    const features2 = Object.values(table._features);
+    for (let i = 0; i < features2.length; i++) (_b = (_a2 = features2[i]).assignRowPrototype) == null ? void 0 : _b.call(_a2, table._rowPrototype, table);
+  }
+  return table._rowPrototype;
+}
+var constructRow = (table, id3, original, rowIndex, depth, subRows, parentId) => {
+  const rowPrototype = getRowPrototype(table);
+  const row = Object.create(rowPrototype);
+  row._displayIndexCache = -1;
+  row._uniqueValuesCache = makeObjectMap();
+  row._valuesCache = makeObjectMap();
+  row.depth = depth;
+  row.id = id3;
+  row.index = rowIndex;
+  row.original = original;
+  row.parentId = parentId;
+  row.subRows = subRows ?? [];
+  const initFns = table._rowInstanceInitFns;
+  for (let i = 0; i < initFns.length; i++) initFns[i](row);
+  return row;
+};
+
+// node_modules/@tanstack/table-core/dist/features/row-sorting/sortFns.js
+var reSplitAlphaNumeric = /([0-9]+)/gm;
+function constructSortFn(def) {
+  const sortFn = Object.assign((rowA, rowB, columnId) => {
+    let dataValueA = rowA.getValue(columnId);
+    let dataValueB = rowB.getValue(columnId);
+    const resolveDataValue = sortFn.resolveDataValue;
+    if (resolveDataValue) {
+      dataValueA = resolveDataValue(dataValueA);
+      dataValueB = resolveDataValue(dataValueB);
+    }
+    return sortFn.sort(dataValueA, dataValueB, rowA, rowB, columnId);
+  }, def);
+  return sortFn;
+}
+var sortFn_alphanumeric = constructSortFn({
+  resolveDataValue: (dataValue) => toString(dataValue).toLowerCase(),
+  sort: (dataValueA, dataValueB) => compareAlphanumeric(dataValueA, dataValueB)
+});
+var sortFn_alphanumericCaseSensitive = constructSortFn({
+  resolveDataValue: (dataValue) => toString(dataValue),
+  sort: (dataValueA, dataValueB) => compareAlphanumeric(dataValueA, dataValueB)
+});
+var sortFn_text = constructSortFn({
+  resolveDataValue: (dataValue) => toString(dataValue).toLowerCase(),
+  sort: (dataValueA, dataValueB) => compareBasic(dataValueA, dataValueB)
+});
+var sortFn_textCaseSensitive = constructSortFn({
+  resolveDataValue: (dataValue) => toString(dataValue),
+  sort: (dataValueA, dataValueB) => compareBasic(dataValueA, dataValueB)
+});
+var sortFn_datetime = constructSortFn({
+  resolveDataValue: (dataValue) => toDateSortValue(dataValue),
+  sort: (dataValueA, dataValueB) => dataValueA > dataValueB ? 1 : dataValueA < dataValueB ? -1 : 0
+});
+var sortFn_basic = constructSortFn({ sort: (dataValueA, dataValueB) => compareBasic(dataValueA, dataValueB) });
+function compareBasic(a, b) {
+  return a === b ? 0 : a > b ? 1 : -1;
+}
+function toDateSortValue(value) {
+  return value instanceof Date ? value.getTime() : value;
+}
+function toString(a) {
+  if (typeof a === "number") {
+    if (isNaN(a) || a === Infinity || a === -Infinity) return "";
+    return String(a);
+  }
+  if (typeof a === "string") return a;
+  return "";
+}
+function compareAlphanumeric(aStr, bStr) {
+  let ai = 0;
+  let bi = 0;
+  const aLen = aStr.length;
+  const bLen = bStr.length;
+  while (ai < aLen && bi < bLen) {
+    const aIsNumeric = isDigit(aStr.charCodeAt(ai));
+    const bIsNumeric = isDigit(bStr.charCodeAt(bi));
+    const aEnd = findChunkEnd(aStr, ai, aIsNumeric);
+    const bEnd = findChunkEnd(bStr, bi, bIsNumeric);
+    if (!aIsNumeric && !bIsNumeric) {
+      const stringComparison = compareStringChunks(aStr, ai, aEnd, bStr, bi, bEnd);
+      if (stringComparison) return stringComparison;
+      ai = aEnd;
+      bi = bEnd;
+      continue;
+    }
+    if (aIsNumeric !== bIsNumeric) return aIsNumeric ? 1 : -1;
+    const numericComparison = compareNumericChunks(aStr, ai, aEnd, bStr, bi, bEnd);
+    if (numericComparison) return numericComparison;
+    ai = aEnd;
+    bi = bEnd;
+  }
+  return countRemainingChunks(aStr, ai) - countRemainingChunks(bStr, bi);
+}
+function isDigit(charCode) {
+  return charCode >= 48 && charCode <= 57;
+}
+function findChunkEnd(str, start, isNumeric) {
+  let end = start + 1;
+  while (end < str.length && isDigit(str.charCodeAt(end)) === isNumeric) end++;
+  return end;
+}
+function compareStringChunks(aStr, aStart, aEnd, bStr, bStart, bEnd) {
+  const aLength = aEnd - aStart;
+  const bLength = bEnd - bStart;
+  const minLength = aLength < bLength ? aLength : bLength;
+  for (let i = 0; i < minLength; i++) {
+    const aCode = aStr.charCodeAt(aStart + i);
+    const bCode = bStr.charCodeAt(bStart + i);
+    if (aCode > bCode) return 1;
+    if (bCode > aCode) return -1;
+  }
+  if (aLength > bLength) return 1;
+  if (bLength > aLength) return -1;
+  return 0;
+}
+function compareNumericChunks(aStr, aStart, aEnd, bStr, bStart, bEnd) {
+  let aSignificantStart = aStart;
+  while (aSignificantStart < aEnd && aStr.charCodeAt(aSignificantStart) === 48) aSignificantStart++;
+  let bSignificantStart = bStart;
+  while (bSignificantStart < bEnd && bStr.charCodeAt(bSignificantStart) === 48) bSignificantStart++;
+  const aSignificantLength = aEnd - aSignificantStart;
+  const bSignificantLength = bEnd - bSignificantStart;
+  if (aSignificantLength === 0 && bSignificantLength === 0) return 0;
+  if (aSignificantLength <= 15 && bSignificantLength <= 15) {
+    const an2 = parseSmallInt(aStr, aSignificantStart, aEnd);
+    const bn2 = parseSmallInt(bStr, bSignificantStart, bEnd);
+    if (an2 > bn2) return 1;
+    if (bn2 > an2) return -1;
+    return 0;
+  }
+  const an = parseInt(aStr.slice(aStart, aEnd), 10);
+  const bn = parseInt(bStr.slice(bStart, bEnd), 10);
+  if (an > bn) return 1;
+  if (bn > an) return -1;
+  return 0;
+}
+function parseSmallInt(str, start, end) {
+  let result = 0;
+  for (let i = start; i < end; i++) result = result * 10 + str.charCodeAt(i) - 48;
+  return result;
+}
+function countRemainingChunks(str, start) {
+  let count = 0;
+  let index = start;
+  while (index < str.length) {
+    count++;
+    index = findChunkEnd(str, index, isDigit(str.charCodeAt(index)));
+  }
+  return count;
+}
+
+// node_modules/@tanstack/table-core/dist/features/cell-selection/cellSelectionFeature.utils.js
+function getDefaultCellSelectionState() {
+  return [];
+}
+function table_resetCellSelection(table, defaultState) {
+  setStateSlice(table, "cellSelection", defaultState ? getDefaultCellSelectionState() : cloneState(table.initialState.cellSelection) ?? getDefaultCellSelectionState());
+}
+function table_autoResetCellSelection(table) {
+  if (!table.atoms.cellSelection) return;
+  if (table.options.autoResetAll ?? table.options.autoResetCellSelection ?? true) table._reactivity.schedule(() => table_resetCellSelection(table));
+}
+
+// node_modules/@tanstack/table-core/dist/features/row-expanding/rowExpandingFeature.utils.js
+function table_autoResetExpanded(table) {
+  if (!table.atoms.expanded) return;
+  if (table.options.autoResetAll ?? table.options.autoResetExpanded ?? !table.options.manualExpanding) table._reactivity.schedule(() => table_resetExpanded(table));
+}
+function table_resetExpanded(table, defaultState) {
+  const initialExpanded = table.initialState.expanded;
+  setStateSlice(table, "expanded", defaultState ? makeObjectMap() : initialExpanded === true ? true : Object.assign(makeObjectMap(), cloneState(initialExpanded ?? {})));
+}
+
+// node_modules/@tanstack/table-core/dist/features/row-pagination/rowPaginationFeature.utils.js
+var defaultPageIndex = 0;
+function table_autoResetPageIndex(table) {
+  var _a2, _b;
+  if (table.options.autoResetAll ?? table.options.autoResetPageIndex ?? !table.options.manualPagination) {
+    if ((((_b = (_a2 = table.atoms.pagination) == null ? void 0 : _a2.get()) == null ? void 0 : _b.pageIndex) ?? defaultPageIndex) === defaultPageIndex) return;
+    table_resetPageIndex(table, true);
+  }
+}
+function table_setPagination(table, updater) {
+  setStateSlice(table, "pagination", updater);
+}
+function table_setPageIndex(table, updater) {
+  table_setPagination(table, (old) => {
+    let pageIndex = functionalUpdate(updater, old.pageIndex);
+    const maxPageIndex = typeof table.options.pageCount === "undefined" || table.options.pageCount === -1 ? Number.MAX_SAFE_INTEGER : table.options.pageCount - 1;
+    pageIndex = Math.max(0, Math.min(pageIndex, maxPageIndex));
+    return {
+      ...old,
+      pageIndex
+    };
+  });
+}
+function table_resetPageIndex(table, defaultState) {
+  var _a2;
+  table_setPageIndex(table, defaultState ? defaultPageIndex : ((_a2 = table.initialState.pagination) == null ? void 0 : _a2.pageIndex) ?? defaultPageIndex);
+}
+
+// node_modules/@tanstack/table-core/dist/features/row-sorting/rowSortingFeature.utils.js
+function getDefaultSortingState() {
+  return [];
+}
+function table_setSorting(table, updater) {
+  setStateSlice(table, "sorting", updater);
+}
+function table_resetSorting(table, defaultState) {
+  table_setSorting(table, defaultState ? [] : cloneState(table.initialState.sorting ?? []));
+}
+function table_autoResetSorting(table) {
+  if (!table.atoms.sorting) return;
+  if (table.options.autoResetAll ?? table.options.autoResetSorting ?? false) table_resetSorting(table);
+}
+function column_getAutoSortFn(column) {
+  const sortFns2 = column.table._rowModelFns.sortFns;
+  const firstRows = column.table.getFilteredRowModel().flatRows.slice(0, 10);
+  let sortFnName;
+  let isString = false;
+  for (let i = 0; i < firstRows.length; i++) {
+    const value = firstRows[i].getValue(column.id);
+    if (Object.prototype.toString.call(value) === "[object Date]") {
+      sortFnName = "datetime";
+      break;
+    }
+    if (typeof value === "string") {
+      isString = true;
+      if (value.split(reSplitAlphaNumeric).length > 1) {
+        sortFnName = "alphanumeric";
+        break;
+      }
+    }
+  }
+  if (!sortFnName && isString) sortFnName = "text";
+  if (sortFnName) {
+    let sortFn = sortFns2 == null ? void 0 : sortFns2[sortFnName];
+    if (!sortFn) {
+      if (process.env.NODE_ENV === "development") console.warn(`sortFn '${sortFnName}' (auto) for column '${column.id}' is not registered`);
+      if (sortFnName === "alphanumeric") sortFn = sortFns2 == null ? void 0 : sortFns2.text;
+    }
+    if (sortFn) return sortFn;
+  }
+  return sortFn_basic;
+}
+function column_getAutoSortDir(column) {
+  const firstRows = column.table.getFilteredRowModel().flatRows.slice(0, 10);
+  for (let i = 0; i < firstRows.length; i++) {
+    const value = firstRows[i].getValue(column.id);
+    if (value == null) continue;
+    return typeof value === "string" ? "asc" : "desc";
+  }
+  return "desc";
+}
+function column_getSortFn(column) {
+  const sortFns2 = column.table._rowModelFns.sortFns;
+  if (isFunction(column.columnDef.sortFn)) return column.columnDef.sortFn;
+  if (column.columnDef.sortFn === "auto") return column_getAutoSortFn(column);
+  const sortFn = sortFns2 == null ? void 0 : sortFns2[column.columnDef.sortFn];
+  if (process.env.NODE_ENV === "development" && !sortFn) console.warn(`sortFn '${String(column.columnDef.sortFn)}' for column '${column.id}' is not registered`);
+  return sortFn ?? sortFn_basic;
+}
+function column_toggleSorting(column, desc, multi) {
+  const nextSortingOrder = column_getNextSortingOrder(column, multi && column_getCanMultiSort(column));
+  const hasManualValue = typeof desc !== "undefined";
+  table_setSorting(column.table, (old) => {
+    const existingIndex = old.findIndex((d) => d.id === column.id);
+    const existingSorting = existingIndex === -1 ? void 0 : old[existingIndex];
+    let newSorting = [];
+    let sortAction;
+    const nextDesc = hasManualValue ? desc : nextSortingOrder === "desc";
+    const isMultiMode = !!(old.length && column_getCanMultiSort(column) && multi);
+    if (isMultiMode) if (existingSorting) sortAction = "toggle";
+    else sortAction = "add";
+    else if (existingSorting) sortAction = "toggle";
+    else sortAction = "replace";
+    if (sortAction === "toggle") {
+      if (!hasManualValue) {
+        if (!nextSortingOrder) sortAction = "remove";
+      }
+    }
+    if (sortAction === "add") {
+      newSorting = [...old, {
+        id: column.id,
+        desc: nextDesc
+      }];
+      newSorting.splice(0, newSorting.length - (column.table.options.maxMultiSortColCount ?? Number.MAX_SAFE_INTEGER));
+    } else if (sortAction === "toggle") newSorting = isMultiMode ? old.map((d) => {
+      if (d.id === column.id) return {
+        ...d,
+        desc: nextDesc
+      };
+      return d;
+    }) : [{
+      id: column.id,
+      desc: nextDesc
+    }];
+    else if (sortAction === "remove") newSorting = isMultiMode ? old.filter((d) => d.id !== column.id) : [];
+    else newSorting = [{
+      id: column.id,
+      desc: nextDesc
+    }];
+    return newSorting;
+  });
+}
+function column_getFirstSortDir(column) {
+  return column.columnDef.sortDescFirst ?? column.table.options.sortDescFirst ?? column_getAutoSortDir(column) === "desc" ? "desc" : "asc";
+}
+function column_getNextSortingOrder(column, multi) {
+  const firstSortDirection = column_getFirstSortDir(column);
+  const isSorted = column_getIsSorted(column);
+  if (!isSorted) return firstSortDirection;
+  if (isSorted !== firstSortDirection && (column.table.options.enableSortingRemoval ?? true) && (multi ? column.table.options.enableMultiRemove ?? true : true)) return false;
+  return isSorted === "desc" ? "asc" : "desc";
+}
+function column_getCanSort(column) {
+  return (column.columnDef.enableSorting ?? true) && (column.table.options.enableSorting ?? true) && !!column.accessorFn;
+}
+function column_getCanMultiSort(column) {
+  return column.columnDef.enableMultiSort ?? column.table.options.enableMultiSort ?? !!column.accessorFn;
+}
+function column_getIsSorted(column) {
+  var _a2, _b;
+  const columnSort = (_b = (_a2 = column.table.atoms.sorting) == null ? void 0 : _a2.get()) == null ? void 0 : _b.find((d) => d.id === column.id);
+  return !columnSort ? false : columnSort.desc ? "desc" : "asc";
+}
+function column_getSortIndex(column) {
+  var _a2, _b;
+  return ((_b = (_a2 = column.table.atoms.sorting) == null ? void 0 : _a2.get()) == null ? void 0 : _b.findIndex((d) => d.id === column.id)) ?? -1;
+}
+function column_clearSorting(column) {
+  table_setSorting(column.table, (old) => old.length ? old.filter((d) => d.id !== column.id) : []);
+}
+function column_getToggleSortingHandler(column) {
+  const canSort = column_getCanSort(column);
+  return (e) => {
+    var _a2, _b;
+    if (!canSort) return;
+    column_toggleSorting(column, void 0, column_getCanMultiSort(column) ? (_b = (_a2 = column.table.options).isMultiSortEvent) == null ? void 0 : _b.call(_a2, e) : false);
+  };
+}
+
+// node_modules/@tanstack/table-core/dist/core/row-models/createCoreRowModel.js
+function createCoreRowModel() {
+  return (table) => {
+    return tableMemo({
+      feature: "coreRowModelsFeature",
+      table,
+      fnName: "table.getCoreRowModel",
+      memoDeps: () => [table.options.data],
+      fn: () => _createCoreRowModel(table, table.options.data),
+      onAfterUpdate: skipFirstRun(() => {
+        table_autoResetExpanded(table);
+        table_autoResetPageIndex(table);
+        table_autoResetSorting(table);
+        table_autoResetCellSelection(table);
+      })
+    });
+  };
+}
+function accessRows(table, rowModel, originalRows, depth = 0, parentRow) {
+  var _a2;
+  const rows = [];
+  for (let i = 0; i < originalRows.length; i++) {
+    const originalRow = originalRows[i];
+    const row = constructRow(table, table.getRowId(originalRow, i, parentRow), originalRow, i, depth, void 0, parentRow == null ? void 0 : parentRow.id);
+    rowModel.flatRows.push(row);
+    rowModel.rowsById[row.id] = row;
+    rows.push(row);
+    if (table.options.getSubRows) {
+      row.originalSubRows = table.options.getSubRows(originalRow, i);
+      if ((_a2 = row.originalSubRows) == null ? void 0 : _a2.length) row.subRows = accessRows(table, rowModel, row.originalSubRows, depth + 1, row);
+    }
+  }
+  return rows;
+}
+function _createCoreRowModel(table, data) {
+  const rowModel = {
+    rows: [],
+    flatRows: [],
+    rowsById: makeObjectMap()
+  };
+  rowModel.rows = accessRows(table, rowModel, data);
+  return rowModel;
+}
+
+// node_modules/@tanstack/table-core/dist/core/row-models/coreRowModelsFeature.utils.js
+function table_getCoreRowModel(table) {
+  var _a2, _b;
+  if (!table._rowModels.coreRowModel) table._rowModels.coreRowModel = ((_b = (_a2 = table.options.features).coreRowModel) == null ? void 0 : _b.call(_a2, table)) ?? createCoreRowModel()(table);
+  return table._rowModels.coreRowModel();
+}
+function table_getPreFilteredRowModel(table) {
+  return table.getCoreRowModel();
+}
+function table_getFilteredRowModel(table) {
+  var _a2, _b;
+  if (!table._rowModels.filteredRowModel) table._rowModels.filteredRowModel = (_b = (_a2 = table.options.features).filteredRowModel) == null ? void 0 : _b.call(_a2, table);
+  if (table.options.manualFiltering || !table._rowModels.filteredRowModel) return table.getPreFilteredRowModel();
+  return table._rowModels.filteredRowModel();
+}
+function table_getPreGroupedRowModel(table) {
+  return table.getFilteredRowModel();
+}
+function table_getGroupedRowModel(table) {
+  var _a2, _b;
+  if (!table._rowModels.groupedRowModel) table._rowModels.groupedRowModel = (_b = (_a2 = table.options.features).groupedRowModel) == null ? void 0 : _b.call(_a2, table);
+  if (table.options.manualGrouping || !table._rowModels.groupedRowModel) return table.getPreGroupedRowModel();
+  return table._rowModels.groupedRowModel();
+}
+function table_getPreSortedRowModel(table) {
+  return table.getGroupedRowModel();
+}
+function table_getSortedRowModel(table) {
+  var _a2, _b;
+  if (!table._rowModels.sortedRowModel) table._rowModels.sortedRowModel = (_b = (_a2 = table.options.features).sortedRowModel) == null ? void 0 : _b.call(_a2, table);
+  if (table.options.manualSorting || !table._rowModels.sortedRowModel) return table.getPreSortedRowModel();
+  return table._rowModels.sortedRowModel();
+}
+function table_getPreExpandedRowModel(table) {
+  return table.getSortedRowModel();
+}
+function table_getExpandedRowModel(table) {
+  var _a2, _b;
+  if (!table._rowModels.expandedRowModel) table._rowModels.expandedRowModel = (_b = (_a2 = table.options.features).expandedRowModel) == null ? void 0 : _b.call(_a2, table);
+  if (table.options.manualExpanding || !table._rowModels.expandedRowModel) return table.getPreExpandedRowModel();
+  return table._rowModels.expandedRowModel();
+}
+function table_getPrePaginatedRowModel(table) {
+  return table.getExpandedRowModel();
+}
+function table_getPaginatedRowModel(table) {
+  var _a2, _b;
+  if (!table._rowModels.paginatedRowModel) table._rowModels.paginatedRowModel = (_b = (_a2 = table.options.features).paginatedRowModel) == null ? void 0 : _b.call(_a2, table);
+  if (table.options.manualPagination || !table._rowModels.paginatedRowModel) return table.getPrePaginatedRowModel();
+  return table._rowModels.paginatedRowModel();
+}
+function table_getRowModel(table) {
+  return table.getPaginatedRowModel();
+}
+
+// node_modules/@tanstack/table-core/dist/core/row-models/coreRowModelsFeature.js
+var coreRowModelsFeature = { constructTableAPIs: (table) => {
+  assignTableAPIs("coreRowModelsFeature", table, {
+    table_getCoreRowModel: { fn: () => table_getCoreRowModel(table) },
+    table_getPreFilteredRowModel: { fn: () => table_getPreFilteredRowModel(table) },
+    table_getFilteredRowModel: { fn: () => table_getFilteredRowModel(table) },
+    table_getPreGroupedRowModel: { fn: () => table_getPreGroupedRowModel(table) },
+    table_getGroupedRowModel: { fn: () => table_getGroupedRowModel(table) },
+    table_getPreSortedRowModel: { fn: () => table_getPreSortedRowModel(table) },
+    table_getSortedRowModel: { fn: () => table_getSortedRowModel(table) },
+    table_getPreExpandedRowModel: { fn: () => table_getPreExpandedRowModel(table) },
+    table_getExpandedRowModel: { fn: () => table_getExpandedRowModel(table) },
+    table_getPrePaginatedRowModel: { fn: () => table_getPrePaginatedRowModel(table) },
+    table_getPaginatedRowModel: { fn: () => table_getPaginatedRowModel(table) },
+    table_getRowModel: { fn: () => table_getRowModel(table) }
+  });
+} };
+
+// node_modules/@tanstack/table-core/dist/core/cells/constructCell.js
+function getCellPrototype(table) {
+  var _a2, _b;
+  if (!table._cellPrototype) {
+    table._cellPrototype = { table };
+    const features2 = Object.values(table._features);
+    for (let i = 0; i < features2.length; i++) (_b = (_a2 = features2[i]).assignCellPrototype) == null ? void 0 : _b.call(_a2, table._cellPrototype, table);
+  }
+  return table._cellPrototype;
+}
+function constructCell(column, row, table) {
+  const cellPrototype = getCellPrototype(table);
+  const cell = Object.create(cellPrototype);
+  cell.column = column;
+  cell.id = `${row.id}_${column.id}`;
+  cell.row = row;
+  const initFns = table._cellInstanceInitFns;
+  for (let i = 0; i < initFns.length; i++) initFns[i](cell);
+  return cell;
+}
+
+// node_modules/@tanstack/table-core/dist/core/rows/coreRowsFeature.utils.js
+function row_getDisplayIndex(row) {
+  const rows = row.table.getRowsInDisplayOrder();
+  const displayIndex = row._displayIndexCache;
+  return rows[displayIndex] === row ? displayIndex : -1;
+}
+function table_getRowsInDisplayOrder(table) {
+  const rows = table.getPrePaginatedRowModel().rows;
+  if (table.options.paginateExpandedRows === false) {
+    const displayRows = [];
+    const handleRow = (row) => {
+      var _a2;
+      row._displayIndexCache = displayRows.length;
+      displayRows.push(row);
+      if (row.subRows.length && ((_a2 = row.getIsExpanded) == null ? void 0 : _a2.call(row))) row.subRows.forEach(handleRow);
+    };
+    rows.forEach(handleRow);
+    return displayRows;
+  }
+  for (let i = 0; i < rows.length; i++) rows[i]._displayIndexCache = i;
+  return rows;
+}
+function row_getValue(row, columnId) {
+  if (hasOwn(row._valuesCache, columnId)) return row._valuesCache[columnId];
+  const column = row.table.getColumn(columnId);
+  if (!(column == null ? void 0 : column.accessorFn)) return;
+  row._valuesCache[columnId] = column.accessorFn(row.original, row.index);
+  return row._valuesCache[columnId];
+}
+function row_getUniqueValues(row, columnId) {
+  if (hasOwn(row._uniqueValuesCache, columnId)) return row._uniqueValuesCache[columnId];
+  const column = row.table.getColumn(columnId);
+  if (!(column == null ? void 0 : column.accessorFn)) return;
+  if (!column.columnDef.getUniqueValues) {
+    row._uniqueValuesCache[columnId] = [row.getValue(columnId)];
+    return row._uniqueValuesCache[columnId];
+  }
+  row._uniqueValuesCache[columnId] = column.columnDef.getUniqueValues(row.original, row.index);
+  return row._uniqueValuesCache[columnId];
+}
+function row_renderValue(row, columnId) {
+  return row.getValue(columnId) ?? row.table.options.renderFallbackValue;
+}
+function row_getLeafRows(row) {
+  return flattenBy(row.subRows, (d) => d.subRows);
+}
+function table_getMaxSubRowDepth(table) {
+  const rows = table.getCoreRowModel().flatRows;
+  let maxDepth2 = 0;
+  for (let i = 0; i < rows.length; i++) maxDepth2 = Math.max(maxDepth2, rows[i].depth);
+  return maxDepth2;
+}
+function row_getParentRow(row) {
+  if (!row.parentId) return;
+  return row.table.getCoreRowModel().rowsById[row.parentId] ?? row.table.getRow(row.parentId, true);
+}
+function row_getParentRows(row) {
+  const parentRows = [];
+  let currentRow = row;
+  while (true) {
+    const parentRow = currentRow.getParentRow();
+    if (!parentRow) break;
+    parentRows.push(parentRow);
+    currentRow = parentRow;
+  }
+  return parentRows.reverse();
+}
+function row_getAllCells(row) {
+  const columns = row.table.getAllLeafColumns();
+  let cache = row._cellsCache;
+  if (!cache) cache = row._cellsCache = /* @__PURE__ */ new WeakMap();
+  const cells = new Array(columns.length);
+  for (let i = 0; i < columns.length; i++) {
+    const column = columns[i];
+    let cell = cache.get(column);
+    if (!cell) {
+      cell = constructCell(column, row, row.table);
+      cache.set(column, cell);
+    }
+    cells[i] = cell;
+  }
+  return cells;
+}
+function row_getAllCellsByColumnId(row) {
+  const result = makeObjectMap();
+  const cells = row.getAllCells();
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i];
+    result[cell.column.id] = cell;
+  }
+  return result;
+}
+function table_getRowId(originalRow, table, index, parent) {
+  var _a2, _b;
+  return ((_b = (_a2 = table.options).getRowId) == null ? void 0 : _b.call(_a2, originalRow, index, parent)) ?? (parent ? `${parent.id}.${index}` : String(index));
+}
+function table_getRow(table, rowId, searchAll) {
+  let row = (searchAll ? table.getPrePaginatedRowModel() : table.getRowModel()).rowsById[rowId];
+  if (!row) {
+    row = table.getCoreRowModel().rowsById[rowId];
+    if (!row) {
+      if (process.env.NODE_ENV === "development") throw new Error(`getRow could not find row with ID: ${rowId}`);
+      throw new Error();
+    }
+  }
+  return row;
+}
+
+// node_modules/@tanstack/table-core/dist/core/rows/coreRowsFeature.js
+var coreRowsFeature = {
+  assignRowPrototype: (prototype, table) => {
+    assignPrototypeAPIs("coreRowsFeature", prototype, table, {
+      row_getDisplayIndex: { fn: (row) => row_getDisplayIndex(row) },
+      row_getAllCellsByColumnId: {
+        fn: (row) => row_getAllCellsByColumnId(row),
+        memoDeps: (row) => [row.getAllCells()]
+      },
+      row_getAllCells: {
+        fn: (row) => row_getAllCells(row),
+        memoDeps: (row) => [row.table.getAllLeafColumns()]
+      },
+      row_getLeafRows: {
+        fn: (row) => row_getLeafRows(row),
+        memoDeps: (row) => [row.subRows]
+      },
+      row_getParentRow: { fn: (row) => row_getParentRow(row) },
+      row_getParentRows: { fn: (row) => row_getParentRows(row) },
+      row_getUniqueValues: { fn: (row, columnId) => row_getUniqueValues(row, columnId) },
+      row_getValue: { fn: (row, columnId) => row_getValue(row, columnId) },
+      row_renderValue: { fn: (row, columnId) => row_renderValue(row, columnId) }
+    });
+  },
+  constructTableAPIs: (table) => {
+    assignTableAPIs("coreRowsFeature", table, {
+      table_getRowsInDisplayOrder: {
+        fn: () => table_getRowsInDisplayOrder(table),
+        memoDeps: () => {
+          var _a2;
+          return [
+            table.getPrePaginatedRowModel().rows,
+            table.options.paginateExpandedRows,
+            table.options.paginateExpandedRows === false ? (_a2 = table.atoms.expanded) == null ? void 0 : _a2.get() : void 0
+          ];
+        }
+      },
+      table_getRowId: { fn: (originalRow, index, parent) => table_getRowId(originalRow, table, index, parent) },
+      table_getRow: { fn: (id3, searchAll) => table_getRow(table, id3, searchAll) },
+      table_getMaxSubRowDepth: {
+        fn: () => table_getMaxSubRowDepth(table),
+        memoDeps: () => [table.getCoreRowModel()]
+      }
+    });
+  }
+};
+
+// node_modules/@tanstack/table-core/dist/core/table/coreTablesFeature.utils.js
+function table_syncExternalStateToBaseAtoms(table, capturedState, compare = (currentState, externalState) => currentState === externalState) {
+  const state = capturedState === void 0 ? table.options.state : capturedState;
+  table._reactivity.batch(() => {
+    if (state) for (const key in state) {
+      const baseAtom = table.baseAtoms[key];
+      if (!baseAtom) continue;
+      const rawExternalState = state[key];
+      const externalState = rawExternalState === void 0 ? table.initialState[key] : rawExternalState;
+      if (!compare(table._reactivity.untrack(() => baseAtom.get()), externalState)) baseAtom.set(() => externalState);
+    }
+  });
+}
+function table_publishExternalState(table, state, compare = (currentState, externalState) => currentState === externalState) {
+  table._reactivity.batch(() => {
+    var _a2, _b;
+    table_syncExternalStateToBaseAtoms(table, state, compare);
+    (_b = (_a2 = table._reactivity).commit) == null ? void 0 : _b.call(_a2);
+  });
+}
+function table_reset(table) {
+  var _a2, _b;
+  const snap = cloneState(table.initialState);
+  table._reactivity.batch(() => {
+    const keys = Object.keys(snap);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      table.baseAtoms[key].set(snap[key]);
+    }
+  });
+  const features2 = Object.values(table._features);
+  for (let i = 0; i < features2.length; i++) (_b = (_a2 = features2[i]).resetTableInstanceData) == null ? void 0 : _b.call(_a2, table);
+}
+function table_mergeOptions(table, newOptions) {
+  const { features: features2, atoms, initialState } = table.options;
+  if (!table.options.mergeOptions) return {
+    ...table.options,
+    ...newOptions,
+    features: features2,
+    atoms,
+    initialState
+  };
+  const mergedOptions = table.options.mergeOptions(table.options, newOptions);
+  const descriptors = { ...Object.getOwnPropertyDescriptors(mergedOptions) };
+  return Object.defineProperties(Object.create(Object.getPrototypeOf(mergedOptions)), {
+    ...descriptors,
+    features: {
+      value: features2,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    },
+    atoms: {
+      value: atoms,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    },
+    initialState: {
+      value: initialState,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    }
+  });
+}
+function table_setOptions(table, updater, options) {
+  const mergedOptions = table_mergeOptions(table, functionalUpdate(updater, table.options));
+  if (table.optionsStore) table.optionsStore.set(() => mergedOptions);
+  else table.options = mergedOptions;
+  if ((options == null ? void 0 : options.syncExternalState) !== false) table_publishExternalState(table, mergedOptions.state ?? null);
+}
+
+// node_modules/@tanstack/table-core/dist/core/table/coreTablesFeature.js
+var coreTablesFeature = { constructTableAPIs: (table) => {
+  assignTableAPIs("coreTablesFeature", table, {
+    table_reset: { fn: () => table_reset(table) },
+    table_setOptions: { fn: (updater) => table_setOptions(table, updater) }
+  });
+} };
+
+// node_modules/@tanstack/table-core/dist/core/coreFeatures.js
+var coreFeatures = {
+  coreCellsFeature,
+  coreColumnsFeature,
+  coreHeadersFeature,
+  coreRowModelsFeature,
+  coreRowsFeature,
+  coreTablesFeature
+};
+
+// node_modules/@tanstack/table-core/dist/helpers/tableFeatures.js
+function tableFeatures(features2) {
+  return features2;
+}
+
+// node_modules/@tanstack/table-core/dist/core/table/constructTable.js
+function getInitialTableState(features2, initialState = {}) {
+  Object.values(features2).forEach((feature) => {
+    var _a2;
+    initialState = ((_a2 = feature.getInitialState) == null ? void 0 : _a2.call(feature, initialState)) ?? initialState;
+  });
+  return cloneState(initialState);
+}
+function constructTable(tableOptions) {
+  var _a2, _b;
+  const _reactivity = tableOptions.features.coreReactivityFeature;
+  const { aggregationFns, columnMeta: _columnMeta, coreRowModel, expandedRowModel, facetedMinMaxValues, facetedRowModel, facetedUniqueValues, filterFns, filterMeta: _filterMeta, filteredRowModel, groupedRowModel, paginatedRowModel, sortFns: sortFns2, sortedRowModel, tableMeta: _tableMeta, ...features2 } = tableOptions.features;
+  const table = {
+    _cellInstanceInitFns: [],
+    _columnInstanceInitFns: [],
+    _features: {
+      ...coreFeatures,
+      ...features2
+    },
+    _headerGroupInstanceInitFns: [],
+    _headerInstanceInitFns: [],
+    _reactivity,
+    _rowInstanceInitFns: [],
+    _rowModelFns: {
+      aggregationFns,
+      filterFns,
+      sortFns: sortFns2
+    },
+    _rowModels: {},
+    atoms: {},
+    baseAtoms: {}
+  };
+  const featuresList = Object.values(table._features);
+  const mergedOptions = {
+    ...featuresList.reduce((obj, feature) => {
+      var _a3;
+      return Object.assign(obj, (_a3 = feature.getDefaultTableOptions) == null ? void 0 : _a3.call(feature, table));
+    }, {}),
+    ...tableOptions
+  };
+  if (_reactivity.wrapExternalAtoms && mergedOptions.atoms) for (const [atomKey, _atom] of Object.entries(mergedOptions.atoms)) {
+    const atom = _atom;
+    const wrappedAtom = _reactivity.createWritableAtom(atom.get(), { debugName: `externalAtom/${atomKey}` });
+    mergedOptions.atoms[atomKey] = wrappedAtom;
+    let syncExternal = false;
+    const syncAtomToWrappedSub = atom.subscribe((value) => {
+      if (syncExternal) return;
+      wrappedAtom.set(value);
+    });
+    const syncWrappedToAtomSub = wrappedAtom.subscribe((value) => {
+      syncExternal = true;
+      atom.set(value);
+      syncExternal = false;
+    });
+    _reactivity.addSubscription(syncAtomToWrappedSub);
+    _reactivity.addSubscription(syncWrappedToAtomSub);
+  }
+  if (_reactivity.createOptionsStore) {
+    table.optionsStore = _reactivity.createWritableAtom(mergedOptions, { debugName: "table/optionsStore" });
+    Object.defineProperty(table, "options", {
+      configurable: true,
+      enumerable: true,
+      get() {
+        return table.optionsStore.get();
+      },
+      set(value) {
+        table.optionsStore.set(() => value);
+      }
+    });
+  } else table.options = mergedOptions;
+  table.initialState = getInitialTableState(table._features, table.options.initialState);
+  const stateKeys = Object.keys(table.initialState);
+  for (let i = 0; i < stateKeys.length; i++) {
+    const key = stateKeys[i];
+    table.baseAtoms[key] = _reactivity.createWritableAtom(table.initialState[key], { debugName: `table/baseAtoms/${key}` });
+    table.atoms[key] = _reactivity.createReadonlyAtom(() => {
+      var _a3;
+      const options = table.options;
+      const externalAtom = (_a3 = options.atoms) == null ? void 0 : _a3[key];
+      const reactiveState = externalAtom ? externalAtom.get() : table.baseAtoms[key].get();
+      if (externalAtom) return reactiveState;
+      const controlledState = options.state;
+      if (controlledState && hasOwn(controlledState, key)) {
+        const controlledValue = controlledState[key];
+        return controlledValue === void 0 ? table.initialState[key] : controlledValue;
+      }
+      return reactiveState;
+    }, { debugName: `table/atoms/${key}` });
+  }
+  table_syncExternalStateToBaseAtoms(table);
+  table.store = atomToStore(_reactivity.createReadonlyAtom(() => {
+    const snapshot = {};
+    for (let i = 0; i < stateKeys.length; i++) {
+      const key = stateKeys[i];
+      snapshot[key] = table.atoms[key].get();
+    }
+    return snapshot;
+  }, {
+    compare: shallow,
+    debugName: "table/store"
+  }));
+  for (let i = 0; i < featuresList.length; i++) {
+    const feature = featuresList[i];
+    (_a2 = feature.initTableInstanceData) == null ? void 0 : _a2.call(feature, table);
+    if (feature.initCellInstanceData) table._cellInstanceInitFns.push(feature.initCellInstanceData.bind(feature));
+    if (feature.initColumnInstanceData) table._columnInstanceInitFns.push(feature.initColumnInstanceData.bind(feature));
+    if (feature.initHeaderGroupInstanceData) table._headerGroupInstanceInitFns.push(feature.initHeaderGroupInstanceData.bind(feature));
+    if (feature.initHeaderInstanceData) table._headerInstanceInitFns.push(feature.initHeaderInstanceData.bind(feature));
+    if (feature.initRowInstanceData) table._rowInstanceInitFns.push(feature.initRowInstanceData.bind(feature));
+    (_b = feature.constructTableAPIs) == null ? void 0 : _b.call(feature, table);
+  }
+  if (process.env.NODE_ENV === "development" && (tableOptions.debugAll || tableOptions.debugTable)) {
+    const features3 = Object.keys(table._features);
+    const rowModels = Object.entries({
+      coreRowModel,
+      filteredRowModel,
+      groupedRowModel,
+      sortedRowModel,
+      expandedRowModel,
+      paginatedRowModel,
+      facetedRowModel,
+      facetedMinMaxValues,
+      facetedUniqueValues
+    }).filter(([, factory]) => factory).map(([key]) => key);
+    const states = Object.keys(table.initialState);
+    console.log(`Constructing Table Instance
+
+  Features:   ${features3.join("\n              ")}
+
+  Row Models: ${rowModels.length ? rowModels.join("\n              ") : "(none)"}
+
+  States:     ${states.join("\n              ")}
+`, { table });
+  }
+  return table;
+}
+
+// node_modules/@tanstack/table-core/dist/features/row-sorting/rowSortingFeature.js
+var rowSortingFeature = {
+  getInitialState(initialState) {
+    return {
+      sorting: getDefaultSortingState(),
+      ...initialState
+    };
+  },
+  getDefaultColumnDef() {
+    return {
+      sortFn: "auto",
+      sortUndefined: 1
+    };
+  },
+  getDefaultTableOptions(table) {
+    return {
+      autoResetSorting: false,
+      onSortingChange: makeStateUpdater("sorting", table),
+      isMultiSortEvent: (e) => {
+        return e.shiftKey;
+      }
+    };
+  },
+  assignColumnPrototype(prototype, table) {
+    assignPrototypeAPIs("rowSortingFeature", prototype, table, {
+      column_getAutoSortFn: { fn: (column) => column_getAutoSortFn(column) },
+      column_getAutoSortDir: { fn: (column) => column_getAutoSortDir(column) },
+      column_getSortFn: { fn: (column) => column_getSortFn(column) },
+      column_toggleSorting: { fn: (column, desc, multi) => column_toggleSorting(column, desc, multi) },
+      column_getFirstSortDir: { fn: (column) => column_getFirstSortDir(column) },
+      column_getNextSortingOrder: { fn: (column, multi) => column_getNextSortingOrder(column, multi) },
+      column_getCanSort: { fn: (column) => column_getCanSort(column) },
+      column_getCanMultiSort: { fn: (column) => column_getCanMultiSort(column) },
+      column_getIsSorted: { fn: (column) => column_getIsSorted(column) },
+      column_getSortIndex: { fn: (column) => column_getSortIndex(column) },
+      column_clearSorting: { fn: (column) => column_clearSorting(column) },
+      column_getToggleSortingHandler: { fn: (column) => column_getToggleSortingHandler(column) }
+    });
+  },
+  constructTableAPIs(table) {
+    assignTableAPIs("rowSortingFeature", table, {
+      table_setSorting: { fn: (updater) => table_setSorting(table, updater) },
+      table_resetSorting: { fn: (defaultState) => table_resetSorting(table, defaultState) }
+    });
+  }
+};
+
+// node_modules/@tanstack/table-core/dist/features/row-sorting/createSortedRowModel.js
+function createSortedRowModel() {
+  return (_table) => {
+    const table = _table;
+    return tableMemo({
+      feature: "rowSortingFeature",
+      table,
+      fnName: "table.getSortedRowModel",
+      memoDeps: () => {
+        var _a2;
+        return [(_a2 = table.atoms.sorting) == null ? void 0 : _a2.get(), table.getPreSortedRowModel()];
+      },
+      fn: () => _createSortedRowModel(table),
+      onAfterUpdate: skipFirstRun(() => table_autoResetPageIndex(table))
+    });
+  };
+}
+function _createSortedRowModel(table) {
+  var _a2;
+  const preSortedRowModel = table.getPreSortedRowModel();
+  const sorting = (_a2 = table.atoms.sorting) == null ? void 0 : _a2.get();
+  if (!preSortedRowModel.rows.length || !(sorting == null ? void 0 : sorting.length)) return preSortedRowModel;
+  const sortedFlatRows = [];
+  const availableSorting = sorting.filter((sort) => {
+    const column = table.getColumn(sort.id);
+    return column ? column_getCanSort(column) : false;
+  });
+  if (!availableSorting.length) return preSortedRowModel;
+  const resolvedSorting = [];
+  for (let i = 0; i < availableSorting.length; i++) {
+    const sortEntry = availableSorting[i];
+    const column = table.getColumn(sortEntry.id);
+    if (!column) continue;
+    resolvedSorting.push({
+      id: sortEntry.id,
+      desc: sortEntry.desc,
+      sortUndefined: column.columnDef.sortUndefined,
+      invertSorting: column.columnDef.invertSorting,
+      sortFn: column_getSortFn(column)
+    });
+  }
+  const compareRows = (rowA, rowB) => {
+    for (let i = 0; i < resolvedSorting.length; i++) {
+      const sortEntry = resolvedSorting[i];
+      const sortUndefined = sortEntry.sortUndefined;
+      const isDesc = sortEntry.desc;
+      let sortInt = 0;
+      if (sortUndefined) {
+        const aValue = rowA.getValue(sortEntry.id);
+        const bValue = rowB.getValue(sortEntry.id);
+        const aUndefined = aValue === void 0;
+        const bUndefined = bValue === void 0;
+        if (aUndefined && bUndefined) continue;
+        if (aUndefined || bUndefined) {
+          if (sortUndefined === "first") return aUndefined ? -1 : 1;
+          if (sortUndefined === "last") return aUndefined ? 1 : -1;
+          sortInt = aUndefined ? sortUndefined : -sortUndefined;
+        }
+      }
+      if (sortInt === 0) sortInt = sortEntry.sortFn(rowA, rowB, sortEntry.id);
+      if (sortInt !== 0) {
+        if (isDesc) sortInt *= -1;
+        if (sortEntry.invertSorting) sortInt *= -1;
+        return sortInt;
+      }
+    }
+    return rowA.index - rowB.index;
+  };
+  const sortData = (rows) => {
+    const sortedData = rows.slice();
+    sortedData.sort(compareRows);
+    let changed = false;
+    for (let i = 0; i < sortedData.length; i++) {
+      const row = sortedData[i];
+      if (row !== rows[i]) changed = true;
+      const flatIndex = sortedFlatRows.length;
+      sortedFlatRows.push(row);
+      if (row.subRows.length) {
+        const sortedSubRows = sortData(row.subRows);
+        if (sortedSubRows.changed) {
+          const cloned = Object.create(Object.getPrototypeOf(row));
+          copyInstancePropertiesWithoutMemos(cloned, row);
+          cloned.subRows = sortedSubRows.rows;
+          sortedData[i] = cloned;
+          sortedFlatRows[flatIndex] = cloned;
+          changed = true;
+        }
+      }
+    }
+    return {
+      rows: sortedData,
+      changed
+    };
+  };
+  return {
+    rows: sortData(preSortedRowModel.rows).rows,
+    flatRows: sortedFlatRows,
+    rowsById: preSortedRowModel.rowsById
+  };
+}
+
+// node_modules/@tanstack/react-table/dist/useTable.js
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+var useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+function useTable(tableOptions, selector) {
+  const [{ table, rootSource }] = useState(() => {
+    const tableInstance = constructTable({
+      ...tableOptions,
+      features: {
+        coreReactivityFeature: reactReactivity(),
+        ...tableOptions.features
+      }
+    });
+    tableInstance.Subscribe = ((props) => {
+      return Subscribe({
+        ...props,
+        source: props.source ?? tableInstance.store
+      });
+    });
+    tableInstance.FlexRender = FlexRender;
+    return {
+      table: tableInstance,
+      rootSource: createRenderPhaseSource(tableInstance.store, shallow)
+    };
+  });
+  const coreTable = table;
+  table_setOptions(coreTable, (prev) => ({
+    ...prev,
+    ...tableOptions
+  }), { syncExternalState: false });
+  const controlledState = coreTable.options.state;
+  const renderSnapshot = rootSource.get();
+  const state = useSelector(rootSource, selector, { compare: shallow });
+  useIsomorphicLayoutEffect(() => {
+    rootSource.markCommitted(renderSnapshot);
+    table_publishExternalState(coreTable, controlledState ?? null, shallow);
+  });
+  return useMemo(() => ({
+    ...table,
+    options: tableOptions,
+    state
+  }), [
+    table,
+    tableOptions,
+    state
+  ]);
+}
+
+// src/stories/components/Table/Table.tsx
+var features = tableFeatures({
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns: {
+    alphanumeric: sortFn_alphanumeric,
+    text: sortFn_text,
+    datetime: sortFn_datetime
+  }
+});
+function Table({ data, columns }) {
+  const table = useTable({
+    key: "person-table",
+    columns,
+    data,
+    features
+  });
+  return /* @__PURE__ */ React12.createElement("table", { className: "bmd-table" }, /* @__PURE__ */ React12.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React12.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React12.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React12.createElement(
+    "div",
+    {
+      className: header.column.getCanSort() ? "bmd-table__sortable-header" : "",
+      onClick: header.column.getToggleSortingHandler(),
+      title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
+    },
+    /* @__PURE__ */ React12.createElement(table.FlexRender, { header }),
+    {
+      asc: " \u{1F53C}",
+      desc: " \u{1F53D}"
+    }[header.column.getIsSorted()] ?? null
+  )))))), /* @__PURE__ */ React12.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React12.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React12.createElement("td", { key: cell.id }, /* @__PURE__ */ React12.createElement(table.FlexRender, { cell })))))));
+}
+
+// src/stories/components/Card/Card.tsx
+import React13 from "react";
 function CardRoot({
   as,
   variant = "elevated",
@@ -212,7 +2877,7 @@ function CardRoot({
   ...props
 }) {
   const Component3 = as || "div";
-  return /* @__PURE__ */ React11.createElement(
+  return /* @__PURE__ */ React13.createElement(
     Component3,
     {
       className: cx("bmd-card", className),
@@ -225,13 +2890,13 @@ function CardRoot({
   );
 }
 function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__header", className), ...props });
+  return /* @__PURE__ */ React13.createElement("div", { className: cx("bmd-card__header", className), ...props });
 }
 function CardBody({ className, ...props }) {
-  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__body", className), ...props });
+  return /* @__PURE__ */ React13.createElement("div", { className: cx("bmd-card__body", className), ...props });
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__footer", className), ...props });
+  return /* @__PURE__ */ React13.createElement("div", { className: cx("bmd-card__footer", className), ...props });
 }
 var Card = Object.assign(CardRoot, {
   Header: CardHeader,
@@ -240,11 +2905,11 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/stories/charts/Pie/Pie.tsx
-import React15 from "react";
+import React17 from "react";
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 import { jsx as jsx3, Fragment } from "react/jsx-runtime";
-import { useMemo as useMemo2, useRef as useRef4, useState, useContext as useContext3 } from "react";
+import { useMemo as useMemo3, useRef as useRef4, useState as useState2, useContext as useContext3 } from "react";
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
 import { createContext } from "react";
@@ -261,18 +2926,18 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-import { useLayoutEffect, useEffect } from "react";
+import { useLayoutEffect as useLayoutEffect2, useEffect as useEffect2 } from "react";
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect;
+var useIsomorphicLayoutEffect2 = isBrowser ? useLayoutEffect2 : useEffect2;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 import { jsx as jsx2 } from "react/jsx-runtime";
-import * as React14 from "react";
-import { useId as useId2, useRef as useRef3, useMemo } from "react";
+import * as React16 from "react";
+import { useId as useId2, useRef as useRef3, useMemo as useMemo2 } from "react";
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
 import { createContext as createContext2 } from "react";
@@ -339,7 +3004,7 @@ var isZeroValueString = (v) => /^0[^.\s]+$/u.test(v);
 
 // node_modules/motion-utils/dist/es/memo.mjs
 // @__NO_SIDE_EFFECTS__
-function memo(callback) {
+function memo2(callback) {
   let result;
   return () => {
     if (result === void 0)
@@ -2465,7 +5130,7 @@ var supportsFlags = {};
 
 // node_modules/motion-dom/dist/es/utils/supports/memo.mjs
 function memoSupports(callback, supportsFlag) {
-  const memoized = memo(callback);
+  const memoized = memo2(callback);
   return () => supportsFlags[supportsFlag] ?? memoized();
 }
 
@@ -2845,7 +5510,7 @@ var colorProperties = /* @__PURE__ */ new Set([
   "borderBottomColor",
   "borderLeftColor"
 ]);
-var supportsWaapi = /* @__PURE__ */ memo(() => Object.hasOwnProperty.call(Element.prototype, "animate"));
+var supportsWaapi = /* @__PURE__ */ memo2(() => Object.hasOwnProperty.call(Element.prototype, "animate"));
 function supportsBrowserAnimation(options) {
   var _a2;
   const { motionValue: motionValue2, name, repeatDelay, repeatType, damping, type, keyframes: keyframes2 } = options;
@@ -7086,7 +9751,7 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-import * as React13 from "react";
+import * as React15 from "react";
 import { useId, useRef as useRef2, useContext, useInsertionEffect } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
@@ -7098,7 +9763,7 @@ var MotionConfigContext = createContext3({
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-import * as React12 from "react";
+import * as React14 from "react";
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7131,11 +9796,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React12.useCallback(composeRefs(...refs), refs);
+  return React14.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React13.Component {
+var PopChildMeasure = class extends React15.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7211,7 +9876,7 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React13.cloneElement(children, { ref: composedRef }) });
+  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React15.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
@@ -7220,12 +9885,12 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   const id3 = useId2();
   const isPresentRef = useRef3(isPresent);
   const onExitCompleteRef = useRef3(onExitComplete);
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicLayoutEffect2(() => {
     isPresentRef.current = isPresent;
     onExitCompleteRef.current = onExitComplete;
   });
   let isReusedContext = true;
-  let context = useMemo(() => {
+  let context = useMemo2(() => {
     isReusedContext = false;
     return {
       id: id3,
@@ -7253,10 +9918,10 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   if (presenceAffectsLayout && isReusedContext) {
     context = { ...context };
   }
-  useMemo(() => {
+  useMemo2(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React14.useEffect(() => {
+  React16.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = jsx2(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -7267,19 +9932,19 @@ function newChildrenMap() {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-import { useContext as useContext2, useId as useId3, useEffect as useEffect3, useCallback as useCallback2 } from "react";
+import { useContext as useContext2, useId as useId3, useEffect as useEffect4, useCallback as useCallback3 } from "react";
 function usePresence(subscribe = true) {
   const context = useContext2(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
   const id3 = useId3();
-  useEffect3(() => {
+  useEffect4(() => {
     if (subscribe) {
       return register(id3);
     }
   }, [subscribe]);
-  const safeToRemove = useCallback2(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
+  const safeToRemove = useCallback3(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
   return !isPresent && onExitComplete ? [false, safeToRemove] : [true];
 }
 
@@ -7296,22 +9961,22 @@ function onlyElements(children) {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
-var AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", anchorY = "top", root }) => {
-  const [isParentPresent, safeToRemove] = usePresence(propagate);
-  const presentChildren = useMemo2(() => onlyElements(children), [children]);
-  const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(getChildKey);
+var AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate: propagate2 = false, anchorX = "left", anchorY = "top", root }) => {
+  const [isParentPresent, safeToRemove] = usePresence(propagate2);
+  const presentChildren = useMemo3(() => onlyElements(children), [children]);
+  const presentKeys = propagate2 && !isParentPresent ? [] : presentChildren.map(getChildKey);
   const isInitialRender = useRef4(true);
   const pendingPresentChildren = useRef4(presentChildren);
   const exitComplete = useConstant(() => /* @__PURE__ */ new Map());
   const exitingComponents = useRef4(/* @__PURE__ */ new Set());
-  const [diffedChildren, setDiffedChildren] = useState(presentChildren);
-  const [renderedChildren, setRenderedChildren] = useState(presentChildren);
-  useIsomorphicLayoutEffect(() => {
-    if (propagate && !isParentPresent && !renderedChildren.length) {
+  const [diffedChildren, setDiffedChildren] = useState2(presentChildren);
+  const [renderedChildren, setRenderedChildren] = useState2(presentChildren);
+  useIsomorphicLayoutEffect2(() => {
+    if (propagate2 && !isParentPresent && !renderedChildren.length) {
       safeToRemove == null ? void 0 : safeToRemove();
     }
-  }, [isParentPresent, propagate, renderedChildren.length, safeToRemove]);
-  useIsomorphicLayoutEffect(() => {
+  }, [isParentPresent, propagate2, renderedChildren.length, safeToRemove]);
+  useIsomorphicLayoutEffect2(() => {
     isInitialRender.current = false;
     pendingPresentChildren.current = presentChildren;
     for (let i = 0; i < renderedChildren.length; i++) {
@@ -7352,7 +10017,7 @@ var AnimatePresence = ({ children, custom, initial = true, onExitComplete, prese
   const { forceRender } = useContext3(LayoutGroupContext);
   return jsx3(Fragment, { children: renderedChildren.map((child) => {
     const key = getChildKey(child);
-    const isPresent = propagate && !isParentPresent ? false : presentChildren === renderedChildren || presentKeys.includes(key);
+    const isPresent = propagate2 && !isParentPresent ? false : presentChildren === renderedChildren || presentKeys.includes(key);
     const onExit = () => {
       if (exitingComponents.current.has(key)) {
         return;
@@ -7371,7 +10036,7 @@ var AnimatePresence = ({ children, custom, initial = true, onExitComplete, prese
       if (isEveryExitComplete) {
         forceRender == null ? void 0 : forceRender();
         setRenderedChildren(pendingPresentChildren.current);
-        propagate && (safeToRemove == null ? void 0 : safeToRemove());
+        propagate2 && (safeToRemove == null ? void 0 : safeToRemove());
         onExitComplete && onExitComplete();
       }
     };
@@ -7423,12 +10088,12 @@ function getInitializedFeatureDefinitions() {
 }
 
 // node_modules/framer-motion/dist/es/motion/features/load-features.mjs
-function loadFeatures(features) {
+function loadFeatures(features2) {
   const featureDefinitions2 = getInitializedFeatureDefinitions();
-  for (const key in features) {
+  for (const key in features2) {
     featureDefinitions2[key] = {
       ...featureDefinitions2[key],
-      ...features[key]
+      ...features2[key]
     };
   }
   setFeatureDefinitions(featureDefinitions2);
@@ -7436,14 +10101,14 @@ function loadFeatures(features) {
 
 // node_modules/framer-motion/dist/es/motion/index.mjs
 import { jsxs, jsx as jsx4 } from "react/jsx-runtime";
-import { forwardRef as forwardRef2, useContext as useContext7 } from "react";
+import { forwardRef, useContext as useContext7 } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
 import { createContext as createContext5 } from "react";
 var MotionContext = /* @__PURE__ */ createContext5({});
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
-import { useContext as useContext4, useMemo as useMemo3 } from "react";
+import { useContext as useContext4, useMemo as useMemo4 } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
 function getCurrentTreeVariants(props, context) {
@@ -7460,17 +10125,17 @@ function getCurrentTreeVariants(props, context) {
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
 function useCreateMotionContext(props) {
   const { initial, animate } = getCurrentTreeVariants(props, useContext4(MotionContext));
-  return useMemo3(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
+  return useMemo4(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
 }
 function variantLabelsAsDependency(prop) {
   return Array.isArray(prop) ? prop.join(" ") : prop;
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-import { Fragment as Fragment2, useMemo as useMemo6, createElement as createElement6 } from "react";
+import { Fragment as Fragment2, useMemo as useMemo7, createElement as createElement5 } from "react";
 
 // node_modules/framer-motion/dist/es/render/html/use-props.mjs
-import { useMemo as useMemo4 } from "react";
+import { useMemo as useMemo5 } from "react";
 
 // node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
 var createHtmlRenderState = () => ({
@@ -7489,7 +10154,7 @@ function copyRawValuesOnly(target, source, props) {
   }
 }
 function useInitialMotionValues({ transformTemplate }, visualState) {
-  return useMemo4(() => {
+  return useMemo5(() => {
     const state = createHtmlRenderState();
     buildHTMLStyles(state, visualState, transformTemplate);
     return Object.assign({}, state.vars, state.style);
@@ -7518,7 +10183,7 @@ function useHTMLProps(props, visualState) {
 }
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
-import { useMemo as useMemo5 } from "react";
+import { useMemo as useMemo6 } from "react";
 
 // node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
 var createSvgRenderState = () => ({
@@ -7528,7 +10193,7 @@ var createSvgRenderState = () => ({
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
 function useSVGProps(props, visualState, _isStatic, Component3) {
-  const visualProps = useMemo5(() => {
+  const visualProps = useMemo6(() => {
     const state = createSvgRenderState();
     buildSVGAttrs(state, visualState, isSVGTag(Component3), props.transformTemplate, props.style);
     return {
@@ -7664,8 +10329,8 @@ function useRender(Component3, props, ref, { latestValues }, isStatic, forwardMo
   const filteredProps = filterProps(props, typeof Component3 === "string", forwardMotionProps, isValidProp);
   const elementProps = Component3 !== Fragment2 ? { ...filteredProps, ...visualProps, ref } : {};
   const { children } = props;
-  const renderedChildren = useMemo6(() => isMotionValue(children) ? children.get() : children, [children]);
-  return createElement6(Component3, {
+  const renderedChildren = useMemo7(() => isMotionValue(children) ? children.get() : children, [children]);
+  return createElement5(Component3, {
     ...elementProps,
     children: renderedChildren
   });
@@ -7745,14 +10410,14 @@ var useSVGVisualState = /* @__PURE__ */ makeUseVisualState({
 var motionComponentSymbol = /* @__PURE__ */ Symbol.for("motionComponentSymbol");
 
 // node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
-import { useRef as useRef5, useInsertionEffect as useInsertionEffect2, useCallback as useCallback3 } from "react";
+import { useRef as useRef5, useInsertionEffect as useInsertionEffect2, useCallback as useCallback4 } from "react";
 function useMotionRef(visualState, visualElement, externalRef) {
   const externalRefContainer = useRef5(externalRef);
   useInsertionEffect2(() => {
     externalRefContainer.current = externalRef;
   });
   const refCleanup = useRef5(null);
-  return useCallback3((instance) => {
+  return useCallback4((instance) => {
     var _a2;
     if (instance) {
       (_a2 = visualState.onMount) == null ? void 0 : _a2.call(visualState, instance);
@@ -7780,7 +10445,7 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect4 } from "react";
+import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect5 } from "react";
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
 import { createContext as createContext6 } from "react";
@@ -7831,7 +10496,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
   });
   const optimisedAppearId = props[optimizedAppearDataAttribute];
   const wantsHandoff = useRef6(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicLayoutEffect2(() => {
     hasMountedOnce.current = true;
     if (!visualElement)
       return;
@@ -7843,7 +10508,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  useEffect4(() => {
+  useEffect5(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -7913,7 +10578,7 @@ function createMotionComponent(Component3, { forwardMotionProps = false, type } 
     return jsxs(MotionContext.Provider, { value: context, children: [MeasureLayout2 && context.visualElement ? jsx4(MeasureLayout2, { visualElement: context.visualElement, ...configAndProps }) : null, useRender(Component3, props, useMotionRef(visualState, context.visualElement, externalRef), visualState, isStatic, forwardMotionProps, isSVG, isValidProp)] });
   }
   MotionDOMComponent.displayName = `motion.${typeof Component3 === "string" ? Component3 : `create(${Component3.displayName ?? Component3.name ?? ""})`}`;
-  const ForwardRefMotionComponent = forwardRef2(MotionDOMComponent);
+  const ForwardRefMotionComponent = forwardRef(MotionDOMComponent);
   ForwardRefMotionComponent[motionComponentSymbol] = Component3;
   return ForwardRefMotionComponent;
 }
@@ -9081,13 +11746,13 @@ var PressGesture = class extends Feature {
     const { current } = this.node;
     if (!current)
       return;
-    const { globalTapTarget, propagate } = this.node.props;
+    const { globalTapTarget, propagate: propagate2 } = this.node.props;
     this.unmount = press(current, (_element, startEvent) => {
       handlePressEvent(this.node, startEvent, "Start");
       return (endEvent, { success }) => handlePressEvent(this.node, endEvent, success ? "End" : "Cancel");
     }, {
       useGlobalTarget: globalTapTarget,
-      stopPropagation: (propagate == null ? void 0 : propagate.tap) === false
+      stopPropagation: (propagate2 == null ? void 0 : propagate2.tap) === false
     });
   }
   unmount() {
@@ -9240,7 +11905,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React15.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React15.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React15.createElement(Heading, null, title), /* @__PURE__ */ React15.createElement(
+  return /* @__PURE__ */ React17.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React17.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React17.createElement(Heading, null, title), /* @__PURE__ */ React17.createElement(
     motion2.svg,
     {
       width: size,
@@ -9248,7 +11913,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React15.createElement(
+    /* @__PURE__ */ React17.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9264,7 +11929,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React15.createElement(
+      return /* @__PURE__ */ React17.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9304,7 +11969,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-import React16 from "react";
+import React18 from "react";
 var BarChart = ({
   title = "Bar Chart",
   height = 500,
@@ -9335,14 +12000,14 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ React16.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React16.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React16.createElement(
+  return /* @__PURE__ */ React18.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React18.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React18.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React16.createElement(
+      /* @__PURE__ */ React18.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9362,13 +12027,13 @@ var BarChart = ({
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React16.createElement(
+      /* @__PURE__ */ React18.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           style: { height: bar.totalValue / maxValue * height }
         },
-        /* @__PURE__ */ React16.createElement(
+        /* @__PURE__ */ React18.createElement(
           motion2.div,
           {
             className: "bmd-bar-chart__value-bar-total",
@@ -9391,7 +12056,7 @@ var BarChart = ({
             exit: { opacity: 0 }
           },
           bar.segments.map((segment) => {
-            return /* @__PURE__ */ React16.createElement(
+            return /* @__PURE__ */ React18.createElement(
               motion2.div,
               {
                 key: `label-${segment.id}`,
@@ -9404,8 +12069,8 @@ var BarChart = ({
           })
         )
       ),
-      /* @__PURE__ */ React16.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React16.createElement(
+      /* @__PURE__ */ React18.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React18.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -9443,7 +12108,54 @@ export {
   LayoutContainer,
   Pie,
   Stack,
+  Table,
   Text,
   TextInput
 };
+/*! Bundled license information:
+
+use-sync-external-store/cjs/use-sync-external-store-shim.production.js:
+  (**
+   * @license React
+   * use-sync-external-store-shim.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+use-sync-external-store/cjs/use-sync-external-store-shim.development.js:
+  (**
+   * @license React
+   * use-sync-external-store-shim.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.production.js:
+  (**
+   * @license React
+   * use-sync-external-store-shim/with-selector.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
+use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js:
+  (**
+   * @license React
+   * use-sync-external-store-shim/with-selector.development.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+*/
 //# sourceMappingURL=index.mjs.map
