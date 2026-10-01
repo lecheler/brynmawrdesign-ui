@@ -8,7 +8,7 @@ export default defineConfig({
   clean: true,
   shims: true,
   loader: {
-    ".svg": "file",
+    ".svg": "dataurl", // Converts small SVGs into ultra-fast inline browser data strings
   },
   outDir: "dist",
   external: ["react", "react-dom"],

@@ -53,20 +53,20 @@ export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 export const Icon: React.FC<IconProps> = ({ name, className, ...rest }) => {
   const iconUrl = ICONS[name] as unknown as string;
-
+  // 🌟 Temporary diagnostic log
+  // console.log(`Icon registry lookup for "${name}":`, iconUrl);
   return (
     <span
+      {...rest}
       className={["bmd-icon", className].filter(Boolean).join(" ")}
       aria-hidden={rest["aria-label"] ? undefined : true}
-      /* 2. Move standard HTML attributes right down to the element */
       style={
         {
-          maskImage: `url(${iconUrl})`,
-          WebkitMaskImage: `url(${iconUrl})`,
-          ...rest.style, // Allows custom inline override styles if needed
+          ...rest.style,
+          maskImage: `url(\"${iconUrl}\")`,
+          WebkitMaskImage: `url(\"${iconUrl}\")`,
         } as React.CSSProperties
       }
-      {...rest} // 3. Clean spread: safe because all props are valid span attributes now!
     />
   );
 };
