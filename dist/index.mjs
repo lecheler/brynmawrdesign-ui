@@ -1,22 +1,55 @@
 // src/stories/foundations/icons/Icon.tsx
 import React from "react";
 
+// src/stories/foundations/icons/svgs/arrow-up.svg
+var arrow_up_default = "./arrow-up-FT5MG5QD.svg";
+
+// src/stories/foundations/icons/svgs/arrow-down.svg
+var arrow_down_default = "./arrow-down-VCCFSVB3.svg";
+
+// src/stories/foundations/icons/svgs/chevron-right.svg
+var chevron_right_default = "./chevron-right-WNL7UYAV.svg";
+
+// src/stories/foundations/icons/svgs/chevron-left.svg
+var chevron_left_default = "./chevron-left-G3SBE5GB.svg";
+
+// src/stories/foundations/icons/svgs/chevrons-right.svg
+var chevrons_right_default = "./chevrons-right-FNKBHNQS.svg";
+
+// src/stories/foundations/icons/svgs/chevrons-left.svg
+var chevrons_left_default = "./chevrons-left-VW2JFNKN.svg";
+
+// src/stories/foundations/icons/svgs/check.svg
+var check_default = "./check-NRM6WQNT.svg";
+
+// src/stories/foundations/icons/svgs/download.svg
+var download_default = "./download-LO4EVFVQ.svg";
+
+// src/stories/foundations/icons/svgs/exclamation.svg
+var exclamation_default = "./exclamation-45S2GXVS.svg";
+
+// src/stories/foundations/icons/svgs/magnifying-glass.svg
+var magnifying_glass_default = "./magnifying-glass-B4KJJ7B6.svg";
+
+// src/stories/foundations/icons/svgs/star.svg
+var star_default = "./star-NLC236RJ.svg";
+
+// src/stories/foundations/icons/svgs/x.svg
+var x_default = "./x-2HNMQE4D.svg";
+
 // src/stories/foundations/icons/index.ts
-var getIconUrl = (path) => {
-  return new URL(path, import.meta.url).href;
-};
-var ArrowUp = getIconUrl("./svgs/arrow-up.svg");
-var ArrowDown = getIconUrl("./svgs/arrow-down.svg");
-var ChevronRight = getIconUrl("./svgs/chevron-right.svg");
-var ChevronLeft = getIconUrl("./svgs/chevron-left.svg");
-var ChevronsRight = getIconUrl("./svgs/chevrons-right.svg");
-var ChevronsLeft = getIconUrl("./svgs/chevrons-left.svg");
-var Check = getIconUrl("./svgs/check.svg");
-var Download = getIconUrl("./svgs/download.svg");
-var Exclamation = getIconUrl("./svgs/exclamation.svg");
-var Search = getIconUrl("./svgs/magnifying-glass.svg");
-var Star = getIconUrl("./svgs/star.svg");
-var X = getIconUrl("./svgs/x.svg");
+var ArrowUp = arrow_up_default;
+var ArrowDown = arrow_down_default;
+var ChevronRight = chevron_right_default;
+var ChevronLeft = chevron_left_default;
+var ChevronsRight = chevrons_right_default;
+var ChevronsLeft = chevrons_left_default;
+var Check = check_default;
+var Download = download_default;
+var Exclamation = exclamation_default;
+var Search = magnifying_glass_default;
+var Star = star_default;
+var X = x_default;
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {

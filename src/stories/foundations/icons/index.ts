@@ -1,20 +1,27 @@
-// 1. Helper function that turns a relative asset path into an absolute string URL
-const getIconUrl = (path: string) => {
-  return new URL(path, import.meta.url).href;
-};
+// 1. Explicitly import all SVG assets so the bundler can track them
+import arrowUpAsset from "./svgs/arrow-up.svg";
+import arrowDownAsset from "./svgs/arrow-down.svg";
+import chevronRightAsset from "./svgs/chevron-right.svg";
+import chevronLeftAsset from "./svgs/chevron-left.svg";
+import chevronsRightAsset from "./svgs/chevrons-right.svg";
+import chevronsLeftAsset from "./svgs/chevrons-left.svg";
+import checkAsset from "./svgs/check.svg";
+import downloadAsset from "./svgs/download.svg";
+import exclamationAsset from "./svgs/exclamation.svg";
+import searchAsset from "./svgs/magnifying-glass.svg";
+import starAsset from "./svgs/star.svg";
+import xAsset from "./svgs/x.svg";
 
-// 2. Export simple string paths synchronously
-export const ArrowUp = getIconUrl("./svgs/arrow-up.svg");
-export const ArrowDown = getIconUrl("./svgs/arrow-down.svg");
-
-export const ChevronRight = getIconUrl("./svgs/chevron-right.svg");
-export const ChevronLeft = getIconUrl("./svgs/chevron-left.svg");
-export const ChevronsRight = getIconUrl("./svgs/chevrons-right.svg");
-export const ChevronsLeft = getIconUrl("./svgs/chevrons-left.svg");
-
-export const Check = getIconUrl("./svgs/check.svg");
-export const Download = getIconUrl("./svgs/download.svg");
-export const Exclamation = getIconUrl("./svgs/exclamation.svg");
-export const Search = getIconUrl("./svgs/magnifying-glass.svg");
-export const Star = getIconUrl("./svgs/star.svg");
-export const X = getIconUrl("./svgs/x.svg");
+// 2. Export the static compiled string variables directly
+export const ArrowUp = arrowUpAsset;
+export const ArrowDown = arrowDownAsset;
+export const ChevronRight = chevronRightAsset;
+export const ChevronLeft = chevronLeftAsset;
+export const ChevronsRight = chevronsRightAsset;
+export const ChevronsLeft = chevronsLeftAsset;
+export const Check = checkAsset;
+export const Download = downloadAsset;
+export const Exclamation = exclamationAsset;
+export const Search = searchAsset;
+export const Star = starAsset;
+export const X = xAsset;

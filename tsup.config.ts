@@ -7,6 +7,9 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   shims: true,
+  loader: {
+    ".svg": "file",
+  },
   outDir: "dist",
   external: ["react", "react-dom"],
   esbuildOptions(options) {
