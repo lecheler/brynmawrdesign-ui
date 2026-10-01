@@ -61,19 +61,11 @@ export const Button = ({
     >
       {icon ? (
         <>
-          {iconPosition === "left" && (
-            <>
-              <Icon {...icon} />
-            </>
-          )}
+          {iconPosition === "left" && <Icon {...icon} />}
 
           {(children || label) && <span>{children || label}</span>}
 
-          {iconPosition === "right" && (
-            <span>
-              <Icon {...icon} />
-            </span>
-          )}
+          {iconPosition === "right" && <Icon {...icon} />}
         </>
       ) : (
         <>{children || label}</>

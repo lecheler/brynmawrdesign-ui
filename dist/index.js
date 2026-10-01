@@ -127,9 +127,8 @@ var Icon = ({ name, className, ...rest }) => {
       "aria-hidden": rest["aria-label"] ? void 0 : true,
       style: {
         ...rest.style,
-        /* 🌟 THE FIX: Add single quotes ('') inside the url() template string */
-        maskImage: `url('${iconUrl}')`,
-        WebkitMaskImage: `url('${iconUrl}')`
+        maskImage: `url("${iconUrl}")`,
+        WebkitMaskImage: `url("${iconUrl}")`
       }
     }
   );
@@ -279,7 +278,7 @@ var Button = ({
       "data-shape": shape,
       ...props
     },
-    icon ? /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, iconPosition === "left" && /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, /* @__PURE__ */ import_react4.default.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ import_react4.default.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ import_react4.default.createElement("span", null, /* @__PURE__ */ import_react4.default.createElement(Icon, { ...icon }))) : /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, children || label)
+    icon ? /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, iconPosition === "left" && /* @__PURE__ */ import_react4.default.createElement(Icon, { ...icon }), (children || label) && /* @__PURE__ */ import_react4.default.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ import_react4.default.createElement(Icon, { ...icon })) : /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, children || label)
   );
 };
 

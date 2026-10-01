@@ -76,9 +76,8 @@ var Icon = ({ name, className, ...rest }) => {
       "aria-hidden": rest["aria-label"] ? void 0 : true,
       style: {
         ...rest.style,
-        /* 🌟 THE FIX: Add single quotes ('') inside the url() template string */
-        maskImage: `url('${iconUrl}')`,
-        WebkitMaskImage: `url('${iconUrl}')`
+        maskImage: `url("${iconUrl}")`,
+        WebkitMaskImage: `url("${iconUrl}")`
       }
     }
   );
@@ -228,7 +227,7 @@ var Button = ({
       "data-shape": shape,
       ...props
     },
-    icon ? /* @__PURE__ */ React8.createElement(React8.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React8.createElement(React8.Fragment, null, /* @__PURE__ */ React8.createElement(Icon, { ...icon })), (children || label) && /* @__PURE__ */ React8.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React8.createElement("span", null, /* @__PURE__ */ React8.createElement(Icon, { ...icon }))) : /* @__PURE__ */ React8.createElement(React8.Fragment, null, children || label)
+    icon ? /* @__PURE__ */ React8.createElement(React8.Fragment, null, iconPosition === "left" && /* @__PURE__ */ React8.createElement(Icon, { ...icon }), (children || label) && /* @__PURE__ */ React8.createElement("span", null, children || label), iconPosition === "right" && /* @__PURE__ */ React8.createElement(Icon, { ...icon })) : /* @__PURE__ */ React8.createElement(React8.Fragment, null, children || label)
   );
 };
 

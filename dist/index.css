@@ -189,7 +189,7 @@
   --button-font-weight: var(--font-weight-semibold);
   --button-font-size: var(--font-size-sm);
   --button-line-height: var(--line-height-tight);
-  --button-gap: var(--space-2);
+  --button-gap: var(--space-1);
   --button-padding-y-xs: calc(var(--font-size-xs) / 2);
   --button-padding-x-xs: var(--font-size-xs);
   --button-padding-y-sm: calc(var(--font-size-sm) / 2);
