@@ -7,8 +7,17 @@ import {
   sortFn_alphanumeric,
   sortFn_text,
   sortFn_datetime,
-  ColumnDef,
+  columnFilteringFeature,
+  createColumnHelper,
+  createFilteredRowModel,
   createPaginatedRowModel,
+  filterFn_equalsString,
+  filterFn_inDateRange,
+  filterFn_inNumberRange,
+  filterFn_includesString,
+  metaHelper,
+  ColumnDef,
+  Column,
   rowPaginationFeature,
 } from "@tanstack/react-table";
 
@@ -16,11 +25,16 @@ import "./Table.css";
 import { Icon, IconName } from "../../foundations/icons/Icon";
 import { Button } from "../Button/Button";
 import { Inline } from "../../foundations/layout/Inline";
-import { TextInput } from "../TextInput/TextInput";
+import { Input } from "../Input/Input";
 
 interface TableProps<TData> {
   data: TData[];
   columns: Array<ColumnDef<typeof features, TData>>;
+}
+
+// allows us to define custom properties for our columns
+interface MyColumnMeta {
+  filterVariant?: "text" | "range" | "select" | "dateRange";
 }
 
 // New in v9: declare which features this table uses
@@ -32,13 +46,35 @@ const features = tableFeatures({
     text: sortFn_text,
     datetime: sortFn_datetime,
   },
-  rowPaginationFeature,
   paginatedRowModel: createPaginatedRowModel(),
+  columnFilteringFeature,
+  filterFns: {
+    includesString: filterFn_includesString,
+    inNumberRange: filterFn_inNumberRange,
+    inDateRange: filterFn_inDateRange,
+    equalsString: filterFn_equalsString,
+  },
+  columnMeta: metaHelper<MyColumnMeta>(),
+  rowPaginationFeature,
 });
 
 export function Table<TData>({ data, columns }: TableProps<TData>) {
+  const columnHelper = createColumnHelper<typeof features, TData>();
+
+  const filterColumns = React.useMemo(() => {
+    return columnHelper.columns(columns).map((col) => {
+      console.log("col:", col);
+      return {
+        ...col,
+        meta: { ...col.meta, filterVariant: col.meta?.filterVariant ?? "text" },
+      };
+    });
+  }, []);
+
+  console.log("filterColumns:", filterColumns);
+
   const table = useTable({
-    columns: columns,
+    columns: filterColumns,
     data: data,
     features: features,
   });
@@ -69,10 +105,18 @@ export function Table<TData>({ data, columns }: TableProps<TData>) {
                       }
                     >
                       <table.FlexRender header={header} />
-                      {{
-                        asc: <Icon name="arrowUp" />,
-                        desc: <Icon name="arrowDown" />,
-                      }[header.column.getIsSorted() as string] ?? null}
+                      <div>
+                        {{
+                          asc: <Icon name="arrowUp" />,
+                          desc: <Icon name="arrowDown" />,
+                        }[header.column.getIsSorted() as string] ?? null}
+                      </div>
+                      {header.column.getCanFilter() ? (
+                        <div>
+                          <Filter column={header.column} />
+                        </div>
+                      ) : null}
+                      <div></div>
                     </div>
                   )}
                 </th>
@@ -147,7 +191,8 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
             {table.getPageCount().toLocaleString()}
           </strong>
           <span>| Go to page:</span>
-          <TextInput
+          <Input
+            placeholder="Page #"
             name="page-index"
             type="number"
             min="1"
@@ -174,11 +219,110 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
           <option value={Infinity}>Show All</option>
         </select>
       </Inline>
-      {/* <pre data-testid="table-state">
+      <pre data-testid="table-state">
         {JSON.stringify(table.state, null, 2)}
-      </pre> */}
+      </pre>
     </div>
   );
 };
+
+function Filter({
+  column,
+}: {
+  column: Column<typeof features, any, MyColumnMeta>;
+}) {
+  const columnFilterValue = column.getFilterValue();
+  const { filterVariant } = column.columnDef.meta ?? {};
+  console.log(
+    "columnFilterValue:",
+    columnFilterValue,
+    "filterVariant:",
+    filterVariant,
+  );
+
+  return filterVariant === "dateRange" ? (
+    <div>
+      <div className="filter-row">
+        <Input
+          placeholder={`Min`}
+          type="date"
+          aria-label={`${column.id} min`}
+          value={(columnFilterValue as [string, string] | undefined)?.[0] ?? ""}
+          onChange={(value) =>
+            column.setFilterValue((old: [string, string] | undefined) => [
+              value,
+              old?.[1],
+            ])
+          }
+          className="filter-input"
+        />
+        <Input
+          placeholder={`Max`}
+          type="date"
+          aria-label={`${column.id} max`}
+          value={(columnFilterValue as [string, string] | undefined)?.[1] ?? ""}
+          onChange={(value) =>
+            column.setFilterValue((old: [string, string] | undefined) => [
+              old?.[0],
+              value,
+            ])
+          }
+          className="filter-input"
+        />
+      </div>
+      <div className="spacer-xs" />
+    </div>
+  ) : filterVariant === "range" ? (
+    <div>
+      <div className="filter-row">
+        {/* See faceted column filters example for min max values functionality */}
+        <Input
+          type="number"
+          value={(columnFilterValue as [number, number] | undefined)?.[0] ?? ""}
+          onChange={(value) =>
+            column.setFilterValue((old: [number, number] | undefined) => [
+              value,
+              old?.[1],
+            ])
+          }
+          placeholder={`Min`}
+          className="filter-input"
+        />
+        <Input
+          type="number"
+          value={(columnFilterValue as [number, number] | undefined)?.[1] ?? ""}
+          onChange={(value) =>
+            column.setFilterValue((old: [number, number] | undefined) => [
+              old?.[0],
+              value,
+            ])
+          }
+          placeholder={`Max`}
+          className="filter-input"
+        />
+      </div>
+      <div className="spacer-xs" />
+    </div>
+  ) : filterVariant === "select" ? (
+    <select
+      onChange={(e) => column.setFilterValue(e.target.value)}
+      value={columnFilterValue?.toString()}
+    >
+      {/* See faceted column filters example for dynamic select options */}
+      <option value="">All</option>
+      <option value="complicated">complicated</option>
+      <option value="relationship">relationship</option>
+      <option value="single">single</option>
+    </select>
+  ) : (
+    <Input
+      onChange={(value) => column.setFilterValue(value)}
+      placeholder={`Search...`}
+      type="text"
+      value={(columnFilterValue ?? "") as string}
+    />
+    // See faceted column filters example for datalist search suggestions
+  );
+}
 
 // https://tanstack.com/table/latest/docs/framework/react/examples/sorting

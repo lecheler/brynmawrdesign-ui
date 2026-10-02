@@ -124,7 +124,21 @@ export const EmptyState = meta.story({
 export const Shows = meta.story({
   args: {
     columns: [
-      { accessorKey: "date", header: "Date" },
+      {
+        header: "Date",
+        accessorKey: "date",
+        // A locale-independent date format keeps the demo (and its tests) stable
+        cell: (info) => {
+          console.log("info:", info.getValue());
+          // return info.getValue().toISOString().slice(0, 10);
+          return info.getValue();
+        },
+        filterFn: "inDateRange", // accepts Date objects, timestamps, or parseable date strings
+        meta: {
+          filterVariant: "dateRange",
+        },
+      },
+
       { accessorKey: "band_name", header: "Band" },
       { accessorKey: "venue_name", header: "Venue" },
       { accessorKey: "locality", header: "City" },

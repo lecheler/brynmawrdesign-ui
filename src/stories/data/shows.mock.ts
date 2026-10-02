@@ -2,7 +2,7 @@ export const mockShowsData = [
   {
     id: 120,
     venue_id: 57,
-    date: "2010-08-28",
+    date: "28.08.2010",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -19,7 +19,7 @@ export const mockShowsData = [
   {
     id: 121,
     venue_id: 57,
-    date: "2010-09-17",
+    date: "17.09.2010",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -36,7 +36,7 @@ export const mockShowsData = [
   {
     id: 11,
     venue_id: 11,
-    date: "2010-10-14",
+    date: "14.10.2010",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -53,7 +53,7 @@ export const mockShowsData = [
   {
     id: 112,
     venue_id: 54,
-    date: "2010-11-27",
+    date: "27.11.2010",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -70,7 +70,7 @@ export const mockShowsData = [
   {
     id: 122,
     venue_id: 15,
-    date: "2010-12-09",
+    date: "09.12.2010",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -87,7 +87,7 @@ export const mockShowsData = [
   {
     id: 123,
     venue_id: 15,
-    date: "2010-12-18",
+    date: "18.12.2010",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -104,7 +104,7 @@ export const mockShowsData = [
   {
     id: 124,
     venue_id: 59,
-    date: "2011-01-28",
+    date: "28.01.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -121,7 +121,7 @@ export const mockShowsData = [
   {
     id: 125,
     venue_id: 11,
-    date: "2011-03-11",
+    date: "11.03.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -138,7 +138,7 @@ export const mockShowsData = [
   {
     id: 126,
     venue_id: 59,
-    date: "2011-04-30",
+    date: "30.04.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -155,7 +155,7 @@ export const mockShowsData = [
   {
     id: 127,
     venue_id: 60,
-    date: "2011-05-08",
+    date: "08.05.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -172,7 +172,7 @@ export const mockShowsData = [
   {
     id: 215,
     venue_id: 61,
-    date: "2011-06-17",
+    date: "17.06.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -189,7 +189,7 @@ export const mockShowsData = [
   {
     id: 216,
     venue_id: 62,
-    date: "2011-06-18",
+    date: "18.06.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -206,7 +206,7 @@ export const mockShowsData = [
   {
     id: 217,
     venue_id: 63,
-    date: "2011-06-19",
+    date: "19.06.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -223,7 +223,7 @@ export const mockShowsData = [
   {
     id: 218,
     venue_id: 64,
-    date: "2011-06-20",
+    date: "20.06.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -240,7 +240,7 @@ export const mockShowsData = [
   {
     id: 219,
     venue_id: 11,
-    date: "2011-06-23",
+    date: "23.06.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -257,7 +257,7 @@ export const mockShowsData = [
   {
     id: 220,
     venue_id: 11,
-    date: "2011-07-22",
+    date: "22.07.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -274,7 +274,7 @@ export const mockShowsData = [
   {
     id: 221,
     venue_id: 65,
-    date: "2011-08-14",
+    date: "14.08.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -291,7 +291,7 @@ export const mockShowsData = [
   {
     id: 45,
     venue_id: 30,
-    date: "2011-09-01",
+    date: "01.09.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -308,7 +308,7 @@ export const mockShowsData = [
   {
     id: 222,
     venue_id: 124,
-    date: "2011-10-29",
+    date: "29.10.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -325,7 +325,7 @@ export const mockShowsData = [
   {
     id: 113,
     venue_id: 54,
-    date: "2011-11-19",
+    date: "19.11.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -342,7 +342,7 @@ export const mockShowsData = [
   {
     id: 224,
     venue_id: 60,
-    date: "2011-11-23",
+    date: "23.11.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -359,7 +359,7 @@ export const mockShowsData = [
   {
     id: 78,
     venue_id: 52,
-    date: "2011-12-21",
+    date: "21.12.2011",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -376,7 +376,7 @@ export const mockShowsData = [
   {
     id: 226,
     venue_id: 67,
-    date: "2012-01-05",
+    date: "05.01.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -393,7 +393,7 @@ export const mockShowsData = [
   {
     id: 114,
     venue_id: 54,
-    date: "2012-01-27",
+    date: "27.01.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -410,7 +410,7 @@ export const mockShowsData = [
   {
     id: 227,
     venue_id: 68,
-    date: "2012-02-03",
+    date: "03.02.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -427,7 +427,7 @@ export const mockShowsData = [
   {
     id: 228,
     venue_id: 69,
-    date: "2012-02-23",
+    date: "23.02.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -444,7 +444,7 @@ export const mockShowsData = [
   {
     id: 229,
     venue_id: 60,
-    date: "2012-03-20",
+    date: "20.03.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -461,7 +461,7 @@ export const mockShowsData = [
   {
     id: 46,
     venue_id: 30,
-    date: "2012-04-25",
+    date: "25.04.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -478,7 +478,7 @@ export const mockShowsData = [
   {
     id: 230,
     venue_id: 70,
-    date: "2012-05-03",
+    date: "03.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -495,7 +495,7 @@ export const mockShowsData = [
   {
     id: 231,
     venue_id: 71,
-    date: "2012-05-17",
+    date: "17.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -512,7 +512,7 @@ export const mockShowsData = [
   {
     id: 232,
     venue_id: 72,
-    date: "2012-05-18",
+    date: "18.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -529,7 +529,7 @@ export const mockShowsData = [
   {
     id: 443,
     venue_id: 72,
-    date: "2012-05-19",
+    date: "19.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -546,7 +546,7 @@ export const mockShowsData = [
   {
     id: 233,
     venue_id: 64,
-    date: "2012-05-19",
+    date: "19.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -563,7 +563,7 @@ export const mockShowsData = [
   {
     id: 234,
     venue_id: 73,
-    date: "2012-05-20",
+    date: "20.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -580,7 +580,7 @@ export const mockShowsData = [
   {
     id: 235,
     venue_id: 74,
-    date: "2012-05-21",
+    date: "21.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -597,7 +597,7 @@ export const mockShowsData = [
   {
     id: 236,
     venue_id: 75,
-    date: "2012-05-22",
+    date: "22.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -614,7 +614,7 @@ export const mockShowsData = [
   {
     id: 237,
     venue_id: 76,
-    date: "2012-05-23",
+    date: "23.05.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -631,7 +631,7 @@ export const mockShowsData = [
   {
     id: 238,
     venue_id: 126,
-    date: "2012-06-23",
+    date: "23.06.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -648,7 +648,7 @@ export const mockShowsData = [
   {
     id: 239,
     venue_id: 52,
-    date: "2012-06-24",
+    date: "24.06.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -665,7 +665,7 @@ export const mockShowsData = [
   {
     id: 107,
     venue_id: 53,
-    date: "2012-06-29",
+    date: "29.06.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -682,7 +682,7 @@ export const mockShowsData = [
   {
     id: 108,
     venue_id: 53,
-    date: "2012-07-23",
+    date: "23.07.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -699,7 +699,7 @@ export const mockShowsData = [
   {
     id: 240,
     venue_id: 78,
-    date: "2012-07-26",
+    date: "26.07.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -716,7 +716,7 @@ export const mockShowsData = [
   {
     id: 241,
     venue_id: 54,
-    date: "2012-07-27",
+    date: "27.07.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -733,7 +733,7 @@ export const mockShowsData = [
   {
     id: 242,
     venue_id: 59,
-    date: "2012-08-11",
+    date: "11.08.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -750,7 +750,7 @@ export const mockShowsData = [
   {
     id: 243,
     venue_id: 79,
-    date: "2012-08-22",
+    date: "22.08.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -767,7 +767,7 @@ export const mockShowsData = [
   {
     id: 244,
     venue_id: 1,
-    date: "2012-08-23",
+    date: "23.08.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -784,7 +784,7 @@ export const mockShowsData = [
   {
     id: 47,
     venue_id: 30,
-    date: "2012-09-01",
+    date: "01.09.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -801,7 +801,7 @@ export const mockShowsData = [
   {
     id: 245,
     venue_id: 127,
-    date: "2012-09-05",
+    date: "05.09.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -818,7 +818,7 @@ export const mockShowsData = [
   {
     id: 246,
     venue_id: 128,
-    date: "2012-09-08",
+    date: "08.09.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -835,7 +835,7 @@ export const mockShowsData = [
   {
     id: 247,
     venue_id: 52,
-    date: "2012-10-18",
+    date: "18.10.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -852,7 +852,7 @@ export const mockShowsData = [
   {
     id: 248,
     venue_id: 129,
-    date: "2012-10-20",
+    date: "20.10.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -869,7 +869,7 @@ export const mockShowsData = [
   {
     id: 249,
     venue_id: 52,
-    date: "2012-10-26",
+    date: "26.10.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -886,7 +886,7 @@ export const mockShowsData = [
   {
     id: 48,
     venue_id: 30,
-    date: "2012-10-29",
+    date: "29.10.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -903,7 +903,7 @@ export const mockShowsData = [
   {
     id: 250,
     venue_id: 60,
-    date: "2012-11-09",
+    date: "09.11.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -920,7 +920,7 @@ export const mockShowsData = [
   {
     id: 251,
     venue_id: 52,
-    date: "2012-11-17",
+    date: "17.11.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -937,7 +937,7 @@ export const mockShowsData = [
   {
     id: 361,
     venue_id: 130,
-    date: "2012-12-21",
+    date: "21.12.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -954,7 +954,7 @@ export const mockShowsData = [
   {
     id: 362,
     venue_id: 131,
-    date: "2012-12-22",
+    date: "22.12.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -971,7 +971,7 @@ export const mockShowsData = [
   {
     id: 49,
     venue_id: 30,
-    date: "2012-12-26",
+    date: "26.12.2012",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -988,7 +988,7 @@ export const mockShowsData = [
   {
     id: 252,
     venue_id: 52,
-    date: "2013-02-10",
+    date: "10.02.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1005,7 +1005,7 @@ export const mockShowsData = [
   {
     id: 253,
     venue_id: 52,
-    date: "2013-02-23",
+    date: "23.02.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1022,7 +1022,7 @@ export const mockShowsData = [
   {
     id: 363,
     venue_id: 132,
-    date: "2013-03-08",
+    date: "08.03.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1039,7 +1039,7 @@ export const mockShowsData = [
   {
     id: 50,
     venue_id: 30,
-    date: "2013-03-20",
+    date: "20.03.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1056,7 +1056,7 @@ export const mockShowsData = [
   {
     id: 62,
     venue_id: 1,
-    date: "2013-03-29",
+    date: "29.03.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1073,7 +1073,7 @@ export const mockShowsData = [
   {
     id: 364,
     venue_id: 133,
-    date: "2013-04-05",
+    date: "05.04.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1090,7 +1090,7 @@ export const mockShowsData = [
   {
     id: 365,
     venue_id: 17,
-    date: "2013-04-26",
+    date: "26.04.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1107,7 +1107,7 @@ export const mockShowsData = [
   {
     id: 281,
     venue_id: 30,
-    date: "2013-05-08",
+    date: "08.05.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1124,7 +1124,7 @@ export const mockShowsData = [
   {
     id: 84,
     venue_id: 7,
-    date: "2013-06-21",
+    date: "21.06.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1141,7 +1141,7 @@ export const mockShowsData = [
   {
     id: 63,
     venue_id: 1,
-    date: "2013-06-22",
+    date: "22.06.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1158,7 +1158,7 @@ export const mockShowsData = [
   {
     id: 51,
     venue_id: 30,
-    date: "2013-07-10",
+    date: "10.07.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1175,7 +1175,7 @@ export const mockShowsData = [
   {
     id: 109,
     venue_id: 53,
-    date: "2013-08-02",
+    date: "02.08.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1192,7 +1192,7 @@ export const mockShowsData = [
   {
     id: 254,
     venue_id: 52,
-    date: "2013-08-03",
+    date: "03.08.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1209,7 +1209,7 @@ export const mockShowsData = [
   {
     id: 52,
     venue_id: 30,
-    date: "2013-08-20",
+    date: "20.08.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1226,7 +1226,7 @@ export const mockShowsData = [
   {
     id: 255,
     venue_id: 52,
-    date: "2013-09-07",
+    date: "07.09.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1243,7 +1243,7 @@ export const mockShowsData = [
   {
     id: 282,
     venue_id: 68,
-    date: "2013-09-19",
+    date: "19.09.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1260,7 +1260,7 @@ export const mockShowsData = [
   {
     id: 79,
     venue_id: 52,
-    date: "2013-09-28",
+    date: "28.09.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1277,7 +1277,7 @@ export const mockShowsData = [
   {
     id: 53,
     venue_id: 30,
-    date: "2013-10-14",
+    date: "14.10.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1294,7 +1294,7 @@ export const mockShowsData = [
   {
     id: 366,
     venue_id: 191,
-    date: "2013-11-15",
+    date: "15.11.2013",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1311,7 +1311,7 @@ export const mockShowsData = [
   {
     id: 170,
     venue_id: 98,
-    date: "2013-11-29",
+    date: "29.11.2013",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1328,7 +1328,7 @@ export const mockShowsData = [
   {
     id: 169,
     venue_id: 97,
-    date: "2013-11-30",
+    date: "30.11.2013",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1345,7 +1345,7 @@ export const mockShowsData = [
   {
     id: 168,
     venue_id: 3,
-    date: "2013-12-06",
+    date: "06.12.2013",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1362,7 +1362,7 @@ export const mockShowsData = [
   {
     id: 171,
     venue_id: 52,
-    date: "2013-12-31",
+    date: "31.12.2013",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1379,7 +1379,7 @@ export const mockShowsData = [
   {
     id: 54,
     venue_id: 30,
-    date: "2014-01-08",
+    date: "08.01.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1396,7 +1396,7 @@ export const mockShowsData = [
   {
     id: 172,
     venue_id: 30,
-    date: "2014-01-08",
+    date: "08.01.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1413,7 +1413,7 @@ export const mockShowsData = [
   {
     id: 173,
     venue_id: 99,
-    date: "2014-01-24",
+    date: "24.01.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1430,7 +1430,7 @@ export const mockShowsData = [
   {
     id: 174,
     venue_id: 100,
-    date: "2014-01-25",
+    date: "25.01.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1447,7 +1447,7 @@ export const mockShowsData = [
   {
     id: 7,
     venue_id: 7,
-    date: "2014-02-15",
+    date: "15.02.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1464,7 +1464,7 @@ export const mockShowsData = [
   {
     id: 175,
     venue_id: 68,
-    date: "2014-02-21",
+    date: "21.02.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1481,7 +1481,7 @@ export const mockShowsData = [
   {
     id: 176,
     venue_id: 3,
-    date: "2014-03-07",
+    date: "07.03.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1498,7 +1498,7 @@ export const mockShowsData = [
   {
     id: 177,
     venue_id: 68,
-    date: "2014-03-16",
+    date: "16.03.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1515,7 +1515,7 @@ export const mockShowsData = [
   {
     id: 178,
     venue_id: 68,
-    date: "2014-03-16",
+    date: "16.03.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1532,7 +1532,7 @@ export const mockShowsData = [
   {
     id: 179,
     venue_id: 102,
-    date: "2014-03-29",
+    date: "29.03.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1549,7 +1549,7 @@ export const mockShowsData = [
   {
     id: 180,
     venue_id: 52,
-    date: "2014-03-30",
+    date: "30.03.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1566,7 +1566,7 @@ export const mockShowsData = [
   {
     id: 181,
     venue_id: 103,
-    date: "2014-04-18",
+    date: "18.04.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1583,7 +1583,7 @@ export const mockShowsData = [
   {
     id: 182,
     venue_id: 99,
-    date: "2014-04-19",
+    date: "19.04.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1600,7 +1600,7 @@ export const mockShowsData = [
   {
     id: 183,
     venue_id: 5,
-    date: "2014-04-25",
+    date: "25.04.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1617,7 +1617,7 @@ export const mockShowsData = [
   {
     id: 184,
     venue_id: 94,
-    date: "2014-05-03",
+    date: "03.05.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1634,7 +1634,7 @@ export const mockShowsData = [
   {
     id: 185,
     venue_id: 94,
-    date: "2014-05-10",
+    date: "10.05.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1651,7 +1651,7 @@ export const mockShowsData = [
   {
     id: 186,
     venue_id: 94,
-    date: "2014-05-17",
+    date: "17.05.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1668,7 +1668,7 @@ export const mockShowsData = [
   {
     id: 188,
     venue_id: 105,
-    date: "2014-05-23",
+    date: "23.05.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1685,7 +1685,7 @@ export const mockShowsData = [
   {
     id: 187,
     venue_id: 94,
-    date: "2014-05-24",
+    date: "24.05.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1702,7 +1702,7 @@ export const mockShowsData = [
   {
     id: 55,
     venue_id: 30,
-    date: "2014-05-25",
+    date: "25.05.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1719,7 +1719,7 @@ export const mockShowsData = [
   {
     id: 189,
     venue_id: 53,
-    date: "2014-05-25",
+    date: "25.05.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1736,7 +1736,7 @@ export const mockShowsData = [
   {
     id: 191,
     venue_id: 94,
-    date: "2014-05-31",
+    date: "31.05.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1753,7 +1753,7 @@ export const mockShowsData = [
   {
     id: 190,
     venue_id: 94,
-    date: "2014-05-31",
+    date: "31.05.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1770,7 +1770,7 @@ export const mockShowsData = [
   {
     id: 192,
     venue_id: 106,
-    date: "2014-06-07",
+    date: "07.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1787,7 +1787,7 @@ export const mockShowsData = [
   {
     id: 85,
     venue_id: 7,
-    date: "2014-06-07",
+    date: "07.06.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1804,7 +1804,7 @@ export const mockShowsData = [
   {
     id: 193,
     venue_id: 52,
-    date: "2014-06-13",
+    date: "13.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1821,7 +1821,7 @@ export const mockShowsData = [
   {
     id: 277,
     venue_id: 54,
-    date: "2014-06-14",
+    date: "14.06.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -1838,7 +1838,7 @@ export const mockShowsData = [
   {
     id: 194,
     venue_id: 52,
-    date: "2014-06-19",
+    date: "19.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1855,7 +1855,7 @@ export const mockShowsData = [
   {
     id: 195,
     venue_id: 97,
-    date: "2014-06-20",
+    date: "20.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1872,7 +1872,7 @@ export const mockShowsData = [
   {
     id: 196,
     venue_id: 107,
-    date: "2014-06-21",
+    date: "21.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1889,7 +1889,7 @@ export const mockShowsData = [
   {
     id: 197,
     venue_id: 108,
-    date: "2014-06-22",
+    date: "22.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1906,7 +1906,7 @@ export const mockShowsData = [
   {
     id: 198,
     venue_id: 109,
-    date: "2014-06-23",
+    date: "23.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1923,7 +1923,7 @@ export const mockShowsData = [
   {
     id: 199,
     venue_id: 110,
-    date: "2014-06-24",
+    date: "24.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1940,7 +1940,7 @@ export const mockShowsData = [
   {
     id: 200,
     venue_id: 111,
-    date: "2014-06-25",
+    date: "25.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1957,7 +1957,7 @@ export const mockShowsData = [
   {
     id: 201,
     venue_id: 112,
-    date: "2014-06-26",
+    date: "26.06.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1974,7 +1974,7 @@ export const mockShowsData = [
   {
     id: 202,
     venue_id: 113,
-    date: "2014-07-13",
+    date: "13.07.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -1991,7 +1991,7 @@ export const mockShowsData = [
   {
     id: 203,
     venue_id: 30,
-    date: "2014-07-19",
+    date: "19.07.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2008,7 +2008,7 @@ export const mockShowsData = [
   {
     id: 204,
     venue_id: 96,
-    date: "2014-08-01",
+    date: "01.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2025,7 +2025,7 @@ export const mockShowsData = [
   {
     id: 367,
     venue_id: 192,
-    date: "2014-08-04",
+    date: "04.08.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2042,7 +2042,7 @@ export const mockShowsData = [
   {
     id: 86,
     venue_id: 7,
-    date: "2014-08-05",
+    date: "05.08.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2059,7 +2059,7 @@ export const mockShowsData = [
   {
     id: 80,
     venue_id: 52,
-    date: "2014-08-09",
+    date: "09.08.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2076,7 +2076,7 @@ export const mockShowsData = [
   {
     id: 205,
     venue_id: 114,
-    date: "2014-08-22",
+    date: "22.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2093,7 +2093,7 @@ export const mockShowsData = [
   {
     id: 206,
     venue_id: 115,
-    date: "2014-08-23",
+    date: "23.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2110,7 +2110,7 @@ export const mockShowsData = [
   {
     id: 207,
     venue_id: 116,
-    date: "2014-08-24",
+    date: "24.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2127,7 +2127,7 @@ export const mockShowsData = [
   {
     id: 208,
     venue_id: 117,
-    date: "2014-08-25",
+    date: "25.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2144,7 +2144,7 @@ export const mockShowsData = [
   {
     id: 209,
     venue_id: 118,
-    date: "2014-08-26",
+    date: "26.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2161,7 +2161,7 @@ export const mockShowsData = [
   {
     id: 211,
     venue_id: 119,
-    date: "2014-08-27",
+    date: "27.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2178,7 +2178,7 @@ export const mockShowsData = [
   {
     id: 212,
     venue_id: 120,
-    date: "2014-08-28",
+    date: "28.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2195,7 +2195,7 @@ export const mockShowsData = [
   {
     id: 213,
     venue_id: 121,
-    date: "2014-08-30",
+    date: "30.08.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2212,7 +2212,7 @@ export const mockShowsData = [
   {
     id: 214,
     venue_id: 122,
-    date: "2014-09-01",
+    date: "01.09.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2229,7 +2229,7 @@ export const mockShowsData = [
   {
     id: 485,
     venue_id: 53,
-    date: "2014-09-08",
+    date: "08.09.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2246,7 +2246,7 @@ export const mockShowsData = [
   {
     id: 56,
     venue_id: 30,
-    date: "2014-09-14",
+    date: "14.09.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2263,7 +2263,7 @@ export const mockShowsData = [
   {
     id: 484,
     venue_id: 79,
-    date: "2014-09-20",
+    date: "20.09.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2280,7 +2280,7 @@ export const mockShowsData = [
   {
     id: 483,
     venue_id: 53,
-    date: "2014-10-03",
+    date: "03.10.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2297,7 +2297,7 @@ export const mockShowsData = [
   {
     id: 141,
     venue_id: 80,
-    date: "2014-10-11",
+    date: "11.10.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2314,7 +2314,7 @@ export const mockShowsData = [
   {
     id: 482,
     venue_id: 1,
-    date: "2014-10-18",
+    date: "18.10.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2331,7 +2331,7 @@ export const mockShowsData = [
   {
     id: 481,
     venue_id: 268,
-    date: "2014-10-24",
+    date: "24.10.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2348,7 +2348,7 @@ export const mockShowsData = [
   {
     id: 81,
     venue_id: 52,
-    date: "2014-10-25",
+    date: "25.10.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2365,7 +2365,7 @@ export const mockShowsData = [
   {
     id: 480,
     venue_id: 267,
-    date: "2014-11-02",
+    date: "02.11.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2382,7 +2382,7 @@ export const mockShowsData = [
   {
     id: 479,
     venue_id: 53,
-    date: "2014-11-14",
+    date: "14.11.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2399,7 +2399,7 @@ export const mockShowsData = [
   {
     id: 368,
     venue_id: 59,
-    date: "2014-11-28",
+    date: "28.11.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2416,7 +2416,7 @@ export const mockShowsData = [
   {
     id: 369,
     venue_id: 191,
-    date: "2014-11-29",
+    date: "29.11.2014",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2433,7 +2433,7 @@ export const mockShowsData = [
   {
     id: 478,
     venue_id: 97,
-    date: "2014-12-05",
+    date: "05.12.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2450,7 +2450,7 @@ export const mockShowsData = [
   {
     id: 140,
     venue_id: 4,
-    date: "2014-12-10",
+    date: "10.12.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2467,7 +2467,7 @@ export const mockShowsData = [
   {
     id: 477,
     venue_id: 53,
-    date: "2014-12-15",
+    date: "15.12.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2484,7 +2484,7 @@ export const mockShowsData = [
   {
     id: 476,
     venue_id: 102,
-    date: "2014-12-20",
+    date: "20.12.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2501,7 +2501,7 @@ export const mockShowsData = [
   {
     id: 475,
     venue_id: 3,
-    date: "2014-12-27",
+    date: "27.12.2014",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2518,7 +2518,7 @@ export const mockShowsData = [
   {
     id: 70,
     venue_id: 52,
-    date: "2015-01-22",
+    date: "22.01.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2535,7 +2535,7 @@ export const mockShowsData = [
   {
     id: 474,
     venue_id: 52,
-    date: "2015-01-22",
+    date: "22.01.2015",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2552,7 +2552,7 @@ export const mockShowsData = [
   {
     id: 371,
     venue_id: 100,
-    date: "2015-01-24",
+    date: "24.01.2015",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2569,7 +2569,7 @@ export const mockShowsData = [
   {
     id: 370,
     venue_id: 100,
-    date: "2015-01-24",
+    date: "24.01.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2586,7 +2586,7 @@ export const mockShowsData = [
   {
     id: 57,
     venue_id: 30,
-    date: "2015-01-31",
+    date: "31.01.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2603,7 +2603,7 @@ export const mockShowsData = [
   {
     id: 257,
     venue_id: 94,
-    date: "2015-02-07",
+    date: "07.02.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2620,7 +2620,7 @@ export const mockShowsData = [
   {
     id: 58,
     venue_id: 30,
-    date: "2015-03-26",
+    date: "26.03.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2637,7 +2637,7 @@ export const mockShowsData = [
   {
     id: 87,
     venue_id: 7,
-    date: "2015-03-27",
+    date: "27.03.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2654,7 +2654,7 @@ export const mockShowsData = [
   {
     id: 88,
     venue_id: 7,
-    date: "2015-04-17",
+    date: "17.04.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2671,7 +2671,7 @@ export const mockShowsData = [
   {
     id: 139,
     venue_id: 4,
-    date: "2015-04-29",
+    date: "29.04.2015",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2688,7 +2688,7 @@ export const mockShowsData = [
   {
     id: 71,
     venue_id: 52,
-    date: "2015-05-07",
+    date: "07.05.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2705,7 +2705,7 @@ export const mockShowsData = [
   {
     id: 138,
     venue_id: 80,
-    date: "2015-05-16",
+    date: "16.05.2015",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2722,7 +2722,7 @@ export const mockShowsData = [
   {
     id: 89,
     venue_id: 7,
-    date: "2015-07-03",
+    date: "03.07.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2739,7 +2739,7 @@ export const mockShowsData = [
   {
     id: 90,
     venue_id: 7,
-    date: "2015-07-10",
+    date: "10.07.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2756,7 +2756,7 @@ export const mockShowsData = [
   {
     id: 167,
     venue_id: 96,
-    date: "2015-08-07",
+    date: "07.08.2015",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2773,7 +2773,7 @@ export const mockShowsData = [
   {
     id: 258,
     venue_id: 94,
-    date: "2015-08-08",
+    date: "08.08.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2790,7 +2790,7 @@ export const mockShowsData = [
   {
     id: 115,
     venue_id: 54,
-    date: "2015-09-10",
+    date: "10.09.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2807,7 +2807,7 @@ export const mockShowsData = [
   {
     id: 92,
     venue_id: 26,
-    date: "2015-09-29",
+    date: "29.09.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2824,7 +2824,7 @@ export const mockShowsData = [
   {
     id: 1,
     venue_id: 3,
-    date: "2015-10-02",
+    date: "02.10.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2841,7 +2841,7 @@ export const mockShowsData = [
   {
     id: 262,
     venue_id: 44,
-    date: "2015-10-24",
+    date: "24.10.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2858,7 +2858,7 @@ export const mockShowsData = [
   {
     id: 372,
     venue_id: 191,
-    date: "2015-11-13",
+    date: "13.11.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2875,7 +2875,7 @@ export const mockShowsData = [
   {
     id: 373,
     venue_id: 194,
-    date: "2015-11-14",
+    date: "14.11.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2892,7 +2892,7 @@ export const mockShowsData = [
   {
     id: 110,
     venue_id: 53,
-    date: "2015-11-16",
+    date: "16.11.2015",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2909,7 +2909,7 @@ export const mockShowsData = [
   {
     id: 137,
     venue_id: 81,
-    date: "2015-11-27",
+    date: "27.11.2015",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2926,7 +2926,7 @@ export const mockShowsData = [
   {
     id: 287,
     venue_id: 93,
-    date: "2016-02-26",
+    date: "26.02.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2943,7 +2943,7 @@ export const mockShowsData = [
   {
     id: 259,
     venue_id: 94,
-    date: "2016-02-27",
+    date: "27.02.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2960,7 +2960,7 @@ export const mockShowsData = [
   {
     id: 136,
     venue_id: 1,
-    date: "2016-03-17",
+    date: "17.03.2016",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -2977,7 +2977,7 @@ export const mockShowsData = [
   {
     id: 374,
     venue_id: 195,
-    date: "2016-03-18",
+    date: "18.03.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -2994,7 +2994,7 @@ export const mockShowsData = [
   {
     id: 375,
     venue_id: 196,
-    date: "2016-04-15",
+    date: "15.04.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3011,7 +3011,7 @@ export const mockShowsData = [
   {
     id: 376,
     venue_id: 197,
-    date: "2016-04-16",
+    date: "16.04.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3028,7 +3028,7 @@ export const mockShowsData = [
   {
     id: 263,
     venue_id: 44,
-    date: "2016-05-07",
+    date: "07.05.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3045,7 +3045,7 @@ export const mockShowsData = [
   {
     id: 377,
     venue_id: 198,
-    date: "2016-05-15",
+    date: "15.05.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3062,7 +3062,7 @@ export const mockShowsData = [
   {
     id: 378,
     venue_id: 198,
-    date: "2016-05-15",
+    date: "15.05.2016",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -3079,7 +3079,7 @@ export const mockShowsData = [
   {
     id: 135,
     venue_id: 80,
-    date: "2016-05-20",
+    date: "20.05.2016",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -3096,7 +3096,7 @@ export const mockShowsData = [
   {
     id: 3,
     venue_id: 4,
-    date: "2016-06-13",
+    date: "13.06.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3113,7 +3113,7 @@ export const mockShowsData = [
   {
     id: 379,
     venue_id: 199,
-    date: "2016-06-28",
+    date: "28.06.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3130,7 +3130,7 @@ export const mockShowsData = [
   {
     id: 59,
     venue_id: 30,
-    date: "2016-07-15",
+    date: "15.07.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3147,7 +3147,7 @@ export const mockShowsData = [
   {
     id: 380,
     venue_id: 200,
-    date: "2016-08-12",
+    date: "12.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3164,7 +3164,7 @@ export const mockShowsData = [
   {
     id: 381,
     venue_id: 113,
-    date: "2016-08-14",
+    date: "14.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3181,7 +3181,7 @@ export const mockShowsData = [
   {
     id: 111,
     venue_id: 53,
-    date: "2016-08-15",
+    date: "15.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3198,7 +3198,7 @@ export const mockShowsData = [
   {
     id: 12,
     venue_id: 19,
-    date: "2016-08-16",
+    date: "16.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3215,7 +3215,7 @@ export const mockShowsData = [
   {
     id: 382,
     venue_id: 201,
-    date: "2016-08-17",
+    date: "17.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3232,7 +3232,7 @@ export const mockShowsData = [
   {
     id: 383,
     venue_id: 202,
-    date: "2016-08-18",
+    date: "18.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3249,7 +3249,7 @@ export const mockShowsData = [
   {
     id: 384,
     venue_id: 203,
-    date: "2016-08-19",
+    date: "19.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3266,7 +3266,7 @@ export const mockShowsData = [
   {
     id: 385,
     venue_id: 100,
-    date: "2016-08-20",
+    date: "20.08.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3283,7 +3283,7 @@ export const mockShowsData = [
   {
     id: 64,
     venue_id: 1,
-    date: "2016-09-09",
+    date: "09.09.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3300,7 +3300,7 @@ export const mockShowsData = [
   {
     id: 134,
     venue_id: 80,
-    date: "2016-10-08",
+    date: "08.10.2016",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -3317,7 +3317,7 @@ export const mockShowsData = [
   {
     id: 264,
     venue_id: 44,
-    date: "2016-10-15",
+    date: "15.10.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3334,7 +3334,7 @@ export const mockShowsData = [
   {
     id: 386,
     venue_id: 204,
-    date: "2016-10-30",
+    date: "30.10.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3351,7 +3351,7 @@ export const mockShowsData = [
   {
     id: 60,
     venue_id: 30,
-    date: "2016-12-03",
+    date: "03.12.2016",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3368,7 +3368,7 @@ export const mockShowsData = [
   {
     id: 387,
     venue_id: 73,
-    date: "2017-01-19",
+    date: "19.01.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3385,7 +3385,7 @@ export const mockShowsData = [
   {
     id: 8,
     venue_id: 8,
-    date: "2017-01-20",
+    date: "20.01.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3402,7 +3402,7 @@ export const mockShowsData = [
   {
     id: 269,
     venue_id: 63,
-    date: "2017-01-21",
+    date: "21.01.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3419,7 +3419,7 @@ export const mockShowsData = [
   {
     id: 72,
     venue_id: 52,
-    date: "2017-01-28",
+    date: "28.01.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3436,7 +3436,7 @@ export const mockShowsData = [
   {
     id: 260,
     venue_id: 94,
-    date: "2017-02-11",
+    date: "11.02.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3453,7 +3453,7 @@ export const mockShowsData = [
   {
     id: 388,
     venue_id: 205,
-    date: "2017-03-03",
+    date: "03.03.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3470,7 +3470,7 @@ export const mockShowsData = [
   {
     id: 389,
     venue_id: 205,
-    date: "2017-03-03",
+    date: "03.03.2017",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -3487,7 +3487,7 @@ export const mockShowsData = [
   {
     id: 391,
     venue_id: 206,
-    date: "2017-03-04",
+    date: "04.03.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3504,7 +3504,7 @@ export const mockShowsData = [
   {
     id: 390,
     venue_id: 206,
-    date: "2017-03-04",
+    date: "04.03.2017",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -3521,7 +3521,7 @@ export const mockShowsData = [
   {
     id: 392,
     venue_id: 207,
-    date: "2017-03-25",
+    date: "25.03.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3538,7 +3538,7 @@ export const mockShowsData = [
   {
     id: 393,
     venue_id: 201,
-    date: "2017-05-18",
+    date: "18.05.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3555,7 +3555,7 @@ export const mockShowsData = [
   {
     id: 444,
     venue_id: 208,
-    date: "2017-05-19",
+    date: "19.05.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3572,7 +3572,7 @@ export const mockShowsData = [
   {
     id: 394,
     venue_id: 208,
-    date: "2017-05-19",
+    date: "19.05.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3589,7 +3589,7 @@ export const mockShowsData = [
   {
     id: 395,
     venue_id: 56,
-    date: "2017-05-21",
+    date: "21.05.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3607,7 +3607,7 @@ export const mockShowsData = [
   {
     id: 73,
     venue_id: 52,
-    date: "2017-06-16",
+    date: "16.06.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3624,7 +3624,7 @@ export const mockShowsData = [
   {
     id: 91,
     venue_id: 7,
-    date: "2017-06-17",
+    date: "17.06.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3641,7 +3641,7 @@ export const mockShowsData = [
   {
     id: 74,
     venue_id: 52,
-    date: "2017-07-09",
+    date: "09.07.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3658,7 +3658,7 @@ export const mockShowsData = [
   {
     id: 397,
     venue_id: 191,
-    date: "2017-07-12",
+    date: "12.07.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3675,7 +3675,7 @@ export const mockShowsData = [
   {
     id: 396,
     venue_id: 209,
-    date: "2017-07-12",
+    date: "12.07.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3692,7 +3692,7 @@ export const mockShowsData = [
   {
     id: 75,
     venue_id: 52,
-    date: "2017-07-22",
+    date: "22.07.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3709,7 +3709,7 @@ export const mockShowsData = [
   {
     id: 265,
     venue_id: 44,
-    date: "2017-09-22",
+    date: "22.09.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3726,7 +3726,7 @@ export const mockShowsData = [
   {
     id: 61,
     venue_id: 30,
-    date: "2017-10-27",
+    date: "27.10.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3743,7 +3743,7 @@ export const mockShowsData = [
   {
     id: 275,
     venue_id: 3,
-    date: "2017-11-01",
+    date: "01.11.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3760,7 +3760,7 @@ export const mockShowsData = [
   {
     id: 266,
     venue_id: 44,
-    date: "2017-11-10",
+    date: "10.11.2017",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3777,7 +3777,7 @@ export const mockShowsData = [
   {
     id: 17,
     venue_id: 30,
-    date: "2017-11-20",
+    date: "20.11.2017",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -3794,7 +3794,7 @@ export const mockShowsData = [
   {
     id: 273,
     venue_id: 11,
-    date: "2018-05-12",
+    date: "12.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3811,7 +3811,7 @@ export const mockShowsData = [
   {
     id: 430,
     venue_id: 210,
-    date: "2018-05-14",
+    date: "14.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3828,7 +3828,7 @@ export const mockShowsData = [
   {
     id: 431,
     venue_id: 18,
-    date: "2018-05-15",
+    date: "15.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3845,7 +3845,7 @@ export const mockShowsData = [
   {
     id: 432,
     venue_id: 229,
-    date: "2018-05-16",
+    date: "16.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3862,7 +3862,7 @@ export const mockShowsData = [
   {
     id: 433,
     venue_id: 16,
-    date: "2018-05-17",
+    date: "17.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3879,7 +3879,7 @@ export const mockShowsData = [
   {
     id: 434,
     venue_id: 230,
-    date: "2018-05-20",
+    date: "20.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3897,7 +3897,7 @@ export const mockShowsData = [
   {
     id: 435,
     venue_id: 233,
-    date: "2018-05-21",
+    date: "21.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3914,7 +3914,7 @@ export const mockShowsData = [
   {
     id: 436,
     venue_id: 110,
-    date: "2018-05-22",
+    date: "22.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3931,7 +3931,7 @@ export const mockShowsData = [
   {
     id: 437,
     venue_id: 234,
-    date: "2018-05-23",
+    date: "23.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3948,7 +3948,7 @@ export const mockShowsData = [
   {
     id: 9,
     venue_id: 9,
-    date: "2018-05-24",
+    date: "24.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3965,7 +3965,7 @@ export const mockShowsData = [
   {
     id: 438,
     venue_id: 236,
-    date: "2018-05-25",
+    date: "25.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3982,7 +3982,7 @@ export const mockShowsData = [
   {
     id: 439,
     venue_id: 237,
-    date: "2018-05-26",
+    date: "26.05.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -3999,7 +3999,7 @@ export const mockShowsData = [
   {
     id: 6,
     venue_id: 4,
-    date: "2018-06-03",
+    date: "03.06.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4016,7 +4016,7 @@ export const mockShowsData = [
   {
     id: 133,
     venue_id: 4,
-    date: "2018-06-08",
+    date: "08.06.2018",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -4033,7 +4033,7 @@ export const mockShowsData = [
   {
     id: 82,
     venue_id: 52,
-    date: "2018-06-21",
+    date: "21.06.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4050,7 +4050,7 @@ export const mockShowsData = [
   {
     id: 445,
     venue_id: 249,
-    date: "2018-07-12",
+    date: "12.07.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4067,7 +4067,7 @@ export const mockShowsData = [
   {
     id: 446,
     venue_id: 239,
-    date: "2018-07-21",
+    date: "21.07.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4084,7 +4084,7 @@ export const mockShowsData = [
   {
     id: 440,
     venue_id: 13,
-    date: "2018-08-04",
+    date: "04.08.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4101,7 +4101,7 @@ export const mockShowsData = [
   {
     id: 441,
     venue_id: 59,
-    date: "2018-08-21",
+    date: "21.08.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4118,7 +4118,7 @@ export const mockShowsData = [
   {
     id: 166,
     venue_id: 59,
-    date: "2018-08-21",
+    date: "21.08.2018",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -4135,7 +4135,7 @@ export const mockShowsData = [
   {
     id: 283,
     venue_id: 68,
-    date: "2018-08-30",
+    date: "30.08.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4152,7 +4152,7 @@ export const mockShowsData = [
   {
     id: 65,
     venue_id: 1,
-    date: "2018-09-26",
+    date: "26.09.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4169,7 +4169,7 @@ export const mockShowsData = [
   {
     id: 165,
     venue_id: 1,
-    date: "2018-11-23",
+    date: "23.11.2018",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -4186,7 +4186,7 @@ export const mockShowsData = [
   {
     id: 267,
     venue_id: 44,
-    date: "2018-12-10",
+    date: "10.12.2018",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4203,7 +4203,7 @@ export const mockShowsData = [
   {
     id: 447,
     venue_id: 214,
-    date: "2019-02-17",
+    date: "17.02.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4220,7 +4220,7 @@ export const mockShowsData = [
   {
     id: 449,
     venue_id: 240,
-    date: "2019-02-23",
+    date: "23.02.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4237,7 +4237,7 @@ export const mockShowsData = [
   {
     id: 450,
     venue_id: 247,
-    date: "2019-03-01",
+    date: "01.03.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4254,7 +4254,7 @@ export const mockShowsData = [
   {
     id: 284,
     venue_id: 68,
-    date: "2019-03-02",
+    date: "02.03.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4271,7 +4271,7 @@ export const mockShowsData = [
   {
     id: 76,
     venue_id: 52,
-    date: "2019-04-13",
+    date: "13.04.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4288,7 +4288,7 @@ export const mockShowsData = [
   {
     id: 93,
     venue_id: 26,
-    date: "2019-06-11",
+    date: "11.06.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4305,7 +4305,7 @@ export const mockShowsData = [
   {
     id: 67,
     venue_id: 52,
-    date: "2019-06-20",
+    date: "20.06.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4322,7 +4322,7 @@ export const mockShowsData = [
   {
     id: 94,
     venue_id: 26,
-    date: "2019-06-29",
+    date: "29.06.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4339,7 +4339,7 @@ export const mockShowsData = [
   {
     id: 451,
     venue_id: 14,
-    date: "2019-06-30",
+    date: "30.06.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4356,7 +4356,7 @@ export const mockShowsData = [
   {
     id: 442,
     venue_id: 14,
-    date: "2019-06-30",
+    date: "30.06.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4373,7 +4373,7 @@ export const mockShowsData = [
   {
     id: 452,
     venue_id: 254,
-    date: "2019-07-01",
+    date: "01.07.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4390,7 +4390,7 @@ export const mockShowsData = [
   {
     id: 453,
     venue_id: 253,
-    date: "2019-07-02",
+    date: "02.07.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4407,7 +4407,7 @@ export const mockShowsData = [
   {
     id: 454,
     venue_id: 241,
-    date: "2019-07-05",
+    date: "05.07.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4424,7 +4424,7 @@ export const mockShowsData = [
   {
     id: 132,
     venue_id: 4,
-    date: "2019-07-08",
+    date: "08.07.2019",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -4441,7 +4441,7 @@ export const mockShowsData = [
   {
     id: 68,
     venue_id: 52,
-    date: "2019-08-07",
+    date: "07.08.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4458,7 +4458,7 @@ export const mockShowsData = [
   {
     id: 69,
     venue_id: 52,
-    date: "2019-08-30",
+    date: "30.08.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4475,7 +4475,7 @@ export const mockShowsData = [
   {
     id: 83,
     venue_id: 52,
-    date: "2019-09-05",
+    date: "05.09.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4492,7 +4492,7 @@ export const mockShowsData = [
   {
     id: 270,
     venue_id: 42,
-    date: "2019-09-13",
+    date: "13.09.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4509,7 +4509,7 @@ export const mockShowsData = [
   {
     id: 455,
     venue_id: 243,
-    date: "2019-09-27",
+    date: "27.09.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4526,7 +4526,7 @@ export const mockShowsData = [
   {
     id: 95,
     venue_id: 26,
-    date: "2019-10-18",
+    date: "18.10.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4543,7 +4543,7 @@ export const mockShowsData = [
   {
     id: 456,
     venue_id: 252,
-    date: "2019-10-19",
+    date: "19.10.2019",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4560,7 +4560,7 @@ export const mockShowsData = [
   {
     id: 288,
     venue_id: 93,
-    date: "2020-02-07",
+    date: "07.02.2020",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4577,7 +4577,7 @@ export const mockShowsData = [
   {
     id: 77,
     venue_id: 52,
-    date: "2020-02-08",
+    date: "08.02.2020",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4594,7 +4594,7 @@ export const mockShowsData = [
   {
     id: 457,
     venue_id: 13,
-    date: "2020-03-06",
+    date: "06.03.2020",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4611,7 +4611,7 @@ export const mockShowsData = [
   {
     id: 448,
     venue_id: 214,
-    date: "2020-06-27",
+    date: "27.06.2020",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4628,7 +4628,7 @@ export const mockShowsData = [
   {
     id: 106,
     venue_id: 26,
-    date: "2021-05-15",
+    date: "15.05.2021",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4645,7 +4645,7 @@ export const mockShowsData = [
   {
     id: 96,
     venue_id: 26,
-    date: "2021-08-13",
+    date: "13.08.2021",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4662,7 +4662,7 @@ export const mockShowsData = [
   {
     id: 286,
     venue_id: 68,
-    date: "2021-09-18",
+    date: "18.09.2021",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4679,7 +4679,7 @@ export const mockShowsData = [
   {
     id: 97,
     venue_id: 26,
-    date: "2021-09-24",
+    date: "24.09.2021",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4696,7 +4696,7 @@ export const mockShowsData = [
   {
     id: 458,
     venue_id: 255,
-    date: "2021-09-25",
+    date: "25.09.2021",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4713,7 +4713,7 @@ export const mockShowsData = [
   {
     id: 131,
     venue_id: 4,
-    date: "2021-11-10",
+    date: "10.11.2021",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -4730,7 +4730,7 @@ export const mockShowsData = [
   {
     id: 285,
     venue_id: 68,
-    date: "2021-11-12",
+    date: "12.11.2021",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4747,7 +4747,7 @@ export const mockShowsData = [
   {
     id: 98,
     venue_id: 26,
-    date: "2021-11-18",
+    date: "18.11.2021",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4764,7 +4764,7 @@ export const mockShowsData = [
   {
     id: 459,
     venue_id: 260,
-    date: "2022-01-27",
+    date: "27.01.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4781,7 +4781,7 @@ export const mockShowsData = [
   {
     id: 466,
     venue_id: 245,
-    date: "2022-01-28",
+    date: "28.01.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4798,7 +4798,7 @@ export const mockShowsData = [
   {
     id: 467,
     venue_id: 248,
-    date: "2022-01-29",
+    date: "29.01.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4815,7 +4815,7 @@ export const mockShowsData = [
   {
     id: 468,
     venue_id: 64,
-    date: "2022-01-30",
+    date: "30.01.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4832,7 +4832,7 @@ export const mockShowsData = [
   {
     id: 66,
     venue_id: 1,
-    date: "2022-02-05",
+    date: "05.02.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4849,7 +4849,7 @@ export const mockShowsData = [
   {
     id: 289,
     venue_id: 6,
-    date: "2022-02-23",
+    date: "23.02.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4867,7 +4867,7 @@ export const mockShowsData = [
   {
     id: 274,
     venue_id: 11,
-    date: "2022-03-05",
+    date: "05.03.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4884,7 +4884,7 @@ export const mockShowsData = [
   {
     id: 118,
     venue_id: 43,
-    date: "2022-04-08",
+    date: "08.04.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4901,7 +4901,7 @@ export const mockShowsData = [
   {
     id: 268,
     venue_id: 44,
-    date: "2022-04-28",
+    date: "28.04.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4918,7 +4918,7 @@ export const mockShowsData = [
   {
     id: 99,
     venue_id: 26,
-    date: "2022-04-30",
+    date: "30.04.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4935,7 +4935,7 @@ export const mockShowsData = [
   {
     id: 100,
     venue_id: 26,
-    date: "2022-05-27",
+    date: "27.05.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4952,7 +4952,7 @@ export const mockShowsData = [
   {
     id: 460,
     venue_id: 251,
-    date: "2022-06-06",
+    date: "06.06.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4969,7 +4969,7 @@ export const mockShowsData = [
   {
     id: 2,
     venue_id: 3,
-    date: "2022-07-01",
+    date: "01.07.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -4986,7 +4986,7 @@ export const mockShowsData = [
   {
     id: 461,
     venue_id: 250,
-    date: "2022-07-09",
+    date: "09.07.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5003,7 +5003,7 @@ export const mockShowsData = [
   {
     id: 290,
     venue_id: 6,
-    date: "2022-07-15",
+    date: "15.07.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5021,7 +5021,7 @@ export const mockShowsData = [
   {
     id: 101,
     venue_id: 26,
-    date: "2022-08-05",
+    date: "05.08.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5038,7 +5038,7 @@ export const mockShowsData = [
   {
     id: 278,
     venue_id: 136,
-    date: "2022-08-07",
+    date: "07.08.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5055,7 +5055,7 @@ export const mockShowsData = [
   {
     id: 4,
     venue_id: 4,
-    date: "2022-08-23",
+    date: "23.08.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5072,7 +5072,7 @@ export const mockShowsData = [
   {
     id: 102,
     venue_id: 26,
-    date: "2022-08-27",
+    date: "27.08.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5089,7 +5089,7 @@ export const mockShowsData = [
   {
     id: 462,
     venue_id: 242,
-    date: "2022-09-09",
+    date: "09.09.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5106,7 +5106,7 @@ export const mockShowsData = [
   {
     id: 116,
     venue_id: 43,
-    date: "2022-10-07",
+    date: "07.10.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5123,7 +5123,7 @@ export const mockShowsData = [
   {
     id: 103,
     venue_id: 26,
-    date: "2022-10-22",
+    date: "22.10.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5140,7 +5140,7 @@ export const mockShowsData = [
   {
     id: 463,
     venue_id: 257,
-    date: "2022-10-25",
+    date: "25.10.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5157,7 +5157,7 @@ export const mockShowsData = [
   {
     id: 464,
     venue_id: 246,
-    date: "2022-10-26",
+    date: "26.10.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5174,7 +5174,7 @@ export const mockShowsData = [
   {
     id: 426,
     venue_id: 162,
-    date: "2022-10-30",
+    date: "30.10.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5191,7 +5191,7 @@ export const mockShowsData = [
   {
     id: 276,
     venue_id: 3,
-    date: "2022-12-31",
+    date: "31.12.2022",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5208,7 +5208,7 @@ export const mockShowsData = [
   {
     id: 164,
     venue_id: 92,
-    date: "2023-01-20",
+    date: "20.01.2023",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -5225,7 +5225,7 @@ export const mockShowsData = [
   {
     id: 163,
     venue_id: 93,
-    date: "2023-02-03",
+    date: "03.02.2023",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -5242,7 +5242,7 @@ export const mockShowsData = [
   {
     id: 117,
     venue_id: 43,
-    date: "2023-02-11",
+    date: "11.02.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5259,7 +5259,7 @@ export const mockShowsData = [
   {
     id: 427,
     venue_id: 224,
-    date: "2023-02-18",
+    date: "18.02.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5276,7 +5276,7 @@ export const mockShowsData = [
   {
     id: 162,
     venue_id: 92,
-    date: "2023-02-25",
+    date: "25.02.2023",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -5293,7 +5293,7 @@ export const mockShowsData = [
   {
     id: 20,
     venue_id: 32,
-    date: "2023-03-24",
+    date: "24.03.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5310,7 +5310,7 @@ export const mockShowsData = [
   {
     id: 29,
     venue_id: 41,
-    date: "2023-03-30",
+    date: "30.03.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5328,7 +5328,7 @@ export const mockShowsData = [
   {
     id: 21,
     venue_id: 33,
-    date: "2023-03-31",
+    date: "31.03.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5345,7 +5345,7 @@ export const mockShowsData = [
   {
     id: 22,
     venue_id: 34,
-    date: "2023-04-01",
+    date: "01.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5363,7 +5363,7 @@ export const mockShowsData = [
   {
     id: 23,
     venue_id: 35,
-    date: "2023-04-02",
+    date: "02.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5381,7 +5381,7 @@ export const mockShowsData = [
   {
     id: 24,
     venue_id: 36,
-    date: "2023-04-03",
+    date: "03.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5398,7 +5398,7 @@ export const mockShowsData = [
   {
     id: 25,
     venue_id: 37,
-    date: "2023-04-04",
+    date: "04.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5415,7 +5415,7 @@ export const mockShowsData = [
   {
     id: 26,
     venue_id: 38,
-    date: "2023-04-05",
+    date: "05.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5432,7 +5432,7 @@ export const mockShowsData = [
   {
     id: 27,
     venue_id: 39,
-    date: "2023-04-06",
+    date: "06.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5449,7 +5449,7 @@ export const mockShowsData = [
   {
     id: 19,
     venue_id: 31,
-    date: "2023-04-07",
+    date: "07.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5466,7 +5466,7 @@ export const mockShowsData = [
   {
     id: 28,
     venue_id: 40,
-    date: "2023-04-08",
+    date: "08.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5483,7 +5483,7 @@ export const mockShowsData = [
   {
     id: 428,
     venue_id: 223,
-    date: "2023-04-18",
+    date: "18.04.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5500,7 +5500,7 @@ export const mockShowsData = [
   {
     id: 30,
     venue_id: 42,
-    date: "2023-04-26",
+    date: "26.04.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5517,7 +5517,7 @@ export const mockShowsData = [
   {
     id: 31,
     venue_id: 43,
-    date: "2023-05-05",
+    date: "05.05.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5534,7 +5534,7 @@ export const mockShowsData = [
   {
     id: 271,
     venue_id: 42,
-    date: "2023-05-13",
+    date: "13.05.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5551,7 +5551,7 @@ export const mockShowsData = [
   {
     id: 279,
     venue_id: 136,
-    date: "2023-05-27",
+    date: "27.05.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5568,7 +5568,7 @@ export const mockShowsData = [
   {
     id: 470,
     venue_id: 262,
-    date: "2023-06-16",
+    date: "16.06.2023",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -5585,7 +5585,7 @@ export const mockShowsData = [
   {
     id: 10,
     venue_id: 10,
-    date: "2023-06-17",
+    date: "17.06.2023",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -5603,7 +5603,7 @@ export const mockShowsData = [
   {
     id: 471,
     venue_id: 263,
-    date: "2023-06-18",
+    date: "18.06.2023",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -5620,7 +5620,7 @@ export const mockShowsData = [
   {
     id: 472,
     venue_id: 265,
-    date: "2023-06-19",
+    date: "19.06.2023",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -5637,7 +5637,7 @@ export const mockShowsData = [
   {
     id: 473,
     venue_id: 264,
-    date: "2023-06-20",
+    date: "20.06.2023",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -5654,7 +5654,7 @@ export const mockShowsData = [
   {
     id: 32,
     venue_id: 44,
-    date: "2023-07-26",
+    date: "26.07.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5671,7 +5671,7 @@ export const mockShowsData = [
   {
     id: 33,
     venue_id: 26,
-    date: "2023-08-12",
+    date: "12.08.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5688,7 +5688,7 @@ export const mockShowsData = [
   {
     id: 34,
     venue_id: 26,
-    date: "2023-08-16",
+    date: "16.08.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5705,7 +5705,7 @@ export const mockShowsData = [
   {
     id: 280,
     venue_id: 136,
-    date: "2023-08-20",
+    date: "20.08.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5722,7 +5722,7 @@ export const mockShowsData = [
   {
     id: 130,
     venue_id: 1,
-    date: "2023-08-30",
+    date: "30.08.2023",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -5739,7 +5739,7 @@ export const mockShowsData = [
   {
     id: 429,
     venue_id: 225,
-    date: "2023-09-01",
+    date: "01.09.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5756,7 +5756,7 @@ export const mockShowsData = [
   {
     id: 104,
     venue_id: 26,
-    date: "2023-09-09",
+    date: "09.09.2023",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -5773,7 +5773,7 @@ export const mockShowsData = [
   {
     id: 35,
     venue_id: 44,
-    date: "2023-09-23",
+    date: "23.09.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5790,7 +5790,7 @@ export const mockShowsData = [
   {
     id: 161,
     venue_id: 12,
-    date: "2023-10-06",
+    date: "06.10.2023",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -5807,7 +5807,7 @@ export const mockShowsData = [
   {
     id: 36,
     venue_id: 42,
-    date: "2023-10-13",
+    date: "13.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5824,7 +5824,7 @@ export const mockShowsData = [
   {
     id: 37,
     venue_id: 45,
-    date: "2023-10-20",
+    date: "20.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5841,7 +5841,7 @@ export const mockShowsData = [
   {
     id: 38,
     venue_id: 46,
-    date: "2023-10-21",
+    date: "21.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5858,7 +5858,7 @@ export const mockShowsData = [
   {
     id: 39,
     venue_id: 47,
-    date: "2023-10-22",
+    date: "22.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5875,7 +5875,7 @@ export const mockShowsData = [
   {
     id: 40,
     venue_id: 48,
-    date: "2023-10-23",
+    date: "23.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5892,7 +5892,7 @@ export const mockShowsData = [
   {
     id: 41,
     venue_id: 49,
-    date: "2023-10-24",
+    date: "24.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5909,7 +5909,7 @@ export const mockShowsData = [
   {
     id: 42,
     venue_id: 51,
-    date: "2023-10-25",
+    date: "25.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5926,7 +5926,7 @@ export const mockShowsData = [
   {
     id: 43,
     venue_id: 50,
-    date: "2023-10-26",
+    date: "26.10.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5943,7 +5943,7 @@ export const mockShowsData = [
   {
     id: 159,
     venue_id: 92,
-    date: "2023-11-25",
+    date: "25.11.2023",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -5960,7 +5960,7 @@ export const mockShowsData = [
   {
     id: 345,
     venue_id: 173,
-    date: "2023-12-02",
+    date: "02.12.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5977,7 +5977,7 @@ export const mockShowsData = [
   {
     id: 344,
     venue_id: 156,
-    date: "2023-12-03",
+    date: "03.12.2023",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -5994,7 +5994,7 @@ export const mockShowsData = [
   {
     id: 157,
     venue_id: 92,
-    date: "2023-12-23",
+    date: "23.12.2023",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -6011,7 +6011,7 @@ export const mockShowsData = [
   {
     id: 343,
     venue_id: 26,
-    date: "2024-02-02",
+    date: "02.02.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6028,7 +6028,7 @@ export const mockShowsData = [
   {
     id: 465,
     venue_id: 261,
-    date: "2024-02-17",
+    date: "17.02.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6045,7 +6045,7 @@ export const mockShowsData = [
   {
     id: 261,
     venue_id: 44,
-    date: "2024-03-29",
+    date: "29.03.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6062,7 +6062,7 @@ export const mockShowsData = [
   {
     id: 272,
     venue_id: 42,
-    date: "2024-04-05",
+    date: "05.04.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6079,7 +6079,7 @@ export const mockShowsData = [
   {
     id: 341,
     venue_id: 172,
-    date: "2024-04-06",
+    date: "06.04.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6096,7 +6096,7 @@ export const mockShowsData = [
   {
     id: 119,
     venue_id: 12,
-    date: "2024-04-25",
+    date: "25.04.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6113,7 +6113,7 @@ export const mockShowsData = [
   {
     id: 401,
     venue_id: 137,
-    date: "2024-05-11",
+    date: "11.05.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6130,7 +6130,7 @@ export const mockShowsData = [
   {
     id: 342,
     venue_id: 26,
-    date: "2024-05-17",
+    date: "17.05.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6147,7 +6147,7 @@ export const mockShowsData = [
   {
     id: 105,
     venue_id: 26,
-    date: "2024-05-18",
+    date: "18.05.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6164,7 +6164,7 @@ export const mockShowsData = [
   {
     id: 340,
     venue_id: 171,
-    date: "2024-05-24",
+    date: "24.05.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6181,7 +6181,7 @@ export const mockShowsData = [
   {
     id: 338,
     venue_id: 26,
-    date: "2024-06-07",
+    date: "07.06.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6198,7 +6198,7 @@ export const mockShowsData = [
   {
     id: 339,
     venue_id: 106,
-    date: "2024-06-09",
+    date: "09.06.2024",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -6215,7 +6215,7 @@ export const mockShowsData = [
   {
     id: 399,
     venue_id: 212,
-    date: "2024-07-13",
+    date: "13.07.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6232,7 +6232,7 @@ export const mockShowsData = [
   {
     id: 398,
     venue_id: 213,
-    date: "2024-07-17",
+    date: "17.07.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6249,7 +6249,7 @@ export const mockShowsData = [
   {
     id: 356,
     venue_id: 26,
-    date: "2024-07-27",
+    date: "27.07.2024",
     band_id: 5,
     band_slug: "yesterdays-numbers",
     band_name: "Yesterday's Numbers",
@@ -6266,7 +6266,7 @@ export const mockShowsData = [
   {
     id: 355,
     venue_id: 26,
-    date: "2024-08-24",
+    date: "24.08.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6283,7 +6283,7 @@ export const mockShowsData = [
   {
     id: 400,
     venue_id: 214,
-    date: "2024-08-25",
+    date: "25.08.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6300,7 +6300,7 @@ export const mockShowsData = [
   {
     id: 5,
     venue_id: 4,
-    date: "2024-08-26",
+    date: "26.08.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6317,7 +6317,7 @@ export const mockShowsData = [
   {
     id: 357,
     venue_id: 181,
-    date: "2024-08-30",
+    date: "30.08.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6335,7 +6335,7 @@ export const mockShowsData = [
   {
     id: 358,
     venue_id: 182,
-    date: "2024-08-31",
+    date: "31.08.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6352,7 +6352,7 @@ export const mockShowsData = [
   {
     id: 359,
     venue_id: 183,
-    date: "2024-09-01",
+    date: "01.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6369,7 +6369,7 @@ export const mockShowsData = [
   {
     id: 349,
     venue_id: 177,
-    date: "2024-09-02",
+    date: "02.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6386,7 +6386,7 @@ export const mockShowsData = [
   {
     id: 350,
     venue_id: 178,
-    date: "2024-09-03",
+    date: "03.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6403,7 +6403,7 @@ export const mockShowsData = [
   {
     id: 336,
     venue_id: 168,
-    date: "2024-09-04",
+    date: "04.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6421,7 +6421,7 @@ export const mockShowsData = [
   {
     id: 352,
     venue_id: 39,
-    date: "2024-09-05",
+    date: "05.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6438,7 +6438,7 @@ export const mockShowsData = [
   {
     id: 353,
     venue_id: 179,
-    date: "2024-09-06",
+    date: "06.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6455,7 +6455,7 @@ export const mockShowsData = [
   {
     id: 337,
     venue_id: 170,
-    date: "2024-09-07",
+    date: "07.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6472,7 +6472,7 @@ export const mockShowsData = [
   {
     id: 354,
     venue_id: 148,
-    date: "2024-09-08",
+    date: "08.09.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6489,7 +6489,7 @@ export const mockShowsData = [
   {
     id: 291,
     venue_id: 15,
-    date: "2024-09-13",
+    date: "13.09.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6506,7 +6506,7 @@ export const mockShowsData = [
   {
     id: 360,
     venue_id: 184,
-    date: "2024-09-20",
+    date: "20.09.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6523,7 +6523,7 @@ export const mockShowsData = [
   {
     id: 335,
     venue_id: 12,
-    date: "2024-10-09",
+    date: "09.10.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6540,7 +6540,7 @@ export const mockShowsData = [
   {
     id: 334,
     venue_id: 44,
-    date: "2024-10-19",
+    date: "19.10.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6557,7 +6557,7 @@ export const mockShowsData = [
   {
     id: 333,
     venue_id: 42,
-    date: "2024-11-08",
+    date: "08.11.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6574,7 +6574,7 @@ export const mockShowsData = [
   {
     id: 424,
     venue_id: 213,
-    date: "2024-11-14",
+    date: "14.11.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6591,7 +6591,7 @@ export const mockShowsData = [
   {
     id: 425,
     venue_id: 222,
-    date: "2024-11-15",
+    date: "15.11.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6608,7 +6608,7 @@ export const mockShowsData = [
   {
     id: 423,
     venue_id: 221,
-    date: "2024-11-16",
+    date: "16.11.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6625,7 +6625,7 @@ export const mockShowsData = [
   {
     id: 422,
     venue_id: 172,
-    date: "2024-11-20",
+    date: "20.11.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6642,7 +6642,7 @@ export const mockShowsData = [
   {
     id: 332,
     venue_id: 158,
-    date: "2024-11-30",
+    date: "30.11.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6660,7 +6660,7 @@ export const mockShowsData = [
   {
     id: 420,
     venue_id: 26,
-    date: "2024-12-13",
+    date: "13.12.2024",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6677,7 +6677,7 @@ export const mockShowsData = [
   {
     id: 421,
     venue_id: 26,
-    date: "2024-12-13",
+    date: "13.12.2024",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6694,7 +6694,7 @@ export const mockShowsData = [
   {
     id: 331,
     venue_id: 44,
-    date: "2024-12-14",
+    date: "14.12.2024",
     band_id: 5,
     band_slug: "yesterdays-numbers",
     band_name: "Yesterday's Numbers",
@@ -6711,7 +6711,7 @@ export const mockShowsData = [
   {
     id: 419,
     venue_id: 43,
-    date: "2025-01-25",
+    date: "25.01.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6728,7 +6728,7 @@ export const mockShowsData = [
   {
     id: 346,
     venue_id: 84,
-    date: "2025-01-31",
+    date: "31.01.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6745,7 +6745,7 @@ export const mockShowsData = [
   {
     id: 347,
     venue_id: 174,
-    date: "2025-02-01",
+    date: "01.02.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6762,7 +6762,7 @@ export const mockShowsData = [
   {
     id: 348,
     venue_id: 176,
-    date: "2025-02-02",
+    date: "02.02.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6779,7 +6779,7 @@ export const mockShowsData = [
   {
     id: 418,
     venue_id: 12,
-    date: "2025-02-06",
+    date: "06.02.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6796,7 +6796,7 @@ export const mockShowsData = [
   {
     id: 417,
     venue_id: 220,
-    date: "2025-02-14",
+    date: "14.02.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6813,7 +6813,7 @@ export const mockShowsData = [
   {
     id: 416,
     venue_id: 12,
-    date: "2025-03-22",
+    date: "22.03.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6830,7 +6830,7 @@ export const mockShowsData = [
   {
     id: 128,
     venue_id: 26,
-    date: "2025-03-27",
+    date: "27.03.2025",
     band_id: 5,
     band_slug: "yesterdays-numbers",
     band_name: "Yesterday's Numbers",
@@ -6847,7 +6847,7 @@ export const mockShowsData = [
   {
     id: 330,
     venue_id: 106,
-    date: "2025-04-12",
+    date: "12.04.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6864,7 +6864,7 @@ export const mockShowsData = [
   {
     id: 326,
     venue_id: 166,
-    date: "2025-04-17",
+    date: "17.04.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6882,7 +6882,7 @@ export const mockShowsData = [
   {
     id: 327,
     venue_id: 165,
-    date: "2025-04-18",
+    date: "18.04.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6899,7 +6899,7 @@ export const mockShowsData = [
   {
     id: 328,
     venue_id: 167,
-    date: "2025-04-20",
+    date: "20.04.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6916,7 +6916,7 @@ export const mockShowsData = [
   {
     id: 415,
     venue_id: 11,
-    date: "2025-05-09",
+    date: "09.05.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6933,7 +6933,7 @@ export const mockShowsData = [
   {
     id: 329,
     venue_id: 44,
-    date: "2025-05-10",
+    date: "10.05.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -6950,7 +6950,7 @@ export const mockShowsData = [
   {
     id: 414,
     venue_id: 219,
-    date: "2025-07-01",
+    date: "01.07.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6967,7 +6967,7 @@ export const mockShowsData = [
   {
     id: 413,
     venue_id: 218,
-    date: "2025-07-02",
+    date: "02.07.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -6984,7 +6984,7 @@ export const mockShowsData = [
   {
     id: 412,
     venue_id: 142,
-    date: "2025-07-03",
+    date: "03.07.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7001,7 +7001,7 @@ export const mockShowsData = [
   {
     id: 411,
     venue_id: 12,
-    date: "2025-07-24",
+    date: "24.07.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7018,7 +7018,7 @@ export const mockShowsData = [
   {
     id: 13,
     venue_id: 20,
-    date: "2025-08-29",
+    date: "29.08.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7035,7 +7035,7 @@ export const mockShowsData = [
   {
     id: 149,
     venue_id: 23,
-    date: "2025-08-30",
+    date: "30.08.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7052,7 +7052,7 @@ export const mockShowsData = [
   {
     id: 150,
     venue_id: 22,
-    date: "2025-08-31",
+    date: "31.08.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7069,7 +7069,7 @@ export const mockShowsData = [
   {
     id: 14,
     venue_id: 21,
-    date: "2025-09-01",
+    date: "01.09.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7086,7 +7086,7 @@ export const mockShowsData = [
   {
     id: 152,
     venue_id: 87,
-    date: "2025-09-02",
+    date: "02.09.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7103,7 +7103,7 @@ export const mockShowsData = [
   {
     id: 153,
     venue_id: 88,
-    date: "2025-09-03",
+    date: "03.09.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7121,7 +7121,7 @@ export const mockShowsData = [
   {
     id: 154,
     venue_id: 89,
-    date: "2025-09-04",
+    date: "04.09.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7138,7 +7138,7 @@ export const mockShowsData = [
   {
     id: 155,
     venue_id: 90,
-    date: "2025-09-05",
+    date: "05.09.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7155,7 +7155,7 @@ export const mockShowsData = [
   {
     id: 156,
     venue_id: 91,
-    date: "2025-09-06",
+    date: "06.09.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7172,7 +7172,7 @@ export const mockShowsData = [
   {
     id: 410,
     venue_id: 26,
-    date: "2025-09-13",
+    date: "13.09.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7189,7 +7189,7 @@ export const mockShowsData = [
   {
     id: 129,
     venue_id: 12,
-    date: "2025-10-03",
+    date: "03.10.2025",
     band_id: 5,
     band_slug: "yesterdays-numbers",
     band_name: "Yesterday's Numbers",
@@ -7206,7 +7206,7 @@ export const mockShowsData = [
   {
     id: 409,
     venue_id: 3,
-    date: "2025-10-04",
+    date: "04.10.2025",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -7223,7 +7223,7 @@ export const mockShowsData = [
   {
     id: 408,
     venue_id: 12,
-    date: "2025-10-16",
+    date: "16.10.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7240,7 +7240,7 @@ export const mockShowsData = [
   {
     id: 15,
     venue_id: 25,
-    date: "2025-10-18",
+    date: "18.10.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7257,7 +7257,7 @@ export const mockShowsData = [
   {
     id: 147,
     venue_id: 84,
-    date: "2025-10-19",
+    date: "19.10.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7274,7 +7274,7 @@ export const mockShowsData = [
   {
     id: 146,
     venue_id: 53,
-    date: "2025-10-20",
+    date: "20.10.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7291,7 +7291,7 @@ export const mockShowsData = [
   {
     id: 142,
     venue_id: 12,
-    date: "2025-11-07",
+    date: "07.11.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7308,7 +7308,7 @@ export const mockShowsData = [
   {
     id: 143,
     venue_id: 42,
-    date: "2025-11-14",
+    date: "14.11.2025",
     band_id: 5,
     band_slug: "yesterdays-numbers",
     band_name: "Yesterday's Numbers",
@@ -7325,7 +7325,7 @@ export const mockShowsData = [
   {
     id: 144,
     venue_id: 82,
-    date: "2025-11-28",
+    date: "28.11.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7342,7 +7342,7 @@ export const mockShowsData = [
   {
     id: 145,
     venue_id: 83,
-    date: "2025-11-29",
+    date: "29.11.2025",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7359,7 +7359,7 @@ export const mockShowsData = [
   {
     id: 148,
     venue_id: 1,
-    date: "2025-12-06",
+    date: "06.12.2025",
     band_id: 5,
     band_slug: "yesterdays-numbers",
     band_name: "Yesterday's Numbers",
@@ -7376,7 +7376,7 @@ export const mockShowsData = [
   {
     id: 407,
     venue_id: 12,
-    date: "2025-12-12",
+    date: "12.12.2025",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7393,7 +7393,7 @@ export const mockShowsData = [
   {
     id: 406,
     venue_id: 217,
-    date: "2026-02-07",
+    date: "07.02.2026",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7410,7 +7410,7 @@ export const mockShowsData = [
   {
     id: 322,
     venue_id: 161,
-    date: "2026-02-13",
+    date: "13.02.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7427,7 +7427,7 @@ export const mockShowsData = [
   {
     id: 323,
     venue_id: 162,
-    date: "2026-02-14",
+    date: "14.02.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7444,7 +7444,7 @@ export const mockShowsData = [
   {
     id: 324,
     venue_id: 163,
-    date: "2026-02-15",
+    date: "15.02.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7461,7 +7461,7 @@ export const mockShowsData = [
   {
     id: 325,
     venue_id: 164,
-    date: "2026-02-15",
+    date: "15.02.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7478,7 +7478,7 @@ export const mockShowsData = [
   {
     id: 321,
     venue_id: 3,
-    date: "2026-03-13",
+    date: "13.03.2026",
     band_id: 6,
     band_slug: "the-chair",
     band_name: "The Chair",
@@ -7495,7 +7495,7 @@ export const mockShowsData = [
   {
     id: 404,
     venue_id: 216,
-    date: "2026-03-14",
+    date: "14.03.2026",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7512,7 +7512,7 @@ export const mockShowsData = [
   {
     id: 405,
     venue_id: 216,
-    date: "2026-03-14",
+    date: "14.03.2026",
     band_id: 2,
     band_slug: "nato-coles",
     band_name: "Nato Coles & BDB",
@@ -7529,7 +7529,7 @@ export const mockShowsData = [
   {
     id: 320,
     venue_id: 95,
-    date: "2026-03-21",
+    date: "21.03.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7546,7 +7546,7 @@ export const mockShowsData = [
   {
     id: 319,
     venue_id: 159,
-    date: "2026-03-22",
+    date: "22.03.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7563,7 +7563,7 @@ export const mockShowsData = [
   {
     id: 402,
     venue_id: 4,
-    date: "2026-03-31",
+    date: "31.03.2026",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7580,7 +7580,7 @@ export const mockShowsData = [
   {
     id: 314,
     venue_id: 155,
-    date: "2026-04-09",
+    date: "09.04.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7597,7 +7597,7 @@ export const mockShowsData = [
   {
     id: 316,
     venue_id: 156,
-    date: "2026-04-10",
+    date: "10.04.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7614,7 +7614,7 @@ export const mockShowsData = [
   {
     id: 317,
     venue_id: 157,
-    date: "2026-04-11",
+    date: "11.04.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7631,7 +7631,7 @@ export const mockShowsData = [
   {
     id: 318,
     venue_id: 158,
-    date: "2026-04-18",
+    date: "18.04.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7649,7 +7649,7 @@ export const mockShowsData = [
   {
     id: 469,
     venue_id: 44,
-    date: "2026-04-24",
+    date: "24.04.2026",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",
@@ -7666,7 +7666,7 @@ export const mockShowsData = [
   {
     id: 313,
     venue_id: 12,
-    date: "2026-04-26",
+    date: "26.04.2026",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -7683,7 +7683,7 @@ export const mockShowsData = [
   {
     id: 310,
     venue_id: 56,
-    date: "2026-05-17",
+    date: "17.05.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7701,7 +7701,7 @@ export const mockShowsData = [
   {
     id: 312,
     venue_id: 154,
-    date: "2026-06-05",
+    date: "05.06.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7718,7 +7718,7 @@ export const mockShowsData = [
   {
     id: 304,
     venue_id: 146,
-    date: "2026-06-08",
+    date: "08.06.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7735,7 +7735,7 @@ export const mockShowsData = [
   {
     id: 305,
     venue_id: 39,
-    date: "2026-06-09",
+    date: "09.06.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7752,7 +7752,7 @@ export const mockShowsData = [
   {
     id: 306,
     venue_id: 147,
-    date: "2026-06-10",
+    date: "10.06.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7769,7 +7769,7 @@ export const mockShowsData = [
   {
     id: 307,
     venue_id: 148,
-    date: "2026-06-11",
+    date: "11.06.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7786,7 +7786,7 @@ export const mockShowsData = [
   {
     id: 308,
     venue_id: 149,
-    date: "2026-06-12",
+    date: "12.06.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7803,7 +7803,7 @@ export const mockShowsData = [
   {
     id: 309,
     venue_id: 150,
-    date: "2026-06-13",
+    date: "13.06.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7820,7 +7820,7 @@ export const mockShowsData = [
   {
     id: 311,
     venue_id: 152,
-    date: "2026-07-07",
+    date: "07.07.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7837,7 +7837,7 @@ export const mockShowsData = [
   {
     id: 300,
     venue_id: 143,
-    date: "2026-07-10",
+    date: "10.07.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7854,7 +7854,7 @@ export const mockShowsData = [
   {
     id: 301,
     venue_id: 144,
-    date: "2026-07-11",
+    date: "11.07.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7871,7 +7871,7 @@ export const mockShowsData = [
   {
     id: 302,
     venue_id: 145,
-    date: "2026-07-12",
+    date: "12.07.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7888,7 +7888,7 @@ export const mockShowsData = [
   {
     id: 297,
     venue_id: 140,
-    date: "2026-07-17",
+    date: "17.07.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7905,7 +7905,7 @@ export const mockShowsData = [
   {
     id: 298,
     venue_id: 141,
-    date: "2026-07-18",
+    date: "18.07.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7922,7 +7922,7 @@ export const mockShowsData = [
   {
     id: 299,
     venue_id: 142,
-    date: "2026-07-19",
+    date: "19.07.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7939,7 +7939,7 @@ export const mockShowsData = [
   {
     id: 296,
     venue_id: 139,
-    date: "2026-08-08",
+    date: "08.08.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7956,7 +7956,7 @@ export const mockShowsData = [
   {
     id: 294,
     venue_id: 138,
-    date: "2026-08-15",
+    date: "15.08.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -7973,7 +7973,7 @@ export const mockShowsData = [
   {
     id: 295,
     venue_id: 138,
-    date: "2026-08-15",
+    date: "15.08.2026",
     band_id: 4,
     band_slug: "luke-lecheler",
     band_name: "Luke Lecheler",
@@ -7990,7 +7990,7 @@ export const mockShowsData = [
   {
     id: 292,
     venue_id: 12,
-    date: "2026-09-05",
+    date: "05.09.2026",
     band_id: 3,
     band_slug: "slow-death",
     band_name: "The Slow Death",
@@ -8007,7 +8007,7 @@ export const mockShowsData = [
   {
     id: 403,
     venue_id: 215,
-    date: "2026-09-05",
+    date: "05.09.2026",
     band_id: 1,
     band_slug: "right-here",
     band_name: "The Right Here",

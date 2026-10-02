@@ -27,7 +27,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@tanstack/react-table": "^9.2.4"
+    "@tanstack/react-table": "^9.2.4",
+    "lodash.debounce": "^4.0.8"
   },
   "peerDependencies": {
     "react": "^19.2.0",
@@ -41,6 +42,7 @@
     "@storybook/addon-themes": "^10.2.0",
     "@storybook/addon-vitest": "^10.1.11",
     "@storybook/react-vite": "^10.1.11",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",

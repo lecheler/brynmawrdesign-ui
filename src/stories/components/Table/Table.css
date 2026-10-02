@@ -23,6 +23,9 @@
     cursor: pointer;
     font-size: var(--table-header-font-size);
     background-color: var(--color-accent);
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
     color: var(--color-text-inverse);
 
     padding: var(--table-header-padding-y) var(--table-header-padding-x);
