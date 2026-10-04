@@ -8,7 +8,7 @@ export default defineConfig({
   clean: true,
   shims: true,
   loader: {
-    ".svg": "file",
+    ".svg": "text",
   },
   outDir: "dist",
   external: ["react", "react-dom"],
