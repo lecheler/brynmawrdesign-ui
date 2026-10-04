@@ -1,17 +1,8 @@
-.bmd-text-input {
-  display: inline-flex;
-  align-items: center;
-  width: 100%;
-}
-
-.bmd-text-input__control {
-  width: 100%;
-  /* height: var(--input-height); */
+.bmd-input {
   padding: var(--input-padding-y-md) var(--input-padding-x-md);
 
-  font-size: var(--input-font-size);
+  /* font-size: var(--input-font-size); */
   font-weight: var(--input-font-weight);
-  /* color: var(--input-text); */
 
   background-color: var(--input-bg);
   border: var(--input-border-width) solid var(--input-tone);

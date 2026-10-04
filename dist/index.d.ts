@@ -15,7 +15,7 @@ type AsProp$4<E extends React.ElementType> = {
 };
 type PropsToOmit$3<E extends React.ElementType, P> = keyof (AsProp$4<E> & P);
 type PolymorphicProps$3<E extends React.ElementType, P> = React.PropsWithChildren<P & AsProp$4<E>> & Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit$3<E, P>>;
-type InlineGap = 1 | 2 | 3 | 4;
+type InlineGap = 0 | 1 | 2 | 3 | 4;
 type InlineAlign = "flex-start" | "center" | "flex-end" | "baseline";
 type InlineOwnProps = {
     /**
@@ -115,14 +115,19 @@ interface ButtonProps extends React__default.ButtonHTMLAttributes<HTMLButtonElem
 /** Primary UI component for user interaction */
 declare const Button: ({ label, children, icon, iconPosition, variant, tone, size, shape, disabled, ...props }: ButtonProps) => React__default.JSX.Element;
 
-interface TextInputProps extends React__default.InputHTMLAttributes<HTMLInputElement> {
-    state?: "default" | "error" | "success";
-}
-declare const TextInput: React__default.ForwardRefExoticComponent<TextInputProps & React__default.RefAttributes<HTMLInputElement>>;
+declare const Input: ({ placeholder, onChange, debounceDelay, ...props }: {
+    [x: string]: any;
+    placeholder: any;
+    onChange: any;
+    debounceDelay?: number;
+}) => React__default.JSX.Element;
 
 interface TableProps<TData> {
     data: TData[];
     columns: Array<ColumnDef<typeof features, TData>>;
+}
+interface MyColumnMeta {
+    filterVariant?: "text" | "range" | "select" | "dateRange";
 }
 declare const features: {
     rowSortingFeature: _tanstack_react_table.TableFeature;
@@ -132,8 +137,16 @@ declare const features: {
         text: _tanstack_react_table.CreatedSortFn<any, any>;
         datetime: _tanstack_react_table.CreatedSortFn<any, any>;
     };
-    rowPaginationFeature: _tanstack_react_table.TableFeature;
     paginatedRowModel: (table: _tanstack_react_table.Table<any, any>) => () => _tanstack_react_table.RowModel<any, any>;
+    columnFilteringFeature: _tanstack_react_table.TableFeature;
+    filterFns: {
+        includesString: _tanstack_react_table.CreatedFilterFn<any, any>;
+        inNumberRange: _tanstack_react_table.CreatedFilterFn<any, any>;
+        inDateRange: _tanstack_react_table.CreatedFilterFn<any, any>;
+        equalsString: _tanstack_react_table.CreatedFilterFn<any, any>;
+    };
+    columnMeta: MyColumnMeta;
+    rowPaginationFeature: _tanstack_react_table.TableFeature;
 };
 declare function Table<TData>({ data, columns }: TableProps<TData>): React__default.JSX.Element;
 
@@ -195,4 +208,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, LayoutContainer, Pie, type PieData, Stack, type StackProps, Table, Text, TextInput, type TextInputProps, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Pie, type PieData, Stack, type StackProps, Table, Text, type TextProps };

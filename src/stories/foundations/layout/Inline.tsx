@@ -15,7 +15,7 @@ type PolymorphicProps<E extends React.ElementType, P> = React.PropsWithChildren<
   Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit<E, P>>;
 // ----------------------------------------------------------------
 
-type InlineGap = 1 | 2 | 3 | 4;
+type InlineGap = 0 | 1 | 2 | 3 | 4;
 type InlineAlign = "flex-start" | "center" | "flex-end" | "baseline";
 
 type InlineOwnProps = {

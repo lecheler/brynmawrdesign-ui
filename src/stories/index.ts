@@ -11,7 +11,7 @@ export * from "./foundations/typography/Text";
 
 /* Components */
 export * from "./components/Button/Button";
-export * from "./components/TextInput/TextInput";
+export * from "./components/Input/Input";
 export * from "./components/Table/Table";
 export * from "./components/Card/Card";
 

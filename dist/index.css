@@ -65,6 +65,7 @@
 :root {
   --color-surface: #ffffff;
   --color-surface-subtle: var(--color-gray-50);
+  --color-surface-strong: var(--color-gray-300);
   --color-text: var(--color-gray-700);
   --color-text-muted: var(--color-gray-600);
   --color-text-inverse: #ffffff;
@@ -265,8 +266,8 @@
   --input-height-sm: 2rem;
   --input-height-md: 2.5rem;
   --input-height-lg: 3rem;
-  --input-padding-y-md: calc(var(--font-size-md) / 2);
-  --input-padding-x-md: var(--font-size-md);
+  --input-padding-y-md: var(--space-1);
+  --input-padding-x-md: var(--space-2);
   --input-font-weight: var(--font-weight-regular);
   --input-font-size: var(--font-size-md);
   --input-border-width: 1px;
@@ -280,13 +281,16 @@
 :root {
   --table-header-font-size: var(--font-size-sm);
   --table-row-font-size: var(--font-size-xs);
-  --table-row-even: var(--color-surface);
-  --table-row-odd: var(--color-surface-subtle);
+  --table-row-even-color: var(--color-surface);
+  --table-row-odd-color: var(--color-surface-subtle);
+  --table-controls-color: var(--color-surface);
   --table-header-padding-y: var(--space-2);
   --table-header-padding-x: var(--space-4);
   --table-row-padding-y: var(--space-3);
   --table-row-padding-x: var(--space-4);
   --table-icon-padding-x: var(--space-1);
+  --table-controls-padding-y: var(--space-4);
+  --table-controls-padding-x: var(--space-0);
 }
 
 /* src/stories/foundations/tokens/charts.css */
@@ -630,16 +634,9 @@ select {
   border-radius: var(--button-radius-pill);
 }
 
-/* src/stories/components/TextInput/TextInput.css */
-.bmd-text-input {
-  display: inline-flex;
-  align-items: center;
-  width: 100%;
-}
-.bmd-text-input__control {
-  width: 100%;
+/* src/stories/components/Input/Input.css */
+.bmd-input {
   padding: var(--input-padding-y-md) var(--input-padding-x-md);
-  font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
   background-color: var(--input-bg);
   border: var(--input-border-width) solid var(--input-tone);
@@ -686,14 +683,17 @@ select {
     cursor: pointer;
     font-size: var(--table-header-font-size);
     background-color: var(--color-accent);
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
     color: var(--color-text-inverse);
     padding: var(--table-header-padding-y) var(--table-header-padding-x);
   }
   tr {
     font-size: var(--table-row-font-size);
-    background-color: var(--table-row-odd);
+    background-color: var(--table-row-odd-color);
     &:nth-child(even) {
-      background-color: var(--table-row-even);
+      background-color: var(--table-row-even-color);
     }
   }
 }
@@ -704,7 +704,14 @@ select {
 }
 .bmd-table__pagination-controls-wrapper {
   display: flex;
+  justify-content: flex-end;
+  border-top: solid 1px var(--table-row-odd-color);
   font-size: var(--table-row-font-size);
+  padding: var(--table-controls-padding-y) var(--table-controls-padding-x);
+  background-color: var(--table-controls-color);
+  select {
+    padding: var(--input-padding-y-md) var(--input-padding-x-md);
+  }
 }
 
 /* src/stories/components/Card/Card.css */
