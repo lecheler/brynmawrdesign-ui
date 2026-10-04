@@ -63,7 +63,7 @@ export function Table<TData>({ data, columns }: TableProps<TData>) {
 
   const filterColumns = React.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {
-      console.log("col:", col);
+      // console.log("col:", col);
       return {
         ...col,
         meta: { ...col.meta, filterVariant: col.meta?.filterVariant ?? "text" },
@@ -71,7 +71,7 @@ export function Table<TData>({ data, columns }: TableProps<TData>) {
     });
   }, []);
 
-  console.log("filterColumns:", filterColumns);
+  // console.log("filterColumns:", filterColumns);
 
   const table = useTable({
     columns: filterColumns,

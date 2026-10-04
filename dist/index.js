@@ -124,11 +124,12 @@ var Icon = ({
   ...rest
 }) => {
   const iconUrl = ICONS[name];
+  console.log("iconUrl:", iconUrl, "name:", name, "className:", className);
   const maskStyles = {
+    /* 🌟 Safely wrapped in escaped double quotes to satisfy the browser's CSS string token parsers */
     maskImage: `url("${iconUrl}")`,
     WebkitMaskImage: `url("${iconUrl}")`,
     ...style
-    // Merge user-passed style overrides safely
   };
   return /* @__PURE__ */ import_react.default.createElement(
     "span",
@@ -356,14 +357,12 @@ function Table({ data, columns }) {
   const filterColumns = import_react6.default.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {
       var _a2;
-      console.log("col:", col);
       return {
         ...col,
         meta: { ...col.meta, filterVariant: ((_a2 = col.meta) == null ? void 0 : _a2.filterVariant) ?? "text" }
       };
     });
   }, []);
-  console.log("filterColumns:", filterColumns);
   const table = (0, import_react_table.useTable)({
     columns: filterColumns,
     data,

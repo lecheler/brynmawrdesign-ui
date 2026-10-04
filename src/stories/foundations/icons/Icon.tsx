@@ -58,21 +58,20 @@ export const Icon: React.FC<IconProps> = ({
   ...rest
 }) => {
   const iconUrl = ICONS[name] as unknown as string;
+  console.log("iconUrl:", iconUrl, "name:", name, "className:", className);
 
-  // 1. Explicitly construct the mandatory mask styling block beforehand
   const maskStyles: React.CSSProperties = {
-    maskImage: `url("${iconUrl}")`,
-    WebkitMaskImage: `url("${iconUrl}")`,
-    ...style, // Merge user-passed style overrides safely
+    /* 🌟 Safely wrapped in escaped double quotes to satisfy the browser's CSS string token parsers */
+    maskImage: `url(\"${iconUrl}\")`,
+    WebkitMaskImage: `url(\"${iconUrl}\")`,
+    ...style,
   };
 
   return (
     <span
-      // 2. Spread parameters first so they act as base defaults
       {...rest}
       className={["bmd-icon", className].filter(Boolean).join(" ")}
       aria-hidden={rest["aria-label"] ? undefined : true}
-      // 3. Force your custom styles parameter to apply last so it can't be cleared out
       style={maskStyles}
     />
   );

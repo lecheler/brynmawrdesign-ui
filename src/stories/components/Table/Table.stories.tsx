@@ -129,7 +129,7 @@ export const Shows = meta.story({
         accessorKey: "date",
         // A locale-independent date format keeps the demo (and its tests) stable
         cell: (info) => {
-          console.log("info:", info.getValue());
+          // console.log("info:", info.getValue());
           // return info.getValue().toISOString().slice(0, 10);
           return info.getValue();
         },
