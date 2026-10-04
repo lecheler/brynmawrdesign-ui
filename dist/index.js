@@ -124,24 +124,23 @@ var Icon = ({
   ...rest
 }) => {
   const iconUrl = ICONS[name];
-  const getSafeMaskUrl = (url) => {
-    if (!url) return "";
-    if (url.startsWith("data:image/svg+xml") && !url.includes("base64")) {
+  const getSafeMaskUrl = (input) => {
+    if (!input) return "";
+    if (input.trim().startsWith("<svg")) {
       try {
-        const rawContent = decodeURIComponent(url.split(",")[1]);
-        const base64 = window.btoa(unescape(encodeURIComponent(rawContent)));
+        const base64 = window.btoa(unescape(encodeURIComponent(input.trim())));
         return `data:image/svg+xml;base64,${base64}`;
       } catch (e) {
-        console.error("Failed to decode raw SVG data string:", e);
+        console.error("Failed to compile SVG to Base64:", e);
       }
     }
-    return url;
+    return input;
   };
   const cleanUrl = getSafeMaskUrl(iconUrl);
   const maskStyles = {
-    /* Safe single quotes since the dynamic helper ensures the string contains zero quote mismatches! */
-    maskImage: `url('${cleanUrl}')`,
-    WebkitMaskImage: `url('${cleanUrl}')`,
+    /* Wrapped in safe double quotes */
+    maskImage: `url("${cleanUrl}")`,
+    WebkitMaskImage: `url("${cleanUrl}")`,
     ...style
   };
   return /* @__PURE__ */ import_react.default.createElement(

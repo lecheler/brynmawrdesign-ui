@@ -59,33 +59,31 @@ export const Icon: React.FC<IconProps> = ({
 }) => {
   const iconUrl = ICONS[name] as unknown as string;
 
-  // 🌟 THE ULTIMATE FIX: Dynamically normalize the path for the CSS Mask engine
-  const getSafeMaskUrl = (url: string): string => {
-    if (!url) return "";
+  // Normalizes development asset tracks and text strings cleanly
+  const getSafeMaskUrl = (input: string): string => {
+    if (!input) return "";
 
-    // Condition A: If it's a raw un-encoded SVG text block, safely convert it to binary Base64 on-the-fly
-    if (url.startsWith("data:image/svg+xml") && !url.includes("base64")) {
+    // If it's a raw SVG XML text string (emitted by your production tsup text loader)
+    if (input.trim().startsWith("<svg")) {
       try {
-        // Extract the pure XML content out of the data URL header
-        const rawContent = decodeURIComponent(url.split(",")[1]);
-        // Convert to safe, quote-immune Base64
-        const base64 = window.btoa(unescape(encodeURIComponent(rawContent)));
+        // Convert the XML text string directly to a quote-safe Base64 string at runtime
+        const base64 = window.btoa(unescape(encodeURIComponent(input.trim())));
         return `data:image/svg+xml;base64,${base64}`;
       } catch (e) {
-        console.error("Failed to decode raw SVG data string:", e);
+        console.error("Failed to compile SVG to Base64:", e);
       }
     }
 
-    // Condition B: If it's already a Base64 string or a plain file path url, return it exactly as-is
-    return url;
+    // Otherwise, it's a standard development server URL path string (used by Storybook)
+    return input;
   };
 
   const cleanUrl = getSafeMaskUrl(iconUrl);
 
   const maskStyles: React.CSSProperties = {
-    /* Safe single quotes since the dynamic helper ensures the string contains zero quote mismatches! */
-    maskImage: `url('${cleanUrl}')`,
-    WebkitMaskImage: `url('${cleanUrl}')`,
+    /* Wrapped in safe double quotes */
+    maskImage: `url(\"${cleanUrl}\")`,
+    WebkitMaskImage: `url(\"${cleanUrl}\")`,
     ...style,
   };
 
