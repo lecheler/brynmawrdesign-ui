@@ -52,41 +52,41 @@ module.exports = __toCommonJS(index_exports);
 // src/stories/foundations/icons/Icon.tsx
 var import_react = __toESM(require("react"));
 
-// src/stories/foundations/icons/svgs/arrow-up.svg
-var arrow_up_default = "./arrow-up-3BUZU7MW.svg";
+// src/stories/foundations/icons/svgs/arrow-up.svg?dataurl
+var arrow_up_default = "./arrow-up-3BUZU7MW.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/arrow-down.svg
-var arrow_down_default = "./arrow-down-UC3DW45F.svg";
+// src/stories/foundations/icons/svgs/arrow-down.svg?dataurl
+var arrow_down_default = "./arrow-down-UC3DW45F.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/chevron-right.svg
-var chevron_right_default = "./chevron-right-II5YWJOF.svg";
+// src/stories/foundations/icons/svgs/chevron-right.svg?dataurl
+var chevron_right_default = "./chevron-right-II5YWJOF.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/chevron-left.svg
-var chevron_left_default = "./chevron-left-TVYHO6QY.svg";
+// src/stories/foundations/icons/svgs/chevron-left.svg?dataurl
+var chevron_left_default = "./chevron-left-TVYHO6QY.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/chevrons-right.svg
-var chevrons_right_default = "./chevrons-right-MZD2ZCXU.svg";
+// src/stories/foundations/icons/svgs/chevrons-right.svg?dataurl
+var chevrons_right_default = "./chevrons-right-MZD2ZCXU.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/chevrons-left.svg
-var chevrons_left_default = "./chevrons-left-LHQMOWOR.svg";
+// src/stories/foundations/icons/svgs/chevrons-left.svg?dataurl
+var chevrons_left_default = "./chevrons-left-LHQMOWOR.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/check.svg
-var check_default = "./check-MXJ5KKUA.svg";
+// src/stories/foundations/icons/svgs/check.svg?dataurl
+var check_default = "./check-MXJ5KKUA.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/download.svg
-var download_default = "./download-DK4EID7J.svg";
+// src/stories/foundations/icons/svgs/download.svg?dataurl
+var download_default = "./download-DK4EID7J.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/exclamation.svg
-var exclamation_default = "./exclamation-7SPEH4QI.svg";
+// src/stories/foundations/icons/svgs/exclamation.svg?dataurl
+var exclamation_default = "./exclamation-7SPEH4QI.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/magnifying-glass.svg
-var magnifying_glass_default = "./magnifying-glass-VMYKROB3.svg";
+// src/stories/foundations/icons/svgs/magnifying-glass.svg?dataurl
+var magnifying_glass_default = "./magnifying-glass-VMYKROB3.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/star.svg
-var star_default = "./star-NLC236RJ.svg";
+// src/stories/foundations/icons/svgs/star.svg?dataurl
+var star_default = "./star-NLC236RJ.svg?dataurl";
 
-// src/stories/foundations/icons/svgs/x.svg
-var x_default = "./x-2HNMQE4D.svg";
+// src/stories/foundations/icons/svgs/x.svg?dataurl
+var x_default = "./x-2HNMQE4D.svg?dataurl";
 
 // src/stories/foundations/icons/index.ts
 var ArrowUp = arrow_up_default;
