@@ -2,40 +2,40 @@
 import React from "react";
 
 // src/stories/foundations/icons/svgs/arrow-up.svg
-var arrow_up_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M342.9 73.4L320.3 50.8L297.7 73.4L137.7 233.4L115.1 256L160.4 301.3C161.7 300 204.4 257.3 288.4 173.3L288.4 576L352.4 576L352.4 173.3C436.4 257.3 479.1 300 480.4 301.3L525.7 256L503.1 233.4L343.1 73.4z" />%0A</svg>%0A';
+var arrow_up_default = "./arrow-up-FT5MG5QD.svg";
 
 // src/stories/foundations/icons/svgs/arrow-down.svg
-var arrow_down_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M297.6 566.6L320.2 589.2L342.8 566.6L502.8 406.6L525.4 384L480.1 338.7C478.8 340 436.1 382.7 352.1 466.7L352.1 64L288.1 64L288.1 466.7C204.1 382.7 161.4 340 160.1 338.7L114.8 384L137.4 406.6L297.4 566.6z" />%0A</svg>%0A';
+var arrow_down_default = "./arrow-down-VCCFSVB3.svg";
 
 // src/stories/foundations/icons/svgs/chevron-right.svg
-var chevron_right_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M477.5 320L454.9 342.6L262.9 534.6L240.3 557.3L195 512L217.6 489.4L387 320L217.6 150.6L195 128L240.3 82.7L262.9 105.4L454.9 297.4L477.5 320z" />%0A</svg>%0A';
+var chevron_right_default = "./chevron-right-WNL7UYAV.svg";
 
 // src/stories/foundations/icons/svgs/chevron-left.svg
-var chevron_left_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M163 320L185.6 342.6L377.6 534.6L400.2 557.2L445.5 511.9L422.9 489.3L253.5 319.9L422.9 150.5L445.5 127.9L400.2 82.6L377.6 105.2L185.6 297.2L163 319.8z" />%0A</svg>%0A';
+var chevron_left_default = "./chevron-left-G3SBE5GB.svg";
 
 // src/stories/foundations/icons/svgs/chevrons-right.svg
-var chevrons_right_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">%0A  <path%0A    d="M342.9 342.6L365.5 320L342.9 297.4L150.9 105.4L128.3 82.7L83 128L105.6 150.6L275 320L105.6 489.4L83 512L128.3 557.3L150.9 534.6L342.9 342.6zM534.9 342.6L557.5 320L534.9 297.4L342.9 105.4L320.3 82.8L275 128.1L297.6 150.7L467 320.1L297.6 489.5L275 512.1L320.3 557.4L342.9 534.8L534.9 342.8z" />%0A</svg>%0A';
+var chevrons_right_default = "./chevrons-right-MZD2ZCXU.svg";
 
 // src/stories/foundations/icons/svgs/chevrons-left.svg
-var chevrons_left_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M105.6 297.4L83 320L105.6 342.6L297.6 534.6L320.2 557.2L365.5 511.9L342.9 489.3L173.5 319.9L342.9 150.5L365.5 127.9L320.2 82.6L297.6 105.2L105.6 297.2zM297.6 297.4L275 320L297.6 342.6L489.6 534.6L512.2 557.2L557.5 511.9L534.9 489.3L365.5 319.9L534.9 150.5L557.5 127.9L512.2 82.6L489.6 105.2L297.6 297.2z" />%0A</svg>%0A';
+var chevrons_left_default = "./chevrons-left-VW2JFNKN.svg";
 
 // src/stories/foundations/icons/svgs/check.svg
-var check_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M557 152.9L538.2 178.8L282.2 530.8L260.2 561.1C259.5 560.4 208 508.9 105.7 406.6L83 384L128.3 338.7C130.2 340.6 171.6 382 252.4 462.8L486.4 141.1L505.2 115.2L557 152.8z" />%0A</svg>%0A';
+var check_default = "./check-NRM6WQNT.svg";
 
 // src/stories/foundations/icons/svgs/download.svg
-var download_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M352 96L352 64L288 64L288 306.7C257.3 276 236 254.7 224 242.7L178.7 288C181.6 290.9 221.1 330.4 297.3 406.6L320 429.3C322.9 426.4 362.4 386.9 438.6 310.7L461.3 288L416 242.7C404 254.7 382.7 276 352 306.7L352 96zM96 384L96 544L544 544L544 384L433.1 384C395.4 421.7 357.7 459.4 320 497.1C282.3 459.4 244.6 421.7 206.9 384L96 384zM464 440C477.3 440 488 450.7 488 464C488 477.3 477.3 488 464 488C450.7 488 440 477.3 440 464C440 450.7 450.7 440 464 440z" />%0A</svg>%0A';
+var download_default = "./download-LO4EVFVQ.svg";
 
 // src/stories/foundations/icons/svgs/exclamation.svg
-var exclamation_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path d="M352 576L288 576L288 512L352 512L352 576zM352 448L288 448L272 64L368 64L352 448z" />%0A</svg>%0A';
+var exclamation_default = "./exclamation-45S2GXVS.svg";
 
 // src/stories/foundations/icons/svgs/magnifying-glass.svg
-var magnifying_glass_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M480.3 272C480.3 317.9 465.4 360.3 440.3 394.7L566.9 521.4L589.5 544L544.3 589.3L521.6 566.6L395 440C360.6 465.2 318.2 480 272.3 480C157.4 480 64.3 386.9 64.3 272C64.3 157.1 157.4 64 272.3 64C387.2 64 480.3 157.1 480.3 272zM272.3 416C351.8 416 416.3 351.5 416.3 272C416.3 192.5 351.8 128 272.3 128C192.8 128 128.3 192.5 128.3 272C128.3 351.5 192.8 416 272.3 416z" />%0A</svg>%0A';
+var magnifying_glass_default = "./magnifying-glass-B4KJJ7B6.svg";
 
 // src/stories/foundations/icons/svgs/star.svg
-var star_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">%0A  <path%0A    d="M320.2 11.2L227.6 192.6L26.5 224.6L170.4 368.7L138.7 569.9L320.2 477.6L501.7 569.9L470 368.7L613.9 224.6L412.8 192.6L320.2 11.2z" />%0A</svg>%0A';
+var star_default = "./star-NLC236RJ.svg";
 
 // src/stories/foundations/icons/svgs/x.svg
-var x_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M182.9 137.4L160.3 114.7L115 160L137.6 182.6L275 320L137.6 457.4L115 480L160.3 525.3L182.9 502.6L320.3 365.3L457.6 502.6L480.3 525.3L525.5 480L502.9 457.4L365.5 320L502.9 182.6L525.5 160L480.3 114.7L457.6 137.4L320.3 274.7L182.9 137.4z" />%0A</svg>%0A';
+var x_default = "./x-2HNMQE4D.svg";
 
 // src/stories/foundations/icons/index.ts
 var ArrowUp = arrow_up_default;
@@ -77,8 +77,9 @@ var Icon = ({ name, className, ...rest }) => {
       "aria-hidden": rest["aria-label"] ? void 0 : true,
       style: {
         ...rest.style,
-        maskImage: `url("${iconUrl}")`,
-        WebkitMaskImage: `url("${iconUrl}")`
+        /* Pristine clean standard quotes */
+        maskImage: `url('${iconUrl}')`,
+        WebkitMaskImage: `url('${iconUrl}')`
       }
     }
   );
@@ -232,21 +233,45 @@ var Button = ({
   );
 };
 
-// src/stories/components/TextInput/TextInput.tsx
-import React9 from "react";
-var TextInput = React9.forwardRef(
-  function TextInput2({ size = "md", state = "default", className, ...props }, ref) {
-    return /* @__PURE__ */ React9.createElement(
-      "div",
-      {
-        className: cx("bmd-text-input", className),
-        "data-size": size,
-        "data-state": state !== "default" ? state : void 0
-      },
-      /* @__PURE__ */ React9.createElement("input", { ref, className: "bmd-text-input__control", ...props })
-    );
-  }
-);
+// src/stories/components/Input/Input.tsx
+import React9, { useState, useEffect, useMemo } from "react";
+import debounce from "lodash.debounce";
+var Input = ({
+  placeholder,
+  onChange,
+  debounceDelay = 0,
+  // 0 means instant execution by default
+  ...props
+}) => {
+  const [localValue, setLocalValue] = useState("");
+  const debouncedOnChange = useMemo(() => {
+    if (!debounceDelay) return onChange;
+    return debounce((nextValue) => {
+      onChange(nextValue);
+    }, debounceDelay);
+  }, [onChange, debounceDelay]);
+  useEffect(() => {
+    return () => {
+      if (debouncedOnChange == null ? void 0 : debouncedOnChange.cancel) debouncedOnChange.cancel();
+    };
+  }, [debouncedOnChange]);
+  const handleChange = (e) => {
+    const val = e.target.value;
+    setLocalValue(val);
+    debouncedOnChange(val);
+  };
+  return /* @__PURE__ */ React9.createElement(
+    "input",
+    {
+      className: "bmd-input",
+      type: "text",
+      value: localValue,
+      onChange: handleChange,
+      placeholder,
+      ...props
+    }
+  );
+};
 
 // src/stories/components/Table/Table.tsx
 import React10 from "react";
@@ -258,7 +283,14 @@ import {
   sortFn_alphanumeric,
   sortFn_text,
   sortFn_datetime,
+  columnFilteringFeature,
+  createColumnHelper,
   createPaginatedRowModel,
+  filterFn_equalsString,
+  filterFn_inDateRange,
+  filterFn_inNumberRange,
+  filterFn_includesString,
+  metaHelper,
   rowPaginationFeature
 } from "@tanstack/react-table";
 var features = tableFeatures({
@@ -269,12 +301,32 @@ var features = tableFeatures({
     text: sortFn_text,
     datetime: sortFn_datetime
   },
-  rowPaginationFeature,
-  paginatedRowModel: createPaginatedRowModel()
+  paginatedRowModel: createPaginatedRowModel(),
+  columnFilteringFeature,
+  filterFns: {
+    includesString: filterFn_includesString,
+    inNumberRange: filterFn_inNumberRange,
+    inDateRange: filterFn_inDateRange,
+    equalsString: filterFn_equalsString
+  },
+  columnMeta: metaHelper(),
+  rowPaginationFeature
 });
 function Table({ data, columns }) {
+  const columnHelper = createColumnHelper();
+  const filterColumns = React10.useMemo(() => {
+    return columnHelper.columns(columns).map((col) => {
+      var _a2;
+      console.log("col:", col);
+      return {
+        ...col,
+        meta: { ...col.meta, filterVariant: ((_a2 = col.meta) == null ? void 0 : _a2.filterVariant) ?? "text" }
+      };
+    });
+  }, []);
+  console.log("filterColumns:", filterColumns);
   const table = useTable({
-    columns,
+    columns: filterColumns,
     data,
     features
   });
@@ -286,10 +338,12 @@ function Table({ data, columns }) {
       title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
     },
     /* @__PURE__ */ React10.createElement(table.FlexRender, { header }),
-    {
+    /* @__PURE__ */ React10.createElement("div", null, {
       asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
       desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
-    }[header.column.getIsSorted()] ?? null
+    }[header.column.getIsSorted()] ?? null),
+    header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement(Filter, { column: header.column })) : null,
+    /* @__PURE__ */ React10.createElement("div", null)
   )))))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }));
 }
 var PaginationControls = ({ table }) => {
@@ -315,7 +369,7 @@ var PaginationControls = ({ table }) => {
       disabled: !table.getCanLastPage()
     }
   ];
-  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ React10.createElement("div", { className: "controls" }, /* @__PURE__ */ React10.createElement(Inline, { gap: 4 }, /* @__PURE__ */ React10.createElement("div", null, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ React10.createElement(
+  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ React10.createElement(Inline, { gap: 3 }, /* @__PURE__ */ React10.createElement(Inline, { gap: 0 }, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ React10.createElement(
     Button,
     {
       key: icon,
@@ -327,9 +381,11 @@ var PaginationControls = ({ table }) => {
       tone: "neutral",
       variant: "ghost"
     }
-  ))), /* @__PURE__ */ React10.createElement(Inline, null, /* @__PURE__ */ React10.createElement(Inline, { gap: 1 }, "Page", /* @__PURE__ */ React10.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), "| Go to page:", /* @__PURE__ */ React10.createElement(
-    "input",
+  ))), /* @__PURE__ */ React10.createElement(Inline, { gap: 1 }, /* @__PURE__ */ React10.createElement("span", null, "Page"), /* @__PURE__ */ React10.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), /* @__PURE__ */ React10.createElement("span", null, "| Go to page:"), /* @__PURE__ */ React10.createElement(
+    Input,
     {
+      placeholder: "Page #",
+      name: "page-index",
       type: "number",
       min: "1",
       max: table.getPageCount(),
@@ -337,12 +393,12 @@ var PaginationControls = ({ table }) => {
       onChange: (e) => {
         const page = e.target.value ? Number(e.target.value) - 1 : 0;
         table.setPageIndex(page);
-      },
-      className: "page-size-input"
+      }
     }
-  ), /* @__PURE__ */ React10.createElement(
+  )), /* @__PURE__ */ React10.createElement(
     "select",
     {
+      name: "page-row-size",
       value: table.state.pagination.pageSize,
       onChange: (e) => {
         table.setPageSize(Number(e.target.value));
@@ -350,8 +406,89 @@ var PaginationControls = ({ table }) => {
     },
     [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ React10.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
     /* @__PURE__ */ React10.createElement("option", { value: Infinity }, "Show All")
-  ))))));
+  )), /* @__PURE__ */ React10.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
 };
+function Filter({
+  column
+}) {
+  const columnFilterValue = column.getFilterValue();
+  const { filterVariant } = column.columnDef.meta ?? {};
+  console.log(
+    "columnFilterValue:",
+    columnFilterValue,
+    "filterVariant:",
+    filterVariant
+  );
+  return filterVariant === "dateRange" ? /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("div", { className: "filter-row" }, /* @__PURE__ */ React10.createElement(
+    Input,
+    {
+      placeholder: `Min`,
+      type: "date",
+      "aria-label": `${column.id} min`,
+      value: (columnFilterValue == null ? void 0 : columnFilterValue[0]) ?? "",
+      onChange: (value) => column.setFilterValue((old) => [
+        value,
+        old == null ? void 0 : old[1]
+      ]),
+      className: "filter-input"
+    }
+  ), /* @__PURE__ */ React10.createElement(
+    Input,
+    {
+      placeholder: `Max`,
+      type: "date",
+      "aria-label": `${column.id} max`,
+      value: (columnFilterValue == null ? void 0 : columnFilterValue[1]) ?? "",
+      onChange: (value) => column.setFilterValue((old) => [
+        old == null ? void 0 : old[0],
+        value
+      ]),
+      className: "filter-input"
+    }
+  )), /* @__PURE__ */ React10.createElement("div", { className: "spacer-xs" })) : filterVariant === "range" ? /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("div", { className: "filter-row" }, /* @__PURE__ */ React10.createElement(
+    Input,
+    {
+      type: "number",
+      value: (columnFilterValue == null ? void 0 : columnFilterValue[0]) ?? "",
+      onChange: (value) => column.setFilterValue((old) => [
+        value,
+        old == null ? void 0 : old[1]
+      ]),
+      placeholder: `Min`,
+      className: "filter-input"
+    }
+  ), /* @__PURE__ */ React10.createElement(
+    Input,
+    {
+      type: "number",
+      value: (columnFilterValue == null ? void 0 : columnFilterValue[1]) ?? "",
+      onChange: (value) => column.setFilterValue((old) => [
+        old == null ? void 0 : old[0],
+        value
+      ]),
+      placeholder: `Max`,
+      className: "filter-input"
+    }
+  )), /* @__PURE__ */ React10.createElement("div", { className: "spacer-xs" })) : filterVariant === "select" ? /* @__PURE__ */ React10.createElement(
+    "select",
+    {
+      onChange: (e) => column.setFilterValue(e.target.value),
+      value: columnFilterValue == null ? void 0 : columnFilterValue.toString()
+    },
+    /* @__PURE__ */ React10.createElement("option", { value: "" }, "All"),
+    /* @__PURE__ */ React10.createElement("option", { value: "complicated" }, "complicated"),
+    /* @__PURE__ */ React10.createElement("option", { value: "relationship" }, "relationship"),
+    /* @__PURE__ */ React10.createElement("option", { value: "single" }, "single")
+  ) : /* @__PURE__ */ React10.createElement(
+    Input,
+    {
+      onChange: (value) => column.setFilterValue(value),
+      placeholder: `Search...`,
+      type: "text",
+      value: columnFilterValue ?? ""
+    }
+  );
+}
 
 // src/stories/components/Card/Card.tsx
 import React11 from "react";
@@ -397,7 +534,7 @@ import React15 from "react";
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 import { jsx as jsx3, Fragment } from "react/jsx-runtime";
-import { useMemo as useMemo2, useRef as useRef4, useState, useContext as useContext3 } from "react";
+import { useMemo as useMemo3, useRef as useRef4, useState as useState2, useContext as useContext3 } from "react";
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
 import { createContext } from "react";
@@ -414,18 +551,18 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-import { useLayoutEffect, useEffect } from "react";
+import { useLayoutEffect, useEffect as useEffect2 } from "react";
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect;
+var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect2;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 import { jsx as jsx2 } from "react/jsx-runtime";
 import * as React14 from "react";
-import { useId as useId2, useRef as useRef3, useMemo } from "react";
+import { useId as useId2, useRef as useRef3, useMemo as useMemo2 } from "react";
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
 import { createContext as createContext2 } from "react";
@@ -7378,7 +7515,7 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
     onExitCompleteRef.current = onExitComplete;
   });
   let isReusedContext = true;
-  let context = useMemo(() => {
+  let context = useMemo2(() => {
     isReusedContext = false;
     return {
       id: id3,
@@ -7406,7 +7543,7 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   if (presenceAffectsLayout && isReusedContext) {
     context = { ...context };
   }
-  useMemo(() => {
+  useMemo2(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
   React14.useEffect(() => {
@@ -7420,14 +7557,14 @@ function newChildrenMap() {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-import { useContext as useContext2, useId as useId3, useEffect as useEffect3, useCallback as useCallback2 } from "react";
+import { useContext as useContext2, useId as useId3, useEffect as useEffect4, useCallback as useCallback2 } from "react";
 function usePresence(subscribe = true) {
   const context = useContext2(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
   const id3 = useId3();
-  useEffect3(() => {
+  useEffect4(() => {
     if (subscribe) {
       return register(id3);
     }
@@ -7451,14 +7588,14 @@ function onlyElements(children) {
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 var AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", anchorY = "top", root }) => {
   const [isParentPresent, safeToRemove] = usePresence(propagate);
-  const presentChildren = useMemo2(() => onlyElements(children), [children]);
+  const presentChildren = useMemo3(() => onlyElements(children), [children]);
   const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(getChildKey);
   const isInitialRender = useRef4(true);
   const pendingPresentChildren = useRef4(presentChildren);
   const exitComplete = useConstant(() => /* @__PURE__ */ new Map());
   const exitingComponents = useRef4(/* @__PURE__ */ new Set());
-  const [diffedChildren, setDiffedChildren] = useState(presentChildren);
-  const [renderedChildren, setRenderedChildren] = useState(presentChildren);
+  const [diffedChildren, setDiffedChildren] = useState2(presentChildren);
+  const [renderedChildren, setRenderedChildren] = useState2(presentChildren);
   useIsomorphicLayoutEffect(() => {
     if (propagate && !isParentPresent && !renderedChildren.length) {
       safeToRemove == null ? void 0 : safeToRemove();
@@ -7596,7 +7733,7 @@ import { createContext as createContext5 } from "react";
 var MotionContext = /* @__PURE__ */ createContext5({});
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
-import { useContext as useContext4, useMemo as useMemo3 } from "react";
+import { useContext as useContext4, useMemo as useMemo4 } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
 function getCurrentTreeVariants(props, context) {
@@ -7613,17 +7750,17 @@ function getCurrentTreeVariants(props, context) {
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
 function useCreateMotionContext(props) {
   const { initial, animate } = getCurrentTreeVariants(props, useContext4(MotionContext));
-  return useMemo3(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
+  return useMemo4(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
 }
 function variantLabelsAsDependency(prop) {
   return Array.isArray(prop) ? prop.join(" ") : prop;
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-import { Fragment as Fragment2, useMemo as useMemo6, createElement as createElement5 } from "react";
+import { Fragment as Fragment2, useMemo as useMemo7, createElement as createElement5 } from "react";
 
 // node_modules/framer-motion/dist/es/render/html/use-props.mjs
-import { useMemo as useMemo4 } from "react";
+import { useMemo as useMemo5 } from "react";
 
 // node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
 var createHtmlRenderState = () => ({
@@ -7642,7 +7779,7 @@ function copyRawValuesOnly(target, source, props) {
   }
 }
 function useInitialMotionValues({ transformTemplate }, visualState) {
-  return useMemo4(() => {
+  return useMemo5(() => {
     const state = createHtmlRenderState();
     buildHTMLStyles(state, visualState, transformTemplate);
     return Object.assign({}, state.vars, state.style);
@@ -7671,7 +7808,7 @@ function useHTMLProps(props, visualState) {
 }
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
-import { useMemo as useMemo5 } from "react";
+import { useMemo as useMemo6 } from "react";
 
 // node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
 var createSvgRenderState = () => ({
@@ -7681,7 +7818,7 @@ var createSvgRenderState = () => ({
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
 function useSVGProps(props, visualState, _isStatic, Component3) {
-  const visualProps = useMemo5(() => {
+  const visualProps = useMemo6(() => {
     const state = createSvgRenderState();
     buildSVGAttrs(state, visualState, isSVGTag(Component3), props.transformTemplate, props.style);
     return {
@@ -7817,7 +7954,7 @@ function useRender(Component3, props, ref, { latestValues }, isStatic, forwardMo
   const filteredProps = filterProps(props, typeof Component3 === "string", forwardMotionProps, isValidProp);
   const elementProps = Component3 !== Fragment2 ? { ...filteredProps, ...visualProps, ref } : {};
   const { children } = props;
-  const renderedChildren = useMemo6(() => isMotionValue(children) ? children.get() : children, [children]);
+  const renderedChildren = useMemo7(() => isMotionValue(children) ? children.get() : children, [children]);
   return createElement5(Component3, {
     ...elementProps,
     children: renderedChildren
@@ -7933,7 +8070,7 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect4 } from "react";
+import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect5 } from "react";
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
 import { createContext as createContext6 } from "react";
@@ -7996,7 +8133,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  useEffect4(() => {
+  useEffect5(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -9593,11 +9730,11 @@ export {
   Heading,
   Icon,
   Inline,
+  Input,
   LayoutContainer,
   Pie,
   Stack,
   Table,
-  Text,
-  TextInput
+  Text
 };
 //# sourceMappingURL=index.mjs.map

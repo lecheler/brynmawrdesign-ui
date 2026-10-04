@@ -51,22 +51,29 @@ export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
 }
 
-export const Icon: React.FC<IconProps> = ({ name, className, ...rest }) => {
+export const Icon: React.FC<IconProps> = ({
+  name,
+  className,
+  style,
+  ...rest
+}) => {
   const iconUrl = ICONS[name] as unknown as string;
-  // 🌟 Temporary diagnostic log
-  console.log(`Icon registry lookup for "${name}":`, iconUrl);
+
+  // 1. Explicitly construct the mandatory mask styling block beforehand
+  const maskStyles: React.CSSProperties = {
+    maskImage: `url("${iconUrl}")`,
+    WebkitMaskImage: `url("${iconUrl}")`,
+    ...style, // Merge user-passed style overrides safely
+  };
+
   return (
     <span
+      // 2. Spread parameters first so they act as base defaults
       {...rest}
       className={["bmd-icon", className].filter(Boolean).join(" ")}
       aria-hidden={rest["aria-label"] ? undefined : true}
-      style={
-        {
-          ...rest.style,
-          maskImage: `url(\"${iconUrl}\")`,
-          WebkitMaskImage: `url(\"${iconUrl}\")`,
-        } as React.CSSProperties
-      }
+      // 3. Force your custom styles parameter to apply last so it can't be cleared out
+      style={maskStyles}
     />
   );
 };
