@@ -53,40 +53,40 @@ module.exports = __toCommonJS(index_exports);
 var import_react = __toESM(require("react"));
 
 // src/stories/foundations/icons/svgs/arrow-up.svg
-var arrow_up_default = "./arrow-up-FT5MG5QD.svg";
+var arrow_up_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M342.9 73.4L320.3 50.8L297.7 73.4L137.7 233.4L115.1 256L160.4 301.3C161.7 300 204.4 257.3 288.4 173.3L288.4 576L352.4 576L352.4 173.3C436.4 257.3 479.1 300 480.4 301.3L525.7 256L503.1 233.4L343.1 73.4z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/arrow-down.svg
-var arrow_down_default = "./arrow-down-VCCFSVB3.svg";
+var arrow_down_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M297.6 566.6L320.2 589.2L342.8 566.6L502.8 406.6L525.4 384L480.1 338.7C478.8 340 436.1 382.7 352.1 466.7L352.1 64L288.1 64L288.1 466.7C204.1 382.7 161.4 340 160.1 338.7L114.8 384L137.4 406.6L297.4 566.6z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/chevron-right.svg
-var chevron_right_default = "./chevron-right-WNL7UYAV.svg";
+var chevron_right_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M477.5 320L454.9 342.6L262.9 534.6L240.3 557.3L195 512L217.6 489.4L387 320L217.6 150.6L195 128L240.3 82.7L262.9 105.4L454.9 297.4L477.5 320z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/chevron-left.svg
-var chevron_left_default = "./chevron-left-G3SBE5GB.svg";
+var chevron_left_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M163 320L185.6 342.6L377.6 534.6L400.2 557.2L445.5 511.9L422.9 489.3L253.5 319.9L422.9 150.5L445.5 127.9L400.2 82.6L377.6 105.2L185.6 297.2L163 319.8z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/chevrons-right.svg
-var chevrons_right_default = "./chevrons-right-MZD2ZCXU.svg";
+var chevrons_right_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">%0A  <path%0A    d="M342.9 342.6L365.5 320L342.9 297.4L150.9 105.4L128.3 82.7L83 128L105.6 150.6L275 320L105.6 489.4L83 512L128.3 557.3L150.9 534.6L342.9 342.6zM534.9 342.6L557.5 320L534.9 297.4L342.9 105.4L320.3 82.8L275 128.1L297.6 150.7L467 320.1L297.6 489.5L275 512.1L320.3 557.4L342.9 534.8L534.9 342.8z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/chevrons-left.svg
-var chevrons_left_default = "./chevrons-left-VW2JFNKN.svg";
+var chevrons_left_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.3.1 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M105.6 297.4L83 320L105.6 342.6L297.6 534.6L320.2 557.2L365.5 511.9L342.9 489.3L173.5 319.9L342.9 150.5L365.5 127.9L320.2 82.6L297.6 105.2L105.6 297.2zM297.6 297.4L275 320L297.6 342.6L489.6 534.6L512.2 557.2L557.5 511.9L534.9 489.3L365.5 319.9L534.9 150.5L557.5 127.9L512.2 82.6L489.6 105.2L297.6 297.2z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/check.svg
-var check_default = "./check-NRM6WQNT.svg";
+var check_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M557 152.9L538.2 178.8L282.2 530.8L260.2 561.1C259.5 560.4 208 508.9 105.7 406.6L83 384L128.3 338.7C130.2 340.6 171.6 382 252.4 462.8L486.4 141.1L505.2 115.2L557 152.8z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/download.svg
-var download_default = "./download-LO4EVFVQ.svg";
+var download_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M352 96L352 64L288 64L288 306.7C257.3 276 236 254.7 224 242.7L178.7 288C181.6 290.9 221.1 330.4 297.3 406.6L320 429.3C322.9 426.4 362.4 386.9 438.6 310.7L461.3 288L416 242.7C404 254.7 382.7 276 352 306.7L352 96zM96 384L96 544L544 544L544 384L433.1 384C395.4 421.7 357.7 459.4 320 497.1C282.3 459.4 244.6 421.7 206.9 384L96 384zM464 440C477.3 440 488 450.7 488 464C488 477.3 477.3 488 464 488C450.7 488 440 477.3 440 464C440 450.7 450.7 440 464 440z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/exclamation.svg
-var exclamation_default = "./exclamation-45S2GXVS.svg";
+var exclamation_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path d="M352 576L288 576L288 512L352 512L352 576zM352 448L288 448L272 64L368 64L352 448z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/magnifying-glass.svg
-var magnifying_glass_default = "./magnifying-glass-B4KJJ7B6.svg";
+var magnifying_glass_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M480.3 272C480.3 317.9 465.4 360.3 440.3 394.7L566.9 521.4L589.5 544L544.3 589.3L521.6 566.6L395 440C360.6 465.2 318.2 480 272.3 480C157.4 480 64.3 386.9 64.3 272C64.3 157.1 157.4 64 272.3 64C387.2 64 480.3 157.1 480.3 272zM272.3 416C351.8 416 416.3 351.5 416.3 272C416.3 192.5 351.8 128 272.3 128C192.8 128 128.3 192.5 128.3 272C128.3 351.5 192.8 416 272.3 416z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/star.svg
-var star_default = "./star-NLC236RJ.svg";
+var star_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">%0A  <path%0A    d="M320.2 11.2L227.6 192.6L26.5 224.6L170.4 368.7L138.7 569.9L320.2 477.6L501.7 569.9L470 368.7L613.9 224.6L412.8 192.6L320.2 11.2z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/svgs/x.svg
-var x_default = "./x-2HNMQE4D.svg";
+var x_default = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font%0A  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -%0A  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->%0A  <path%0A    d="M182.9 137.4L160.3 114.7L115 160L137.6 182.6L275 320L137.6 457.4L115 480L160.3 525.3L182.9 502.6L320.3 365.3L457.6 502.6L480.3 525.3L525.5 480L502.9 457.4L365.5 320L502.9 182.6L525.5 160L480.3 114.7L457.6 137.4L320.3 274.7L182.9 137.4z" />%0A</svg>%0A';
 
 // src/stories/foundations/icons/index.ts
 var ArrowUp = arrow_up_default;
@@ -117,21 +117,26 @@ var ICONS = {
   x: X,
   warning: Exclamation
 };
-var Icon = ({ name, className, ...rest }) => {
+var Icon = ({
+  name,
+  className,
+  style,
+  ...rest
+}) => {
   const iconUrl = ICONS[name];
-  console.log(`Icon registry lookup for "${name}":`, iconUrl);
+  const maskStyles = {
+    maskImage: `url("${iconUrl}")`,
+    WebkitMaskImage: `url("${iconUrl}")`,
+    ...style
+    // Merge user-passed style overrides safely
+  };
   return /* @__PURE__ */ import_react.default.createElement(
     "span",
     {
       ...rest,
       className: ["bmd-icon", className].filter(Boolean).join(" "),
       "aria-hidden": rest["aria-label"] ? void 0 : true,
-      style: {
-        ...rest.style,
-        /* Pristine clean standard quotes */
-        maskImage: `url('${iconUrl}')`,
-        WebkitMaskImage: `url('${iconUrl}')`
-      }
+      style: maskStyles
     }
   );
 };
