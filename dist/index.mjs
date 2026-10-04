@@ -2,13 +2,13 @@
 import React from "react";
 
 // src/stories/foundations/icons/svgs/arrow-up.svg
-var arrow_up_default = "./arrow-up-FT5MG5QD.svg";
+var arrow_up_default = "./arrow-up-3BUZU7MW.svg";
 
 // src/stories/foundations/icons/svgs/arrow-down.svg
-var arrow_down_default = "./arrow-down-VCCFSVB3.svg";
+var arrow_down_default = "./arrow-down-UC3DW45F.svg";
 
 // src/stories/foundations/icons/svgs/chevron-right.svg
-var chevron_right_default = "./chevron-right-WNL7UYAV.svg";
+var chevron_right_default = "./chevron-right-II5YWJOF.svg";
 
 // src/stories/foundations/icons/svgs/chevron-left.svg
 var chevron_left_default = "./chevron-left-TVYHO6QY.svg";
@@ -17,19 +17,19 @@ var chevron_left_default = "./chevron-left-TVYHO6QY.svg";
 var chevrons_right_default = "./chevrons-right-MZD2ZCXU.svg";
 
 // src/stories/foundations/icons/svgs/chevrons-left.svg
-var chevrons_left_default = "./chevrons-left-VW2JFNKN.svg";
+var chevrons_left_default = "./chevrons-left-LHQMOWOR.svg";
 
 // src/stories/foundations/icons/svgs/check.svg
-var check_default = "./check-NRM6WQNT.svg";
+var check_default = "./check-MXJ5KKUA.svg";
 
 // src/stories/foundations/icons/svgs/download.svg
-var download_default = "./download-LO4EVFVQ.svg";
+var download_default = "./download-DK4EID7J.svg";
 
 // src/stories/foundations/icons/svgs/exclamation.svg
-var exclamation_default = "./exclamation-45S2GXVS.svg";
+var exclamation_default = "./exclamation-7SPEH4QI.svg";
 
 // src/stories/foundations/icons/svgs/magnifying-glass.svg
-var magnifying_glass_default = "./magnifying-glass-B4KJJ7B6.svg";
+var magnifying_glass_default = "./magnifying-glass-VMYKROB3.svg";
 
 // src/stories/foundations/icons/svgs/star.svg
 var star_default = "./star-NLC236RJ.svg";
@@ -73,11 +73,24 @@ var Icon = ({
   ...rest
 }) => {
   const iconUrl = ICONS[name];
-  console.log("iconUrl:", iconUrl, "name:", name, "className:", className);
+  const getSafeMaskUrl = (url) => {
+    if (!url) return "";
+    if (url.startsWith("data:image/svg+xml") && !url.includes("base64")) {
+      try {
+        const rawContent = decodeURIComponent(url.split(",")[1]);
+        const base64 = window.btoa(unescape(encodeURIComponent(rawContent)));
+        return `data:image/svg+xml;base64,${base64}`;
+      } catch (e) {
+        console.error("Failed to decode raw SVG data string:", e);
+      }
+    }
+    return url;
+  };
+  const cleanUrl = getSafeMaskUrl(iconUrl);
   const maskStyles = {
-    /* 🌟 Clean, safe standard single quotes since the Base64 data string has no internal quotes! */
-    maskImage: `url('${iconUrl}')`,
-    WebkitMaskImage: `url('${iconUrl}')`,
+    /* Safe single quotes since the dynamic helper ensures the string contains zero quote mismatches! */
+    maskImage: `url('${cleanUrl}')`,
+    WebkitMaskImage: `url('${cleanUrl}')`,
     ...style
   };
   return /* @__PURE__ */ React.createElement(
