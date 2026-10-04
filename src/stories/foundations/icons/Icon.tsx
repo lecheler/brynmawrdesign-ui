@@ -58,12 +58,32 @@ export const Icon: React.FC<IconProps> = ({
   ...rest
 }) => {
   const iconUrl = ICONS[name] as unknown as string;
-  console.log("iconUrl:", iconUrl, "name:", name, "className:", className);
+
+  // Normalizes development asset tracks and text strings cleanly
+  const getSafeMaskUrl = (input: string): string => {
+    if (!input) return "";
+
+    // If it's a raw SVG XML text string (emitted by your production tsup text loader)
+    if (input.trim().startsWith("<svg")) {
+      try {
+        // Convert the XML text string directly to a quote-safe Base64 string at runtime
+        const base64 = window.btoa(unescape(encodeURIComponent(input.trim())));
+        return `data:image/svg+xml;base64,${base64}`;
+      } catch (e) {
+        console.error("Failed to compile SVG to Base64:", e);
+      }
+    }
+
+    // Otherwise, it's a standard development server URL path string (used by Storybook)
+    return input;
+  };
+
+  const cleanUrl = getSafeMaskUrl(iconUrl);
 
   const maskStyles: React.CSSProperties = {
-    /* 🌟 Safely wrapped in escaped double quotes to satisfy the browser's CSS string token parsers */
-    maskImage: `url(\"${iconUrl}\")`,
-    WebkitMaskImage: `url(\"${iconUrl}\")`,
+    /* Wrapped in safe double quotes */
+    maskImage: `url(\"${cleanUrl}\")`,
+    WebkitMaskImage: `url(\"${cleanUrl}\")`,
     ...style,
   };
 
