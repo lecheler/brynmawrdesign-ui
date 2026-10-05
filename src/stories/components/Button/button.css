@@ -2,14 +2,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--button-gap);
 
+  font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
+  line-height: var(--button-line-height);
   border-radius: var(--button-radius-default);
   border: 1px solid transparent;
 
-  font-size: var(--button-font-size);
-  font-weight: var(--button-font-weight);
-  line-height: var(--button-line-height);
   white-space: nowrap;
 
   transition:
@@ -57,25 +56,40 @@
 }
 
 /* Sizes */
+.bmd-button[data-size="2xs"] {
+  padding: var(--button-padding-y-2xs) var(--button-padding-x-2xs);
+  font-size: var(--font-size-2xs);
+  gap: var(--button-gap-2xs);
+}
 .bmd-button[data-size="xs"] {
   padding: var(--button-padding-y-xs) var(--button-padding-x-xs);
   font-size: var(--font-size-xs);
+  gap: var(--button-gap-xs);
 }
 .bmd-button[data-size="sm"] {
   padding: var(--button-padding-y-sm) var(--button-padding-x-sm);
   font-size: var(--font-size-sm);
+  gap: var(--button-gap-sm);
 }
 .bmd-button[data-size="md"] {
   padding: var(--button-padding-y-md) var(--button-padding-x-md);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
+  gap: var(--button-gap-md);
 }
 .bmd-button[data-size="lg"] {
   padding: var(--button-padding-y-lg) var(--button-padding-x-lg);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
+  gap: var(--button-gap-lg);
 }
 .bmd-button[data-size="xl"] {
   padding: var(--button-padding-y-xl) var(--button-padding-x-xl);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
+  gap: var(--button-gap-xl);
+}
+.bmd-button[data-size="2xl"] {
+  padding: var(--button-padding-y-2xl) var(--button-padding-x-2xl);
+  font-size: var(--font-size-2xl);
+  gap: var(--button-gap-2xl);
 }
 
 /* Shapes */

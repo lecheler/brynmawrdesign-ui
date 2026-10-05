@@ -12,6 +12,7 @@ import {
   Search,
   Star,
   X,
+  Trash,
 } from "./index";
 
 import "./Icon.css";
@@ -28,7 +29,8 @@ export type IconName =
   | "search"
   | "star"
   | "warning"
-  | "x";
+  | "x"
+  | "trash";
 
 const ICONS: Record<IconName, string> = {
   arrowUp: ArrowUp,
@@ -42,6 +44,7 @@ const ICONS: Record<IconName, string> = {
   search: Search,
   star: Star,
   x: X,
+  trash: Trash,
   warning: Exclamation,
 };
 

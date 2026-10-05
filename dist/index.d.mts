@@ -3,7 +3,7 @@ import React__default, { JSX } from 'react';
 import * as _tanstack_react_table from '@tanstack/react-table';
 import { ColumnDef } from '@tanstack/react-table';
 
-type IconName = "arrowUp" | "arrowDown" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "search" | "star" | "warning" | "x";
+type IconName = "arrowUp" | "arrowDown" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "search" | "star" | "warning" | "x" | "trash";
 interface IconProps extends React__default.HTMLAttributes<HTMLSpanElement> {
     name: IconName;
     className?: string;

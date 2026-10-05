@@ -138,14 +138,22 @@
 /* src/stories/foundations/tokens/spaces.css */
 :root {
   --space-0: 0;
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.125rem;
-  --space-6: 1.25rem;
-  --space-7: 1.5rem;
-  --space-8: 2rem;
+  --space-1: 0.125rem;
+  --space-2: 0.25rem;
+  --space-3: 0.375rem;
+  --space-4: 0.5rem;
+  --space-5: 0.625rem;
+  --space-6: 0.75rem;
+  --space-7: 0.875rem;
+  --space-8: 1rem;
+  --space-9: 1.125rem;
+  --space-10: 1.25rem;
+  --space-11: 1.375rem;
+  --space-12: 1.5rem;
+  --space-13: 1.625rem;
+  --space-14: 1.75rem;
+  --space-15: 1.875rem;
+  --space-16: 2rem;
 }
 
 /* src/stories/foundations/tokens/radii.css */
@@ -188,19 +196,29 @@
 /* src/stories/foundations/tokens/buttons.css */
 :root {
   --button-font-weight: var(--font-weight-semibold);
-  --button-font-size: var(--font-size-sm);
   --button-line-height: var(--line-height-tight);
-  --button-gap: var(--space-1);
-  --button-padding-y-xs: calc(var(--font-size-xs) / 2);
+  --button-font-size: var(--font-size-md);
+  --button-gap-2xs: calc(var(--font-size-2xs)/4);
+  --button-gap-xs: calc(var(--font-size-xs)/4);
+  --button-gap-sm: calc(var(--font-size-sm)/4);
+  --button-gap-md: calc(var(--font-size-md)/4);
+  --button-gap-lg: calc(var(--font-size-lg)/4);
+  --button-gap-xl: calc(var(--font-size-xl)/4);
+  --button-gap-2xl: calc(var(--font-size-2xl)/4);
+  --button-padding-y-2xs: calc(var(--font-size-2xs)/3);
+  --button-padding-x-2xs: var(--font-size-2xs);
+  --button-padding-y-xs: calc(var(--font-size-xs)/3);
   --button-padding-x-xs: var(--font-size-xs);
-  --button-padding-y-sm: calc(var(--font-size-sm) / 2);
+  --button-padding-y-sm: calc(var(--font-size-sm)/3);
   --button-padding-x-sm: var(--font-size-sm);
-  --button-padding-y-md: calc(var(--font-size-md) / 2);
+  --button-padding-y-md: calc(var(--font-size-md)/3);
   --button-padding-x-md: var(--font-size-md);
-  --button-padding-y-lg: calc(var(--font-size-lg) / 2);
+  --button-padding-y-lg: calc(var(--font-size-lg)/3);
   --button-padding-x-lg: var(--font-size-lg);
-  --button-padding-y-xl: calc(var(--font-size-xl) / 2);
+  --button-padding-y-xl: calc(var(--font-size-xl)/3);
   --button-padding-x-xl: var(--font-size-xl);
+  --button-padding-y-2xl: calc(var(--font-size-2xl)/3);
+  --button-padding-x-2xl: var(--font-size-2xl);
   --button-radius-default: 0px;
   --button-radius-rounded: var(--radius-sm);
   --button-radius-pill: var(--radius-pill);
@@ -573,12 +591,11 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--button-gap);
+  font-weight: var(--button-font-weight);
+  font-size: var(--button-font-size);
+  line-height: var(--button-line-height);
   border-radius: var(--button-radius-default);
   border: 1px solid transparent;
-  font-size: var(--button-font-size);
-  font-weight: var(--button-font-weight);
-  line-height: var(--button-line-height);
   white-space: nowrap;
   transition:
     background-color var(--duration-medium) var(--easing-standard),
@@ -614,25 +631,40 @@ select {
 .bmd-button[data-variant=ghost]:not(:disabled):hover {
   background-color: color-mix(in srgb, var(--button-tone) 10%, transparent);
 }
+.bmd-button[data-size="2xs"] {
+  padding: var(--button-padding-y-2xs) var(--button-padding-x-2xs);
+  font-size: var(--font-size-2xs);
+  gap: var(--button-gap-2xs);
+}
 .bmd-button[data-size=xs] {
   padding: var(--button-padding-y-xs) var(--button-padding-x-xs);
   font-size: var(--font-size-xs);
+  gap: var(--button-gap-xs);
 }
 .bmd-button[data-size=sm] {
   padding: var(--button-padding-y-sm) var(--button-padding-x-sm);
   font-size: var(--font-size-sm);
+  gap: var(--button-gap-sm);
 }
 .bmd-button[data-size=md] {
   padding: var(--button-padding-y-md) var(--button-padding-x-md);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
+  gap: var(--button-gap-md);
 }
 .bmd-button[data-size=lg] {
   padding: var(--button-padding-y-lg) var(--button-padding-x-lg);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
+  gap: var(--button-gap-lg);
 }
 .bmd-button[data-size=xl] {
   padding: var(--button-padding-y-xl) var(--button-padding-x-xl);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
+  gap: var(--button-gap-xl);
+}
+.bmd-button[data-size="2xl"] {
+  padding: var(--button-padding-y-2xl) var(--button-padding-x-2xl);
+  font-size: var(--font-size-2xl);
+  gap: var(--button-gap-2xl);
 }
 .bmd-button[data-shape=default] {
   border-radius: var(--button-radius-default);

@@ -6,7 +6,7 @@ import { Inline } from "../../foundations/layout/Inline";
 import { Stack } from "../../foundations/layout/Stack";
 
 const TONES = ["primary", "danger", "success", "warning", "neutral"];
-const SIZES = ["xs", "sm", "md", "lg", "xl"];
+const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"];
 const SHAPES = ["square", "rounded", "pill"];
 const VARIANTS = ["solid", "outlined", "soft", "ghost"];
 const ICON_NAMES = [
@@ -20,6 +20,7 @@ const ICON_NAMES = [
   "star",
   "warning",
   "x",
+  "trash",
 ];
 
 const meta = preview.meta({

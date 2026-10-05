@@ -88,6 +88,9 @@ var star_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640
 // src/stories/foundations/icons/svgs/x.svg
 var x_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font\n  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -\n  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->\n  <path\n    d="M182.9 137.4L160.3 114.7L115 160L137.6 182.6L275 320L137.6 457.4L115 480L160.3 525.3L182.9 502.6L320.3 365.3L457.6 502.6L480.3 525.3L525.5 480L502.9 457.4L365.5 320L502.9 182.6L525.5 160L480.3 114.7L457.6 137.4L320.3 274.7L182.9 137.4z" />\n</svg>\n';
 
+// src/stories/foundations/icons/svgs/trash.svg
+var trash_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n  <path\n    d="M136.7 5.9L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-8.7-26.1C306.9-7.2 294.7-16 280.9-16L167.1-16c-13.8 0-26 8.8-30.4 21.9zM416 144L32 144 53.1 467.1C54.7 492.4 75.7 512 101 512L347 512c25.3 0 46.3-19.6 47.9-44.9L416 144z" />\n</svg>\n';
+
 // src/stories/foundations/icons/index.ts
 var ArrowUp = arrow_up_default;
 var ArrowDown = arrow_down_default;
@@ -101,6 +104,7 @@ var Exclamation = exclamation_default;
 var Search = magnifying_glass_default;
 var Star = star_default;
 var X = x_default;
+var Trash = trash_default;
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {
@@ -115,6 +119,7 @@ var ICONS = {
   search: Search,
   star: Star,
   x: X,
+  trash: Trash,
   warning: Exclamation
 };
 var Icon = ({

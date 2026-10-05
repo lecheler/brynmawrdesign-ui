@@ -1,25 +1,38 @@
 :root {
   /* Fonts */
   --button-font-weight: var(--font-weight-semibold);
-  --button-font-size: var(--font-size-sm);
   --button-line-height: var(--line-height-tight);
+  --button-font-size: var(--font-size-md);
 
   /* Gap & Padding */
-  --button-gap: var(--space-1);
-  --button-padding-y-xs: calc(var(--font-size-xs) / 2);
+  --button-gap-2xs: calc(var(--font-size-2xs)/4);
+  --button-gap-xs: calc(var(--font-size-xs)/4);
+  --button-gap-sm: calc(var(--font-size-sm)/4);
+  --button-gap-md: calc(var(--font-size-md)/4);
+  --button-gap-lg: calc(var(--font-size-lg)/4);
+  --button-gap-xl: calc(var(--font-size-xl)/4);
+  --button-gap-2xl: calc(var(--font-size-2xl)/4);
+
+  --button-padding-y-2xs: calc(var(--font-size-2xs)/3);
+  --button-padding-x-2xs: var(--font-size-2xs);
+
+  --button-padding-y-xs: calc(var(--font-size-xs)/3);
   --button-padding-x-xs: var(--font-size-xs);
 
-  --button-padding-y-sm: calc(var(--font-size-sm) / 2);
+  --button-padding-y-sm: calc(var(--font-size-sm)/3);
   --button-padding-x-sm: var(--font-size-sm);
 
-  --button-padding-y-md: calc(var(--font-size-md) / 2);
+  --button-padding-y-md: calc(var(--font-size-md)/3);
   --button-padding-x-md: var(--font-size-md);
 
-  --button-padding-y-lg: calc(var(--font-size-lg) / 2);
+  --button-padding-y-lg: calc(var(--font-size-lg)/3);
   --button-padding-x-lg: var(--font-size-lg);
 
-  --button-padding-y-xl: calc(var(--font-size-xl) / 2);
+  --button-padding-y-xl: calc(var(--font-size-xl)/3);
   --button-padding-x-xl: var(--font-size-xl);
+
+  --button-padding-y-2xl: calc(var(--font-size-2xl)/3);
+  --button-padding-x-2xl: var(--font-size-2xl);
 
   /* Radius */
   --button-radius-default: 0px;
