@@ -12,6 +12,7 @@ import searchAsset from "./svgs/magnifying-glass.svg";
 import starAsset from "./svgs/star.svg";
 import xAsset from "./svgs/x.svg";
 import trashAsset from "./svgs/trash.svg";
+import penAsset from "./svgs/pen.svg";
 
 // 2. Export the static compiled string variables directly
 export const ArrowUp = arrowUpAsset;
@@ -27,3 +28,4 @@ export const Search = searchAsset;
 export const Star = starAsset;
 export const X = xAsset;
 export const Trash = trashAsset;
+export const Pen = penAsset;

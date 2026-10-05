@@ -21,6 +21,7 @@ const ICON_NAMES = [
   "warning",
   "x",
   "trash",
+  "pen",
 ];
 
 const meta = preview.meta({

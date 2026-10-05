@@ -13,6 +13,7 @@ import {
   Star,
   X,
   Trash,
+  Pen,
 } from "./index";
 
 import "./Icon.css";
@@ -30,7 +31,8 @@ export type IconName =
   | "star"
   | "warning"
   | "x"
-  | "trash";
+  | "trash"
+  | "pen";
 
 const ICONS: Record<IconName, string> = {
   arrowUp: ArrowUp,
@@ -46,6 +48,7 @@ const ICONS: Record<IconName, string> = {
   x: X,
   trash: Trash,
   warning: Exclamation,
+  pen: Pen,
 };
 
 // 1. FIX: Extend HTMLAttributes for a span element instead of SVGProps
