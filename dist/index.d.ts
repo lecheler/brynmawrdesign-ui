@@ -98,7 +98,7 @@ declare function Text<E extends React.ElementType = "p">({ as, size, ...props }:
 
 type ButtonVariant = "solid" | "outlined" | "soft" | "ghost";
 type ButtonTone = "primary" | "danger" | "success" | "warning" | "neutral";
-type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
+type ButtonSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 type ButtonShape = "square" | "rounded" | "pill";
 interface ButtonProps extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
     label?: string;
