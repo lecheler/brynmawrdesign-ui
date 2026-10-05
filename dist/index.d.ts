@@ -181,6 +181,20 @@ declare const Card: typeof CardRoot & {
     Footer: typeof CardFooter;
 };
 
+interface ModalProps {
+    /** Is the modal open? */
+    isOpen: boolean;
+    /** Callback function triggered when closing the modal */
+    onClose: () => void;
+    /** The title text displayed in the header */
+    title?: string;
+    /** The main content inside the modal */
+    children: React__default.ReactNode;
+    /** Optional footer content (e.g., action buttons) */
+    footer?: React__default.ReactNode;
+}
+declare const Modal: React__default.FC<ModalProps>;
+
 interface PieData {
     id: number;
     value: number;
@@ -213,4 +227,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Pie, type PieData, Stack, type StackProps, Table, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, Text, type TextProps };

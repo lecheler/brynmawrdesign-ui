@@ -569,8 +569,42 @@ var Card = Object.assign(CardRoot, {
   Footer: CardFooter
 });
 
+// src/stories/components/Modal/Modal.tsx
+import React12, { useEffect as useEffect2 } from "react";
+var Modal = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  footer
+}) => {
+  useEffect2(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
+  if (!isOpen) return null;
+  return /* @__PURE__ */ React12.createElement("div", { className: "modal-overlay", onClick: onClose }, /* @__PURE__ */ React12.createElement("div", { className: "modal-container", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React12.createElement("header", { className: "modal-header" }, title && /* @__PURE__ */ React12.createElement("h2", { className: "modal-title" }, title), /* @__PURE__ */ React12.createElement(
+    "button",
+    {
+      className: "modal-close-btn",
+      onClick: onClose,
+      "aria-label": "Close modal"
+    },
+    "\xD7"
+  )), /* @__PURE__ */ React12.createElement("main", { className: "modal-content" }, children), footer && /* @__PURE__ */ React12.createElement("footer", { className: "modal-footer" }, footer)));
+};
+
 // src/stories/charts/Pie/Pie.tsx
-import React15 from "react";
+import React16 from "react";
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 import { jsx as jsx3, Fragment } from "react/jsx-runtime";
@@ -591,17 +625,17 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-import { useLayoutEffect, useEffect as useEffect2 } from "react";
+import { useLayoutEffect, useEffect as useEffect3 } from "react";
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect2;
+var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect3;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 import { jsx as jsx2 } from "react/jsx-runtime";
-import * as React14 from "react";
+import * as React15 from "react";
 import { useId as useId2, useRef as useRef3, useMemo as useMemo2 } from "react";
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
@@ -7416,7 +7450,7 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-import * as React13 from "react";
+import * as React14 from "react";
 import { useId, useRef as useRef2, useContext, useInsertionEffect } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
@@ -7428,7 +7462,7 @@ var MotionConfigContext = createContext3({
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-import * as React12 from "react";
+import * as React13 from "react";
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7461,11 +7495,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React12.useCallback(composeRefs(...refs), refs);
+  return React13.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React13.Component {
+var PopChildMeasure = class extends React14.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7541,7 +7575,7 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React13.cloneElement(children, { ref: composedRef }) });
+  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React14.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
@@ -7586,7 +7620,7 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   useMemo2(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React14.useEffect(() => {
+  React15.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = jsx2(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -7597,14 +7631,14 @@ function newChildrenMap() {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-import { useContext as useContext2, useId as useId3, useEffect as useEffect4, useCallback as useCallback2 } from "react";
+import { useContext as useContext2, useId as useId3, useEffect as useEffect5, useCallback as useCallback2 } from "react";
 function usePresence(subscribe = true) {
   const context = useContext2(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
   const id3 = useId3();
-  useEffect4(() => {
+  useEffect5(() => {
     if (subscribe) {
       return register(id3);
     }
@@ -8110,7 +8144,7 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect5 } from "react";
+import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect6 } from "react";
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
 import { createContext as createContext6 } from "react";
@@ -8173,7 +8207,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  useEffect5(() => {
+  useEffect6(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -9570,7 +9604,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React15.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React15.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React15.createElement(Heading, null, title), /* @__PURE__ */ React15.createElement(
+  return /* @__PURE__ */ React16.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React16.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React16.createElement(Heading, null, title), /* @__PURE__ */ React16.createElement(
     motion2.svg,
     {
       width: size,
@@ -9578,7 +9612,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React15.createElement(
+    /* @__PURE__ */ React16.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9594,7 +9628,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React15.createElement(
+      return /* @__PURE__ */ React16.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9634,7 +9668,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-import React16 from "react";
+import React17 from "react";
 var BarChart = ({
   title = "Bar Chart",
   height = 500,
@@ -9665,14 +9699,14 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ React16.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React16.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React16.createElement(
+  return /* @__PURE__ */ React17.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React17.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React17.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React16.createElement(
+      /* @__PURE__ */ React17.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9692,13 +9726,13 @@ var BarChart = ({
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React16.createElement(
+      /* @__PURE__ */ React17.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           style: { height: bar.totalValue / maxValue * height }
         },
-        /* @__PURE__ */ React16.createElement(
+        /* @__PURE__ */ React17.createElement(
           motion2.div,
           {
             className: "bmd-bar-chart__value-bar-total",
@@ -9721,7 +9755,7 @@ var BarChart = ({
             exit: { opacity: 0 }
           },
           bar.segments.map((segment) => {
-            return /* @__PURE__ */ React16.createElement(
+            return /* @__PURE__ */ React17.createElement(
               motion2.div,
               {
                 key: `label-${segment.id}`,
@@ -9734,8 +9768,8 @@ var BarChart = ({
           })
         )
       ),
-      /* @__PURE__ */ React16.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React16.createElement(
+      /* @__PURE__ */ React17.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React17.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -9772,6 +9806,7 @@ export {
   Inline,
   Input,
   LayoutContainer,
+  Modal,
   Pie,
   Stack,
   Table,

@@ -14,6 +14,7 @@ export * from "./components/Button/Button";
 export * from "./components/Input/Input";
 export * from "./components/Table/Table";
 export * from "./components/Card/Card";
+export * from "./components/Modal/Modal";
 
 /* Charts */
 export * from "./charts/Pie/Pie";
