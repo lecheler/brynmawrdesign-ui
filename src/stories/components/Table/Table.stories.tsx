@@ -129,23 +129,51 @@ export const Shows = meta.story({
         accessorKey: "date",
         // A locale-independent date format keeps the demo (and its tests) stable
         cell: (info) => {
-          // console.log("info:", info.getValue());
-          // return info.getValue().toISOString().slice(0, 10);
-          return info.getValue();
+          const rawValue = info.getValue();
+          const date = new Date(rawValue);
+
+          if (isNaN(date.getTime())) return "Invalid Date";
+
+          const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+          const day = String(date.getDate()).padStart(2, "0");
+          const year = date.getFullYear();
+
+          return `${month}/${day}/${year}`; // Outputs: "10/05/2026"
         },
         filterFn: "inDateRange", // accepts Date objects, timestamps, or parseable date strings
         meta: {
           filterVariant: "dateRange",
         },
       },
-
-      { accessorKey: "band_name", header: "Band" },
+      {
+        accessorKey: "band_name",
+        header: "Band",
+        meta: {
+          filterVariant: "select",
+        },
+      },
       { accessorKey: "venue_name", header: "Venue" },
       { accessorKey: "locality", header: "City" },
       { accessorKey: "administrative_area", header: "State/Region" },
-      { accessorKey: "country_code", header: "Country" },
+      {
+        accessorKey: "country_code",
+        header: "Country",
+        meta: {
+          filterVariant: "select",
+        },
+      },
     ],
-    data: mockShowsData,
+    data: mockShowsData.data.map((show) => ({
+      // ...show,
+
+      date: show.date, // Convert date strings to Date objects for proper sorting/filtering
+      band_name: show.band.name || "Unknown Band",
+      venue_name: show.venue.name || "Unknown Venue",
+      locality: show.venue.locality || "Unknown City",
+      administrative_area:
+        show.venue.administrative_area || "Unknown State/Region",
+      country_code: show.venue.country_code || "Unknown Country",
+    })),
     tableClassName: "my-custom-design-system-table",
   },
 });

@@ -131,14 +131,20 @@ interface MyColumnMeta {
 }
 declare const features: {
     rowSortingFeature: _tanstack_react_table.TableFeature;
+    columnFacetingFeature: _tanstack_react_table.TableFeature;
+    columnFilteringFeature: _tanstack_react_table.TableFeature;
+    rowPaginationFeature: _tanstack_react_table.TableFeature;
     sortedRowModel: (table: _tanstack_react_table.Table<any, any>) => () => _tanstack_react_table.RowModel<any, any>;
+    paginatedRowModel: (table: _tanstack_react_table.Table<any, any>) => () => _tanstack_react_table.RowModel<any, any>;
+    filteredRowModel: (table: _tanstack_react_table.Table<any, any>) => () => _tanstack_react_table.RowModel<any, any>;
     sortFns: {
         alphanumeric: _tanstack_react_table.CreatedSortFn<any, any>;
         text: _tanstack_react_table.CreatedSortFn<any, any>;
         datetime: _tanstack_react_table.CreatedSortFn<any, any>;
     };
-    paginatedRowModel: (table: _tanstack_react_table.Table<any, any>) => () => _tanstack_react_table.RowModel<any, any>;
-    columnFilteringFeature: _tanstack_react_table.TableFeature;
+    facetedRowModel: (table: _tanstack_react_table.Table<any, any>, columnId: string) => () => _tanstack_react_table.RowModel<any, any>;
+    facetedMinMaxValues: (table: _tanstack_react_table.Table<_tanstack_react_table.TableFeatures, any>, columnId: string) => () => undefined | [number, number];
+    facetedUniqueValues: (table: _tanstack_react_table.Table<_tanstack_react_table.TableFeatures, any>, columnId: string) => () => Map<any, number>;
     filterFns: {
         includesString: _tanstack_react_table.CreatedFilterFn<any, any>;
         inNumberRange: _tanstack_react_table.CreatedFilterFn<any, any>;
@@ -146,7 +152,6 @@ declare const features: {
         equalsString: _tanstack_react_table.CreatedFilterFn<any, any>;
     };
     columnMeta: MyColumnMeta;
-    rowPaginationFeature: _tanstack_react_table.TableFeature;
 };
 declare function Table<TData>({ data, columns }: TableProps<TData>): React__default.JSX.Element;
 

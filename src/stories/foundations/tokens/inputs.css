@@ -23,7 +23,7 @@
   --input-tone-contrast: var(--tone-primary-contrast);
 
   /* Colors (semantic) */
-  /* --input-bg: var(--surface-default);
+  --input-background-color: var(--color-surface: );
   --input-border: var(--border-muted);
   --input-text: var(--text-primary);
   --input-placeholder: var(--text-muted);
@@ -35,5 +35,5 @@
   --input-border-success: var(--tone-success);
 
   --input-disabled-bg: var(--surface-muted);
-  --input-disabled-text: var(--text-disabled); */
+  --input-disabled-text: var(--text-disabled);
 }

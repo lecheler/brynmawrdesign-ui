@@ -301,34 +301,44 @@ import {
   sortFn_alphanumeric,
   sortFn_text,
   sortFn_datetime,
+  columnFacetingFeature,
   columnFilteringFeature,
   createColumnHelper,
+  createFilteredRowModel,
   createPaginatedRowModel,
   filterFn_equalsString,
   filterFn_inDateRange,
   filterFn_inNumberRange,
   filterFn_includesString,
   metaHelper,
-  rowPaginationFeature
+  rowPaginationFeature,
+  createFacetedRowModel,
+  createFacetedMinMaxValues,
+  createFacetedUniqueValues
 } from "@tanstack/react-table";
 var features = tableFeatures({
   rowSortingFeature,
+  columnFacetingFeature,
+  columnFilteringFeature,
+  rowPaginationFeature,
   sortedRowModel: createSortedRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  filteredRowModel: createFilteredRowModel(),
   sortFns: {
     alphanumeric: sortFn_alphanumeric,
     text: sortFn_text,
     datetime: sortFn_datetime
   },
-  paginatedRowModel: createPaginatedRowModel(),
-  columnFilteringFeature,
+  facetedRowModel: createFacetedRowModel(),
+  facetedMinMaxValues: createFacetedMinMaxValues(),
+  facetedUniqueValues: createFacetedUniqueValues(),
   filterFns: {
     includesString: filterFn_includesString,
     inNumberRange: filterFn_inNumberRange,
     inDateRange: filterFn_inDateRange,
     equalsString: filterFn_equalsString
   },
-  columnMeta: metaHelper(),
-  rowPaginationFeature
+  columnMeta: metaHelper()
 });
 function Table({ data, columns }) {
   const columnHelper = createColumnHelper();
@@ -346,7 +356,7 @@ function Table({ data, columns }) {
     data,
     features
   });
-  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement(
+  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("div", null, "Rows: ", table.getRowCount()), /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ React10.createElement(
     "div",
     {
       className: header.column.getCanSort() ? "bmd-table__sortable-header" : "",
@@ -354,13 +364,11 @@ function Table({ data, columns }) {
       title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
     },
     /* @__PURE__ */ React10.createElement(table.FlexRender, { header }),
-    /* @__PURE__ */ React10.createElement("div", null, {
+    {
       asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
       desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
-    }[header.column.getIsSorted()] ?? null),
-    header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement(Filter, { column: header.column })) : null,
-    /* @__PURE__ */ React10.createElement("div", null)
-  )))))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }));
+    }[header.column.getIsSorted()] ?? null
+  ), header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement(Filter, { column: header.column }) : null)))))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }), /* @__PURE__ */ React10.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [
@@ -422,20 +430,19 @@ var PaginationControls = ({ table }) => {
     },
     [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ React10.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
     /* @__PURE__ */ React10.createElement("option", { value: Infinity }, "Show All")
-  )), /* @__PURE__ */ React10.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
+  )));
 };
 function Filter({
   column
 }) {
-  const columnFilterValue = column.getFilterValue();
   const { filterVariant } = column.columnDef.meta ?? {};
-  console.log(
-    "columnFilterValue:",
-    columnFilterValue,
-    "filterVariant:",
-    filterVariant
+  const columnFilterValue = column.getFilterValue();
+  const minMaxValues = column.getFacetedMinMaxValues();
+  const sortedUniqueValues = React10.useMemo(
+    () => filterVariant === "range" ? [] : Array.from(column.getFacetedUniqueValues().keys()).sort().slice(0, 5e3),
+    [column.getFacetedUniqueValues(), filterVariant]
   );
-  return filterVariant === "dateRange" ? /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("div", { className: "filter-row" }, /* @__PURE__ */ React10.createElement(
+  return filterVariant === "dateRange" ? /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React10.createElement(
     Input,
     {
       placeholder: `Min`,
@@ -461,49 +468,56 @@ function Filter({
       ]),
       className: "filter-input"
     }
-  )), /* @__PURE__ */ React10.createElement("div", { className: "spacer-xs" })) : filterVariant === "range" ? /* @__PURE__ */ React10.createElement("div", null, /* @__PURE__ */ React10.createElement("div", { className: "filter-row" }, /* @__PURE__ */ React10.createElement(
+  )) : filterVariant === "range" ? /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React10.createElement(
     Input,
     {
       type: "number",
+      min: Number((minMaxValues == null ? void 0 : minMaxValues[0]) ?? ""),
+      max: Number((minMaxValues == null ? void 0 : minMaxValues[1]) ?? ""),
       value: (columnFilterValue == null ? void 0 : columnFilterValue[0]) ?? "",
       onChange: (value) => column.setFilterValue((old) => [
         value,
         old == null ? void 0 : old[1]
       ]),
-      placeholder: `Min`,
+      placeholder: `Min ${(minMaxValues == null ? void 0 : minMaxValues[0]) !== void 0 ? `(${minMaxValues[0]})` : ""}`,
       className: "filter-input"
     }
   ), /* @__PURE__ */ React10.createElement(
     Input,
     {
       type: "number",
+      min: Number((minMaxValues == null ? void 0 : minMaxValues[0]) ?? ""),
+      max: Number((minMaxValues == null ? void 0 : minMaxValues[1]) ?? ""),
       value: (columnFilterValue == null ? void 0 : columnFilterValue[1]) ?? "",
       onChange: (value) => column.setFilterValue((old) => [
         old == null ? void 0 : old[0],
         value
       ]),
-      placeholder: `Max`,
+      placeholder: `Max ${(minMaxValues == null ? void 0 : minMaxValues[1]) ? `(${minMaxValues[1]})` : ""}`,
       className: "filter-input"
     }
-  )), /* @__PURE__ */ React10.createElement("div", { className: "spacer-xs" })) : filterVariant === "select" ? /* @__PURE__ */ React10.createElement(
+  )) : filterVariant === "select" ? /* @__PURE__ */ React10.createElement(
     "select",
     {
       onChange: (e) => column.setFilterValue(e.target.value),
       value: columnFilterValue == null ? void 0 : columnFilterValue.toString()
     },
     /* @__PURE__ */ React10.createElement("option", { value: "" }, "All"),
-    /* @__PURE__ */ React10.createElement("option", { value: "complicated" }, "complicated"),
-    /* @__PURE__ */ React10.createElement("option", { value: "relationship" }, "relationship"),
-    /* @__PURE__ */ React10.createElement("option", { value: "single" }, "single")
-  ) : /* @__PURE__ */ React10.createElement(
+    sortedUniqueValues.map((value) => (
+      // dynamically generated select options from faceted values feature
+      /* @__PURE__ */ React10.createElement("option", { value, key: value }, value)
+    ))
+  ) : /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement("datalist", { id: column.id + "list" }, sortedUniqueValues.map((value) => /* @__PURE__ */ React10.createElement("option", { value, key: value }))), /* @__PURE__ */ React10.createElement(
     Input,
     {
-      onChange: (value) => column.setFilterValue(value),
-      placeholder: `Search...`,
       type: "text",
-      value: columnFilterValue ?? ""
+      value: columnFilterValue ?? "",
+      onChange: (value) => column.setFilterValue(value),
+      placeholder: `Search... (${column.getFacetedUniqueValues().size})`,
+      className: "filter-select",
+      list: column.id + "list"
     }
-  );
+  ));
 }
 
 // src/stories/components/Card/Card.tsx

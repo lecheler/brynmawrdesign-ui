@@ -347,22 +347,27 @@ var import_react6 = __toESM(require("react"));
 var import_react_table = require("@tanstack/react-table");
 var features = (0, import_react_table.tableFeatures)({
   rowSortingFeature: import_react_table.rowSortingFeature,
+  columnFacetingFeature: import_react_table.columnFacetingFeature,
+  columnFilteringFeature: import_react_table.columnFilteringFeature,
+  rowPaginationFeature: import_react_table.rowPaginationFeature,
   sortedRowModel: (0, import_react_table.createSortedRowModel)(),
+  paginatedRowModel: (0, import_react_table.createPaginatedRowModel)(),
+  filteredRowModel: (0, import_react_table.createFilteredRowModel)(),
   sortFns: {
     alphanumeric: import_react_table.sortFn_alphanumeric,
     text: import_react_table.sortFn_text,
     datetime: import_react_table.sortFn_datetime
   },
-  paginatedRowModel: (0, import_react_table.createPaginatedRowModel)(),
-  columnFilteringFeature: import_react_table.columnFilteringFeature,
+  facetedRowModel: (0, import_react_table.createFacetedRowModel)(),
+  facetedMinMaxValues: (0, import_react_table.createFacetedMinMaxValues)(),
+  facetedUniqueValues: (0, import_react_table.createFacetedUniqueValues)(),
   filterFns: {
     includesString: import_react_table.filterFn_includesString,
     inNumberRange: import_react_table.filterFn_inNumberRange,
     inDateRange: import_react_table.filterFn_inDateRange,
     equalsString: import_react_table.filterFn_equalsString
   },
-  columnMeta: (0, import_react_table.metaHelper)(),
-  rowPaginationFeature: import_react_table.rowPaginationFeature
+  columnMeta: (0, import_react_table.metaHelper)()
 });
 function Table({ data, columns }) {
   const columnHelper = (0, import_react_table.createColumnHelper)();
@@ -380,7 +385,7 @@ function Table({ data, columns }) {
     data,
     features
   });
-  return /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react6.default.createElement("table", null, /* @__PURE__ */ import_react6.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ import_react6.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react6.default.createElement(
+  return /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react6.default.createElement("div", null, "Rows: ", table.getRowCount()), /* @__PURE__ */ import_react6.default.createElement("table", null, /* @__PURE__ */ import_react6.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ import_react6.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ import_react6.default.createElement(
     "div",
     {
       className: header.column.getCanSort() ? "bmd-table__sortable-header" : "",
@@ -388,13 +393,11 @@ function Table({ data, columns }) {
       title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
     },
     /* @__PURE__ */ import_react6.default.createElement(table.FlexRender, { header }),
-    /* @__PURE__ */ import_react6.default.createElement("div", null, {
+    {
       asc: /* @__PURE__ */ import_react6.default.createElement(Icon, { name: "arrowUp" }),
       desc: /* @__PURE__ */ import_react6.default.createElement(Icon, { name: "arrowDown" })
-    }[header.column.getIsSorted()] ?? null),
-    header.column.getCanFilter() ? /* @__PURE__ */ import_react6.default.createElement("div", null, /* @__PURE__ */ import_react6.default.createElement(Filter, { column: header.column })) : null,
-    /* @__PURE__ */ import_react6.default.createElement("div", null)
-  )))))), /* @__PURE__ */ import_react6.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react6.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react6.default.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ import_react6.default.createElement(PaginationControls, { table }));
+    }[header.column.getIsSorted()] ?? null
+  ), header.column.getCanFilter() ? /* @__PURE__ */ import_react6.default.createElement(Filter, { column: header.column }) : null)))))), /* @__PURE__ */ import_react6.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react6.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react6.default.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ import_react6.default.createElement(PaginationControls, { table }), /* @__PURE__ */ import_react6.default.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [
@@ -456,20 +459,19 @@ var PaginationControls = ({ table }) => {
     },
     [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ import_react6.default.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
     /* @__PURE__ */ import_react6.default.createElement("option", { value: Infinity }, "Show All")
-  )), /* @__PURE__ */ import_react6.default.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
+  )));
 };
 function Filter({
   column
 }) {
-  const columnFilterValue = column.getFilterValue();
   const { filterVariant } = column.columnDef.meta ?? {};
-  console.log(
-    "columnFilterValue:",
-    columnFilterValue,
-    "filterVariant:",
-    filterVariant
+  const columnFilterValue = column.getFilterValue();
+  const minMaxValues = column.getFacetedMinMaxValues();
+  const sortedUniqueValues = import_react6.default.useMemo(
+    () => filterVariant === "range" ? [] : Array.from(column.getFacetedUniqueValues().keys()).sort().slice(0, 5e3),
+    [column.getFacetedUniqueValues(), filterVariant]
   );
-  return filterVariant === "dateRange" ? /* @__PURE__ */ import_react6.default.createElement("div", null, /* @__PURE__ */ import_react6.default.createElement("div", { className: "filter-row" }, /* @__PURE__ */ import_react6.default.createElement(
+  return filterVariant === "dateRange" ? /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ import_react6.default.createElement(
     Input,
     {
       placeholder: `Min`,
@@ -495,49 +497,56 @@ function Filter({
       ]),
       className: "filter-input"
     }
-  )), /* @__PURE__ */ import_react6.default.createElement("div", { className: "spacer-xs" })) : filterVariant === "range" ? /* @__PURE__ */ import_react6.default.createElement("div", null, /* @__PURE__ */ import_react6.default.createElement("div", { className: "filter-row" }, /* @__PURE__ */ import_react6.default.createElement(
+  )) : filterVariant === "range" ? /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ import_react6.default.createElement(
     Input,
     {
       type: "number",
+      min: Number((minMaxValues == null ? void 0 : minMaxValues[0]) ?? ""),
+      max: Number((minMaxValues == null ? void 0 : minMaxValues[1]) ?? ""),
       value: (columnFilterValue == null ? void 0 : columnFilterValue[0]) ?? "",
       onChange: (value) => column.setFilterValue((old) => [
         value,
         old == null ? void 0 : old[1]
       ]),
-      placeholder: `Min`,
+      placeholder: `Min ${(minMaxValues == null ? void 0 : minMaxValues[0]) !== void 0 ? `(${minMaxValues[0]})` : ""}`,
       className: "filter-input"
     }
   ), /* @__PURE__ */ import_react6.default.createElement(
     Input,
     {
       type: "number",
+      min: Number((minMaxValues == null ? void 0 : minMaxValues[0]) ?? ""),
+      max: Number((minMaxValues == null ? void 0 : minMaxValues[1]) ?? ""),
       value: (columnFilterValue == null ? void 0 : columnFilterValue[1]) ?? "",
       onChange: (value) => column.setFilterValue((old) => [
         old == null ? void 0 : old[0],
         value
       ]),
-      placeholder: `Max`,
+      placeholder: `Max ${(minMaxValues == null ? void 0 : minMaxValues[1]) ? `(${minMaxValues[1]})` : ""}`,
       className: "filter-input"
     }
-  )), /* @__PURE__ */ import_react6.default.createElement("div", { className: "spacer-xs" })) : filterVariant === "select" ? /* @__PURE__ */ import_react6.default.createElement(
+  )) : filterVariant === "select" ? /* @__PURE__ */ import_react6.default.createElement(
     "select",
     {
       onChange: (e) => column.setFilterValue(e.target.value),
       value: columnFilterValue == null ? void 0 : columnFilterValue.toString()
     },
     /* @__PURE__ */ import_react6.default.createElement("option", { value: "" }, "All"),
-    /* @__PURE__ */ import_react6.default.createElement("option", { value: "complicated" }, "complicated"),
-    /* @__PURE__ */ import_react6.default.createElement("option", { value: "relationship" }, "relationship"),
-    /* @__PURE__ */ import_react6.default.createElement("option", { value: "single" }, "single")
-  ) : /* @__PURE__ */ import_react6.default.createElement(
+    sortedUniqueValues.map((value) => (
+      // dynamically generated select options from faceted values feature
+      /* @__PURE__ */ import_react6.default.createElement("option", { value, key: value }, value)
+    ))
+  ) : /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, /* @__PURE__ */ import_react6.default.createElement("datalist", { id: column.id + "list" }, sortedUniqueValues.map((value) => /* @__PURE__ */ import_react6.default.createElement("option", { value, key: value }))), /* @__PURE__ */ import_react6.default.createElement(
     Input,
     {
-      onChange: (value) => column.setFilterValue(value),
-      placeholder: `Search...`,
       type: "text",
-      value: columnFilterValue ?? ""
+      value: columnFilterValue ?? "",
+      onChange: (value) => column.setFilterValue(value),
+      placeholder: `Search... (${column.getFacetedUniqueValues().size})`,
+      className: "filter-select",
+      list: column.id + "list"
     }
-  );
+  ));
 }
 
 // src/stories/components/Card/Card.tsx

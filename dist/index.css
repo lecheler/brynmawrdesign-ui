@@ -275,6 +275,16 @@
   --input-tone: var(--tone-primary);
   --input-tone-hover: var(--tone-primary-hover);
   --input-tone-contrast: var(--tone-primary-contrast);
+  --input-background-color: var(--color-surface: );
+  --input-border: var(--border-muted);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-muted);
+  --input-border-hover: var(--border-default);
+  --input-border-focus: var(--tone-primary);
+  --input-border-error: var(--tone-danger);
+  --input-border-success: var(--tone-success);
+  --input-disabled-bg: var(--surface-muted);
+  --input-disabled-text: var(--text-disabled);
 }
 
 /* src/stories/foundations/tokens/tables.css */
@@ -638,7 +648,7 @@ select {
 .bmd-input {
   padding: var(--input-padding-y-md) var(--input-padding-x-md);
   font-weight: var(--input-font-weight);
-  background-color: var(--input-bg);
+  background-color: var(--input-background-color);
   border: var(--input-border-width) solid var(--input-tone);
   border-radius: var(--input-radius);
   outline: none;
@@ -680,7 +690,6 @@ select {
     padding: var(--table-row-padding-y) var(--table-row-padding-x);
   }
   th {
-    cursor: pointer;
     font-size: var(--table-header-font-size);
     background-color: var(--color-accent);
     &:hover {
@@ -697,10 +706,20 @@ select {
     }
   }
 }
+.bmd-table__header-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
 .bmd-table__sortable-header {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: var(--table-icon-padding-x);
+}
+.bmd-table__filter-row {
+  display: flex;
+  border-top: solid 1px var(--color-text-inverse);
 }
 .bmd-table__pagination-controls-wrapper {
   display: flex;
