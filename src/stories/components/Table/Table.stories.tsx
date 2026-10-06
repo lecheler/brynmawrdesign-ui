@@ -11,7 +11,7 @@ const meta = preview.meta({
 
 const showColumns: TableColumn[] = [
   {
-    header: "Date",
+    header: "Show Date",
     accessorKey: "date",
     // A locale-independent date format keeps the demo (and its tests) stable
     cell: (info) => {
