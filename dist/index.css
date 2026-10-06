@@ -293,7 +293,7 @@
   --input-tone: var(--tone-primary);
   --input-tone-hover: var(--tone-primary-hover);
   --input-tone-contrast: var(--tone-primary-contrast);
-  --input-background-color: var(--color-surface: );
+  --input-background-color: var(--color-surface);
   --input-border: var(--border-muted);
   --input-text: var(--text-primary);
   --input-placeholder: var(--text-muted);
