@@ -32,7 +32,7 @@ import { Button } from "../Button/Button";
 import { Inline } from "../../foundations/layout/Inline";
 import { Input } from "../Input/Input";
 
-export interface TableData {
+export interface TableColumn {
   accessorKey: string;
   header: string;
   cell?: (info: any) => React.ReactNode;
@@ -42,8 +42,8 @@ export interface TableData {
   };
 }
 interface TableProps {
-  data: TableData[];
-  columns: Array<ColumnDef<typeof features, TableData>>;
+  data: any[];
+  columns: Array<ColumnDef<typeof features, TableColumn>>;
 }
 
 // allows us to define custom properties for our columns
@@ -81,7 +81,7 @@ const features = tableFeatures({
 });
 
 export function Table({ data, columns }: TableProps) {
-  const columnHelper = createColumnHelper<typeof features, TableData>();
+  const columnHelper = createColumnHelper<typeof features, TableColumn>();
 
   const filterColumns = React.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {

@@ -122,7 +122,7 @@ declare const Input: ({ placeholder, onChange, debounceDelay, ...props }: {
     debounceDelay?: number;
 }) => React__default.JSX.Element;
 
-interface TableData {
+interface TableColumn {
     accessorKey: string;
     header: string;
     cell?: (info: any) => React__default.ReactNode;
@@ -132,8 +132,8 @@ interface TableData {
     };
 }
 interface TableProps {
-    data: TableData[];
-    columns: Array<ColumnDef<typeof features, TableData>>;
+    data: any[];
+    columns: Array<ColumnDef<typeof features, TableColumn>>;
 }
 interface MyColumnMeta {
     filterVariant?: "text" | "range" | "select" | "dateRange";
@@ -236,4 +236,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, type TableData, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, type TableColumn, Text, type TextProps };
