@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, type IconProps } from "../../foundations/icons/Icon";
 
-import "./Button.css";
+import "./button.css";
 
 export type ButtonVariant = "solid" | "outlined" | "soft" | "ghost";
 export type ButtonTone =

@@ -122,9 +122,18 @@ declare const Input: ({ placeholder, onChange, debounceDelay, ...props }: {
     debounceDelay?: number;
 }) => React__default.JSX.Element;
 
-interface TableProps<TData> {
-    data: TData[];
-    columns: Array<ColumnDef<typeof features, TData>>;
+interface TableData {
+    accessorKey: string;
+    header: string;
+    cell?: (info: any) => React__default.ReactNode;
+    filterFn?: string;
+    meta?: {
+        filterVariant?: "text" | "range" | "select" | "dateRange";
+    };
+}
+interface TableProps {
+    data: TableData[];
+    columns: Array<ColumnDef<typeof features, TableData>>;
 }
 interface MyColumnMeta {
     filterVariant?: "text" | "range" | "select" | "dateRange";
@@ -153,7 +162,7 @@ declare const features: {
     };
     columnMeta: MyColumnMeta;
 };
-declare function Table<TData>({ data, columns }: TableProps<TData>): React__default.JSX.Element;
+declare function Table({ data, columns }: TableProps): React__default.JSX.Element;
 
 type CardVariant = "elevated" | "outlined" | "subtle";
 type CardTone = "neutral" | "danger" | "success";
@@ -227,4 +236,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, type TableData, Text, type TextProps };

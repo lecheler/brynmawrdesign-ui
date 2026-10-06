@@ -586,7 +586,7 @@ select {
   font-size: var(--font-size-lg);
 }
 
-/* src/stories/components/Button/Button.css */
+/* src/stories/components/Button/button.css */
 .bmd-button {
   display: inline-flex;
   align-items: center;

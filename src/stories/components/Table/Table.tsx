@@ -26,14 +26,24 @@ import {
 } from "@tanstack/react-table";
 
 import "./Table.css";
+
 import { Icon, IconName } from "../../foundations/icons/Icon";
 import { Button } from "../Button/Button";
 import { Inline } from "../../foundations/layout/Inline";
 import { Input } from "../Input/Input";
 
-interface TableProps<TData> {
-  data: TData[];
-  columns: Array<ColumnDef<typeof features, TData>>;
+export interface TableData {
+  accessorKey: string;
+  header: string;
+  cell?: (info: any) => React.ReactNode;
+  filterFn?: string;
+  meta?: {
+    filterVariant?: "text" | "range" | "select" | "dateRange";
+  };
+}
+interface TableProps {
+  data: TableData[];
+  columns: Array<ColumnDef<typeof features, TableData>>;
 }
 
 // allows us to define custom properties for our columns
@@ -70,8 +80,8 @@ const features = tableFeatures({
   columnMeta: metaHelper<MyColumnMeta>(),
 });
 
-export function Table<TData>({ data, columns }: TableProps<TData>) {
-  const columnHelper = createColumnHelper<typeof features, TData>();
+export function Table({ data, columns }: TableProps) {
+  const columnHelper = createColumnHelper<typeof features, TableData>();
 
   const filterColumns = React.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {

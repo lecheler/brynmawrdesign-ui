@@ -1,7 +1,7 @@
 import preview from "../../../../.storybook/preview";
 import { mockShowsData } from "../../data/shows.mock";
 
-import { Table } from "./Table";
+import { Table, TableData } from "./Table";
 
 const meta = preview.meta({
   title: "Components/Table",
@@ -9,7 +9,7 @@ const meta = preview.meta({
   tags: ["autodocs"],
 });
 
-const showColumns = [
+const showColumns: TableData[] = [
   {
     header: "Date",
     accessorKey: "date",
