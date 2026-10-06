@@ -122,21 +122,19 @@ declare const Input: ({ placeholder, onChange, debounceDelay, ...props }: {
     debounceDelay?: number;
 }) => React__default.JSX.Element;
 
+interface TableColumnMeta {
+    filterVariant?: "text" | "range" | "select" | "dateRange";
+}
 interface TableColumn {
     accessorKey: string;
     header: string;
     cell?: (info: any) => React__default.ReactNode;
     filterFn?: string;
-    meta?: {
-        filterVariant?: "text" | "range" | "select" | "dateRange";
-    };
+    meta?: TableColumnMeta;
 }
 interface TableProps {
     data: any[];
     columns: Array<ColumnDef<typeof features, TableColumn>>;
-}
-interface MyColumnMeta {
-    filterVariant?: "text" | "range" | "select" | "dateRange";
 }
 declare const features: {
     rowSortingFeature: _tanstack_react_table.TableFeature;
@@ -160,7 +158,7 @@ declare const features: {
         inDateRange: _tanstack_react_table.CreatedFilterFn<any, any>;
         equalsString: _tanstack_react_table.CreatedFilterFn<any, any>;
     };
-    columnMeta: MyColumnMeta;
+    columnMeta: TableColumnMeta;
 };
 declare function Table({ data, columns }: TableProps): React__default.JSX.Element;
 
@@ -236,4 +234,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, type TableColumn, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };

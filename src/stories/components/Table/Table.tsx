@@ -32,23 +32,21 @@ import { Button } from "../Button/Button";
 import { Inline } from "../../foundations/layout/Inline";
 import { Input } from "../Input/Input";
 
+// allows us to define custom properties for our columns
+export interface TableColumnMeta {
+  filterVariant?: "text" | "range" | "select" | "dateRange";
+}
+
 export interface TableColumn {
   accessorKey: string;
   header: string;
   cell?: (info: any) => React.ReactNode;
   filterFn?: string;
-  meta?: {
-    filterVariant?: "text" | "range" | "select" | "dateRange";
-  };
+  meta?: TableColumnMeta;
 }
 interface TableProps {
   data: any[];
   columns: Array<ColumnDef<typeof features, TableColumn>>;
-}
-
-// allows us to define custom properties for our columns
-interface MyColumnMeta {
-  filterVariant?: "text" | "range" | "select" | "dateRange";
 }
 
 // New in v9: declare which features this table uses
@@ -77,7 +75,7 @@ const features = tableFeatures({
     inDateRange: filterFn_inDateRange,
     equalsString: filterFn_equalsString,
   },
-  columnMeta: metaHelper<MyColumnMeta>(),
+  columnMeta: metaHelper<TableColumnMeta>(),
 });
 
 export function Table({ data, columns }: TableProps) {
@@ -247,7 +245,7 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
 function Filter({
   column,
 }: {
-  column: Column<typeof features, any, MyColumnMeta>;
+  column: Column<typeof features, any, TableColumnMeta>;
 }) {
   const { filterVariant } = column.columnDef.meta ?? {};
   const columnFilterValue = column.getFilterValue();
