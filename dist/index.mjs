@@ -7,6 +7,9 @@ var arrow_up_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640
 // src/stories/foundations/icons/svgs/arrow-down.svg
 var arrow_down_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path\n    d="M297.6 566.6L320.2 589.2L342.8 566.6L502.8 406.6L525.4 384L480.1 338.7C478.8 340 436.1 382.7 352.1 466.7L352.1 64L288.1 64L288.1 466.7C204.1 382.7 161.4 340 160.1 338.7L114.8 384L137.4 406.6L297.4 566.6z" />\n</svg>\n';
 
+// src/stories/foundations/icons/svgs/calendar.svg
+var calendar_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n  <path\n    d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 32 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64l32 0 0-32c0-17.7 14.3-32 32-32zM64 240l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 368l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z" />\n</svg>\n';
+
 // src/stories/foundations/icons/svgs/chevron-right.svg
 var chevron_right_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path\n    d="M477.5 320L454.9 342.6L262.9 534.6L240.3 557.3L195 512L217.6 489.4L387 320L217.6 150.6L195 128L240.3 82.7L262.9 105.4L454.9 297.4L477.5 320z" />\n</svg>\n';
 
@@ -28,24 +31,28 @@ var download_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640
 // src/stories/foundations/icons/svgs/exclamation.svg
 var exclamation_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path d="M352 576L288 576L288 512L352 512L352 576zM352 448L288 448L272 64L368 64L352 448z" />\n</svg>\n';
 
+// src/stories/foundations/icons/svgs/pen.svg
+var pen_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\n  <path\n    d="M352.9 21.2L308 66.1 445.9 204 490.8 159.1C504.4 145.6 512 127.2 512 108s-7.6-37.6-21.2-51.1L455.1 21.2C441.6 7.6 423.2 0 404 0s-37.6 7.6-51.1 21.2zM274.1 100L58.9 315.1c-10.7 10.7-18.5 24.1-22.6 38.7L.9 481.6c-2.3 8.3 0 17.3 6.2 23.4s15.1 8.5 23.4 6.2l127.8-35.5c14.6-4.1 27.9-11.8 38.7-22.6L412 237.9 274.1 100z" />\n</svg>\n';
+
+// src/stories/foundations/icons/svgs/plus.svg
+var plus_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n  <path\n    d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" />\n</svg>\n';
+
 // src/stories/foundations/icons/svgs/magnifying-glass.svg
 var magnifying_glass_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path\n    d="M480.3 272C480.3 317.9 465.4 360.3 440.3 394.7L566.9 521.4L589.5 544L544.3 589.3L521.6 566.6L395 440C360.6 465.2 318.2 480 272.3 480C157.4 480 64.3 386.9 64.3 272C64.3 157.1 157.4 64 272.3 64C387.2 64 480.3 157.1 480.3 272zM272.3 416C351.8 416 416.3 351.5 416.3 272C416.3 192.5 351.8 128 272.3 128C192.8 128 128.3 192.5 128.3 272C128.3 351.5 192.8 416 272.3 416z" />\n</svg>\n';
 
 // src/stories/foundations/icons/svgs/star.svg
 var star_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path\n    d="M320.2 11.2L227.6 192.6L26.5 224.6L170.4 368.7L138.7 569.9L320.2 477.6L501.7 569.9L470 368.7L613.9 224.6L412.8 192.6L320.2 11.2z" />\n</svg>\n';
 
-// src/stories/foundations/icons/svgs/x.svg
-var x_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font\n  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -\n  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->\n  <path\n    d="M182.9 137.4L160.3 114.7L115 160L137.6 182.6L275 320L137.6 457.4L115 480L160.3 525.3L182.9 502.6L320.3 365.3L457.6 502.6L480.3 525.3L525.5 480L502.9 457.4L365.5 320L502.9 182.6L525.5 160L480.3 114.7L457.6 137.4L320.3 274.7L182.9 137.4z" />\n</svg>\n';
-
 // src/stories/foundations/icons/svgs/trash.svg
 var trash_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n  <path\n    d="M136.7 5.9L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-8.7-26.1C306.9-7.2 294.7-16 280.9-16L167.1-16c-13.8 0-26 8.8-30.4 21.9zM416 144L32 144 53.1 467.1C54.7 492.4 75.7 512 101 512L347 512c25.3 0 46.3-19.6 47.9-44.9L416 144z" />\n</svg>\n';
 
-// src/stories/foundations/icons/svgs/pen.svg
-var pen_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\n  <path\n    d="M352.9 21.2L308 66.1 445.9 204 490.8 159.1C504.4 145.6 512 127.2 512 108s-7.6-37.6-21.2-51.1L455.1 21.2C441.6 7.6 423.2 0 404 0s-37.6 7.6-51.1 21.2zM274.1 100L58.9 315.1c-10.7 10.7-18.5 24.1-22.6 38.7L.9 481.6c-2.3 8.3 0 17.3 6.2 23.4s15.1 8.5 23.4 6.2l127.8-35.5c14.6-4.1 27.9-11.8 38.7-22.6L412 237.9 274.1 100z" />\n</svg>\n';
+// src/stories/foundations/icons/svgs/x.svg
+var x_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font\n  Awesome Pro v7.1.0 by @fontawesome - https://fontawesome.com License -\n  https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->\n  <path\n    d="M182.9 137.4L160.3 114.7L115 160L137.6 182.6L275 320L137.6 457.4L115 480L160.3 525.3L182.9 502.6L320.3 365.3L457.6 502.6L480.3 525.3L525.5 480L502.9 457.4L365.5 320L502.9 182.6L525.5 160L480.3 114.7L457.6 137.4L320.3 274.7L182.9 137.4z" />\n</svg>\n';
 
 // src/stories/foundations/icons/index.ts
 var ArrowUp = arrow_up_default;
 var ArrowDown = arrow_down_default;
+var Calendar = calendar_default;
 var ChevronRight = chevron_right_default;
 var ChevronLeft = chevron_left_default;
 var ChevronsRight = chevrons_right_default;
@@ -53,28 +60,31 @@ var ChevronsLeft = chevrons_left_default;
 var Check = check_default;
 var Download = download_default;
 var Exclamation = exclamation_default;
+var Pen = pen_default;
+var Plus = plus_default;
 var Search = magnifying_glass_default;
 var Star = star_default;
-var X = x_default;
 var Trash = trash_default;
-var Pen = pen_default;
+var X = x_default;
 
 // src/stories/foundations/icons/Icon.tsx
 var ICONS = {
   arrowUp: ArrowUp,
   arrowDown: ArrowDown,
+  calendar: Calendar,
   chevronRight: ChevronRight,
   chevronLeft: ChevronLeft,
   chevronsRight: ChevronsRight,
   chevronsLeft: ChevronsLeft,
   check: Check,
   download: Download,
+  pen: Pen,
+  plus: Plus,
   search: Search,
   star: Star,
-  x: X,
   trash: Trash,
   warning: Exclamation,
-  pen: Pen
+  x: X
 };
 var Icon = ({
   name,
@@ -237,6 +247,7 @@ var Button = ({
   size = "sm",
   shape = "rounded",
   disabled = false,
+  className = "",
   ...props
 }) => {
   if (!label && !icon && !children) {
@@ -249,7 +260,7 @@ var Button = ({
     "button",
     {
       type: "button",
-      className: "bmd-button",
+      className: cx("bmd-button", className),
       disabled,
       "data-variant": variant,
       "data-tone": tone,
@@ -265,8 +276,9 @@ var Button = ({
 import React9, { useState, useEffect, useMemo } from "react";
 import debounce from "lodash.debounce";
 var Input = ({
-  placeholder,
   onChange,
+  inputSize = "md",
+  placeholder = "",
   debounceDelay = 0,
   // 0 means instant execution by default
   ...props
@@ -296,6 +308,7 @@ var Input = ({
       value: localValue,
       onChange: handleChange,
       placeholder,
+      "data-input-size": inputSize,
       ...props
     }
   );
@@ -366,19 +379,47 @@ function Table({ data, columns }) {
     data,
     features
   });
-  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("div", null, "Rows: ", table.getRowCount()), /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ React10.createElement(
-    "div",
-    {
-      className: header.column.getCanSort() ? "bmd-table__sortable-header" : "",
-      onClick: header.column.getToggleSortingHandler(),
-      title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
-    },
-    /* @__PURE__ */ React10.createElement(table.FlexRender, { header }),
-    {
-      asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
-      desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
-    }[header.column.getIsSorted()] ?? null
-  ), header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement(Filter, { column: header.column }) : null)))))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }), /* @__PURE__ */ React10.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
+  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("div", null, "Rows: ", table.getRowCount()), /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
+    const popoverId = `filter-popover-${header.column.id}`;
+    const anchorName = `--anchor-${header.column.id}`;
+    return /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ React10.createElement(
+      "div",
+      {
+        className: "bmd-table__sortable-header",
+        onClick: header.column.getToggleSortingHandler(),
+        title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
+      },
+      /* @__PURE__ */ React10.createElement(table.FlexRender, { header }),
+      {
+        asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
+        desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
+      }[header.column.getIsSorted()] ?? null
+    ), header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
+      Button,
+      {
+        className: "btn-filter-trigger",
+        variant: "outlined",
+        tone: "neutral",
+        size: "xs",
+        icon: { name: "search" },
+        popoverTarget: popoverId,
+        style: {
+          "--button-anchor": anchorName
+        }
+      }
+    ), /* @__PURE__ */ React10.createElement(
+      "div",
+      {
+        id: popoverId,
+        popover: "",
+        className: "filter-dropdown",
+        style: {
+          "--button-anchor": anchorName
+        }
+      },
+      /* @__PURE__ */ React10.createElement(Filter, { column: header.column })
+    )) : null));
+  })))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }), /* @__PURE__ */ React10.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [
@@ -418,6 +459,7 @@ var PaginationControls = ({ table }) => {
   ))), /* @__PURE__ */ React10.createElement(Inline, { gap: 1 }, /* @__PURE__ */ React10.createElement("span", null, "Page"), /* @__PURE__ */ React10.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), /* @__PURE__ */ React10.createElement("span", null, "| Go to page:"), /* @__PURE__ */ React10.createElement(
     Input,
     {
+      inputSize: "sm",
       placeholder: "Page #",
       name: "page-index",
       type: "number",
@@ -446,15 +488,17 @@ function Filter({
   column
 }) {
   const { filterVariant } = column.columnDef.meta ?? {};
+  if (filterVariant === "none") return;
   const columnFilterValue = column.getFilterValue();
   const minMaxValues = column.getFacetedMinMaxValues();
   const sortedUniqueValues = React10.useMemo(
     () => filterVariant === "range" ? [] : Array.from(column.getFacetedUniqueValues().keys()).sort().slice(0, 5e3),
     [column.getFacetedUniqueValues(), filterVariant]
   );
-  return filterVariant === "dateRange" ? /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React10.createElement(
+  const filterElement = filterVariant === "dateRange" ? /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React10.createElement(
     Input,
     {
+      inputSize: "sm",
       placeholder: `Min`,
       type: "date",
       "aria-label": `${column.id} min`,
@@ -462,12 +506,12 @@ function Filter({
       onChange: (value) => column.setFilterValue((old) => [
         value,
         old == null ? void 0 : old[1]
-      ]),
-      className: "filter-input"
+      ])
     }
   ), /* @__PURE__ */ React10.createElement(
     Input,
     {
+      inputSize: "sm",
       placeholder: `Max`,
       type: "date",
       "aria-label": `${column.id} max`,
@@ -475,12 +519,12 @@ function Filter({
       onChange: (value) => column.setFilterValue((old) => [
         old == null ? void 0 : old[0],
         value
-      ]),
-      className: "filter-input"
+      ])
     }
   )) : filterVariant === "range" ? /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React10.createElement(
     Input,
     {
+      inputSize: "sm",
       type: "number",
       min: Number((minMaxValues == null ? void 0 : minMaxValues[0]) ?? ""),
       max: Number((minMaxValues == null ? void 0 : minMaxValues[1]) ?? ""),
@@ -489,13 +533,13 @@ function Filter({
         value,
         old == null ? void 0 : old[1]
       ]),
-      placeholder: `Min ${(minMaxValues == null ? void 0 : minMaxValues[0]) !== void 0 ? `(${minMaxValues[0]})` : ""}`,
-      className: "filter-input"
+      placeholder: `Min ${(minMaxValues == null ? void 0 : minMaxValues[0]) !== void 0 ? `(${minMaxValues[0]})` : ""}`
     }
   ), /* @__PURE__ */ React10.createElement(
     Input,
     {
       type: "number",
+      inputSize: "sm",
       min: Number((minMaxValues == null ? void 0 : minMaxValues[0]) ?? ""),
       max: Number((minMaxValues == null ? void 0 : minMaxValues[1]) ?? ""),
       value: (columnFilterValue == null ? void 0 : columnFilterValue[1]) ?? "",
@@ -503,8 +547,7 @@ function Filter({
         old == null ? void 0 : old[0],
         value
       ]),
-      placeholder: `Max ${(minMaxValues == null ? void 0 : minMaxValues[1]) ? `(${minMaxValues[1]})` : ""}`,
-      className: "filter-input"
+      placeholder: `Max ${(minMaxValues == null ? void 0 : minMaxValues[1]) ? `(${minMaxValues[1]})` : ""}`
     }
   )) : filterVariant === "select" ? /* @__PURE__ */ React10.createElement(
     "select",
@@ -520,14 +563,15 @@ function Filter({
   ) : /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement("datalist", { id: column.id + "list" }, sortedUniqueValues.map((value) => /* @__PURE__ */ React10.createElement("option", { value, key: value }))), /* @__PURE__ */ React10.createElement(
     Input,
     {
+      inputSize: "sm",
       type: "text",
       value: columnFilterValue ?? "",
       onChange: (value) => column.setFilterValue(value),
       placeholder: `Search... (${column.getFacetedUniqueValues().size})`,
-      className: "filter-select",
       list: column.id + "list"
     }
   ));
+  return /* @__PURE__ */ React10.createElement("div", null, filterElement);
 }
 
 // src/stories/components/Card/Card.tsx
@@ -570,41 +614,7 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/stories/components/Modal/Modal.tsx
-import React12, { useEffect as useEffect2 } from "react";
-var Modal = ({
-  isOpen,
-  onClose,
-  title,
-  children,
-  footer
-}) => {
-  useEffect2(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") onClose();
-    };
-    if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [isOpen, onClose]);
-  if (!isOpen) return null;
-  return /* @__PURE__ */ React12.createElement("div", { className: "modal-overlay", onClick: onClose }, /* @__PURE__ */ React12.createElement("div", { className: "modal-container", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React12.createElement("header", { className: "modal-header" }, title && /* @__PURE__ */ React12.createElement("h2", { className: "modal-title" }, title), /* @__PURE__ */ React12.createElement(
-    "button",
-    {
-      className: "modal-close-btn",
-      onClick: onClose,
-      "aria-label": "Close modal"
-    },
-    "\xD7"
-  )), /* @__PURE__ */ React12.createElement("main", { className: "modal-content" }, children), footer && /* @__PURE__ */ React12.createElement("footer", { className: "modal-footer" }, footer)));
-};
-
-// src/stories/charts/Pie/Pie.tsx
-import React16 from "react";
+import React15, { useEffect as useEffect6 } from "react";
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 import { jsx as jsx3, Fragment } from "react/jsx-runtime";
@@ -625,17 +635,17 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-import { useLayoutEffect, useEffect as useEffect3 } from "react";
+import { useLayoutEffect, useEffect as useEffect2 } from "react";
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect3;
+var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect2;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 import { jsx as jsx2 } from "react/jsx-runtime";
-import * as React15 from "react";
+import * as React14 from "react";
 import { useId as useId2, useRef as useRef3, useMemo as useMemo2 } from "react";
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
@@ -7450,7 +7460,7 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-import * as React14 from "react";
+import * as React13 from "react";
 import { useId, useRef as useRef2, useContext, useInsertionEffect } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
@@ -7462,7 +7472,7 @@ var MotionConfigContext = createContext3({
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-import * as React13 from "react";
+import * as React12 from "react";
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7495,11 +7505,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React13.useCallback(composeRefs(...refs), refs);
+  return React12.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React14.Component {
+var PopChildMeasure = class extends React13.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7575,7 +7585,7 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React14.cloneElement(children, { ref: composedRef }) });
+  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React13.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
@@ -7620,7 +7630,7 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   useMemo2(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React15.useEffect(() => {
+  React14.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = jsx2(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -7631,14 +7641,14 @@ function newChildrenMap() {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-import { useContext as useContext2, useId as useId3, useEffect as useEffect5, useCallback as useCallback2 } from "react";
+import { useContext as useContext2, useId as useId3, useEffect as useEffect4, useCallback as useCallback2 } from "react";
 function usePresence(subscribe = true) {
   const context = useContext2(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
   const id3 = useId3();
-  useEffect5(() => {
+  useEffect4(() => {
     if (subscribe) {
       return register(id3);
     }
@@ -8144,7 +8154,7 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect6 } from "react";
+import { useContext as useContext6, useRef as useRef6, useInsertionEffect as useInsertionEffect3, useEffect as useEffect5 } from "react";
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
 import { createContext as createContext6 } from "react";
@@ -8207,7 +8217,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  useEffect6(() => {
+  useEffect5(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -9591,7 +9601,80 @@ var motion = /* @__PURE__ */ createMotionProxy(featureBundle, createDomVisualEle
 // node_modules/motion/dist/es/react.mjs
 var motion2 = motion;
 
+// src/stories/components/Modal/Modal.tsx
+var Modal = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  footer
+}) => {
+  useEffect6(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, onClose]);
+  return /* @__PURE__ */ React15.createElement(AnimatePresence, null, isOpen && /* @__PURE__ */ React15.createElement(
+    motion2.div,
+    {
+      className: "bmd-modal__overlay",
+      onClick: onClose,
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      exit: { opacity: 0, transition: { delay: 0.25 } }
+    },
+    /* @__PURE__ */ React15.createElement(
+      motion2.div,
+      {
+        className: "bmd-modal__container",
+        onClick: (e) => e.stopPropagation(),
+        initial: {
+          opacity: 0,
+          scale: 0.7,
+          y: 0
+          // scale: mobile ? 1.0 : 0.7,
+          // y: mobile ? 40 : 0,
+        },
+        animate: {
+          opacity: 1,
+          scale: 1,
+          transition: { delay: 0.15 },
+          y: 0
+        },
+        exit: {
+          opacity: 0,
+          scale: 0.7,
+          y: 0
+          //  scale: mobile ? 1.0 : 0.7,
+          // y: mobile ? 40 : 0,
+        }
+      },
+      /* @__PURE__ */ React15.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ React15.createElement(Heading, { level: 1 }, title), /* @__PURE__ */ React15.createElement(
+        Button,
+        {
+          icon: { name: "x" },
+          onClick: onClose,
+          variant: "solid",
+          tone: "primary",
+          shape: "rounded"
+        }
+      )),
+      /* @__PURE__ */ React15.createElement("main", { className: "bmd-modal__content" }, children),
+      footer && /* @__PURE__ */ React15.createElement("footer", { className: "bmd-modal__footer" }, footer)
+    )
+  ));
+};
+
 // src/stories/charts/Pie/Pie.tsx
+import React16 from "react";
 var Pie = ({
   title = "Pie Chart",
   size = 150,

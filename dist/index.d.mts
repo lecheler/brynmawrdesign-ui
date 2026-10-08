@@ -3,7 +3,7 @@ import React__default, { JSX } from 'react';
 import * as _tanstack_react_table from '@tanstack/react-table';
 import { ColumnDef } from '@tanstack/react-table';
 
-type IconName = "arrowUp" | "arrowDown" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "search" | "star" | "warning" | "x" | "trash" | "pen";
+type IconName = "arrowUp" | "arrowDown" | "calendar" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "pen" | "plus" | "search" | "star" | "warning" | "x" | "trash";
 interface IconProps extends React__default.HTMLAttributes<HTMLSpanElement> {
     name: IconName;
     className?: string;
@@ -113,17 +113,18 @@ interface ButtonProps extends React__default.ButtonHTMLAttributes<HTMLButtonElem
     disabled?: boolean;
 }
 /** Primary UI component for user interaction */
-declare const Button: ({ label, children, icon, iconPosition, variant, tone, size, shape, disabled, ...props }: ButtonProps) => React__default.JSX.Element;
+declare const Button: ({ label, children, icon, iconPosition, variant, tone, size, shape, disabled, className, ...props }: ButtonProps) => React__default.JSX.Element;
 
-declare const Input: ({ placeholder, onChange, debounceDelay, ...props }: {
-    [x: string]: any;
-    placeholder: any;
-    onChange: any;
+type InputSize = "sm" | "md" | "lg";
+interface InputProps extends React__default.InputHTMLAttributes<HTMLInputElement> {
+    inputSize?: InputSize;
     debounceDelay?: number;
-}) => React__default.JSX.Element;
+    placeholder?: string;
+}
+declare const Input: ({ onChange, inputSize, placeholder, debounceDelay, ...props }: InputProps) => React__default.JSX.Element;
 
 interface TableColumnMeta {
-    filterVariant?: "text" | "range" | "select" | "dateRange";
+    filterVariant?: "text" | "range" | "select" | "dateRange" | "none";
 }
 interface TableColumn {
     accessorKey: string;
@@ -234,4 +235,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, type InputSize, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };
