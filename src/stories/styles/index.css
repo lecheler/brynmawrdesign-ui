@@ -29,6 +29,7 @@
 @import "../foundations/tokens/cards.css";
 @import "../foundations/tokens/inputs.css";
 @import "../foundations/tokens/tables.css";
+@import "../foundations/tokens/modals.css";
 
 /* Charts */
 @import "../foundations/tokens/charts.css";

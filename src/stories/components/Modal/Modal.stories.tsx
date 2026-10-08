@@ -37,6 +37,13 @@ const InteractiveTemplate: React.FC<any> = (args) => {
 
   return (
     <div>
+      <div>
+        lorem ipsum dolor sit amet consectetur adipiscing elit aut ea soluta
+        irure eiusmod consequatur magna quas aliqua sunt in sunt est id duis
+        mollit repellendus est voluptas dolorum ut vel facilis sit officia esse
+        et facilis facilis eum temporibus deleniti anim eu ipsum est ipsum
+        officia reprehenderit nisi laboris dolor
+      </div>
       <button onClick={() => setIsOpen(true)}>Open Modal</button>
       <Modal {...args} isOpen={isOpen} onClose={handleClose} />
     </div>

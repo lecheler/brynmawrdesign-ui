@@ -1,0 +1,24 @@
+:root {
+  --modal-tone: var(--tone-primary);
+  --modal-surface: var(--color-surface);
+
+  /* Padding */
+  --modal-padding-y: var(--space-8);
+  --modal-padding-x: var(--space-12);
+
+  /* Radius */
+  --modal-radius: var(--radius-sm);
+}
+/* Tone hooks – wire to your tone tokens */
+
+.bmd-modal[data-tone="neutral"] {
+  --modal-tone: var(--tone-neutral);
+}
+
+.bmd-modal[data-tone="danger"] {
+  --modal-tone: var(--tone-danger);
+}
+
+.bmd-modal[data-tone="success"] {
+  --modal-tone: var(--tone-success);
+}

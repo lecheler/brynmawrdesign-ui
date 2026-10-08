@@ -102,3 +102,48 @@
 .bmd-button[data-shape="pill"] {
   border-radius: var(--button-radius-pill);
 }
+
+/* ==========================================================================
+   Table Filter Popover Extensions
+   ========================================================================== */
+
+/* 1. Tell the specific table button to serve as the spatial anchor */
+.bmd-button.btn-filter-trigger {
+  anchor-name: var(--button-anchor);
+}
+
+/* 2. Bind and design the native floating popover container layout */
+.filter-dropdown[popover] {
+  /* Link this popover to the anchor custom variable */
+  position-anchor: var(--button-anchor);
+
+  /* Kill the browser defaults centering popovers in the middle of the screen */
+  margin: 0;
+  inset: auto;
+
+  /* Force positioning directly below the button, aligned flush to the right edge */
+  top: anchor(bottom);
+  right: anchor(right);
+  margin-top: 6px;
+
+  /* Theme styling matching a clean modern UI dropdown */
+  padding: 12px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Fallback constraint to ensure content doesn't break off the monitor screen edge */
+  max-width: calc(100vw - 32px);
+}
+
+/* 3. Optional: Smooth entry scale animation on toggle click */
+.filter-dropdown[popover]:popover-open {
+  opacity: 1;
+  transform: translateY(0);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

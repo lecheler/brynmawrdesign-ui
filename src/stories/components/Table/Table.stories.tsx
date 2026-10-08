@@ -61,8 +61,6 @@ export const DefaultLayout = meta.story({
   args: {
     columns: showColumns,
     data: mockShowsData.data.map((show) => ({
-      // ...show,
-
       date: show.date, // Convert date strings to Date objects for proper sorting/filtering
       band_name: show.band.name || "Unknown Band",
       venue_name: show.venue.name || "Unknown Venue",

@@ -6,6 +6,7 @@
   --color-surface: #ffffff;
   --color-surface-subtle: var(--color-gray-50);
   --color-surface-strong: var(--color-gray-300);
+  --color-surface-overlay: var(--color-gray-900-trans-10);
 
   /* Text */
   --color-text: var(--color-gray-700);
@@ -13,7 +14,7 @@
   --color-text-inverse: #ffffff;
 
   /* Borders */
-  --color-border-subtle: var(--color-gray-200);
+  --color-border-subtle: var(--color-gray-100);
   --color-border-strong: var(--color-gray-400);
 
   /* Accent */

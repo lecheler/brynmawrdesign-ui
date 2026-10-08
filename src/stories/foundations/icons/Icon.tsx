@@ -2,6 +2,7 @@ import React from "react";
 import {
   ArrowDown,
   ArrowUp,
+  Calendar,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -9,11 +10,12 @@ import {
   ChevronsRight,
   Download,
   Exclamation,
+  Pen,
+  Plus,
   Search,
   Star,
-  X,
   Trash,
-  Pen,
+  X,
 } from "./index";
 
 import "./Icon.css";
@@ -21,34 +23,38 @@ import "./Icon.css";
 export type IconName =
   | "arrowUp"
   | "arrowDown"
+  | "calendar"
   | "check"
   | "chevronRight"
   | "chevronLeft"
   | "chevronsRight"
   | "chevronsLeft"
   | "download"
+  | "pen"
+  | "plus"
   | "search"
   | "star"
   | "warning"
   | "x"
-  | "trash"
-  | "pen";
+  | "trash";
 
 const ICONS: Record<IconName, string> = {
   arrowUp: ArrowUp,
   arrowDown: ArrowDown,
+  calendar: Calendar,
   chevronRight: ChevronRight,
   chevronLeft: ChevronLeft,
   chevronsRight: ChevronsRight,
   chevronsLeft: ChevronsLeft,
   check: Check,
   download: Download,
+  pen: Pen,
+  plus: Plus,
   search: Search,
   star: Star,
-  x: X,
   trash: Trash,
   warning: Exclamation,
-  pen: Pen,
+  x: X,
 };
 
 // 1. FIX: Extend HTMLAttributes for a span element instead of SVGProps

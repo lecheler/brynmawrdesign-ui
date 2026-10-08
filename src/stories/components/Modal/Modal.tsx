@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
+import { AnimatePresence, motion } from "motion/react";
+
 import "./Modal.css";
+import { Heading } from "../../foundations/typography/Heading";
+import { Button } from "../Button/Button";
 
 export interface ModalProps {
   /** Is the modal open? */
@@ -39,26 +43,57 @@ export const Modal: React.FC<ModalProps> = ({
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <header className="modal-header">
-          {title && <h2 className="modal-title">{title}</h2>}
-          <button
-            className="modal-close-btn"
-            onClick={onClose}
-            aria-label="Close modal"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="bmd-modal__overlay"
+          onClick={onClose}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { delay: 0.25 } }}
+        >
+          <motion.div
+            className="bmd-modal__container"
+            onClick={(e) => e.stopPropagation()}
+            initial={{
+              opacity: 0,
+              scale: 0.7,
+              y: 0,
+              // scale: mobile ? 1.0 : 0.7,
+              // y: mobile ? 40 : 0,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1.0,
+              transition: { delay: 0.15 },
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.7,
+              y: 0,
+              //  scale: mobile ? 1.0 : 0.7,
+              // y: mobile ? 40 : 0,
+            }}
           >
-            &times;
-          </button>
-        </header>
+            <header className="bmd-modal__header">
+              {title && <Heading level={1}>{title}</Heading>}
+              <Button
+                icon={{ name: "x" }}
+                onClick={onClose}
+                variant="solid"
+                tone="primary"
+                shape="rounded"
+              />
+            </header>
 
-        <main className="modal-content">{children}</main>
+            <main className="bmd-modal__content">{children}</main>
 
-        {footer && <footer className="modal-footer">{footer}</footer>}
-      </div>
-    </div>
+            {footer && <footer className="bmd-modal__footer">{footer}</footer>}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };

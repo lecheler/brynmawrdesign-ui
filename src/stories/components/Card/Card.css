@@ -11,11 +11,6 @@
   display: block;
   position: relative;
   overflow: hidden;
-  /* transition:
-    box-shadow 150ms ease-out,
-    transform 150ms ease-out,
-    border-color 150ms ease-out,
-    background-color 150ms ease-out; */
 }
 
 /* Variants */

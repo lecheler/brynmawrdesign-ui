@@ -1,26 +1,23 @@
-import { Input } from "./Input";
+import preview from "../../../../.storybook/preview";
+import { Input, type InputSize } from "./Input";
 
-export default {
+const meta = preview.meta({
   title: "Components/Input",
   component: Input,
-  args: {
-    placeholder: "Type to search...",
-  },
-  argTypes: {
-    debounceDelay: {
-      control: { type: "number", min: 0, max: 2000, step: 100 },
-      description: "Delay in milliseconds before triggering onChange",
-    },
-  },
-};
+  tags: ["autodocs"],
+  args: {},
+  argTypes: {},
+});
 
-// Default standard immediate input
-export const Standard = {};
-
-// Presetted Debounced Input story
-export const Debounced = {
+export const Default = meta.story({
   args: {
-    onChange: (value) => console.log("Debounced input value:", value),
-    debounceDelay: 500,
+    placeholder: "hello",
   },
-};
+});
+
+export const Date = meta.story({
+  args: {
+    type: "date",
+    inputSize: "sm" as InputSize,
+  },
+});

@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon, type IconProps } from "../../foundations/icons/Icon";
+import { cx } from "../../utils/classNames";
 
 import "./button.css";
 
@@ -38,6 +39,7 @@ export const Button = ({
   size = "sm",
   shape = "rounded",
   disabled = false,
+  className = "",
   ...props
 }: ButtonProps) => {
   // Basic validation: ensure at least an icon or label is provided
@@ -51,7 +53,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className="bmd-button"
+      className={cx("bmd-button", className)}
       disabled={disabled}
       data-variant={variant}
       data-tone={tone}

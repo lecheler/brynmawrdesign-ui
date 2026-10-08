@@ -3,16 +3,25 @@ import debounce from "lodash.debounce"; // Standard industry utility
 
 import "./Input.css";
 
+export type InputSize = "sm" | "md" | "lg";
+
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  inputSize?: InputSize;
+  debounceDelay?: number;
+  placeholder?: string;
+}
+
 export const Input = ({
-  placeholder,
   onChange,
+  inputSize = "md",
+  placeholder = "",
   debounceDelay = 0, // 0 means instant execution by default
   ...props
-}) => {
+}: InputProps) => {
   const [localValue, setLocalValue] = useState("");
 
   // Create a memoized debounced version of the external onChange handler
-  const debouncedOnChange = useMemo(() => {
+  const debouncedOnChange: any = useMemo(() => {
     if (!debounceDelay) return onChange;
 
     return debounce((nextValue) => {
@@ -40,6 +49,7 @@ export const Input = ({
       value={localValue}
       onChange={handleChange}
       placeholder={placeholder}
+      data-input-size={inputSize}
       {...props}
     />
   );

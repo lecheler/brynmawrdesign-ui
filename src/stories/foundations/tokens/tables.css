@@ -9,10 +9,10 @@
   --table-controls-color: var(--color-surface);
 
   /* Padding and Spacing */
-  --table-header-padding-y: var(--space-2);
-  --table-header-padding-x: var(--space-4);
-  --table-row-padding-y: var(--space-3);
-  --table-row-padding-x: var(--space-4);
+  --table-header-padding-y: var(--space-3);
+  --table-header-padding-x: var(--space-5);
+  --table-row-padding-y: var(--space-4);
+  --table-row-padding-x: var(--space-5);
   --table-icon-padding-x: var(--space-1);
   --table-controls-padding-y: var(--space-4);
   --table-controls-padding-x: var(--space-0);
