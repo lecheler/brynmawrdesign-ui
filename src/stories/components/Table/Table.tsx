@@ -97,7 +97,6 @@ export function Table({ data, columns }: TableProps) {
   });
   return (
     <div className="bmd-table">
-      <div>Rows: {table.getRowCount()}</div>
       <table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -129,7 +128,9 @@ export function Table({ data, columns }: TableProps) {
                           }[header.column.getIsSorted() as string] ?? null}
                         </div>
 
-                        {header.column.getCanFilter() ? (
+                        {header.column.getCanFilter() &&
+                        header.column.columnDef?.meta?.filterVariant !==
+                          "none" ? (
                           <>
                             <Button
                               className="btn-filter-trigger"
@@ -179,9 +180,9 @@ export function Table({ data, columns }: TableProps) {
         </tbody>
       </table>
       <PaginationControls table={table} />
-      <pre data-testid="table-state">
+      {/* <pre data-testid="table-state">
         {JSON.stringify(table.state, null, 2)}
-      </pre>
+      </pre> */}
     </div>
   );
 }

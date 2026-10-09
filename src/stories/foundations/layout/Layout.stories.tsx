@@ -23,7 +23,7 @@ export const Default = meta.story({
   render: (args) => {
     return (
       <LayoutContainer {...args}>
-        <Stack gap={4}>
+        <Stack gap={2}>
           <Stack gap={1}>
             <Heading level={1}>Layout Containers</Heading>
             <Text>
