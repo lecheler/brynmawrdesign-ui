@@ -216,8 +216,8 @@ interface CheckboxOption {
 }
 interface CheckboxGroupProps {
     options: CheckboxOption[];
-    value?: string[];
-    onChange?: (nextValues: string[]) => void;
+    value: string[];
+    onChange: (nextValues: string[]) => void;
     name: string;
 }
 declare const CheckboxGroup: ({ options, value, onChange, name, ...props }: CheckboxGroupProps) => React__default.JSX.Element;

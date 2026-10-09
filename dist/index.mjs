@@ -9709,28 +9709,22 @@ var Select = ({
 };
 
 // src/stories/components/CheckboxGroup/CheckboxGroup.tsx
-import React17, { useState as useState4, useEffect as useEffect8 } from "react";
+import React17 from "react";
 var CheckboxGroup = ({
   options,
   value = [],
+  // Read array straight from parent context
   onChange,
   name,
   ...props
 }) => {
-  const [localValues, setLocalValues] = useState4(value);
-  useEffect8(() => {
-    if (value !== void 0) {
-      setLocalValues(value);
-    }
-  }, [value]);
   const handleToggle = (optionValue) => {
     let nextValues;
-    if (localValues.includes(optionValue)) {
-      nextValues = localValues.filter((v) => v !== optionValue);
+    if (value.includes(optionValue)) {
+      nextValues = value.filter((v) => v !== optionValue);
     } else {
-      nextValues = [...localValues, optionValue];
+      nextValues = [...value, optionValue];
     }
-    setLocalValues(nextValues);
     if (onChange) {
       onChange(nextValues);
     }
@@ -9744,7 +9738,7 @@ var CheckboxGroup = ({
       ...props
     },
     options.map((option) => {
-      const isChecked = localValues.includes(option.value);
+      const isChecked = value.includes(option.value);
       return /* @__PURE__ */ React17.createElement(
         "label",
         {
