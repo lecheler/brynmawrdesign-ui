@@ -72,6 +72,7 @@
   --color-text-muted: var(--color-gray-600);
   --color-text-inverse: #ffffff;
   --color-border-subtle: var(--color-gray-100);
+  --color-border: var(--color-gray-200);
   --color-border-strong: var(--color-gray-400);
   --color-accent: var(--color-blue-500);
   --color-accent-hover: var(--color-blue-600);
@@ -173,6 +174,7 @@
 :root {
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
   --shadow-md: 0 4px 8px rgba(15, 23, 42, 0.1);
+  --shadow-focus: 0 0 0 2px var(--color-accent);
 }
 
 /* src/stories/foundations/tokens/breakpoints.css */
@@ -627,10 +629,6 @@ select {
   border-radius: var(--button-radius-default);
   border: 1px solid transparent;
   white-space: nowrap;
-  transition:
-    background-color var(--duration-medium) var(--easing-standard),
-    box-shadow var(--duration-medium) var(--easing-standard),
-    color var(--duration-medium) var(--easing-standard);
 }
 .bmd-button[data-variant=solid] {
   background-color: var(--button-tone);
@@ -964,7 +962,7 @@ select {
 .bmd-checkbox-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 .bmd-checkbox-hidden {
   position: absolute;
@@ -977,30 +975,29 @@ select {
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 9999px;
-  background-color: #ffffff;
-  color: #374151;
-  font-size: 0.875rem;
-  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all var(--duration-medium) var(--easing-standard);
   user-select: none;
 }
 .bmd-checkbox-item:hover {
-  background-color: #f3f4f6;
-  border-color: #9ca3af;
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-strong);
 }
 .bmd-checkbox-item:focus-within {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  box-shadow: var(--shadow-focus);
 }
 .bmd-checkbox-item[data-state=checked] {
-  background-color: #2563eb;
-  border-color: #2563eb;
-  color: #ffffff;
+  background-color: var(--tone-primary);
+  border-color: var(--tone-primary-hover);
+  color: var(--color-text-inverse);
 }
 .bmd-checkbox-item[data-state=checked]:hover {
-  background-color: #1d4ed8;
+  background-color: var(--tone-primary-hover);
 }
 
 /* src/stories/charts/Pie/Pie.css */

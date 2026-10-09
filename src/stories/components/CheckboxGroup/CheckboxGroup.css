@@ -1,7 +1,7 @@
 .bmd-checkbox-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 /* Hide the native checkbox visually but keep it available for browser tabs & keys */
@@ -18,35 +18,35 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 9999px; /* Pill Shape */
-  background-color: #ffffff;
-  color: #374151;
-  font-size: 0.875rem;
-  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
+
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all var(--duration-medium) var(--easing-standard);
   user-select: none;
 }
 
 /* Hover style states */
 .bmd-checkbox-item:hover {
-  background-color: #f3f4f6;
-  border-color: #9ca3af;
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-strong);
 }
 
 /* Focus indicator ring for keyboard users (Tab navigation accessibility) */
 .bmd-checkbox-item:focus-within {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  box-shadow: var(--shadow-focus);
 }
 
 /* Active checked states driven by your React data attributes */
 .bmd-checkbox-item[data-state="checked"] {
-  background-color: #2563eb; /* Primary Accent Blue */
-  border-color: #2563eb;
-  color: #ffffff;
+  background-color: var(--tone-primary);
+  border-color: var(--tone-primary-hover);
+  color: var(--color-text-inverse);
 }
 
 .bmd-checkbox-item[data-state="checked"]:hover {
-  background-color: #1d4ed8;
+  background-color: var(--tone-primary-hover);
 }

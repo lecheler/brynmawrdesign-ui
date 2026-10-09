@@ -11,10 +11,10 @@
 
   white-space: nowrap;
 
-  transition:
+  /* transition:
     background-color var(--duration-medium) var(--easing-standard),
     box-shadow var(--duration-medium) var(--easing-standard),
-    color var(--duration-medium) var(--easing-standard);
+    color var(--duration-medium) var(--easing-standard); */
 }
 
 /* Variants */
