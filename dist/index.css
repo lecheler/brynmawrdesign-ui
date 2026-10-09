@@ -491,7 +491,7 @@ select {
   transition: background-color 0.15s ease;
 }
 
-/* src/stories/foundations/layout/layout.css */
+/* src/stories/foundations/layout/Layout.css */
 .bmd-layout-container {
   width: 100%;
   container-type: inline-size;

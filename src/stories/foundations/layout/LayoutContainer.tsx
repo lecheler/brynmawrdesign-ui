@@ -1,6 +1,6 @@
 import React from "react";
 import { cx } from "../../utils/classNames";
-import "./layout.css";
+import "./Layout.css";
 
 type LayoutContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   max?: "page" | "section" | "none";

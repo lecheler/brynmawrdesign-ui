@@ -1,6 +1,6 @@
 // src/foundations/layout/Stack.tsx
 import * as React from "react";
-import "./layout.css";
+import "./Layout.css";
 
 // --- polymorphic helper types (copy-paste same pattern as typography) ---
 type AsProp<E extends React.ElementType> = {
