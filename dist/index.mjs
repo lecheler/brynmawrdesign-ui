@@ -379,7 +379,8 @@ function Table({ data, columns }) {
     data,
     features
   });
-  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("div", null, "Rows: ", table.getRowCount()), /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
+  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
+    var _a2, _b;
     const popoverId = `filter-popover-${header.column.id}`;
     const anchorName = `--anchor-${header.column.id}`;
     return /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ React10.createElement(
@@ -394,7 +395,7 @@ function Table({ data, columns }) {
         asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
         desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
       }[header.column.getIsSorted()] ?? null
-    ), header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
+    ), header.column.getCanFilter() && ((_b = (_a2 = header.column.columnDef) == null ? void 0 : _a2.meta) == null ? void 0 : _b.filterVariant) !== "none" ? /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
       Button,
       {
         className: "btn-filter-trigger",
@@ -419,7 +420,7 @@ function Table({ data, columns }) {
       },
       /* @__PURE__ */ React10.createElement(Filter, { column: header.column })
     )) : null));
-  })))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }), /* @__PURE__ */ React10.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
+  })))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [

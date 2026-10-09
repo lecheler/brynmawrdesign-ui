@@ -409,7 +409,8 @@ function Table({ data, columns }) {
     data,
     features
   });
-  return /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react6.default.createElement("div", null, "Rows: ", table.getRowCount()), /* @__PURE__ */ import_react6.default.createElement("table", null, /* @__PURE__ */ import_react6.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
+  return /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react6.default.createElement("table", null, /* @__PURE__ */ import_react6.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
+    var _a2, _b;
     const popoverId = `filter-popover-${header.column.id}`;
     const anchorName = `--anchor-${header.column.id}`;
     return /* @__PURE__ */ import_react6.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ import_react6.default.createElement(
@@ -424,7 +425,7 @@ function Table({ data, columns }) {
         asc: /* @__PURE__ */ import_react6.default.createElement(Icon, { name: "arrowUp" }),
         desc: /* @__PURE__ */ import_react6.default.createElement(Icon, { name: "arrowDown" })
       }[header.column.getIsSorted()] ?? null
-    ), header.column.getCanFilter() ? /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, /* @__PURE__ */ import_react6.default.createElement(
+    ), header.column.getCanFilter() && ((_b = (_a2 = header.column.columnDef) == null ? void 0 : _a2.meta) == null ? void 0 : _b.filterVariant) !== "none" ? /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, /* @__PURE__ */ import_react6.default.createElement(
       Button,
       {
         className: "btn-filter-trigger",
@@ -449,7 +450,7 @@ function Table({ data, columns }) {
       },
       /* @__PURE__ */ import_react6.default.createElement(Filter, { column: header.column })
     )) : null));
-  })))), /* @__PURE__ */ import_react6.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react6.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react6.default.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ import_react6.default.createElement(PaginationControls, { table }), /* @__PURE__ */ import_react6.default.createElement("pre", { "data-testid": "table-state" }, JSON.stringify(table.state, null, 2)));
+  })))), /* @__PURE__ */ import_react6.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react6.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react6.default.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ import_react6.default.createElement(PaginationControls, { table }));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [
