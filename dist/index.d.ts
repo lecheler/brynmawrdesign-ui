@@ -39,7 +39,7 @@ type AsProp$3<E extends React.ElementType> = {
 };
 type PropsToOmit$2<E extends React.ElementType, P> = keyof (AsProp$3<E> & P);
 type PolymorphicProps$2<E extends React.ElementType, P> = React.PropsWithChildren<P & AsProp$3<E>> & Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit$2<E, P>>;
-type StackGap = 1 | 2 | 3 | 4;
+type StackGap = 0 | 1 | 2 | 3 | 4;
 type StackOwnProps = {
     /**
      * Gap between children, mapped to spacing tokens.
@@ -136,6 +136,7 @@ interface TableColumn {
 interface TableProps {
     data: any[];
     columns: Array<ColumnDef<typeof features, TableColumn>>;
+    hideFilters?: boolean;
 }
 declare const features: {
     rowSortingFeature: _tanstack_react_table.TableFeature;
@@ -161,7 +162,7 @@ declare const features: {
     };
     columnMeta: TableColumnMeta;
 };
-declare function Table({ data, columns }: TableProps): React__default.JSX.Element;
+declare function Table({ data, columns, hideFilters }: TableProps): React__default.JSX.Element;
 
 type CardVariant = "elevated" | "outlined" | "subtle";
 type CardTone = "neutral" | "danger" | "success";

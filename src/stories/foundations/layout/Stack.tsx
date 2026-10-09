@@ -15,7 +15,7 @@ type PolymorphicProps<E extends React.ElementType, P> = React.PropsWithChildren<
   Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit<E, P>>;
 // -----------------------------------------------------------------------
 
-type StackGap = 1 | 2 | 3 | 4;
+type StackGap = 0 | 1 | 2 | 3 | 4;
 
 type StackOwnProps = {
   /**

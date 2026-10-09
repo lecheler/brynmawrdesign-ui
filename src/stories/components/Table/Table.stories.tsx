@@ -69,5 +69,6 @@ export const DefaultLayout = meta.story({
         show.venue.administrative_area || "Unknown State/Region",
       country_code: show.venue.country_code || "Unknown Country",
     })),
+    hideFilters: true,
   },
 });

@@ -555,6 +555,10 @@ select {
 .bmd-Inline {
   display: inline-flex;
 }
+.bmd-Stack[data-gap="0"],
+.bmd-Inline[data-gap="0"] {
+  gap: var(--space-0);
+}
 .bmd-Stack[data-gap="1"],
 .bmd-Inline[data-gap="1"] {
   gap: var(--space-3);

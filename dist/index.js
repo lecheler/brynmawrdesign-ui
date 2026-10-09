@@ -394,7 +394,7 @@ var features = (0, import_react_table.tableFeatures)({
   },
   columnMeta: (0, import_react_table.metaHelper)()
 });
-function Table({ data, columns }) {
+function Table({ data, columns, hideFilters }) {
   const columnHelper = (0, import_react_table.createColumnHelper)();
   const filterColumns = import_react6.default.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {
@@ -411,7 +411,6 @@ function Table({ data, columns }) {
     features
   });
   return /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react6.default.createElement("table", null, /* @__PURE__ */ import_react6.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react6.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
-    var _a2, _b;
     const popoverId = `filter-popover-${header.column.id}`;
     const anchorName = `--anchor-${header.column.id}`;
     return /* @__PURE__ */ import_react6.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ import_react6.default.createElement(
@@ -426,7 +425,7 @@ function Table({ data, columns }) {
         asc: /* @__PURE__ */ import_react6.default.createElement(Icon, { name: "arrowUp" }),
         desc: /* @__PURE__ */ import_react6.default.createElement(Icon, { name: "arrowDown" })
       }[header.column.getIsSorted()] ?? null
-    ), header.column.getCanFilter() && ((_b = (_a2 = header.column.columnDef) == null ? void 0 : _a2.meta) == null ? void 0 : _b.filterVariant) !== "none" ? /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, /* @__PURE__ */ import_react6.default.createElement(
+    ), !hideFilters && header.column.getCanFilter() ? /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, /* @__PURE__ */ import_react6.default.createElement(
       Button,
       {
         className: "btn-filter-trigger",

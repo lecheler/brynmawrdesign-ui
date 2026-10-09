@@ -363,7 +363,7 @@ var features = tableFeatures({
   },
   columnMeta: metaHelper()
 });
-function Table({ data, columns }) {
+function Table({ data, columns, hideFilters }) {
   const columnHelper = createColumnHelper();
   const filterColumns = React10.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {
@@ -380,7 +380,6 @@ function Table({ data, columns }) {
     features
   });
   return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
-    var _a2, _b;
     const popoverId = `filter-popover-${header.column.id}`;
     const anchorName = `--anchor-${header.column.id}`;
     return /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ React10.createElement(
@@ -395,7 +394,7 @@ function Table({ data, columns }) {
         asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
         desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
       }[header.column.getIsSorted()] ?? null
-    ), header.column.getCanFilter() && ((_b = (_a2 = header.column.columnDef) == null ? void 0 : _a2.meta) == null ? void 0 : _b.filterVariant) !== "none" ? /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
+    ), !hideFilters && header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
       Button,
       {
         className: "btn-filter-trigger",

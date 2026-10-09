@@ -47,6 +47,7 @@ export interface TableColumn {
 interface TableProps {
   data: any[];
   columns: Array<ColumnDef<typeof features, TableColumn>>;
+  hideFilters?: boolean;
 }
 
 // New in v9: declare which features this table uses
@@ -78,7 +79,7 @@ const features = tableFeatures({
   columnMeta: metaHelper<TableColumnMeta>(),
 });
 
-export function Table({ data, columns }: TableProps) {
+export function Table({ data, columns, hideFilters }: TableProps) {
   const columnHelper = createColumnHelper<typeof features, TableColumn>();
 
   const filterColumns = React.useMemo(() => {
@@ -128,9 +129,7 @@ export function Table({ data, columns }: TableProps) {
                           }[header.column.getIsSorted() as string] ?? null}
                         </div>
 
-                        {header.column.getCanFilter() &&
-                        header.column.columnDef?.meta?.filterVariant !==
-                          "none" ? (
+                        {!hideFilters && header.column.getCanFilter() ? (
                           <>
                             <Button
                               className="btn-filter-trigger"
