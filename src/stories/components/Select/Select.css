@@ -1,0 +1,39 @@
+.bmd-select {
+  width: 100%;
+  background-color: var(--input-background-color);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-radius);
+
+  color: var(--color-text);
+  outline: none;
+  /* transition: all 0.2s ease-in-out; */
+  cursor: pointer;
+}
+
+.bmd-select:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 1px
+    color-mix(in srgb, var(--input-border-focus), transparent 75%);
+}
+
+.bmd-select:disabled {
+  background-color: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+/* Sizing Tokens mapped from data attributes */
+.bmd-select[data-select-size="sm"] {
+  font-size: var(--input-font-size-sm);
+  padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
+}
+
+.bmd-select[data-select-size="md"] {
+  font-size: var(--input-font-size-md);
+  padding: var(--input-padding-y-md) var(--input-padding-x-md);
+}
+
+.bmd-select[data-select-size="lg"] {
+  font-size: var(--input-font-size-lg);
+  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
+}

@@ -9674,8 +9674,43 @@ var Modal = ({
   ));
 };
 
+// src/stories/components/Select/Select.tsx
+import React16, { useState as useState3, useEffect as useEffect7 } from "react";
+var Select = ({
+  onChange,
+  value,
+  selectSize = "md",
+  children,
+  ...props
+}) => {
+  const [localValue, setLocalValue] = useState3(value || "");
+  useEffect7(() => {
+    if (value !== void 0) {
+      setLocalValue(value);
+    }
+  }, [value]);
+  const handleChange = (e) => {
+    const val = e.target.value;
+    setLocalValue(val);
+    if (onChange) {
+      onChange(e);
+    }
+  };
+  return /* @__PURE__ */ React16.createElement(
+    "select",
+    {
+      className: "bmd-select",
+      value: localValue,
+      onChange: handleChange,
+      "data-select-size": selectSize,
+      ...props
+    },
+    children
+  );
+};
+
 // src/stories/charts/Pie/Pie.tsx
-import React16 from "react";
+import React17 from "react";
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -9688,7 +9723,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React16.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React16.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React16.createElement(Heading, null, title), /* @__PURE__ */ React16.createElement(
+  return /* @__PURE__ */ React17.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React17.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React17.createElement(Heading, null, title), /* @__PURE__ */ React17.createElement(
     motion2.svg,
     {
       width: size,
@@ -9696,7 +9731,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React16.createElement(
+    /* @__PURE__ */ React17.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9712,7 +9747,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React16.createElement(
+      return /* @__PURE__ */ React17.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9752,7 +9787,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-import React17 from "react";
+import React18 from "react";
 var BarChart = ({
   title = "Bar Chart",
   height = 500,
@@ -9783,14 +9818,14 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ React17.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React17.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React17.createElement(
+  return /* @__PURE__ */ React18.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React18.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React18.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React17.createElement(
+      /* @__PURE__ */ React18.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9810,13 +9845,13 @@ var BarChart = ({
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React17.createElement(
+      /* @__PURE__ */ React18.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           style: { height: bar.totalValue / maxValue * height }
         },
-        /* @__PURE__ */ React17.createElement(
+        /* @__PURE__ */ React18.createElement(
           motion2.div,
           {
             className: "bmd-bar-chart__value-bar-total",
@@ -9839,7 +9874,7 @@ var BarChart = ({
             exit: { opacity: 0 }
           },
           bar.segments.map((segment) => {
-            return /* @__PURE__ */ React17.createElement(
+            return /* @__PURE__ */ React18.createElement(
               motion2.div,
               {
                 key: `label-${segment.id}`,
@@ -9852,8 +9887,8 @@ var BarChart = ({
           })
         )
       ),
-      /* @__PURE__ */ React17.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React17.createElement(
+      /* @__PURE__ */ React18.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React18.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -9892,6 +9927,7 @@ export {
   LayoutContainer,
   Modal,
   Pie,
+  Select,
   Stack,
   Table,
   Text

@@ -290,9 +290,12 @@
   --input-padding-x-sm: var(--space-4);
   --input-padding-y-md: var(--space-3);
   --input-padding-x-md: var(--space-5);
+  --input-padding-y-lg: var(--space-4);
+  --input-padding-x-lg: var(--space-6);
   --input-font-weight: var(--font-weight-regular);
   --input-font-size: var(--font-size-sm);
   --input-font-size-sm: var(--font-size-xs);
+  --input-font-size-lg: var(--font-size-md);
   --input-border-width: 1px;
   --input-radius: var(--radius-xs);
   --input-tone: var(--tone-primary);
@@ -755,6 +758,14 @@ select {
   font-size: var(--input-font-size-sm);
   padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
 }
+.bmd-input[data-input-size=md] {
+  font-size: var(--input-font-size-md);
+  padding: var(--input-padding-y-md) var(--input-padding-x-md);
+}
+.bmd-input[data-input-size=lg] {
+  font-size: var(--input-font-size-lg);
+  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
+}
 
 /* src/stories/components/Table/Table.css */
 .bmd-table {
@@ -911,6 +922,38 @@ select {
 }
 .bmd-modal__footer {
   border-top: 1px solid var(--color-border-subtle);
+}
+
+/* src/stories/components/Select/Select.css */
+.bmd-select {
+  width: 100%;
+  background-color: var(--input-background-color);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-radius);
+  color: var(--color-text);
+  outline: none;
+  cursor: pointer;
+}
+.bmd-select:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--input-border-focus), transparent 75%);
+}
+.bmd-select:disabled {
+  background-color: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+.bmd-select[data-select-size=sm] {
+  font-size: var(--input-font-size-sm);
+  padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
+}
+.bmd-select[data-select-size=md] {
+  font-size: var(--input-font-size-md);
+  padding: var(--input-padding-y-md) var(--input-padding-x-md);
+}
+.bmd-select[data-select-size=lg] {
+  font-size: var(--input-font-size-lg);
+  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
 }
 
 /* src/stories/charts/Pie/Pie.css */

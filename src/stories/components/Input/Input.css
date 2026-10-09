@@ -32,26 +32,21 @@
   }
 }
 
+/* Sizes */
 .bmd-input[data-input-size="sm"] {
   font-size: var(--input-font-size-sm);
   padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
 }
 
-/* Sizes */
-/* .bmd-text-input[data-size="sm"] {
-  --input-height: var(--input-height-sm);
-  --input-font-size: var(--input-font-size-sm);
+.bmd-input[data-input-size="md"] {
+  font-size: var(--input-font-size-md);
+  padding: var(--input-padding-y-md) var(--input-padding-x-md);
 }
 
-.bmd-text-input[data-size="md"] {
-  --input-height: var(--input-height-md);
-  --input-font-size: var(--input-font-size-md);
+.bmd-input[data-input-size="lg"] {
+  font-size: var(--input-font-size-lg);
+  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
 }
-
-.bmd-text-input[data-size="lg"] {
-  --input-height: var(--input-height-lg);
-  --input-font-size: var(--input-font-size-lg);
-} */
 
 /* Validation states */
 /* .bmd-text-input[data-state="error"] {

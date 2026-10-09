@@ -10,11 +10,14 @@
   --input-padding-x-sm: var(--space-4);
   --input-padding-y-md: var(--space-3);
   --input-padding-x-md: var(--space-5);
+  --input-padding-y-lg: var(--space-4);
+  --input-padding-x-lg: var(--space-6);
 
   /* Typography */
   --input-font-weight: var(--font-weight-regular);
   --input-font-size: var(--font-size-sm);
   --input-font-size-sm: var(--font-size-xs);
+  --input-font-size-lg: var(--font-size-md);
 
   /* Borders */
   --input-border-width: 1px;
