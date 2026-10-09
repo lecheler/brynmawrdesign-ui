@@ -16,6 +16,7 @@ export * from "./components/Table/Table";
 export * from "./components/Card/Card";
 export * from "./components/Modal/Modal";
 export * from "./components/Select/Select";
+export * from "./components/CheckboxGroup/CheckboxGroup";
 
 /* Charts */
 export * from "./charts/Pie/Pie";

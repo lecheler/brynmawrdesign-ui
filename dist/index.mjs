@@ -9708,8 +9708,69 @@ var Select = ({
   );
 };
 
+// src/stories/components/CheckboxGroup/CheckboxGroup.tsx
+import React17, { useState as useState4, useEffect as useEffect8 } from "react";
+var CheckboxGroup = ({
+  options,
+  value = [],
+  onChange,
+  name,
+  ...props
+}) => {
+  const [localValues, setLocalValues] = useState4(value);
+  useEffect8(() => {
+    if (value !== void 0) {
+      setLocalValues(value);
+    }
+  }, [value]);
+  const handleToggle = (optionValue) => {
+    let nextValues;
+    if (localValues.includes(optionValue)) {
+      nextValues = localValues.filter((v) => v !== optionValue);
+    } else {
+      nextValues = [...localValues, optionValue];
+    }
+    setLocalValues(nextValues);
+    if (onChange) {
+      onChange(nextValues);
+    }
+  };
+  return /* @__PURE__ */ React17.createElement(
+    "div",
+    {
+      className: "bmd-checkbox-group",
+      role: "group",
+      "aria-label": name,
+      ...props
+    },
+    options.map((option) => {
+      const isChecked = localValues.includes(option.value);
+      return /* @__PURE__ */ React17.createElement(
+        "label",
+        {
+          key: option.value,
+          className: "bmd-checkbox-item",
+          "data-state": isChecked ? "checked" : "unchecked"
+        },
+        /* @__PURE__ */ React17.createElement(
+          "input",
+          {
+            type: "checkbox",
+            name,
+            value: option.value,
+            checked: isChecked,
+            onChange: () => handleToggle(option.value),
+            className: "bmd-checkbox-hidden"
+          }
+        ),
+        /* @__PURE__ */ React17.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
+      );
+    })
+  );
+};
+
 // src/stories/charts/Pie/Pie.tsx
-import React17 from "react";
+import React18 from "react";
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -9722,7 +9783,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React17.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React17.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React17.createElement(Heading, null, title), /* @__PURE__ */ React17.createElement(
+  return /* @__PURE__ */ React18.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React18.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React18.createElement(Heading, null, title), /* @__PURE__ */ React18.createElement(
     motion2.svg,
     {
       width: size,
@@ -9730,7 +9791,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React17.createElement(
+    /* @__PURE__ */ React18.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9746,7 +9807,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React17.createElement(
+      return /* @__PURE__ */ React18.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9786,7 +9847,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-import React18 from "react";
+import React19 from "react";
 var BarChart = ({
   title = "Bar Chart",
   height = 500,
@@ -9817,14 +9878,14 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ React18.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React18.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React18.createElement(
+  return /* @__PURE__ */ React19.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React19.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React19.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React18.createElement(
+      /* @__PURE__ */ React19.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9844,13 +9905,13 @@ var BarChart = ({
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React18.createElement(
+      /* @__PURE__ */ React19.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           style: { height: bar.totalValue / maxValue * height }
         },
-        /* @__PURE__ */ React18.createElement(
+        /* @__PURE__ */ React19.createElement(
           motion2.div,
           {
             className: "bmd-bar-chart__value-bar-total",
@@ -9873,7 +9934,7 @@ var BarChart = ({
             exit: { opacity: 0 }
           },
           bar.segments.map((segment) => {
-            return /* @__PURE__ */ React18.createElement(
+            return /* @__PURE__ */ React19.createElement(
               motion2.div,
               {
                 key: `label-${segment.id}`,
@@ -9886,8 +9947,8 @@ var BarChart = ({
           })
         )
       ),
-      /* @__PURE__ */ React18.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React18.createElement(
+      /* @__PURE__ */ React19.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React19.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -9918,6 +9979,7 @@ export {
   CardFooter,
   CardHeader,
   CardRoot,
+  CheckboxGroup,
   Grid,
   Heading,
   Icon,

@@ -210,6 +210,18 @@ interface SelectProps extends React__default.SelectHTMLAttributes<HTMLSelectElem
 }
 declare const Select: ({ onChange, value, selectSize, children, ...props }: SelectProps) => React__default.JSX.Element;
 
+interface CheckboxOption {
+    label: string;
+    value: string;
+}
+interface CheckboxGroupProps {
+    options: CheckboxOption[];
+    value?: string[];
+    onChange?: (nextValues: string[]) => void;
+    name: string;
+}
+declare const CheckboxGroup: ({ options, value, onChange, name, ...props }: CheckboxGroupProps) => React__default.JSX.Element;
+
 interface PieData {
     id: number;
     value: number;
@@ -242,4 +254,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, type InputSize, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, type InputSize, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };

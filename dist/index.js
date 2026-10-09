@@ -36,6 +36,7 @@ __export(index_exports, {
   CardFooter: () => CardFooter,
   CardHeader: () => CardHeader,
   CardRoot: () => CardRoot,
+  CheckboxGroup: () => CheckboxGroup,
   Grid: () => Grid,
   Heading: () => Heading,
   Icon: () => Icon,
@@ -9739,8 +9740,69 @@ var Select = ({
   );
 };
 
-// src/stories/charts/Pie/Pie.tsx
+// src/stories/components/CheckboxGroup/CheckboxGroup.tsx
 var import_react34 = __toESM(require("react"));
+var CheckboxGroup = ({
+  options,
+  value = [],
+  onChange,
+  name,
+  ...props
+}) => {
+  const [localValues, setLocalValues] = (0, import_react34.useState)(value);
+  (0, import_react34.useEffect)(() => {
+    if (value !== void 0) {
+      setLocalValues(value);
+    }
+  }, [value]);
+  const handleToggle = (optionValue) => {
+    let nextValues;
+    if (localValues.includes(optionValue)) {
+      nextValues = localValues.filter((v) => v !== optionValue);
+    } else {
+      nextValues = [...localValues, optionValue];
+    }
+    setLocalValues(nextValues);
+    if (onChange) {
+      onChange(nextValues);
+    }
+  };
+  return /* @__PURE__ */ import_react34.default.createElement(
+    "div",
+    {
+      className: "bmd-checkbox-group",
+      role: "group",
+      "aria-label": name,
+      ...props
+    },
+    options.map((option) => {
+      const isChecked = localValues.includes(option.value);
+      return /* @__PURE__ */ import_react34.default.createElement(
+        "label",
+        {
+          key: option.value,
+          className: "bmd-checkbox-item",
+          "data-state": isChecked ? "checked" : "unchecked"
+        },
+        /* @__PURE__ */ import_react34.default.createElement(
+          "input",
+          {
+            type: "checkbox",
+            name,
+            value: option.value,
+            checked: isChecked,
+            onChange: () => handleToggle(option.value),
+            className: "bmd-checkbox-hidden"
+          }
+        ),
+        /* @__PURE__ */ import_react34.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
+      );
+    })
+  );
+};
+
+// src/stories/charts/Pie/Pie.tsx
+var import_react35 = __toESM(require("react"));
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -9753,7 +9815,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ import_react34.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react34.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react34.default.createElement(Heading, null, title), /* @__PURE__ */ import_react34.default.createElement(
+  return /* @__PURE__ */ import_react35.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react35.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react35.default.createElement(Heading, null, title), /* @__PURE__ */ import_react35.default.createElement(
     motion2.svg,
     {
       width: size,
@@ -9761,7 +9823,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ import_react34.default.createElement(
+    /* @__PURE__ */ import_react35.default.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9777,7 +9839,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ import_react34.default.createElement(
+      return /* @__PURE__ */ import_react35.default.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9817,7 +9879,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-var import_react36 = __toESM(require("react"));
+var import_react37 = __toESM(require("react"));
 var BarChart = ({
   title = "Bar Chart",
   height = 500,
@@ -9848,14 +9910,14 @@ var BarChart = ({
   );
   const ANIMATE_TIME = 0.25;
   const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ import_react36.default.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ import_react36.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ import_react36.default.createElement(
+  return /* @__PURE__ */ import_react37.default.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ import_react37.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ import_react37.default.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ import_react36.default.createElement(
+      /* @__PURE__ */ import_react37.default.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9875,13 +9937,13 @@ var BarChart = ({
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ import_react36.default.createElement(
+      /* @__PURE__ */ import_react37.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           style: { height: bar.totalValue / maxValue * height }
         },
-        /* @__PURE__ */ import_react36.default.createElement(
+        /* @__PURE__ */ import_react37.default.createElement(
           motion2.div,
           {
             className: "bmd-bar-chart__value-bar-total",
@@ -9904,7 +9966,7 @@ var BarChart = ({
             exit: { opacity: 0 }
           },
           bar.segments.map((segment) => {
-            return /* @__PURE__ */ import_react36.default.createElement(
+            return /* @__PURE__ */ import_react37.default.createElement(
               motion2.div,
               {
                 key: `label-${segment.id}`,
@@ -9917,8 +9979,8 @@ var BarChart = ({
           })
         )
       ),
-      /* @__PURE__ */ import_react36.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ import_react36.default.createElement(
+      /* @__PURE__ */ import_react37.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ import_react37.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -9950,6 +10012,7 @@ var BarChart = ({
   CardFooter,
   CardHeader,
   CardRoot,
+  CheckboxGroup,
   Grid,
   Heading,
   Icon,
