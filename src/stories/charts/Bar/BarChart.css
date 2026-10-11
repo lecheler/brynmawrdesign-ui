@@ -1,7 +1,7 @@
 .bmd-bar-chart {
   display: flex;
   border-radius: var(--bar-radius-rounded);
-  background-color: var(--color-surface-subtle);
+  background-color: var(--color-surface);
   gap: var(--chart-gap-x);
   padding: var(--chart-padding-y) var(--chart-padding-x);
   color: var(--chart-font-color);
@@ -32,10 +32,15 @@
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
+
+  overflow: hidden;
+  border-radius: var(--bar-radius-rounded);
+  background-color: var(--color-surface-strong);
 }
 
 /* wrapper for stacked bars calculating total height */
 .bmd-bar-chart__value-bar-total {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

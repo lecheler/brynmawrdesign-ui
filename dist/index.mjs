@@ -9870,9 +9870,14 @@ var BarChart = ({
     (max, current) => Math.max(max, current.totalValue),
     -Infinity
   );
-  const ANIMATE_TIME = 0.25;
-  const ANIMATE_DELAY = ANIMATE_TIME / 5;
-  return /* @__PURE__ */ React19.createElement("div", { className: "bmd-bar-chart" }, /* @__PURE__ */ React19.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+  const A = 0.5;
+  const AD = A / 10;
+  const transition = {
+    duration: A,
+    type: "spring",
+    bounce: 0.4
+  };
+  return /* @__PURE__ */ React19.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ React19.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
     return /* @__PURE__ */ React19.createElement(
       motion2.div,
       {
@@ -9889,10 +9894,8 @@ var BarChart = ({
             opacity: 1,
             y: 0,
             transition: {
-              delay: ANIMATE_TIME + ANIMATE_DELAY * index,
-              type: "spring",
-              visualDuration: ANIMATE_TIME,
-              bounce: 0.4
+              delay: index * AD,
+              ...transition
             }
           },
           exit: { opacity: 0 }
@@ -9903,43 +9906,36 @@ var BarChart = ({
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
-          style: { height: bar.totalValue / maxValue * height }
-        },
-        /* @__PURE__ */ React19.createElement(
-          motion2.div,
-          {
-            className: "bmd-bar-chart__value-bar-total",
-            initial: {
-              height: 0,
-              opacity: 0
-            },
-            animate: {
-              height: "100%",
-              opacity: 1,
-              transition: {
-                height: {
-                  delay: ANIMATE_DELAY * index,
-                  type: "spring",
-                  visualDuration: ANIMATE_TIME,
-                  bounce: 0.4
-                }
-              }
-            },
-            exit: { opacity: 0 }
+          animate: {
+            height: (bar.totalValue > 0 ? bar.totalValue : 0.5) / maxValue * height,
+            transition
           },
-          bar.segments.map((segment) => {
-            return /* @__PURE__ */ React19.createElement(
-              motion2.div,
-              {
-                key: `label-${segment.id}`,
-                style: {
-                  backgroundColor: segment.color || "var(--color-data-1)",
-                  height: `${segment.value / bar.totalValue * 100}%`
-                }
-              }
-            );
-          })
-        )
+          layout: true
+        },
+        /* @__PURE__ */ React19.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
+          return /* @__PURE__ */ React19.createElement(
+            motion2.div,
+            {
+              key: `label-${segment.id}`,
+              style: {
+                backgroundColor: segment.color || "var(--color-data-1)",
+                height: `${segment.value / bar.totalValue * 100}%`
+              },
+              initial: {
+                height: 0,
+                opacity: 0,
+                backgroundColor: "var(--color-surface-strong)"
+              },
+              animate: {
+                backgroundColor: segment.color || "var(--color-data-1)",
+                height: `${segment.value / bar.totalValue * 100}%`,
+                opacity: 1,
+                transition
+              },
+              exit: { opacity: 0 }
+            }
+          );
+        }))
       ),
       /* @__PURE__ */ React19.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
       /* @__PURE__ */ React19.createElement(
@@ -9952,10 +9948,8 @@ var BarChart = ({
             opacity: 1,
             y: 0,
             transition: {
-              delay: ANIMATE_TIME + ANIMATE_DELAY * index,
-              type: "spring",
-              visualDuration: ANIMATE_TIME,
-              bounce: 0.4
+              delay: index * AD,
+              ...transition
             }
           },
           exit: { opacity: 0 }

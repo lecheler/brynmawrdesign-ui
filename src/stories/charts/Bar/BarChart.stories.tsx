@@ -1,6 +1,14 @@
+import React, { useMemo, useState } from "react";
+
 import preview from "../../../../.storybook/preview";
+import { mockShowsData, mockBandsData } from "../../data/shows.mock";
+import { prepareShowsForStackedChart } from "../../data/analyticsTransformers";
 
 import { BarChart } from "./BarChart";
+import {
+  CheckboxGroup,
+  CheckboxOption,
+} from "../../components/CheckboxGroup/CheckboxGroup";
 
 const meta = preview.meta({
   title: "Charts/BarChart",
@@ -11,9 +19,54 @@ const meta = preview.meta({
   },
 });
 
+// Interactive template that updates the isOpen state within Storybook
+const InteractiveTemplate: React.FC<any> = (args) => {
+  const rawShows = { ...args }.data;
+  const bands: CheckboxOption[] = mockBandsData.data.map((band) => {
+    return {
+      label: band.name,
+      value: band.slug,
+    };
+  });
+  const [selectedBands, setSelectedBands] = useState([]);
+  const filteredShows = useMemo(() => {
+    return rawShows.filter((show) => {
+      const matchesBand = selectedBands.some(
+        (bandSlugOrName) =>
+          show.category.toLowerCase() === bandSlugOrName.toLowerCase(),
+      );
+
+      return matchesBand;
+    });
+  }, [rawShows, selectedBands]); // Only reruns if raw data or active filters actually change!
+
+  return (
+    <div>
+      <CheckboxGroup
+        name="bands"
+        options={bands} // Stable via useMemo
+        value={selectedBands} // Stable via useMemo
+        onChange={(nextValues) => {
+          console.log(nextValues);
+          setSelectedBands(nextValues);
+        }}
+      />
+      <BarChart {...args} data={filteredShows} />
+    </div>
+  );
+};
+
+export const Interactive = meta.story({
+  render: (args) => <InteractiveTemplate {...args} />,
+  args: {
+    data: prepareShowsForStackedChart(mockShowsData.data, mockShowsData.data),
+    height: 250,
+    maxValue: 60,
+  },
+});
+
 export const Default = meta.story({
   args: {
-    title: "Default Bar Chart",
     // maxValue: 120,
     data: [
       {

@@ -59,10 +59,15 @@ export const BarChart = ({
       -Infinity,
     );
 
-  const ANIMATE_TIME = 0.25;
-  const ANIMATE_DELAY = ANIMATE_TIME / 5;
+  const A = 0.5;
+  const AD = A / 10;
+  const transition: any = {
+    duration: A,
+    type: "spring",
+    bounce: 0.4,
+  };
   return (
-    <div className="bmd-bar-chart">
+    <div className="bmd-bar-chart" style={{ height: height }}>
       <AnimatePresence>
         {columnsList.map((bar, index) => {
           return (
@@ -78,10 +83,8 @@ export const BarChart = ({
                   opacity: 1,
                   y: 0,
                   transition: {
-                    delay: ANIMATE_TIME + ANIMATE_DELAY * index,
-                    type: "spring",
-                    visualDuration: ANIMATE_TIME,
-                    bounce: 0.4,
+                    delay: index * AD,
+                    ...transition,
                   },
                 }}
                 exit={{ opacity: 0 }}
@@ -90,28 +93,15 @@ export const BarChart = ({
               </motion.div>
               <motion.div
                 className="bmd-bar-chart__value-bar-wrapper"
-                style={{ height: (bar.totalValue / maxValue) * height }}
+                animate={{
+                  height:
+                    ((bar.totalValue > 0 ? bar.totalValue : 0.5) / maxValue) *
+                    height,
+                  transition: transition,
+                }}
+                layout={true}
               >
-                <motion.div
-                  className="bmd-bar-chart__value-bar-total"
-                  initial={{
-                    height: 0,
-                    opacity: 0,
-                  }}
-                  animate={{
-                    height: "100%",
-                    opacity: 1.0,
-                    transition: {
-                      height: {
-                        delay: ANIMATE_DELAY * index,
-                        type: "spring",
-                        visualDuration: ANIMATE_TIME,
-                        bounce: 0.4,
-                      },
-                    },
-                  }}
-                  exit={{ opacity: 0 }}
-                >
+                <motion.div className="bmd-bar-chart__value-bar-total">
                   {bar.segments.map((segment) => {
                     return (
                       <motion.div
@@ -121,6 +111,19 @@ export const BarChart = ({
                             segment.color || "var(--color-data-1)",
                           height: `${(segment.value / bar.totalValue) * 100}%`,
                         }}
+                        initial={{
+                          height: 0,
+                          opacity: 0,
+                          backgroundColor: "var(--color-surface-strong)",
+                        }}
+                        animate={{
+                          backgroundColor:
+                            segment.color || "var(--color-data-1)",
+                          height: `${(segment.value / bar.totalValue) * 100}%`,
+                          opacity: 1.0,
+                          transition: transition,
+                        }}
+                        exit={{ opacity: 0 }}
                       />
                     );
                   })}
@@ -136,10 +139,8 @@ export const BarChart = ({
                   opacity: 1,
                   y: 0,
                   transition: {
-                    delay: ANIMATE_TIME + ANIMATE_DELAY * index,
-                    type: "spring",
-                    visualDuration: ANIMATE_TIME,
-                    bounce: 0.4,
+                    delay: index * AD,
+                    ...transition,
                   },
                 }}
                 exit={{ opacity: 0 }}

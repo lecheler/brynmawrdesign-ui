@@ -358,8 +358,8 @@
   --chart-gap-y: var(--space-1);
   --chart-line-height: var(--line-height-tight);
   --chart-font-color: var(--color-text-muted);
-  --chart-font-label-weight: var(--font-weight-bold);
-  --chart-font-label-size: var(--font-size-xs);
+  --chart-font-label-weight: var(--font-weight-medium);
+  --chart-font-label-size: var(--font-size-2xs);
   --chart-font-value-weight: var(--font-weight-semibold);
   --chart-font-value-size: var(--font-size-2xs);
   --pie-radius-sm: 80px;
@@ -1012,7 +1012,7 @@ select {
 .bmd-bar-chart {
   display: flex;
   border-radius: var(--bar-radius-rounded);
-  background-color: var(--color-surface-subtle);
+  background-color: var(--color-surface);
   gap: var(--chart-gap-x);
   padding: var(--chart-padding-y) var(--chart-padding-x);
   color: var(--chart-font-color);
@@ -1037,8 +1037,12 @@ select {
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
+  overflow: hidden;
+  border-radius: var(--bar-radius-rounded);
+  background-color: var(--color-surface-strong);
 }
 .bmd-bar-chart__value-bar-total {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
