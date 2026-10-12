@@ -16,7 +16,7 @@ const meta = preview.meta({
   tags: ["autodocs"],
 });
 
-// Interactive template that updates the isOpen state within Storybook
+// Interactive template
 const InteractiveTemplate: React.FC<any> = (args) => {
   const rawShows = { ...args }.data;
   const bands: CheckboxOption[] = mockBandsData.data.map((band) => {

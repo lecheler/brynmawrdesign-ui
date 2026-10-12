@@ -27,6 +27,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^2.1.3",
+    "@googlemaps/markerclusterer": "^2.6.2",
     "@tanstack/react-table": "^9.2.4",
     "lodash.debounce": "^4.0.8"
   },

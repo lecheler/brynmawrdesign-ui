@@ -768,6 +768,30 @@ select {
   font-size: var(--input-font-size-lg);
   padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
 }
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: #d3d3d3;
+  height: 8px;
+  border-radius: 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #04aa6d;
+  border-radius: 50%;
+  cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #04aa6d;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
 /* src/stories/components/Table/Table.css */
 .bmd-table {
