@@ -21,3 +21,10 @@ export const Date = meta.story({
     inputSize: "sm" as InputSize,
   },
 });
+
+export const Range = meta.story({
+  args: {
+    type: "range",
+    inputSize: "sm" as InputSize,
+  },
+});

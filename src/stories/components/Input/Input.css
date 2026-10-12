@@ -48,6 +48,35 @@
   padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
 }
 
+/* Removes default styling so you can apply your own */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: #d3d3d3; /* Track color */
+  height: 8px;
+  border-radius: 5px;
+}
+
+/* Styles the draggable handle (Thumb) for Chrome, Safari, and Edge */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #04aa6d;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Styles the draggable handle (Thumb) for Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #04aa6d;
+  border-radius: 50%;
+  cursor: pointer;
+}
 /* Validation states */
 /* .bmd-text-input[data-state="error"] {
   --input-border: var(--input-border-error);
