@@ -43,6 +43,7 @@ __export(index_exports, {
   Inline: () => Inline,
   Input: () => Input,
   LayoutContainer: () => LayoutContainer,
+  Map: () => Map3,
   Modal: () => Modal,
   Pie: () => Pie,
   Select: () => Select,
@@ -660,21 +661,119 @@ var Card = Object.assign(CardRoot, {
   Footer: CardFooter
 });
 
+// src/stories/components/Map/Map.tsx
+var import_react8 = __toESM(require("react"));
+var import_js_api_loader = require("@googlemaps/js-api-loader");
+var import_markerclusterer = require("@googlemaps/markerclusterer");
+var import_meta = {};
+var MapComponent = ({
+  markers = [],
+  center = { lat: 44.9778, lng: -93.265 },
+  // Defaults to Minneapolis, MN
+  zoom = 11,
+  apiKey: userApiKey,
+  ...props
+}) => {
+  const mapRef = (0, import_react8.useRef)(null);
+  const googleMapInstanceRef = (0, import_react8.useRef)(null);
+  const clustererRef = (0, import_react8.useRef)(null);
+  const apiKey = userApiKey || import_meta.env.VITE_APP_GOOGLE_MAPS_KEY || "";
+  (0, import_react8.useEffect)(() => {
+    if (!mapRef.current || !apiKey) return;
+    (0, import_js_api_loader.setOptions)({
+      key: apiKey,
+      v: "weekly"
+    });
+    Promise.all([(0, import_js_api_loader.importLibrary)("maps"), (0, import_js_api_loader.importLibrary)("marker")]).then(([mapsLib, markerLib]) => {
+      if (!mapRef.current) return;
+      const map = new mapsLib.Map(mapRef.current, {
+        center,
+        zoom,
+        disableDefaultUI: true,
+        clickableIcons: true,
+        mapId: "DEMO_MAP_ID",
+        // Required for AdvancedMarkerElement configurations
+        gestureHandling: "cooperative"
+      });
+      googleMapInstanceRef.current = map;
+      clustererRef.current = new import_markerclusterer.MarkerClusterer({ map, markers: [] });
+      syncMarkers(markerLib);
+    }).catch((err) => {
+      console.error(
+        "Google Maps functional API script initialization failure:",
+        err
+      );
+    });
+    return () => {
+      if (clustererRef.current) {
+        clustererRef.current.clearMarkers();
+      }
+      googleMapInstanceRef.current = null;
+      clustererRef.current = null;
+    };
+  }, [apiKey]);
+  const syncMarkers = (markerLib) => {
+    const mapInstance = googleMapInstanceRef.current;
+    const clustererInstance = clustererRef.current;
+    if (!mapInstance || !clustererInstance) return;
+    clustererInstance.clearMarkers();
+    const freshAdvancedMarkers = [];
+    markers.forEach((item) => {
+      const markerInstance = new markerLib.AdvancedMarkerElement({
+        position: { lat: item.lat, lng: item.lng },
+        title: item.title,
+        gmpClickable: true
+        // Unlocks native interaction layers for modern pointers
+      });
+      const infoWindow = new google.maps.InfoWindow({
+        content: `<div class="map-popup"><strong>${item.title}</strong>${item.subtitle ? `<p>\${item.subtitle}</p>` : ""}</div>`
+      });
+      markerInstance.addEventListener("gmp-click", () => {
+        infoWindow.open({
+          anchor: markerInstance,
+          map: mapInstance
+        });
+      });
+      freshAdvancedMarkers.push(markerInstance);
+    });
+    clustererInstance.addMarkers(freshAdvancedMarkers);
+  };
+  (0, import_react8.useEffect)(() => {
+    if (googleMapInstanceRef.current && clustererRef.current) {
+      (0, import_js_api_loader.importLibrary)("marker").then((markerLib) => syncMarkers(markerLib));
+    }
+  }, [markers]);
+  (0, import_react8.useEffect)(() => {
+    if (googleMapInstanceRef.current) {
+      googleMapInstanceRef.current.panTo(center);
+      googleMapInstanceRef.current.setZoom(zoom);
+    }
+  }, [center, zoom]);
+  if (!apiKey) {
+    return /* @__PURE__ */ import_react8.default.createElement("div", { className: "bmd-map-fallback" }, "\u26A0\uFE0F Google Maps API token missing. Add VITE_APP_GOOGLE_MAPS_KEY to environment configs.");
+  }
+  return /* @__PURE__ */ import_react8.default.createElement("div", { ref: mapRef, className: "bmd-map-viewport", ...props });
+};
+var Map3 = import_react8.default.memo(MapComponent, (prevProps, nextProps) => {
+  var _a2, _b, _c, _d;
+  return prevProps.markers === nextProps.markers && prevProps.zoom === nextProps.zoom && ((_a2 = prevProps.center) == null ? void 0 : _a2.lat) === ((_b = nextProps.center) == null ? void 0 : _b.lat) && ((_c = prevProps.center) == null ? void 0 : _c.lng) === ((_d = nextProps.center) == null ? void 0 : _d.lng);
+});
+
 // src/stories/components/Modal/Modal.tsx
-var import_react31 = __toESM(require("react"));
+var import_react32 = __toESM(require("react"));
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 var import_jsx_runtime3 = require("react/jsx-runtime");
-var import_react17 = require("react");
+var import_react18 = require("react");
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
-var import_react8 = require("react");
-var LayoutGroupContext = (0, import_react8.createContext)({});
+var import_react9 = require("react");
+var LayoutGroupContext = (0, import_react9.createContext)({});
 
 // node_modules/framer-motion/dist/es/utils/use-constant.mjs
-var import_react9 = require("react");
+var import_react10 = require("react");
 function useConstant(init) {
-  const ref = (0, import_react9.useRef)(null);
+  const ref = (0, import_react10.useRef)(null);
   if (ref.current === null) {
     ref.current = init();
   }
@@ -682,22 +781,22 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var import_react10 = require("react");
+var import_react11 = require("react");
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? import_react10.useLayoutEffect : import_react10.useEffect;
+var useIsomorphicLayoutEffect = isBrowser ? import_react11.useLayoutEffect : import_react11.useEffect;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var React14 = __toESM(require("react"), 1);
-var import_react14 = require("react");
+var React15 = __toESM(require("react"), 1);
+var import_react15 = require("react");
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
-var import_react11 = require("react");
-var PresenceContext = /* @__PURE__ */ (0, import_react11.createContext)(null);
+var import_react12 = require("react");
+var PresenceContext = /* @__PURE__ */ (0, import_react12.createContext)(null);
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
 var import_jsx_runtime = require("react/jsx-runtime");
@@ -7507,19 +7606,19 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var React13 = __toESM(require("react"), 1);
-var import_react13 = require("react");
+var React14 = __toESM(require("react"), 1);
+var import_react14 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
-var import_react12 = require("react");
-var MotionConfigContext = (0, import_react12.createContext)({
+var import_react13 = require("react");
+var MotionConfigContext = (0, import_react13.createContext)({
   transformPagePoint: (p) => p,
   isStatic: false,
   reducedMotion: "never"
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-var React12 = __toESM(require("react"), 1);
+var React13 = __toESM(require("react"), 1);
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7552,11 +7651,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React12.useCallback(composeRefs(...refs), refs);
+  return React13.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React13.Component {
+var PopChildMeasure = class extends React14.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7586,9 +7685,9 @@ var PopChildMeasure = class extends React13.Component {
 };
 function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
   var _a2;
-  const id3 = (0, import_react13.useId)();
-  const ref = (0, import_react13.useRef)(null);
-  const size = (0, import_react13.useRef)({
+  const id3 = (0, import_react14.useId)();
+  const ref = (0, import_react14.useRef)(null);
+  const size = (0, import_react14.useRef)({
     width: 0,
     height: 0,
     top: 0,
@@ -7597,10 +7696,10 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
     bottom: 0,
     direction: "ltr"
   });
-  const { nonce } = (0, import_react13.useContext)(MotionConfigContext);
+  const { nonce } = (0, import_react14.useContext)(MotionConfigContext);
   const childRef = pop !== false ? ((_a2 = children.props) == null ? void 0 : _a2.ref) ?? (children == null ? void 0 : children.ref) : void 0;
   const composedRef = useComposedRefs(ref, childRef);
-  (0, import_react13.useInsertionEffect)(() => {
+  (0, import_react14.useInsertionEffect)(() => {
     const { width, height, top, left, right, bottom, direction } = size.current;
     if (isPresent || pop === false || !ref.current || !width || !height)
       return;
@@ -7632,21 +7731,21 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return (0, import_jsx_runtime.jsx)(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React13.cloneElement(children, { ref: composedRef }) });
+  return (0, import_jsx_runtime.jsx)(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React14.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, presenceAffectsLayout, mode, anchorX, anchorY, root }) => {
   const presenceChildren = useConstant(newChildrenMap);
-  const id3 = (0, import_react14.useId)();
-  const isPresentRef = (0, import_react14.useRef)(isPresent);
-  const onExitCompleteRef = (0, import_react14.useRef)(onExitComplete);
+  const id3 = (0, import_react15.useId)();
+  const isPresentRef = (0, import_react15.useRef)(isPresent);
+  const onExitCompleteRef = (0, import_react15.useRef)(onExitComplete);
   useIsomorphicLayoutEffect(() => {
     isPresentRef.current = isPresent;
     onExitCompleteRef.current = onExitComplete;
   });
   let isReusedContext = true;
-  let context = (0, import_react14.useMemo)(() => {
+  let context = (0, import_react15.useMemo)(() => {
     isReusedContext = false;
     return {
       id: id3,
@@ -7674,10 +7773,10 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   if (presenceAffectsLayout && isReusedContext) {
     context = { ...context };
   }
-  (0, import_react14.useMemo)(() => {
+  (0, import_react15.useMemo)(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React14.useEffect(() => {
+  React15.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = (0, import_jsx_runtime2.jsx)(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -7688,29 +7787,29 @@ function newChildrenMap() {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-var import_react15 = require("react");
+var import_react16 = require("react");
 function usePresence(subscribe = true) {
-  const context = (0, import_react15.useContext)(PresenceContext);
+  const context = (0, import_react16.useContext)(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
-  const id3 = (0, import_react15.useId)();
-  (0, import_react15.useEffect)(() => {
+  const id3 = (0, import_react16.useId)();
+  (0, import_react16.useEffect)(() => {
     if (subscribe) {
       return register(id3);
     }
   }, [subscribe]);
-  const safeToRemove = (0, import_react15.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
+  const safeToRemove = (0, import_react16.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
   return !isPresent && onExitComplete ? [false, safeToRemove] : [true];
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs
-var import_react16 = require("react");
+var import_react17 = require("react");
 var getChildKey = (child) => child.key || "";
 function onlyElements(children) {
   const filtered = [];
-  import_react16.Children.forEach(children, (child) => {
-    if ((0, import_react16.isValidElement)(child))
+  import_react17.Children.forEach(children, (child) => {
+    if ((0, import_react17.isValidElement)(child))
       filtered.push(child);
   });
   return filtered;
@@ -7719,14 +7818,14 @@ function onlyElements(children) {
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 var AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", anchorY = "top", root }) => {
   const [isParentPresent, safeToRemove] = usePresence(propagate);
-  const presentChildren = (0, import_react17.useMemo)(() => onlyElements(children), [children]);
+  const presentChildren = (0, import_react18.useMemo)(() => onlyElements(children), [children]);
   const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(getChildKey);
-  const isInitialRender = (0, import_react17.useRef)(true);
-  const pendingPresentChildren = (0, import_react17.useRef)(presentChildren);
+  const isInitialRender = (0, import_react18.useRef)(true);
+  const pendingPresentChildren = (0, import_react18.useRef)(presentChildren);
   const exitComplete = useConstant(() => /* @__PURE__ */ new Map());
-  const exitingComponents = (0, import_react17.useRef)(/* @__PURE__ */ new Set());
-  const [diffedChildren, setDiffedChildren] = (0, import_react17.useState)(presentChildren);
-  const [renderedChildren, setRenderedChildren] = (0, import_react17.useState)(presentChildren);
+  const exitingComponents = (0, import_react18.useRef)(/* @__PURE__ */ new Set());
+  const [diffedChildren, setDiffedChildren] = (0, import_react18.useState)(presentChildren);
+  const [renderedChildren, setRenderedChildren] = (0, import_react18.useState)(presentChildren);
   useIsomorphicLayoutEffect(() => {
     if (propagate && !isParentPresent && !renderedChildren.length) {
       safeToRemove == null ? void 0 : safeToRemove();
@@ -7770,7 +7869,7 @@ var AnimatePresence = ({ children, custom, initial = true, onExitComplete, prese
   if (process.env.NODE_ENV !== "production" && mode === "wait" && renderedChildren.length > 1) {
     console.warn(`You're attempting to animate multiple children within AnimatePresence, but its mode is set to "wait". This will lead to odd visual behaviour.`);
   }
-  const { forceRender } = (0, import_react17.useContext)(LayoutGroupContext);
+  const { forceRender } = (0, import_react18.useContext)(LayoutGroupContext);
   return (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: renderedChildren.map((child) => {
     const key = getChildKey(child);
     const isPresent = propagate && !isParentPresent ? false : presentChildren === renderedChildren || presentKeys.includes(key);
@@ -7801,8 +7900,8 @@ var AnimatePresence = ({ children, custom, initial = true, onExitComplete, prese
 };
 
 // node_modules/framer-motion/dist/es/context/LazyContext.mjs
-var import_react18 = require("react");
-var LazyContext = (0, import_react18.createContext)({ strict: false });
+var import_react19 = require("react");
+var LazyContext = (0, import_react19.createContext)({ strict: false });
 
 // node_modules/framer-motion/dist/es/motion/features/definitions.mjs
 var featureProps = {
@@ -7857,14 +7956,14 @@ function loadFeatures(features2) {
 
 // node_modules/framer-motion/dist/es/motion/index.mjs
 var import_jsx_runtime4 = require("react/jsx-runtime");
-var import_react28 = require("react");
+var import_react29 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
-var import_react19 = require("react");
-var MotionContext = /* @__PURE__ */ (0, import_react19.createContext)({});
+var import_react20 = require("react");
+var MotionContext = /* @__PURE__ */ (0, import_react20.createContext)({});
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
-var import_react20 = require("react");
+var import_react21 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
 function getCurrentTreeVariants(props, context) {
@@ -7880,18 +7979,18 @@ function getCurrentTreeVariants(props, context) {
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
 function useCreateMotionContext(props) {
-  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react20.useContext)(MotionContext));
-  return (0, import_react20.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
+  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react21.useContext)(MotionContext));
+  return (0, import_react21.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
 }
 function variantLabelsAsDependency(prop) {
   return Array.isArray(prop) ? prop.join(" ") : prop;
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-var import_react23 = require("react");
+var import_react24 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/use-props.mjs
-var import_react21 = require("react");
+var import_react22 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
 var createHtmlRenderState = () => ({
@@ -7910,7 +8009,7 @@ function copyRawValuesOnly(target, source, props) {
   }
 }
 function useInitialMotionValues({ transformTemplate }, visualState) {
-  return (0, import_react21.useMemo)(() => {
+  return (0, import_react22.useMemo)(() => {
     const state = createHtmlRenderState();
     buildHTMLStyles(state, visualState, transformTemplate);
     return Object.assign({}, state.vars, state.style);
@@ -7939,7 +8038,7 @@ function useHTMLProps(props, visualState) {
 }
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
-var import_react22 = require("react");
+var import_react23 = require("react");
 
 // node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
 var createSvgRenderState = () => ({
@@ -7949,7 +8048,7 @@ var createSvgRenderState = () => ({
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
 function useSVGProps(props, visualState, _isStatic, Component3) {
-  const visualProps = (0, import_react22.useMemo)(() => {
+  const visualProps = (0, import_react23.useMemo)(() => {
     const state = createSvgRenderState();
     buildSVGAttrs(state, visualState, isSVGTag(Component3), props.transformTemplate, props.style);
     return {
@@ -8083,17 +8182,17 @@ function useRender(Component3, props, ref, { latestValues }, isStatic, forwardMo
   const useVisualProps = isSVG ?? isSVGComponent(Component3) ? useSVGProps : useHTMLProps;
   const visualProps = useVisualProps(props, latestValues, isStatic, Component3);
   const filteredProps = filterProps(props, typeof Component3 === "string", forwardMotionProps, isValidProp);
-  const elementProps = Component3 !== import_react23.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
+  const elementProps = Component3 !== import_react24.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
   const { children } = props;
-  const renderedChildren = (0, import_react23.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
-  return (0, import_react23.createElement)(Component3, {
+  const renderedChildren = (0, import_react24.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
+  return (0, import_react24.createElement)(Component3, {
     ...elementProps,
     children: renderedChildren
   });
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
-var import_react24 = require("react");
+var import_react25 = require("react");
 function makeState({ scrapeMotionValuesFromProps: scrapeMotionValuesFromProps3, createRenderState }, props, context, presenceContext) {
   const state = {
     latestValues: makeLatestValues(props, context, presenceContext, scrapeMotionValuesFromProps3),
@@ -8144,8 +8243,8 @@ function makeLatestValues(props, context, presenceContext, scrapeMotionValues) {
   return values;
 }
 var makeUseVisualState = (config) => (props, isStatic) => {
-  const context = (0, import_react24.useContext)(MotionContext);
-  const presenceContext = (0, import_react24.useContext)(PresenceContext);
+  const context = (0, import_react25.useContext)(MotionContext);
+  const presenceContext = (0, import_react25.useContext)(PresenceContext);
   const make = () => makeState(config, props, context, presenceContext);
   return isStatic ? make() : useConstant(make);
 };
@@ -8166,14 +8265,14 @@ var useSVGVisualState = /* @__PURE__ */ makeUseVisualState({
 var motionComponentSymbol = /* @__PURE__ */ Symbol.for("motionComponentSymbol");
 
 // node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
-var import_react25 = require("react");
+var import_react26 = require("react");
 function useMotionRef(visualState, visualElement, externalRef) {
-  const externalRefContainer = (0, import_react25.useRef)(externalRef);
-  (0, import_react25.useInsertionEffect)(() => {
+  const externalRefContainer = (0, import_react26.useRef)(externalRef);
+  (0, import_react26.useInsertionEffect)(() => {
     externalRefContainer.current = externalRef;
   });
-  const refCleanup = (0, import_react25.useRef)(null);
-  return (0, import_react25.useCallback)((instance) => {
+  const refCleanup = (0, import_react26.useRef)(null);
+  return (0, import_react26.useCallback)((instance) => {
     var _a2;
     if (instance) {
       (_a2 = visualState.onMount) == null ? void 0 : _a2.call(visualState, instance);
@@ -8201,11 +8300,11 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-var import_react27 = require("react");
+var import_react28 = require("react");
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
-var import_react26 = require("react");
-var SwitchLayoutGroupContext = (0, import_react26.createContext)({});
+var import_react27 = require("react");
+var SwitchLayoutGroupContext = (0, import_react27.createContext)({});
 
 // node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
 function isRefObject(ref) {
@@ -8215,14 +8314,14 @@ function isRefObject(ref) {
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
 function useVisualElement(Component3, visualState, props, createVisualElement, ProjectionNodeConstructor, isSVG) {
   var _a2, _b;
-  const { visualElement: parent } = (0, import_react27.useContext)(MotionContext);
-  const lazyContext = (0, import_react27.useContext)(LazyContext);
-  const presenceContext = (0, import_react27.useContext)(PresenceContext);
-  const motionConfig = (0, import_react27.useContext)(MotionConfigContext);
+  const { visualElement: parent } = (0, import_react28.useContext)(MotionContext);
+  const lazyContext = (0, import_react28.useContext)(LazyContext);
+  const presenceContext = (0, import_react28.useContext)(PresenceContext);
+  const motionConfig = (0, import_react28.useContext)(MotionConfigContext);
   const reducedMotionConfig = motionConfig.reducedMotion;
   const skipAnimations = motionConfig.skipAnimations;
-  const visualElementRef = (0, import_react27.useRef)(null);
-  const hasMountedOnce = (0, import_react27.useRef)(false);
+  const visualElementRef = (0, import_react28.useRef)(null);
+  const hasMountedOnce = (0, import_react28.useRef)(false);
   createVisualElement = createVisualElement || lazyContext.renderer;
   if (!visualElementRef.current && createVisualElement) {
     visualElementRef.current = createVisualElement(Component3, {
@@ -8240,18 +8339,18 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
     }
   }
   const visualElement = visualElementRef.current;
-  const initialLayoutGroupConfig = (0, import_react27.useContext)(SwitchLayoutGroupContext);
+  const initialLayoutGroupConfig = (0, import_react28.useContext)(SwitchLayoutGroupContext);
   if (visualElement && !visualElement.projection && ProjectionNodeConstructor && (visualElement.type === "html" || visualElement.type === "svg")) {
     createProjectionNode2(visualElementRef.current, props, ProjectionNodeConstructor, initialLayoutGroupConfig);
   }
-  const isMounted = (0, import_react27.useRef)(false);
-  (0, import_react27.useInsertionEffect)(() => {
+  const isMounted = (0, import_react28.useRef)(false);
+  (0, import_react28.useInsertionEffect)(() => {
     if (visualElement && isMounted.current) {
       visualElement.update(props, presenceContext);
     }
   });
   const optimisedAppearId = props[optimizedAppearDataAttribute];
-  const wantsHandoff = (0, import_react27.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
+  const wantsHandoff = (0, import_react28.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
   useIsomorphicLayoutEffect(() => {
     hasMountedOnce.current = true;
     if (!visualElement)
@@ -8264,7 +8363,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  (0, import_react27.useEffect)(() => {
+  (0, import_react28.useEffect)(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -8318,7 +8417,7 @@ function createMotionComponent(Component3, { forwardMotionProps = false, type } 
   function MotionDOMComponent(props, externalRef) {
     let MeasureLayout2;
     const configAndProps = {
-      ...(0, import_react28.useContext)(MotionConfigContext),
+      ...(0, import_react29.useContext)(MotionConfigContext),
       ...props,
       layoutId: useLayoutId(props)
     };
@@ -8334,16 +8433,16 @@ function createMotionComponent(Component3, { forwardMotionProps = false, type } 
     return (0, import_jsx_runtime4.jsxs)(MotionContext.Provider, { value: context, children: [MeasureLayout2 && context.visualElement ? (0, import_jsx_runtime4.jsx)(MeasureLayout2, { visualElement: context.visualElement, ...configAndProps }) : null, useRender(Component3, props, useMotionRef(visualState, context.visualElement, externalRef), visualState, isStatic, forwardMotionProps, isSVG, isValidProp)] });
   }
   MotionDOMComponent.displayName = `motion.${typeof Component3 === "string" ? Component3 : `create(${Component3.displayName ?? Component3.name ?? ""})`}`;
-  const ForwardRefMotionComponent = (0, import_react28.forwardRef)(MotionDOMComponent);
+  const ForwardRefMotionComponent = (0, import_react29.forwardRef)(MotionDOMComponent);
   ForwardRefMotionComponent[motionComponentSymbol] = Component3;
   return ForwardRefMotionComponent;
 }
 function useLayoutId({ layoutId }) {
-  const layoutGroupId = (0, import_react28.useContext)(LayoutGroupContext).id;
+  const layoutGroupId = (0, import_react29.useContext)(LayoutGroupContext).id;
   return layoutGroupId && layoutId !== void 0 ? layoutGroupId + "-" + layoutId : layoutId;
 }
 function useStrictMode(configAndProps, preloadedFeatures) {
-  const isStrict = (0, import_react28.useContext)(LazyContext).strict;
+  const isStrict = (0, import_react29.useContext)(LazyContext).strict;
   if (process.env.NODE_ENV !== "production" && preloadedFeatures && isStrict) {
     const strictMessage = "You have rendered a `motion` component within a `LazyMotion` component. This will break tree shaking. Import and render a `m` component instead.";
     configAndProps.ignoreStrict ? warning(false, strictMessage, "lazy-strict-mode") : invariant(false, strictMessage, "lazy-strict-mode");
@@ -8394,11 +8493,11 @@ function createMotionProxy(preloadedFeatures, createVisualElement) {
 }
 
 // node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
-var import_react29 = require("react");
+var import_react30 = require("react");
 var createDomVisualElement = (Component3, options) => {
   const isSVG = options.isSVG ?? isSVGComponent(Component3);
   return isSVG ? new SVGVisualElement(options) : new HTMLVisualElement(options, {
-    allowProjection: Component3 !== import_react29.Fragment
+    allowProjection: Component3 !== import_react30.Fragment
   });
 };
 
@@ -9311,9 +9410,9 @@ var PanGesture = class extends Feature {
 
 // node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
 var import_jsx_runtime5 = require("react/jsx-runtime");
-var import_react30 = require("react");
+var import_react31 = require("react");
 var hasTakenAnySnapshot = false;
-var MeasureLayoutWithContext = class extends import_react30.Component {
+var MeasureLayoutWithContext = class extends import_react31.Component {
   /**
    * This only mounts projection nodes for components that
    * need measuring, we might want to do it for all components
@@ -9409,8 +9508,8 @@ var MeasureLayoutWithContext = class extends import_react30.Component {
 };
 function MeasureLayout(props) {
   const [isPresent, safeToRemove] = usePresence();
-  const layoutGroup = (0, import_react30.useContext)(LayoutGroupContext);
-  return (0, import_jsx_runtime5.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react30.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
+  const layoutGroup = (0, import_react31.useContext)(LayoutGroupContext);
+  return (0, import_jsx_runtime5.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react31.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
 }
 
 // node_modules/framer-motion/dist/es/motion/features/drag.mjs
@@ -9656,7 +9755,7 @@ var Modal = ({
   children,
   footer
 }) => {
-  (0, import_react31.useEffect)(() => {
+  (0, import_react32.useEffect)(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") onClose();
     };
@@ -9669,7 +9768,7 @@ var Modal = ({
       document.body.style.overflow = "";
     };
   }, [isOpen, onClose]);
-  return /* @__PURE__ */ import_react31.default.createElement(AnimatePresence, null, isOpen && /* @__PURE__ */ import_react31.default.createElement(
+  return /* @__PURE__ */ import_react32.default.createElement(AnimatePresence, null, isOpen && /* @__PURE__ */ import_react32.default.createElement(
     motion2.div,
     {
       className: "bmd-modal__overlay",
@@ -9678,7 +9777,7 @@ var Modal = ({
       animate: { opacity: 1 },
       exit: { opacity: 0, transition: { delay: 0.25 } }
     },
-    /* @__PURE__ */ import_react31.default.createElement(
+    /* @__PURE__ */ import_react32.default.createElement(
       motion2.div,
       {
         className: "bmd-modal__container",
@@ -9704,7 +9803,7 @@ var Modal = ({
           // y: mobile ? 40 : 0,
         }
       },
-      /* @__PURE__ */ import_react31.default.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ import_react31.default.createElement(Heading, { level: 1 }, title), /* @__PURE__ */ import_react31.default.createElement(
+      /* @__PURE__ */ import_react32.default.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ import_react32.default.createElement(Heading, { level: 1 }, title), /* @__PURE__ */ import_react32.default.createElement(
         Button,
         {
           icon: { name: "x" },
@@ -9714,14 +9813,14 @@ var Modal = ({
           shape: "rounded"
         }
       )),
-      /* @__PURE__ */ import_react31.default.createElement("main", { className: "bmd-modal__content" }, children),
-      footer && /* @__PURE__ */ import_react31.default.createElement("footer", { className: "bmd-modal__footer" }, footer)
+      /* @__PURE__ */ import_react32.default.createElement("main", { className: "bmd-modal__content" }, children),
+      footer && /* @__PURE__ */ import_react32.default.createElement("footer", { className: "bmd-modal__footer" }, footer)
     )
   ));
 };
 
 // src/stories/components/Select/Select.tsx
-var import_react33 = __toESM(require("react"));
+var import_react34 = __toESM(require("react"));
 var Select = ({
   onChange,
   value,
@@ -9729,8 +9828,8 @@ var Select = ({
   children,
   ...props
 }) => {
-  const [localValue, setLocalValue] = (0, import_react33.useState)(value || "");
-  (0, import_react33.useEffect)(() => {
+  const [localValue, setLocalValue] = (0, import_react34.useState)(value || "");
+  (0, import_react34.useEffect)(() => {
     if (value !== void 0) {
       setLocalValue(value);
     }
@@ -9742,7 +9841,7 @@ var Select = ({
       onChange(e);
     }
   };
-  return /* @__PURE__ */ import_react33.default.createElement(
+  return /* @__PURE__ */ import_react34.default.createElement(
     "select",
     {
       className: "bmd-select",
@@ -9756,7 +9855,7 @@ var Select = ({
 };
 
 // src/stories/components/CheckboxGroup/CheckboxGroup.tsx
-var import_react34 = __toESM(require("react"));
+var import_react35 = __toESM(require("react"));
 var CheckboxGroup = ({
   options,
   value = [],
@@ -9776,7 +9875,7 @@ var CheckboxGroup = ({
       onChange(nextValues);
     }
   };
-  return /* @__PURE__ */ import_react34.default.createElement(
+  return /* @__PURE__ */ import_react35.default.createElement(
     "div",
     {
       className: "bmd-checkbox-group",
@@ -9786,14 +9885,14 @@ var CheckboxGroup = ({
     },
     options.map((option) => {
       const isChecked = value.includes(option.value);
-      return /* @__PURE__ */ import_react34.default.createElement(
+      return /* @__PURE__ */ import_react35.default.createElement(
         "label",
         {
           key: option.value,
           className: "bmd-checkbox-item",
           "data-state": isChecked ? "checked" : "unchecked"
         },
-        /* @__PURE__ */ import_react34.default.createElement(
+        /* @__PURE__ */ import_react35.default.createElement(
           "input",
           {
             type: "checkbox",
@@ -9804,14 +9903,14 @@ var CheckboxGroup = ({
             className: "bmd-checkbox-hidden"
           }
         ),
-        /* @__PURE__ */ import_react34.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
+        /* @__PURE__ */ import_react35.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
       );
     })
   );
 };
 
 // src/stories/charts/Pie/Pie.tsx
-var import_react35 = __toESM(require("react"));
+var import_react36 = __toESM(require("react"));
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -9824,7 +9923,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ import_react35.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react35.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react35.default.createElement(Heading, null, title), /* @__PURE__ */ import_react35.default.createElement(
+  return /* @__PURE__ */ import_react36.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react36.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react36.default.createElement(Heading, null, title), /* @__PURE__ */ import_react36.default.createElement(
     motion2.svg,
     {
       width: size,
@@ -9832,7 +9931,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ import_react35.default.createElement(
+    /* @__PURE__ */ import_react36.default.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9848,7 +9947,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ import_react35.default.createElement(
+      return /* @__PURE__ */ import_react36.default.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9888,7 +9987,7 @@ var Pie = ({
 };
 
 // src/stories/charts/Bar/BarChart.tsx
-var import_react37 = __toESM(require("react"));
+var import_react38 = __toESM(require("react"));
 var BarChart = ({ height = 500, ...props }) => {
   const maxBarHeight = height - 34;
   const columnsMap = props.data.reduce(
@@ -9921,14 +10020,14 @@ var BarChart = ({ height = 500, ...props }) => {
     type: "spring",
     bounce: 0.4
   };
-  return /* @__PURE__ */ import_react37.default.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ import_react37.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ import_react37.default.createElement(
+  return /* @__PURE__ */ import_react38.default.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ import_react38.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ import_react38.default.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ import_react37.default.createElement(
+      /* @__PURE__ */ import_react38.default.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -9946,7 +10045,7 @@ var BarChart = ({ height = 500, ...props }) => {
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ import_react37.default.createElement(
+      /* @__PURE__ */ import_react38.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
@@ -9956,8 +10055,8 @@ var BarChart = ({ height = 500, ...props }) => {
           },
           layout: true
         },
-        /* @__PURE__ */ import_react37.default.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
-          return /* @__PURE__ */ import_react37.default.createElement(
+        /* @__PURE__ */ import_react38.default.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
+          return /* @__PURE__ */ import_react38.default.createElement(
             motion2.div,
             {
               key: `label-${segment.id}`,
@@ -9981,8 +10080,8 @@ var BarChart = ({ height = 500, ...props }) => {
           );
         }))
       ),
-      /* @__PURE__ */ import_react37.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ import_react37.default.createElement(
+      /* @__PURE__ */ import_react38.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ import_react38.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -10019,6 +10118,7 @@ var BarChart = ({ height = 500, ...props }) => {
   Inline,
   Input,
   LayoutContainer,
+  Map,
   Modal,
   Pie,
   Select,

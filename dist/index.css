@@ -910,6 +910,40 @@ input[type=range]::-moz-range-thumb {
   outline-offset: 2px;
 }
 
+/* src/stories/components/Map/Map.css */
+.bmd-map-viewport {
+  width: 100%;
+  height: 450px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: #e5e7eb;
+}
+.bmd-map-fallback {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #d1d5db;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  color: #374151;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  padding: 2rem;
+  text-align: center;
+}
+.map-popup {
+  padding: 0.25rem;
+  color: #111827;
+  font-family: sans-serif;
+}
+.map-popup p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
 /* src/stories/components/Modal/Modal.css */
 .bmd-modal__overlay {
   position: fixed;

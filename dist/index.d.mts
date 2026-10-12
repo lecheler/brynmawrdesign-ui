@@ -190,6 +190,24 @@ declare const Card: typeof CardRoot & {
     Footer: typeof CardFooter;
 };
 
+interface MapMarkerData {
+    id: number | string;
+    lat: number;
+    lng: number;
+    title: string;
+    subtitle?: string;
+}
+interface MapProps {
+    markers?: MapMarkerData[];
+    center?: {
+        lat: number;
+        lng: number;
+    };
+    zoom?: number;
+    apiKey?: string;
+}
+declare const Map$1: React__default.MemoExoticComponent<({ markers, center, zoom, apiKey: userApiKey, ...props }: MapProps) => React__default.JSX.Element>;
+
 interface ModalProps {
     /** Is the modal open? */
     isOpen: boolean;
@@ -253,4 +271,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, type InputSize, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, type InputSize, LayoutContainer, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };
