@@ -685,14 +685,23 @@ var MapComponent = ({
     clustererInstance.clearMarkers();
     const freshAdvancedMarkers = [];
     markers.forEach((item) => {
+      const pinStyle = new markerLib.PinElement({
+        background: item.colorToken || "var(--color-blue-500)",
+        // Falls back to default if unassigned
+        borderColor: "#ffffff",
+        // Crisp white border outline to match design maps
+        glyphColor: "#ffffff"
+        // White center dot glyph marker icon
+      });
       const markerInstance = new markerLib.AdvancedMarkerElement({
         position: { lat: item.lat, lng: item.lng },
         title: item.title,
-        gmpClickable: true
+        gmpClickable: true,
         // Unlocks native interaction layers for modern pointers
+        content: pinStyle
       });
       const infoWindow = new google.maps.InfoWindow({
-        content: `<div class="map-popup"><strong>${item.title}</strong>${item.subtitle ? `<p>\${item.subtitle}</p>` : ""}</div>`
+        content: `<div class="map-popup"><strong>${item.title}</strong>${item.subtitle ? `<p>${item.subtitle}</p>` : ""}</div>`
       });
       markerInstance.addEventListener("gmp-click", () => {
         infoWindow.open({

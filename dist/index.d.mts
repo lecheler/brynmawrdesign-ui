@@ -196,6 +196,7 @@ interface MapMarkerData {
     lng: number;
     title: string;
     subtitle?: string;
+    colorToken?: string;
 }
 interface MapProps {
     markers?: MapMarkerData[];

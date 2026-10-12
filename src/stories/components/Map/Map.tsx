@@ -10,6 +10,7 @@ export interface MapMarkerData {
   lng: number;
   title: string;
   subtitle?: string;
+  colorToken?: string;
 }
 
 interface MapProps {
@@ -91,15 +92,22 @@ const MapComponent = ({
     const freshAdvancedMarkers: google.maps.marker.AdvancedMarkerElement[] = [];
 
     markers.forEach((item) => {
+      const pinStyle = new markerLib.PinElement({
+        background: item.colorToken || "var(--color-blue-500)", // Falls back to default if unassigned
+        borderColor: "#ffffff", // Crisp white border outline to match design maps
+        glyphColor: "#ffffff", // White center dot glyph marker icon
+      });
+
       // Build modern advanced marker (Do NOT pass 'map: mapInstance' here, clusterer handles drawing)
       const markerInstance = new markerLib.AdvancedMarkerElement({
         position: { lat: item.lat, lng: item.lng },
         title: item.title,
         gmpClickable: true, // Unlocks native interaction layers for modern pointers
+        content: pinStyle,
       });
 
       const infoWindow = new google.maps.InfoWindow({
-        content: `<div class="map-popup"><strong>${item.title}</strong>${item.subtitle ? `<p>\${item.subtitle}</p>` : ""}</div>`,
+        content: `<div class="map-popup"><strong>${item.title}</strong>${item.subtitle ? `<p>${item.subtitle}</p>` : ""}</div>`,
       });
 
       // Attach DOM native-friendly event handlers to satisfy deprecation guidelines
