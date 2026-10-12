@@ -1,10 +1,12 @@
 .bmd-bar-chart {
   display: flex;
+  align-items: flex-end;
   border-radius: var(--bar-radius-rounded);
   background-color: var(--color-surface);
   gap: var(--chart-gap-x);
-  padding: var(--chart-padding-y) var(--chart-padding-x);
   color: var(--chart-font-color);
+
+  /* background-color: var(--color-surface-subtle); */
 }
 
 /* div wrapping value text, bar, and label */
@@ -30,7 +32,7 @@
 .bmd-bar-chart__value-bar-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   width: 100%;
 
   overflow: hidden;
@@ -43,7 +45,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
 
   overflow: hidden;
   border-radius: var(--bar-radius-rounded);
@@ -51,9 +53,9 @@
 
 .bmd-bar-chart__value-sep {
   width: 100%;
-  height: 2px;
+  height: 1px;
   margin: var(--chart-gap-y);
-  background-color: var(--color-surface);
+  background-color: var(--color-border-subtle);
 }
 
 .bmd-bar-chart__value-label {

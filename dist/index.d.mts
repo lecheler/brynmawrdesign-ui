@@ -3,7 +3,7 @@ import React__default, { JSX } from 'react';
 import * as _tanstack_react_table from '@tanstack/react-table';
 import { ColumnDef } from '@tanstack/react-table';
 
-type IconName = "arrowUp" | "arrowDown" | "calendar" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "pen" | "plus" | "search" | "star" | "warning" | "x" | "trash";
+type IconName = "arrowUp" | "arrowDown" | "calendar" | "chart" | "check" | "chevronRight" | "chevronLeft" | "chevronsRight" | "chevronsLeft" | "download" | "map" | "pen" | "plus" | "search" | "star" | "warning" | "table" | "trash" | "x";
 interface IconProps extends React__default.HTMLAttributes<HTMLSpanElement> {
     name: IconName;
     className?: string;
@@ -247,11 +247,10 @@ interface BarChartItem {
 }
 interface BarChartProps {
     data: BarChartItem[];
-    title?: string;
     height?: number;
     maxValue?: number;
 }
 /** Primary UI component for user interaction */
-declare const BarChart: ({ title, height, ...props }: BarChartProps) => React__default.JSX.Element;
+declare const BarChart: ({ height, ...props }: BarChartProps) => React__default.JSX.Element;
 
 export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, type InputSize, LayoutContainer, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };

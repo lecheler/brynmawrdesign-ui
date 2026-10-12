@@ -14,17 +14,13 @@ export interface BarChartItem {
 
 export interface BarChartProps {
   data: BarChartItem[];
-  title?: string;
   height?: number;
   maxValue?: number;
 }
 
 /** Primary UI component for user interaction */
-export const BarChart = ({
-  title = "Bar Chart",
-  height = 500,
-  ...props
-}: BarChartProps) => {
+export const BarChart = ({ height = 500, ...props }: BarChartProps) => {
+  const maxBarHeight = height - 34; // Pad for label and value text
   const columnsMap = props.data.reduce(
     (acc, item) => {
       if (!acc[item.groupId]) {
@@ -94,9 +90,11 @@ export const BarChart = ({
               <motion.div
                 className="bmd-bar-chart__value-bar-wrapper"
                 animate={{
-                  height:
-                    ((bar.totalValue > 0 ? bar.totalValue : 0.5) / maxValue) *
-                    height,
+                  height: `${
+                    bar.totalValue > 0
+                      ? (bar.totalValue / maxValue) * maxBarHeight
+                      : 3
+                  }px`,
                   transition: transition,
                 }}
                 layout={true}

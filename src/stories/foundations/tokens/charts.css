@@ -8,7 +8,7 @@
 
   --chart-line-height: var(--line-height-tight);
   --chart-font-color: var(--color-text-muted);
-  --chart-font-label-weight: var(--font-weight-medium);
+  --chart-font-label-weight: var(--font-weight-regular);
   --chart-font-label-size: var(--font-size-2xs);
   --chart-font-value-weight: var(--font-weight-semibold);
   --chart-font-value-size: var(--font-size-2xs);

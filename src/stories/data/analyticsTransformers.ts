@@ -63,8 +63,8 @@ export const prepareShowsForStackedChart = (
   // Outer Loop: Ensures continuous, unbroken horizontal columns (e.g., 2021, 2022, 2023...)
   for (let year = minYear; year <= maxYear; year++) {
     const groupId = year.toString();
-    const displayLabel = `'${groupId.slice(-2)}`;
-
+    //const displayLabel = `'${groupId.slice(-2)}`;
+    const displayLabel = groupId;
     // Inner Loop: Guarantees every single segment stacks in the exact same vertical order
     orderedBands.forEach((slug: any) => {
       chartData.push({

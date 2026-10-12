@@ -3,6 +3,7 @@ import {
   ArrowDown,
   ArrowUp,
   Calendar,
+  Chart,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -10,10 +11,12 @@ import {
   ChevronsRight,
   Download,
   Exclamation,
+  Map,
   Pen,
   Plus,
   Search,
   Star,
+  Table,
   Trash,
   X,
 } from "./index";
@@ -24,34 +27,40 @@ export type IconName =
   | "arrowUp"
   | "arrowDown"
   | "calendar"
+  | "chart"
   | "check"
   | "chevronRight"
   | "chevronLeft"
   | "chevronsRight"
   | "chevronsLeft"
   | "download"
+  | "map"
   | "pen"
   | "plus"
   | "search"
   | "star"
   | "warning"
-  | "x"
-  | "trash";
+  | "table"
+  | "trash"
+  | "x";
 
 const ICONS: Record<IconName, string> = {
   arrowUp: ArrowUp,
   arrowDown: ArrowDown,
   calendar: Calendar,
+  chart: Chart,
   chevronRight: ChevronRight,
   chevronLeft: ChevronLeft,
   chevronsRight: ChevronsRight,
   chevronsLeft: ChevronsLeft,
   check: Check,
   download: Download,
+  map: Map,
   pen: Pen,
   plus: Plus,
   search: Search,
   star: Star,
+  table: Table,
   trash: Trash,
   warning: Exclamation,
   x: X,

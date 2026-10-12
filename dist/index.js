@@ -47,7 +47,7 @@ __export(index_exports, {
   Pie: () => Pie,
   Select: () => Select,
   Stack: () => Stack,
-  Table: () => Table,
+  Table: () => Table2,
   Text: () => Text
 });
 module.exports = __toCommonJS(index_exports);
@@ -63,6 +63,9 @@ var arrow_down_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6
 
 // src/stories/foundations/icons/svgs/calendar.svg
 var calendar_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n  <path\n    d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 32 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 128C0 92.7 28.7 64 64 64l32 0 0-32c0-17.7 14.3-32 32-32zM64 240l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 368l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z" />\n</svg>\n';
+
+// src/stories/foundations/icons/svgs/chart.svg
+var chart_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\n  <path\n    d="M32 32c17.7 0 32 14.3 32 32l0 336c0 8.8 7.2 16 16 16l400 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L80 480c-44.2 0-80-35.8-80-80L0 64C0 46.3 14.3 32 32 32zM144 224c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm144-64l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160c0-17.7 14.3-32 32-32s32 14.3 32 32zm80 32c17.7 0 32 14.3 32 32l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-96c0-17.7 14.3-32 32-32zM512 96l0 224c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-224c0-17.7 14.3-32 32-32s32 14.3 32 32z" />\n</svg>\n';
 
 // src/stories/foundations/icons/svgs/chevron-right.svg
 var chevron_right_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path\n    d="M477.5 320L454.9 342.6L262.9 534.6L240.3 557.3L195 512L217.6 489.4L387 320L217.6 150.6L195 128L240.3 82.7L262.9 105.4L454.9 297.4L477.5 320z" />\n</svg>\n';
@@ -85,6 +88,9 @@ var download_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640
 // src/stories/foundations/icons/svgs/exclamation.svg
 var exclamation_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path d="M352 576L288 576L288 512L352 512L352 576zM352 448L288 448L272 64L368 64L352 448z" />\n</svg>\n';
 
+// src/stories/foundations/icons/svgs/map.svg
+var map_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\n  <path\n    d="M512 48c0-11.1-5.7-21.4-15.2-27.2s-21.2-6.4-31.1-1.4L349.5 77.5 170.1 17.6c-8.1-2.7-16.8-2.1-24.4 1.7l-128 64C6.8 88.8 0 99.9 0 112L0 464c0 11.1 5.7 21.4 15.2 27.2s21.2 6.4 31.1 1.4l116.1-58.1 179.4 59.8c8.1 2.7 16.8 2.1 24.4-1.7l128-64c10.8-5.4 17.7-16.5 17.7-28.6l0-352zM192 376.9l0-284.5 128 42.7 0 284.5-128-42.7z" />\n</svg>\n';
+
 // src/stories/foundations/icons/svgs/pen.svg
 var pen_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\n  <path\n    d="M352.9 21.2L308 66.1 445.9 204 490.8 159.1C504.4 145.6 512 127.2 512 108s-7.6-37.6-21.2-51.1L455.1 21.2C441.6 7.6 423.2 0 404 0s-37.6 7.6-51.1 21.2zM274.1 100L58.9 315.1c-10.7 10.7-18.5 24.1-22.6 38.7L.9 481.6c-2.3 8.3 0 17.3 6.2 23.4s15.1 8.5 23.4 6.2l127.8-35.5c14.6-4.1 27.9-11.8 38.7-22.6L412 237.9 274.1 100z" />\n</svg>\n';
 
@@ -97,6 +103,9 @@ var magnifying_glass_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox=
 // src/stories/foundations/icons/svgs/star.svg
 var star_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">\n  <path\n    d="M320.2 11.2L227.6 192.6L26.5 224.6L170.4 368.7L138.7 569.9L320.2 477.6L501.7 569.9L470 368.7L613.9 224.6L412.8 192.6L320.2 11.2z" />\n</svg>\n';
 
+// src/stories/foundations/icons/svgs/table.svg
+var table_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n  <path\n    d="M384 32c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64l-320 0-6.5-.3C25.2 476.4 0 449.1 0 416L0 96C0 60.7 28.7 32 64 32l320 0zM64 320l0 96 128 0 0-96-128 0zm192 0l0 96 128 0 0-96-128 0zM64 256l128 0 0-96-128 0 0 96zm192 0l128 0 0-96-128 0 0 96z" />\n</svg>\n';
+
 // src/stories/foundations/icons/svgs/trash.svg
 var trash_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">\n  <path\n    d="M136.7 5.9L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-8.7-26.1C306.9-7.2 294.7-16 280.9-16L167.1-16c-13.8 0-26 8.8-30.4 21.9zM416 144L32 144 53.1 467.1C54.7 492.4 75.7 512 101 512L347 512c25.3 0 46.3-19.6 47.9-44.9L416 144z" />\n</svg>\n';
 
@@ -107,6 +116,7 @@ var x_default = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><
 var ArrowUp = arrow_up_default;
 var ArrowDown = arrow_down_default;
 var Calendar = calendar_default;
+var Chart = chart_default;
 var ChevronRight = chevron_right_default;
 var ChevronLeft = chevron_left_default;
 var ChevronsRight = chevrons_right_default;
@@ -114,10 +124,12 @@ var ChevronsLeft = chevrons_left_default;
 var Check = check_default;
 var Download = download_default;
 var Exclamation = exclamation_default;
+var Map2 = map_default;
 var Pen = pen_default;
 var Plus = plus_default;
 var Search = magnifying_glass_default;
 var Star = star_default;
+var Table = table_default;
 var Trash = trash_default;
 var X = x_default;
 
@@ -126,16 +138,19 @@ var ICONS = {
   arrowUp: ArrowUp,
   arrowDown: ArrowDown,
   calendar: Calendar,
+  chart: Chart,
   chevronRight: ChevronRight,
   chevronLeft: ChevronLeft,
   chevronsRight: ChevronsRight,
   chevronsLeft: ChevronsLeft,
   check: Check,
   download: Download,
+  map: Map2,
   pen: Pen,
   plus: Plus,
   search: Search,
   star: Star,
+  table: Table,
   trash: Trash,
   warning: Exclamation,
   x: X
@@ -395,7 +410,7 @@ var features = (0, import_react_table.tableFeatures)({
   },
   columnMeta: (0, import_react_table.metaHelper)()
 });
-function Table({ data, columns, hideFilters }) {
+function Table2({ data, columns, hideFilters }) {
   const columnHelper = (0, import_react_table.createColumnHelper)();
   const filterColumns = import_react6.default.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {
@@ -9874,11 +9889,8 @@ var Pie = ({
 
 // src/stories/charts/Bar/BarChart.tsx
 var import_react37 = __toESM(require("react"));
-var BarChart = ({
-  title = "Bar Chart",
-  height = 500,
-  ...props
-}) => {
+var BarChart = ({ height = 500, ...props }) => {
+  const maxBarHeight = height - 34;
   const columnsMap = props.data.reduce(
     (acc, item) => {
       if (!acc[item.groupId]) {
@@ -9939,7 +9951,7 @@ var BarChart = ({
         {
           className: "bmd-bar-chart__value-bar-wrapper",
           animate: {
-            height: (bar.totalValue > 0 ? bar.totalValue : 0.5) / maxValue * height,
+            height: `${bar.totalValue > 0 ? bar.totalValue / maxValue * maxBarHeight : 3}px`,
             transition
           },
           layout: true

@@ -358,7 +358,7 @@
   --chart-gap-y: var(--space-1);
   --chart-line-height: var(--line-height-tight);
   --chart-font-color: var(--color-text-muted);
-  --chart-font-label-weight: var(--font-weight-medium);
+  --chart-font-label-weight: var(--font-weight-regular);
   --chart-font-label-size: var(--font-size-2xs);
   --chart-font-value-weight: var(--font-weight-semibold);
   --chart-font-value-size: var(--font-size-2xs);
@@ -1011,10 +1011,10 @@ select {
 /* src/stories/charts/Bar/BarChart.css */
 .bmd-bar-chart {
   display: flex;
+  align-items: flex-end;
   border-radius: var(--bar-radius-rounded);
   background-color: var(--color-surface);
   gap: var(--chart-gap-x);
-  padding: var(--chart-padding-y) var(--chart-padding-x);
   color: var(--chart-font-color);
 }
 .bmd-bar-chart__value-wrapper {
@@ -1035,7 +1035,6 @@ select {
 .bmd-bar-chart__value-bar-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   width: 100%;
   overflow: hidden;
   border-radius: var(--bar-radius-rounded);
@@ -1045,15 +1044,14 @@ select {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   overflow: hidden;
   border-radius: var(--bar-radius-rounded);
 }
 .bmd-bar-chart__value-sep {
   width: 100%;
-  height: 2px;
+  height: 1px;
   margin: var(--chart-gap-y);
-  background-color: var(--color-surface);
+  background-color: var(--color-border-subtle);
 }
 .bmd-bar-chart__value-label {
   font-weight: var(--chart-font-label-weight);

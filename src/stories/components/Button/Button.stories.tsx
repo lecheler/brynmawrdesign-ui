@@ -11,15 +11,18 @@ const SHAPES = ["square", "rounded", "pill"];
 const VARIANTS = ["solid", "outlined", "soft", "ghost"];
 const ICON_NAMES = [
   "check",
+  "chart",
   "chevronRight",
   "chevronLeft",
   "chevronsRight",
   "chevronsLeft",
   "download",
+  "map",
   "search",
   "star",
   "warning",
   "x",
+  "table",
   "trash",
   "pen",
 ];

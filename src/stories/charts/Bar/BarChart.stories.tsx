@@ -14,9 +14,6 @@ const meta = preview.meta({
   title: "Charts/BarChart",
   component: BarChart,
   tags: ["autodocs"],
-  argTypes: {
-    title: { control: { type: "text" } },
-  },
 });
 
 // Interactive template that updates the isOpen state within Storybook
@@ -28,7 +25,10 @@ const InteractiveTemplate: React.FC<any> = (args) => {
       value: band.slug,
     };
   });
-  const [selectedBands, setSelectedBands] = useState([]);
+  const [selectedBands, setSelectedBands] = useState([
+    "nato-coles",
+    "right-here",
+  ]);
   const filteredShows = useMemo(() => {
     return rawShows.filter((show) => {
       const matchesBand = selectedBands.some(
@@ -47,7 +47,6 @@ const InteractiveTemplate: React.FC<any> = (args) => {
         options={bands} // Stable via useMemo
         value={selectedBands} // Stable via useMemo
         onChange={(nextValues) => {
-          console.log(nextValues);
           setSelectedBands(nextValues);
         }}
       />
@@ -61,7 +60,7 @@ export const Interactive = meta.story({
   args: {
     data: prepareShowsForStackedChart(mockShowsData.data, mockShowsData.data),
     height: 250,
-    maxValue: 60,
+    maxValue: 67,
   },
 });
 
