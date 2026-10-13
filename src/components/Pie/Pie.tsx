@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 
 import "./Pie.css";
 
-import { Heading } from "../../foundations/typography/Heading";
-import { Stack } from "../../foundations/layout/Stack";
+import { Heading } from "../Heading/Heading";
+import { Stack } from "../Stack/Stack";
 
 export interface PieData {
   id: number;

@@ -1,7 +1,6 @@
 import React from "react";
 import { cx } from "../../utils/classNames";
-
-import "./Layout.css";
+// import "./Layout.css";
 
 type GridProps = React.HTMLAttributes<HTMLDivElement> & {
   /** Fixed column count (ignored if auto is true) */

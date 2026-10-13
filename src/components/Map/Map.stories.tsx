@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { mockBandsData, mockShowsData } from "../../data/shows.mock";
 import {
   CheckboxGroup,

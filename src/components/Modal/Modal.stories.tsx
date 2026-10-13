@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { Modal } from "./Modal";
 
 const meta = preview.meta({

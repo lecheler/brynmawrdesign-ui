@@ -1,6 +1,5 @@
-// src/foundations/typography/Text.tsx
 import * as React from "react";
-import "./Typography.css";
+// import "./Typography.css";
 
 // --- polymorphic helper (or import from a shared file) ---
 type AsProp<E extends React.ElementType> = {

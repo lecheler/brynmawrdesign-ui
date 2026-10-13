@@ -1,13 +1,13 @@
 import "./styles/index.css";
 
 /* Foundations */
-export * from "./foundations/icons/Icon";
-export * from "./foundations/layout/Inline";
-export * from "./foundations/layout/Stack";
-export * from "./foundations/layout/Grid";
-export * from "./foundations/layout/LayoutContainer";
-export * from "./foundations/typography/Heading";
-export * from "./foundations/typography/Text";
+export * from "./components/Icon/Icon";
+export * from "./components/Inline/Inline";
+export * from "./components/Stack/Stack";
+export * from "./components/Grid/Grid";
+export * from "./components/LayoutContainer/LayoutContainer";
+export * from "./components/Heading/Heading";
+export * from "./components/Text/Text";
 
 /* Components */
 export * from "./components/Button/Button";
@@ -20,5 +20,5 @@ export * from "./components/Select/Select";
 export * from "./components/CheckboxGroup/CheckboxGroup";
 
 /* Charts */
-export * from "./charts/Pie/Pie";
-export * from "./charts/Bar/BarChart";
+export * from "./components/Pie/Pie";
+export * from "./components/Bar/BarChart";

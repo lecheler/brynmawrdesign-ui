@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, type IconProps } from "../../foundations/icons/Icon";
+import { Icon, type IconProps } from "../Icon/Icon";
 import { cx } from "../../utils/classNames";
 
 import "./Button.css";

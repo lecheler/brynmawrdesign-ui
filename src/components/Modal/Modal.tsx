@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 import "./Modal.css";
-import { Heading } from "../../foundations/typography/Heading";
+import { Heading } from "../Heading/Heading";
 import { Button } from "../Button/Button";
 
 export interface ModalProps {

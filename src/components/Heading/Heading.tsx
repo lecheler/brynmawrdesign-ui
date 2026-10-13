@@ -1,7 +1,6 @@
-// src/foundations/typography/Heading.tsx
 import * as React from "react";
 import { type JSX } from "react";
-import "./Typography.css";
+// import "./Typography.css";
 
 // --- reuse the same helper types (or import them) ---
 type AsProp<E extends React.ElementType> = {

@@ -4,7 +4,7 @@ import addonDocs from "@storybook/addon-docs";
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import { themes } from "storybook/theming";
 
-import "../src/stories/styles/index.css";
+import "../src/styles/index.css";
 
 export default definePreview({
   addons: [addonA11y(), addonDocs()],

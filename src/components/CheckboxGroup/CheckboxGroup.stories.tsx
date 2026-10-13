@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { CheckboxGroup } from "./CheckboxGroup";
 
 const meta = preview.meta({

@@ -1,4 +1,4 @@
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { mockShowsData } from "../../data/shows.mock";
 
 import { Table, TableColumn } from "./Table";

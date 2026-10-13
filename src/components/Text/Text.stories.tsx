@@ -1,7 +1,7 @@
 import * as React from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { Text } from "./Text";
-import { Stack } from "../layout/Stack";
+import { Stack } from "../Stack/Stack";
 
 const meta = preview.meta({
   title: "Foundations/Typography",

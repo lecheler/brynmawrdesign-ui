@@ -1,9 +1,9 @@
 import React from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 
 import { Button, type ButtonShape, type ButtonSize } from "./Button";
-import { Inline } from "../../foundations/layout/Inline";
-import { Stack } from "../../foundations/layout/Stack";
+import { Inline } from "../Inline/Inline";
+import { Stack } from "../Stack/Stack";
 
 const TONES = ["primary", "danger", "success", "warning", "neutral"];
 const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"];

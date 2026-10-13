@@ -1,17 +1,17 @@
 // src/components/Card/Card.stories.tsx
 import React from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 
 import { Card } from "./Card";
 
 // tweak these imports if your paths are different
-import { LayoutContainer } from "../../foundations/layout/LayoutContainer";
-import { Grid } from "../../foundations/layout/Grid";
-import { Heading } from "../../foundations/typography/Heading";
-import { Text } from "../../foundations/typography/Text";
+import { LayoutContainer } from "../LayoutContainer/LayoutContainer";
+import { Grid } from "../Grid/Grid";
+import { Heading } from "../Heading/Heading";
+import { Text } from "../Text/Text";
 
 import { Button } from "../Button/Button";
-import { Inline } from "../../foundations/layout/Inline";
+import { Inline } from "../Inline/Inline";
 
 const meta = preview.meta({
   title: "Components/Card",

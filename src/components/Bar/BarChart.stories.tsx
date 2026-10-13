@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from "react";
 
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
+
 import { mockShowsData, mockBandsData } from "../../data/shows.mock";
-import { prepareShowsForStackedChart } from "../../data/analyticsTransformers";
+import { prepareShowsForStackedChart } from "../../utils/analyticsTransformers";
 
 import { BarChart } from "./BarChart";
 import {

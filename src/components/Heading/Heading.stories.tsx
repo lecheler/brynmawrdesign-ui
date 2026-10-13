@@ -1,7 +1,7 @@
 import * as React from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { Heading, HeadingProps } from "./Heading";
-import { Text } from "./Text";
+import { Text } from "../Text/Text";
 
 const meta = preview.meta({
   title: "Foundations/Typography",

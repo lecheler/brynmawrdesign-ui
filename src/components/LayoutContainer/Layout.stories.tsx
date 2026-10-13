@@ -1,11 +1,11 @@
 import * as React from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { LayoutContainer } from "./LayoutContainer";
-import { Heading } from "../typography/Heading";
-import { Text } from "../typography/Text";
-import { Stack } from "./Stack";
-import { Grid } from "./Grid";
-import { Card } from "../../components/Card/Card";
+import { Heading } from "../Heading/Heading";
+import { Text } from "../Text/Text";
+import { Stack } from "../Stack/Stack";
+import { Grid } from "../Grid/Grid";
+import { Card } from "../Card/Card";
 
 const meta = preview.meta({
   title: "Foundations/Layout",

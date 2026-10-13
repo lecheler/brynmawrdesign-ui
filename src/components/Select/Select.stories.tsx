@@ -1,5 +1,5 @@
 import React from "react";
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { Select } from "./Select";
 
 const meta = preview.meta({

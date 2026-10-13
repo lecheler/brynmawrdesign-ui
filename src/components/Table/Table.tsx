@@ -27,9 +27,9 @@ import {
 
 import "./Table.css";
 
-import { Icon, IconName } from "../../foundations/icons/Icon";
+import { Icon, IconName } from "../Icon/Icon";
 import { Button } from "../Button/Button";
-import { Inline } from "../../foundations/layout/Inline";
+import { Inline } from "../Inline/Inline";
 import { Input } from "../Input/Input";
 
 // allows us to define custom properties for our columns

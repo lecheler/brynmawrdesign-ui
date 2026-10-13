@@ -1,42 +1,25 @@
-/* Colors */
-@import "../foundations/tokens/colors.palette.css";
-@import "../foundations/tokens/colors.semantic.css";
-@import "../foundations/tokens/tones.css";
+/* 🔴 LAYER 1: Primitives */
+@import "./1-core/breakpoints.css";
+@import "./1-core/colors.palette.css";
+@import "./1-core/radii.css";
+@import "./1-core/shadows.css";
+@import "./1-core/spaces.css";
+@import "./1-core/transitions.css";
+@import "./1-core/typography.css";
 
-/* Typography */
-@import "../foundations/tokens/types.css";
+/* 🟡 LAYER 2: Semantic Maps & Tones */
+@import "./2-semantic/colors.semantic.css";
+@import "./2-semantic/icons.css";
+@import "./2-semantic/tones.css";
+@import "./2-semantic/types.css";
 
-/* Spaces */
-@import "../foundations/tokens/spaces.css";
+/* 🟢 LAYER 3: Component Blueprints */
+@import "./3-component/buttons.css";
+@import "./3-component/cards.css";
+@import "./3-component/charts.css";
+@import "./3-component/inputs.css";
+@import "./3-component/modals.css";
+@import "./3-component/tables.css";
 
-/* Radii */
-@import "../foundations/tokens/radii.css";
-
-/* Shadows */
-@import "../foundations/tokens/shadows.css";
-
-/* Breakpoints */
-@import "../foundations/tokens/breakpoints.css";
-
-/* Icons */
-@import "../foundations/tokens/icons.css";
-
-/* Transitions */
-@import "../foundations/tokens/transitions.css";
-
-/* Components */
-@import "../foundations/tokens/buttons.css";
-@import "../foundations/tokens/cards.css";
-@import "../foundations/tokens/inputs.css";
-@import "../foundations/tokens/tables.css";
-@import "../foundations/tokens/modals.css";
-
-/* Charts */
-@import "../foundations/tokens/charts.css";
-
-/* Themes */
-@import "../foundations/themes/light.css";
-@import "../foundations/themes/dark.css";
-
-/* Global styles */
+/* 👥 Document Resets */
 @import "./globals.css";
