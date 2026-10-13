@@ -8,7 +8,7 @@ import {
 import { Map, type MapMarkerData } from "./Map";
 
 const meta = preview.meta({
-  title: "Components/Map",
+  title: "Analytics/Map",
   component: Map,
   tags: ["autodocs"],
   args: {},

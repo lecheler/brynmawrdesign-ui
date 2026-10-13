@@ -1,0 +1,37 @@
+/* src/components/Text/Text.css */
+.bmd-text {
+  margin: 0; /* Reset browser paragraph margins */
+  color: var(--color-text-main);
+  transition: color 0.2s ease-in-out;
+}
+
+/* Map React size/variant variants straight to Layer 2 Semantic typography choices */
+.bmd-text[data-variant="body"] {
+  font: var(--type-body-main);
+}
+
+.bmd-text[data-variant="lead"] {
+  font: var(--type-body-lead);
+  color: var(--color-text-bright); /* Lead paragraphs can use an accent shade */
+}
+
+.bmd-text[data-variant="caption"] {
+  font: var(--type-caption);
+  color: var(
+    --color-text-muted
+  ); /* Automated gray rendering for supporting items */
+}
+
+.bmd-text[data-variant="code"] {
+  font: var(--type-code-block);
+  background-color: var(
+    --color-bg-surface-dim
+  ); /* Clean code capsule backgrounds */
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Unified modifier overrides that can hook into any text element style */
+.bmd-text[data-bold="true"] {
+  font-weight: var(--font-weight-bold);
+}

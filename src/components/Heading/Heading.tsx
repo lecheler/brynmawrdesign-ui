@@ -1,41 +1,30 @@
 import * as React from "react";
-import { type JSX } from "react";
-// import "./Typography.css";
+import "./Heading.css";
 
-// --- reuse the same helper types (or import them) ---
-type AsProp<E extends React.ElementType> = {
-  as?: E;
-};
+// 1. Lock down exactly what levels and tags your system officially supports
+export type HeadingLevel = 1 | 2 | 3;
+export type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-type PropsToOmit<E extends React.ElementType, P> = keyof (AsProp<E> & P);
+// 2. Standard HTML inheritance. No generic omissions or omissions formulas needed!
+export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  level?: HeadingLevel; // Controls the visual size token matching your CSS
+  as?: HeadingTag; // Controls the literal HTML tag printed to the browser DOM
+  children: React.ReactNode;
+}
 
-type PolymorphicProps<E extends React.ElementType, P> = React.PropsWithChildren<
-  P & AsProp<E>
-> &
-  Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit<E, P>>;
-// -----------------------------------------------------
-
-type HeadingLevel = 1 | 2 | 3;
-
-type HeadingOwnProps = {
-  /**
-   * Visual + semantic heading level (controls default tag + size).
-   */
-  level?: HeadingLevel;
-};
-
-export type HeadingProps<E extends React.ElementType = "h2"> = PolymorphicProps<
-  E,
-  HeadingOwnProps
->;
-
-export function Heading<E extends React.ElementType = "h2">({
+export function Heading({
   level = 2,
   as,
+  children,
+  className = "",
   ...props
-}: HeadingProps<E>) {
-  const defaultTag = `h${level}` as keyof JSX.IntrinsicElements;
-  const Comp = (as || defaultTag) as React.ElementType;
+}: HeadingProps) {
+  // 3. Fall back to your native layout mapping logic
+  const Comp = as || (`h${level}` as HeadingTag);
 
-  return <Comp className="bmd-heading" data-level={level} {...props} />;
+  return (
+    <Comp className={`bmd-heading ${className}`} data-level={level} {...props}>
+      {children}
+    </Comp>
+  );
 }

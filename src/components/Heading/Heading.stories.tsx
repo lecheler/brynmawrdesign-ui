@@ -1,59 +1,30 @@
-import * as React from "react";
+// src/components/Heading/Heading.stories.tsx
+import React from "react";
 import preview from "../../../.storybook/preview";
-import { Heading, HeadingProps } from "./Heading";
-import { Text } from "../Text/Text";
+import { Heading } from "./Heading";
 
 const meta = preview.meta({
-  title: "Foundations/Typography",
+  title: "Components/Heading",
   component: Heading,
   tags: ["autodocs"],
 });
 
-export const HeadingPlayground = meta.story({
+// 1. The Interactive Playground Story
+export const Playground = meta.story({
   args: {
-    children: "Section heading",
     level: 2,
-  },
-  argTypes: {
-    level: {
-      control: { type: "inline-radio" },
-      options: [1, 2, 3],
-    },
-    as: {
-      control: { type: "select" },
-      options: ["h1", "h2", "h3", "h4", "p", "div"],
-    },
-    children: {
-      control: "text",
-    },
+    as: "h2",
+    children: "🎵 Main Performance Dashboard",
   },
 });
 
-export const HeadingLevels = meta.story({
-  render: (args: HeadingProps) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-      <Heading {...args} level={1}>
-        Page title (level 1)
-      </Heading>
-      <Text>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-        dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-        quis enim.
-      </Text>
-      <Heading {...args} level={2}>
-        Section heading (level 2)
-      </Heading>
-      <Heading {...args} level={3}>
-        Subsection heading (level 3)
-      </Heading>
+// 2. The Comprehensive Levels Variant Preview Story (Replaces the "Heading Levels" page)
+export const AllLevels = meta.story({
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <Heading level={1}>Level 1 Display Heading (32px)</Heading>
+      <Heading level={2}>Level 2 Section Title (24px)</Heading>
+      <Heading level={3}>Level 3 Subsection Header (20px)</Heading>
     </div>
   ),
-  args: {},
-  argTypes: {
-    level: { control: false },
-    as: { control: false },
-    children: { control: false },
-  },
 });

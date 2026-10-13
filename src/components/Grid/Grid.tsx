@@ -1,39 +1,30 @@
-import React from "react";
-import { cx } from "../../utils/classNames";
-// import "./Layout.css";
+import * as React from "react";
+import "./Grid.css";
 
-type GridProps = React.HTMLAttributes<HTMLDivElement> & {
-  /** Fixed column count (ignored if auto is true) */
-  columns?: 2 | 3 | 4;
-  /** Use auto-fit with a minimum width instead of fixed columns */
-  auto?: boolean;
-  /** Minimum column width when auto=true */
-  minItemWidth?: string; // e.g. "14rem"
-  responsive?: boolean;
-};
+export type GridColumns = 1 | 2 | 3 | 4;
+export type GridGap = 0 | 1 | 2 | 3 | 4 | 6 | 8;
+
+export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
+  columns?: GridColumns; // Tracks max layout columns rendered on desktop viewports
+  gap?: GridGap; // Spacing metric step matching Layer 1 tokens
+  children: React.ReactNode;
+}
 
 export function Grid({
-  columns,
-  auto,
-  minItemWidth = "14rem",
-  responsive,
-  className,
-  style,
+  columns = 3,
+  gap = 3,
+  children,
+  className = "",
   ...props
 }: GridProps) {
   return (
     <div
-      className={cx("bmd-grid", className)}
-      data-columns={!auto ? columns : undefined}
-      data-auto={auto ? "true" : undefined}
-      data-responsive={responsive ? "true" : undefined}
-      style={
-        {
-          "--bmd-grid-min": minItemWidth,
-          ...style,
-        } as React.CSSProperties
-      }
+      className={`bmd-grid ${className}`}
+      data-columns={columns}
+      data-gap={gap}
       {...props}
-    />
+    >
+      {children}
+    </div>
   );
 }

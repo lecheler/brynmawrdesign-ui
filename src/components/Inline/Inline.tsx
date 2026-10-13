@@ -1,65 +1,37 @@
-// src/foundations/layout/Inline.tsx
 import * as React from "react";
-// import "./Layout.css";
+import "./Inline.css";
 
-// --- polymorphic helper types (same pattern as Stack) ---
-type AsProp<E extends React.ElementType> = {
-  as?: E;
-};
+export type InlineGap = 0 | 1 | 2 | 3 | 4 | 6 | 8;
+export type InlineJustify = "start" | "center" | "end" | "space-between";
+export type InlineAlign = "start" | "center" | "end" | "baseline";
 
-type PropsToOmit<E extends React.ElementType, P> = keyof (AsProp<E> & P);
-
-type PolymorphicProps<E extends React.ElementType, P> = React.PropsWithChildren<
-  P & AsProp<E>
-> &
-  Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit<E, P>>;
-// ----------------------------------------------------------------
-
-type InlineGap = 0 | 1 | 2 | 3 | 4;
-type InlineAlign = "flex-start" | "center" | "flex-end" | "baseline";
-
-type InlineOwnProps = {
-  /**
-   * Gap between children, mapped to spacing tokens.
-   */
+export interface InlineProps extends React.HTMLAttributes<HTMLDivElement> {
   gap?: InlineGap;
-
-  /**
-   * Vertical alignment of children.
-   */
+  justify?: InlineJustify;
   align?: InlineAlign;
+  noWrap?: boolean; // Toggle true to force items to clip instead of wrap
+  children: React.ReactNode;
+}
 
-  /**
-   * Allow children to wrap onto multiple lines.
-   */
-  wrap?: boolean;
-};
-
-export type InlineProps<E extends React.ElementType = "div"> = PolymorphicProps<
-  E,
-  InlineOwnProps
->;
-
-export function Inline<E extends React.ElementType = "div">({
-  as,
+export function Inline({
   gap = 2,
+  justify = "start",
   align = "center",
-  wrap = false,
-  style,
+  noWrap = false,
+  children,
+  className = "",
   ...props
-}: InlineProps<E>) {
-  const Comp = (as || "div") as React.ElementType;
-
+}: InlineProps) {
   return (
-    <Comp
-      className="bmd-Inline"
+    <div
+      className={`bmd-inline ${className}`}
       data-gap={gap}
-      style={{
-        alignItems: align,
-        flexWrap: wrap ? "wrap" : "nowrap",
-        ...style,
-      }}
+      data-justify={justify}
+      data-align={align}
+      data-nowrap={noWrap || undefined}
       {...props}
-    />
+    >
+      {children}
+    </div>
   );
 }

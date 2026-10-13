@@ -141,89 +141,88 @@ var Icon = ({
 // src/components/Inline/Inline.tsx
 import * as React2 from "react";
 function Inline({
-  as,
   gap = 2,
+  justify = "start",
   align = "center",
-  wrap = false,
-  style,
+  noWrap = false,
+  children,
+  className = "",
   ...props
 }) {
-  const Comp = as || "div";
   return /* @__PURE__ */ React2.createElement(
-    Comp,
+    "div",
     {
-      className: "bmd-Inline",
+      className: `bmd-inline ${className}`,
       "data-gap": gap,
-      style: {
-        alignItems: align,
-        flexWrap: wrap ? "wrap" : "nowrap",
-        ...style
-      },
+      "data-justify": justify,
+      "data-align": align,
+      "data-nowrap": noWrap || void 0,
       ...props
-    }
+    },
+    children
   );
 }
 
 // src/components/Stack/Stack.tsx
 import * as React3 from "react";
 function Stack({
-  as,
-  gap = 3,
-  style,
+  gap = 2,
+  align = "stretch",
+  children,
+  className = "",
   ...props
 }) {
-  const Comp = as || "div";
-  return /* @__PURE__ */ React3.createElement(Comp, { className: "bmd-Stack", "data-gap": gap, style, ...props });
+  return /* @__PURE__ */ React3.createElement(
+    "div",
+    {
+      className: `bmd-stack ${className}`,
+      "data-gap": gap,
+      "data-align": align,
+      ...props
+    },
+    children
+  );
 }
 
 // src/components/Grid/Grid.tsx
-import React4 from "react";
-
-// src/utils/classNames.ts
-function cx(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-// src/components/Grid/Grid.tsx
+import * as React4 from "react";
 function Grid({
-  columns,
-  auto: auto2,
-  minItemWidth = "14rem",
-  responsive,
-  className,
-  style,
+  columns = 3,
+  gap = 3,
+  children,
+  className = "",
   ...props
 }) {
   return /* @__PURE__ */ React4.createElement(
     "div",
     {
-      className: cx("bmd-grid", className),
-      "data-columns": !auto2 ? columns : void 0,
-      "data-auto": auto2 ? "true" : void 0,
-      "data-responsive": responsive ? "true" : void 0,
-      style: {
-        "--bmd-grid-min": minItemWidth,
-        ...style
-      },
+      className: `bmd-grid ${className}`,
+      "data-columns": columns,
+      "data-gap": gap,
       ...props
-    }
+    },
+    children
   );
 }
 
 // src/components/LayoutContainer/LayoutContainer.tsx
-import React5 from "react";
+import * as React5 from "react";
 function LayoutContainer({
-  max = "none",
-  className,
+  size = "lg",
+  cleanPadding = false,
+  children,
+  className = "",
   ...props
 }) {
   return /* @__PURE__ */ React5.createElement(
     "div",
     {
-      className: cx("bmd-layout-container", className),
-      "data-max": max !== "none" ? max : void 0,
+      className: `bmd-container ${className}`,
+      "data-size": size,
+      "data-clean-padding": cleanPadding || void 0,
       ...props
-    }
+    },
+    children
   );
 }
 
@@ -232,26 +231,47 @@ import * as React6 from "react";
 function Heading({
   level = 2,
   as,
+  children,
+  className = "",
   ...props
 }) {
-  const defaultTag = `h${level}`;
-  const Comp = as || defaultTag;
-  return /* @__PURE__ */ React6.createElement(Comp, { className: "bmd-heading", "data-level": level, ...props });
+  const Comp = as || `h${level}`;
+  return /* @__PURE__ */ React6.createElement(Comp, { className: `bmd-heading ${className}`, "data-level": level, ...props }, children);
 }
 
 // src/components/Text/Text.tsx
 import * as React7 from "react";
 function Text({
+  variant = "body",
   as,
-  size = "md",
+  bold = false,
+  children,
+  className = "",
   ...props
 }) {
-  const Comp = as || "p";
-  return /* @__PURE__ */ React7.createElement(Comp, { className: "bmd-text", "data-size": size, ...props });
+  const defaultTag = variant === "caption" ? "small" : variant === "code" ? "code" : "p";
+  const Comp = as || defaultTag;
+  return /* @__PURE__ */ React7.createElement(
+    Comp,
+    {
+      className: `bmd-text ${className}`,
+      "data-variant": variant,
+      "data-bold": bold || void 0,
+      ...props
+    },
+    children
+  );
 }
 
 // src/components/Button/Button.tsx
 import React8 from "react";
+
+// src/utils/classNames.ts
+function cx(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+// src/components/Button/Button.tsx
 var Button = ({
   label,
   children,
@@ -7962,7 +7982,7 @@ function variantLabelsAsDependency(prop) {
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-import { Fragment as Fragment2, useMemo as useMemo7, createElement as createElement5 } from "react";
+import { Fragment as Fragment2, useMemo as useMemo7, createElement as createElement7 } from "react";
 
 // node_modules/framer-motion/dist/es/render/html/use-props.mjs
 import { useMemo as useMemo5 } from "react";
@@ -8160,7 +8180,7 @@ function useRender(Component3, props, ref, { latestValues }, isStatic, forwardMo
   const elementProps = Component3 !== Fragment2 ? { ...filteredProps, ...visualProps, ref } : {};
   const { children } = props;
   const renderedChildren = useMemo7(() => isMotionValue(children) ? children.get() : children, [children]);
-  return createElement5(Component3, {
+  return createElement7(Component3, {
     ...elementProps,
     children: renderedChildren
   });

@@ -1,0 +1,45 @@
+/* src/components/LayoutContainer/LayoutContainer.css */
+.bmd-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+
+  /* 🛟 AUTOMATED GUTTERS: Scale breathing room via Layer 1 space variables */
+  padding-left: var(--space-4); /* Safe padding for mobile viewports */
+  padding-right: var(--space-4);
+  transition:
+    max-width 0.2s ease-in-out,
+    padding 0.2s ease-in-out;
+}
+
+/* Strip padding gutters entirely for edge-to-edge layouts (like special headers) */
+.bmd-container[data-clean-padding="true"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* 📐 MAX-WIDTH CONTRACTS: Map size options cleanly to layout widths */
+.bmd-container[data-size="sm"] {
+  max-width: 640px;
+}
+.bmd-container[data-size="md"] {
+  max-width: 768px;
+}
+.bmd-container[data-size="lg"] {
+  max-width: 1024px;
+}
+.bmd-container[data-size="xl"] {
+  max-width: 1280px;
+}
+.bmd-container[data-size="full"] {
+  max-width: 100%;
+}
+
+/* 📱 RESPONSIVE GUTTERS: Automatically widen breathing space on larger screens */
+@media (min-width: 768px) {
+  .bmd-container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}

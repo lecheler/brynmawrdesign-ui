@@ -1,67 +1,35 @@
-import * as React from "react";
+// src/components/Text/Text.stories.tsx
+import React from "react";
 import preview from "../../../.storybook/preview";
 import { Text } from "./Text";
-import { Stack } from "../Stack/Stack";
 
 const meta = preview.meta({
-  title: "Foundations/Typography",
+  title: "Components/Text",
   component: Text,
   tags: ["autodocs"],
-  parameters: {
-    layout: "centered",
-  },
 });
-export const TextPlayground = meta.story({
+
+export const Playground = meta.story({
   args: {
-    children:
-      "Body text uses Inter with a compact size and comfortable line-height.",
-    size: "md",
-    as: "p",
-  },
-  argTypes: {
-    size: {
-      control: { type: "inline-radio" },
-      options: ["xs", "sm", "md", "lg", "xl", "2xl"],
-    },
-    as: {
-      control: { type: "select" },
-      options: ["p", "span", "div"],
-    },
-    children: {
-      control: "text",
-    },
+    variant: "body",
+    bold: false,
+    children: "This is a paragraph tracking historical band concert timelines.",
   },
 });
 
-export const TextSizes = meta.story({
-  args: {
-    as: "p",
-  },
-  argTypes: {
-    size: { control: false },
-    as: { control: false },
-    children: { control: false },
-  },
-  render: (args) => (
-    <Stack gap={2}>
-      <Text {...args} size="xs">
-        Extra small body text – good for footer, etc.
+export const AllVariants = meta.story({
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      <Text variant="lead">
+        Lead Paragraph: Used for introductions and biographies.
       </Text>
-      <Text {...args} size="sm">
-        Small body text – good for secondary or dense content.
+      <Text variant="body">
+        Body Paragraph: Standard content blocks and descriptive descriptions.
       </Text>
-      <Text {...args} size="md">
-        Medium body text – default size for most content.
+      <Text variant="caption">
+        Caption text: Used for supporting table timestamps and metadata labels.
       </Text>
-      <Text {...args} size="lg">
-        Large body text – for emphasis or key summaries.
-      </Text>
-      <Text {...args} size="xl">
-        Extra large body text.
-      </Text>
-      <Text {...args} size="2xl">
-        Double-xl body text.
-      </Text>
-    </Stack>
+      <Text variant="code">{`const filteredShows = rawShows.filter(show => true);`}</Text>
+    </div>
   ),
 });

@@ -12,7 +12,7 @@ import {
 } from "../../components/CheckboxGroup/CheckboxGroup";
 
 const meta = preview.meta({
-  title: "Charts/BarChart",
+  title: "Analytics/BarChart",
   component: BarChart,
   tags: ["autodocs"],
 });

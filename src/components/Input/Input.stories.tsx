@@ -1,4 +1,4 @@
-import preview from "../../../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 import { Input, type InputSize } from "./Input";
 
 const meta = preview.meta({

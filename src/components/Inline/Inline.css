@@ -1,0 +1,61 @@
+/* src/components/Layout/Inline/Inline.css */
+.bmd-inline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* 📱 Safe wrapping default for mobile responsiveness */
+}
+
+.bmd-inline[data-nowrap="true"] {
+  flex-wrap: nowrap;
+}
+
+/* 📐 Spacing Step Mappings tied directly to Layer 1 spaces.css */
+.bmd-inline[data-gap="0"] {
+  gap: 0;
+}
+.bmd-inline[data-gap="1"] {
+  gap: var(--space-1);
+}
+.bmd-inline[data-gap="2"] {
+  gap: var(--space-2);
+}
+.bmd-inline[data-gap="3"] {
+  gap: var(--space-3);
+}
+.bmd-inline[data-gap="4"] {
+  gap: var(--space-4);
+}
+.bmd-inline[data-gap="6"] {
+  gap: var(--space-6);
+}
+.bmd-inline[data-gap="8"] {
+  gap: var(--space-8);
+}
+
+/* ↔️ Horizontal Justification Alignments */
+.bmd-inline[data-justify="start"] {
+  justify-content: flex-start;
+}
+.bmd-inline[data-justify="center"] {
+  justify-content: center;
+}
+.bmd-inline[data-justify="end"] {
+  justify-content: flex-end;
+}
+.bmd-inline[data-justify="space-between"] {
+  justify-content: space-between;
+}
+
+/* ↕️ Vertical Axis Center Alignments */
+.bmd-inline[data-align="start"] {
+  align-items: flex-start;
+}
+.bmd-inline[data-align="center"] {
+  align-items: center;
+}
+.bmd-inline[data-align="end"] {
+  align-items: flex-end;
+}
+.bmd-inline[data-align="baseline"] {
+  align-items: baseline;
+}

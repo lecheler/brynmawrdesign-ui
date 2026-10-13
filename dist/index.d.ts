@@ -10,91 +10,62 @@ interface IconProps extends React__default.HTMLAttributes<HTMLSpanElement> {
 }
 declare const Icon: React__default.FC<IconProps>;
 
-type AsProp$4<E extends React.ElementType> = {
-    as?: E;
-};
-type PropsToOmit$3<E extends React.ElementType, P> = keyof (AsProp$4<E> & P);
-type PolymorphicProps$3<E extends React.ElementType, P> = React.PropsWithChildren<P & AsProp$4<E>> & Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit$3<E, P>>;
-type InlineGap = 0 | 1 | 2 | 3 | 4;
-type InlineAlign = "flex-start" | "center" | "flex-end" | "baseline";
-type InlineOwnProps = {
-    /**
-     * Gap between children, mapped to spacing tokens.
-     */
+type InlineGap = 0 | 1 | 2 | 3 | 4 | 6 | 8;
+type InlineJustify = "start" | "center" | "end" | "space-between";
+type InlineAlign = "start" | "center" | "end" | "baseline";
+interface InlineProps extends React.HTMLAttributes<HTMLDivElement> {
     gap?: InlineGap;
-    /**
-     * Vertical alignment of children.
-     */
+    justify?: InlineJustify;
     align?: InlineAlign;
-    /**
-     * Allow children to wrap onto multiple lines.
-     */
-    wrap?: boolean;
-};
-type InlineProps<E extends React.ElementType = "div"> = PolymorphicProps$3<E, InlineOwnProps>;
-declare function Inline<E extends React.ElementType = "div">({ as, gap, align, wrap, style, ...props }: InlineProps<E>): React.JSX.Element;
+    noWrap?: boolean;
+    children: React.ReactNode;
+}
+declare function Inline({ gap, justify, align, noWrap, children, className, ...props }: InlineProps): React.JSX.Element;
 
-type AsProp$3<E extends React.ElementType> = {
-    as?: E;
-};
-type PropsToOmit$2<E extends React.ElementType, P> = keyof (AsProp$3<E> & P);
-type PolymorphicProps$2<E extends React.ElementType, P> = React.PropsWithChildren<P & AsProp$3<E>> & Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit$2<E, P>>;
-type StackGap = 0 | 1 | 2 | 3 | 4;
-type StackOwnProps = {
-    /**
-     * Gap between children, mapped to spacing tokens.
-     * 1 → --space-1, 2 → --space-2, etc.
-     */
+type StackGap = 0 | 1 | 2 | 3 | 4 | 6 | 8;
+type StackAlign = "start" | "center" | "end" | "stretch";
+interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
     gap?: StackGap;
-};
-type StackProps<E extends React.ElementType = "div"> = PolymorphicProps$2<E, StackOwnProps>;
-declare function Stack<E extends React.ElementType = "div">({ as, gap, style, ...props }: StackProps<E>): React.JSX.Element;
+    align?: StackAlign;
+    children: React.ReactNode;
+}
+declare function Stack({ gap, align, children, className, ...props }: StackProps): React.JSX.Element;
 
-type GridProps = React__default.HTMLAttributes<HTMLDivElement> & {
-    /** Fixed column count (ignored if auto is true) */
-    columns?: 2 | 3 | 4;
-    /** Use auto-fit with a minimum width instead of fixed columns */
-    auto?: boolean;
-    /** Minimum column width when auto=true */
-    minItemWidth?: string;
-    responsive?: boolean;
-};
-declare function Grid({ columns, auto, minItemWidth, responsive, className, style, ...props }: GridProps): React__default.JSX.Element;
+type GridColumns = 1 | 2 | 3 | 4;
+type GridGap = 0 | 1 | 2 | 3 | 4 | 6 | 8;
+interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
+    columns?: GridColumns;
+    gap?: GridGap;
+    children: React.ReactNode;
+}
+declare function Grid({ columns, gap, children, className, ...props }: GridProps): React.JSX.Element;
 
-type LayoutContainerProps = React__default.HTMLAttributes<HTMLDivElement> & {
-    max?: "page" | "section" | "none";
-};
-declare function LayoutContainer({ max, className, ...props }: LayoutContainerProps): React__default.JSX.Element;
+type ContainerSize = "sm" | "md" | "lg" | "xl" | "full";
+interface LayoutContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+    size?: ContainerSize;
+    cleanPadding?: boolean;
+    children: React.ReactNode;
+}
+declare function LayoutContainer({ size, cleanPadding, children, className, ...props }: LayoutContainerProps): React.JSX.Element;
 
-type AsProp$2<E extends React.ElementType> = {
-    as?: E;
-};
-type PropsToOmit$1<E extends React.ElementType, P> = keyof (AsProp$2<E> & P);
-type PolymorphicProps$1<E extends React.ElementType, P> = React.PropsWithChildren<P & AsProp$2<E>> & Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit$1<E, P>>;
 type HeadingLevel = 1 | 2 | 3;
-type HeadingOwnProps = {
-    /**
-     * Visual + semantic heading level (controls default tag + size).
-     */
+type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
     level?: HeadingLevel;
-};
-type HeadingProps<E extends React.ElementType = "h2"> = PolymorphicProps$1<E, HeadingOwnProps>;
-declare function Heading<E extends React.ElementType = "h2">({ level, as, ...props }: HeadingProps<E>): JSX.Element;
+    as?: HeadingTag;
+    children: React.ReactNode;
+}
+declare function Heading({ level, as, children, className, ...props }: HeadingProps): React.JSX.Element;
 
-type AsProp$1<E extends React.ElementType> = {
-    as?: E;
-};
-type PropsToOmit<E extends React.ElementType, P> = keyof (AsProp$1<E> & P);
-type PolymorphicProps<E extends React.ElementType, P> = React.PropsWithChildren<P & AsProp$1<E>> & Omit<React.ComponentPropsWithoutRef<E>, PropsToOmit<E, P>>;
-type TextSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
-type TextOwnProps = {
-    /**
-     * Visual size of the text.
-     */
-    size?: TextSize;
-};
-type TextProps<E extends React.ElementType = "p"> = PolymorphicProps<E, TextOwnProps>;
-declare function Text<E extends React.ElementType = "p">({ as, size, ...props }: TextProps<E>): React.JSX.Element;
+type TextVariant = "body" | "lead" | "caption" | "code";
+type TextTag = "p" | "span" | "div" | "span" | "code" | "small";
+interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+    variant?: TextVariant;
+    as?: TextTag;
+    bold?: boolean;
+    children: React.ReactNode;
+}
+declare function Text({ variant, as, bold, children, className, ...props }: TextProps): React.JSX.Element;
 
 type ButtonVariant = "solid" | "outlined" | "soft" | "ghost";
 type ButtonTone = "primary" | "danger" | "success" | "warning" | "neutral";
@@ -272,4 +243,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, Grid, Heading, type HeadingProps, Icon, type IconName, type IconProps, Inline, type InlineProps, Input, type InputSize, LayoutContainer, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, type ContainerSize, Grid, type GridColumns, type GridGap, type GridProps, Heading, type HeadingLevel, type HeadingProps, type HeadingTag, Icon, type IconName, type IconProps, Inline, type InlineAlign, type InlineGap, type InlineJustify, type InlineProps, Input, type InputSize, LayoutContainer, type LayoutContainerProps, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackAlign, type StackGap, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps, type TextTag, type TextVariant };

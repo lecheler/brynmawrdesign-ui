@@ -3,7 +3,7 @@ import preview from "../../../.storybook/preview";
 import { Pie } from "./Pie";
 
 const meta = preview.meta({
-  title: "Charts/Pie",
+  title: "Analytics/Pie",
   component: Pie,
   tags: ["autodocs"],
   parameters: {
