@@ -2,7 +2,7 @@ import React from "react";
 import { Icon, type IconProps } from "../../foundations/icons/Icon";
 import { cx } from "../../utils/classNames";
 
-import "./button.css";
+import "./Button.css";
 
 export type ButtonVariant = "solid" | "outlined" | "soft" | "ghost";
 export type ButtonTone =
