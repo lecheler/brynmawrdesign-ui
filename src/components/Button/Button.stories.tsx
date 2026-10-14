@@ -28,7 +28,7 @@ const ICON_NAMES = [
 ];
 
 const meta = preview.meta({
-  title: "Components/Button",
+  title: "Primitives/Button",
   component: Button,
   tags: ["autodocs"],
   parameters: {

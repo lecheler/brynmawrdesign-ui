@@ -4,7 +4,7 @@ import preview from "../../../.storybook/preview";
 import { Heading } from "./Heading";
 
 const meta = preview.meta({
-  title: "Components/Heading",
+  title: "Primitives/Heading",
   component: Heading,
   tags: ["autodocs"],
 });

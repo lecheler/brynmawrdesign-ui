@@ -2,7 +2,7 @@ import preview from "../../../.storybook/preview";
 import { Input, type InputSize } from "./Input";
 
 const meta = preview.meta({
-  title: "Components/Input",
+  title: "Primitives/Input",
   component: Input,
   tags: ["autodocs"],
   args: {},

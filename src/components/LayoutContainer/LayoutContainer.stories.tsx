@@ -27,7 +27,7 @@ const PlaceholderBox = ({ label, height = "80px", bg = "#3b82f6" }: any) => (
 );
 
 const meta = preview.meta({
-  title: "Components/Layout/LayoutContainer",
+  title: "Layout/LayoutContainer",
   component: LayoutContainer,
   tags: ["autodocs"],
 });

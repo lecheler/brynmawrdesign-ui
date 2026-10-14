@@ -1,0 +1,35 @@
+/* src/components/Layout/NavBar/NavBar.css */
+.bmd-navbar {
+  width: 100%;
+  box-sizing: border-box;
+
+  /* 🎨 SURFACE THEMING: Pull definitions out of your Layer 2 Semantic themes */
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: all 0.2s ease-in-out;
+}
+
+/* 📌 STICKY RUNTIME HOOK: Activated instantly when the property boolean resolves true */
+.bmd-navbar[data-sticky="true"] {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  /* 🛟 DEPTH ORCHESTRATION: High depth forces it above maps, charts, and scrolling text arrays */
+  z-index: var(--z-index-overlay, 100);
+
+  /* Subtle drop shadow hint when hovering over content streams */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Internal layout engine aligns logo text and link primitives on a cohesive track */
+.bmd-navbar-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  /* Matches your global button padding token height configurations (40px default tall bounds) */
+  min-height: var(--space-8, 3rem);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}

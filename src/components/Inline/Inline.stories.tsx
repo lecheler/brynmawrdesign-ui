@@ -18,7 +18,7 @@ const Chip = ({ label }: { label: string }) => (
 );
 
 const meta = preview.meta({
-  title: "Components/Layout/Inline",
+  title: "Layout/Inline",
   component: Inline,
   tags: ["autodocs"],
 });

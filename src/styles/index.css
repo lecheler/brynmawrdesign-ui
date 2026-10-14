@@ -1,6 +1,7 @@
 /* 🔴 LAYER 1: Primitives */
 @import "./1-core/breakpoints.css";
 @import "./1-core/colors.palette.css";
+@import "./1-core/depth.css";
 @import "./1-core/radii.css";
 @import "./1-core/shadows.css";
 @import "./1-core/spaces.css";

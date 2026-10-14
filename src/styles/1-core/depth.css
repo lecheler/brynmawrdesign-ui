@@ -1,0 +1,12 @@
+/* src/styles/1-core/depth.css */
+:root {
+  /* 📐 LAYOUT DEPTH LAYER STACK SCALE (Options)
+     Using clean, uniform steps ensures you never have to guess a depth number. */
+  --z-index-deep: -10; /* Background graphics, abstract visual blobs */
+  --z-index-base: 0; /* Standard page flow text, cards, grids, maps */
+  --z-index-sticky: 10; /* Floating filter panels, section sub-tabs */
+  --z-index-overlay: 20; /* Sticky main navigation bars, floating menu strips */
+  --z-index-dropdown: 30; /* Custom Select boxes, venue auto-complete rows */
+  --z-index-modal: 40; /* Add/Edit Show detail popup overlays */
+  --z-index-toast: 50; /* System validation banners, network error cards */
+}

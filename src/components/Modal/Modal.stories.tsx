@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import preview from "../../../.storybook/preview";
 import { Modal } from "./Modal";
+import { Button } from "../Button/Button";
+import { Stack } from "../Stack/Stack";
+import { Inline } from "../Inline/Inline";
 
 const meta = preview.meta({
   title: "Components/Modal",
@@ -36,7 +39,7 @@ const InteractiveTemplate: React.FC<any> = (args) => {
   };
 
   return (
-    <div>
+    <Stack align="start">
       <div>
         lorem ipsum dolor sit amet consectetur adipiscing elit aut ea soluta
         irure eiusmod consequatur magna quas aliqua sunt in sunt est id duis
@@ -44,9 +47,11 @@ const InteractiveTemplate: React.FC<any> = (args) => {
         et facilis facilis eum temporibus deleniti anim eu ipsum est ipsum
         officia reprehenderit nisi laboris dolor
       </div>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      <Button tone="primary" variant="soft" onClick={() => setIsOpen(true)}>
+        Open Modal
+      </Button>
       <Modal {...args} isOpen={isOpen} onClose={handleClose} />
-    </div>
+    </Stack>
   );
 };
 
@@ -57,7 +62,7 @@ export const WithFooter = meta.story({
     title: "Discard Changes?",
     children: <p>Are you sure you want to discard your unsaved changes?</p>,
     footer: (
-      <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>
+      <Inline>
         <button style={{ padding: "8px 16px" }}>Cancel</button>
         <button
           style={{
@@ -70,7 +75,7 @@ export const WithFooter = meta.story({
         >
           Confirm
         </button>
-      </div>
+      </Inline>
     ),
   },
 });

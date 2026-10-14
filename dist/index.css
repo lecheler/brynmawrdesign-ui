@@ -69,6 +69,17 @@
   --color-gray-900-trans-10: color-mix( in oklab, var(--color-gray-900) 90%, transparent );
 }
 
+/* src/styles/1-core/depth.css */
+:root {
+  --z-index-deep: -10;
+  --z-index-base: 0;
+  --z-index-sticky: 10;
+  --z-index-overlay: 20;
+  --z-index-dropdown: 30;
+  --z-index-modal: 40;
+  --z-index-toast: 50;
+}
+
 /* src/styles/1-core/radii.css */
 :root {
   --radius-sm: 0.25rem;
@@ -131,8 +142,8 @@
   --color-text-main: #636262;
   --color-text-muted: var(--color-gray-600);
   --color-text-inverse: #ffffff;
-  --color-border-subtle: var(--color-gray-100);
   --color-border: var(--color-gray-200);
+  --color-border-subtle: var(--color-gray-100);
   --color-border-strong: var(--color-gray-400);
   --color-accent: var(--color-blue-500);
   --color-accent-hover: var(--color-blue-600);
@@ -930,21 +941,21 @@ input[type=range]::-moz-range-thumb {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-surface-overlay);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  background-color: var(--color-surface-overlay);
+  z-index: var(--z-index-modal);
 }
 .bmd-modal__container {
-  background: var(--color-surface);
-  border-radius: var(--radius-sm);
   width: 100%;
   max-width: 500px;
-  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
 }
 .bmd-modal__header {
   color: var(--color-text-inverse);

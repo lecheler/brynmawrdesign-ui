@@ -3,7 +3,7 @@ import preview from "../../../.storybook/preview";
 import { Select } from "./Select";
 
 const meta = preview.meta({
-  title: "Components/Select",
+  title: "Primitives/Select",
   component: Select,
   tags: ["autodocs"],
   args: {},

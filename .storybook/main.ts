@@ -2,7 +2,10 @@ import { defineMain } from "@storybook/react-vite/node";
 
 export default defineMain({
   framework: "@storybook/react-vite",
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: [
+    "../src/docs/**/*.mdx", // Catches global foundations & introductions
+    "../src/components/**/*.stories.@(js|jsx|ts|tsx)", // Catches co-located component canvas files
+  ],
   addons: [
     "@chromatic-com/storybook",
     // "@vueless/storybook-dark-mode",

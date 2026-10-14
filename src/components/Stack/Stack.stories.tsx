@@ -17,7 +17,7 @@ const Box = ({ num }: { num: number }) => (
 );
 
 const meta = preview.meta({
-  title: "Components/Layout/Stack",
+  title: "Layout/Stack",
   component: Stack,
   tags: ["autodocs"],
 });

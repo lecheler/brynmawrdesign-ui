@@ -1,0 +1,78 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Layout" />
+
+# 📐 Layout & Composition System
+
+The layout system is built on a small set of **immutable structural primitives**. These components have exactly one responsibility: governing white space, margins, alignment, and responsiveness.
+
+---
+
+## 🛠️ The Structural Elements
+
+### 1. LayoutContainer (The Boundary)
+
+Sets the maximum horizontal boundaries on desktop monitors and manages default outer gutter walls on responsive viewports. It protects the content from stretching too wide on massive screens.
+
+- **Best Used For:** Page content envelopes, standard navbar content blocks.
+- **Property Controls:** `size="sm" | "md" | "lg" | "xl" | "full"`
+
+```jsx
+<LayoutContainer size="lg">
+  {/* Content stays perfectly centered and locked to a max width */}
+</LayoutContainer>
+```
+
+### 2. Stack (The Vertical Flow)
+
+Injects mathematically sound vertical spacing between block rows. It completely replaces custom `margin-bottom` hacks inside component stylesheets.
+
+- **Best Used For:** Form item rows, layout dashboards, content sections.
+- **Property Controls:** `gap={1 | 2 | 3 | 4 | 6 | 8}`
+
+```jsx
+<Stack gap={4}>
+  <Heading level={2}>Dashboard</Heading>
+  <Table data={filteredShows} />
+</Stack>
+```
+
+### 3. Inline (The Horizontal Strip)
+
+Arranges interactive items side-by-side cleanly. It handles **flex-wrapping automatically** so your interface components warp down onto a new line safely if a mobile screen runs out of room.
+
+- **Best Used For:** Filter chip toolbars, action buttons, tab navigation.
+- **Property Controls:** `justify="start" | "space-between" | "end"`, `gap={1|2|3|4}`
+
+```jsx
+<Inline justify="space-between" gap={2}>
+  <Inline gap={1}>
+    <Button size="sm">Table View</Button>
+    <Button size="sm">Chart View</Button>
+  </Inline>
+  <Button size="sm" tone="primary">
+    Add Show
+  </Button>
+</Inline>
+```
+
+### 4. Grid (The Responsive Canvas)
+
+Manages multi-column architectural grids. Built mobile-first, it automatically collapses to a single vertical column track on smartphones and expands to full side-by-side cards on computers.
+
+- **Best Used For:** Split analytical layouts (e.g., Map on the left, Filters on the right).
+- **Property Controls:** `columns={1 | 2 | 3 | 4}`
+
+```jsx
+<Grid columns={2} gap={4}>
+  <ShowsMapView markers={mapMarkers} />
+  <ShowsChartView filteredShows={filteredShows} />
+</Grid>
+```
+
+---
+
+## 🛑 Essential Architecture Rules
+
+1. **Layouts Never Paint Colors:** A layout primitive must never dictate things like `background-color`, `box-shadow`, or `font-size`. If a block element needs a dark backdrop, style the component container wrapping it, then drop a layout block inside it.
+2. **Never Hardcode Margin Pixels:** Allow `<Stack>` or `<Inline>` components to regulate layout rhythm via standard `--space-[x]` metrics. This guarantees clean spacing defaults across your portfolio automatically.

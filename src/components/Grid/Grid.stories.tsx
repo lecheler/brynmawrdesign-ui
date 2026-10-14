@@ -8,7 +8,7 @@ const Panel = ({ title }: { title: string }) => (
       background: "#7c3aed",
       color: "#fff",
       padding: "32px 16px",
-      textOrigin: "center",
+      // textOrigin: "center",
       borderRadius: "8px",
       fontFamily: "sans-serif",
       fontWeight: "bold",
@@ -19,7 +19,7 @@ const Panel = ({ title }: { title: string }) => (
 );
 
 const meta = preview.meta({
-  title: "Components/Layout/Grid",
+  title: "Layout/Grid",
   component: Grid,
   tags: ["autodocs"],
 });
