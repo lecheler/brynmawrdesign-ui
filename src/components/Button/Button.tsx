@@ -12,7 +12,7 @@ export type ButtonTone =
   | "warning"
   | "neutral";
 
-export type ButtonSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+export type ButtonSize = "sm" | "md" | "lg";
 export type ButtonShape = "square" | "rounded" | "pill";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

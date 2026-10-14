@@ -6,7 +6,7 @@ import { Inline } from "../Inline/Inline";
 import { Stack } from "../Stack/Stack";
 
 const TONES = ["primary", "danger", "success", "warning", "neutral"];
-const SIZES = ["2xs", "xs", "sm", "md", "lg", "xl", "2xl"];
+const SIZES = ["sm", "md", "lg"];
 const SHAPES = ["square", "rounded", "pill"];
 const VARIANTS = ["solid", "outlined", "soft", "ghost"];
 const ICON_NAMES = [

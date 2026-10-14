@@ -1,43 +1,25 @@
 :root {
   /* Fonts */
-  --button-font-weight: var(--font-weight-semibold);
-  --button-line-height: var(--line-height-tight);
-  --button-font-size: var(--font-size-md);
+  --button-font-sm: var(--font-weight-bold) var(--font-size-2)/1.2
+    var(--font-family-sans); /* 14px Text */
+  --button-font-md: var(--font-weight-bold) var(--font-size-3)/1.2
+    var(--font-family-sans); /* 16px Text */
+  --button-font-lg: var(--font-weight-bold) var(--font-size-3)/1.2
+    var(--font-family-sans); /* 16px Text */
 
   /* Gap & Padding */
-  --button-gap-2xs: calc(var(--font-size-2xs)/4);
-  --button-gap-xs: calc(var(--font-size-xs)/4);
-  --button-gap-sm: calc(var(--font-size-sm)/4);
-  --button-gap-md: calc(var(--font-size-md)/4);
-  --button-gap-lg: calc(var(--font-size-lg)/4);
-  --button-gap-xl: calc(var(--font-size-xl)/4);
-  --button-gap-2xl: calc(var(--font-size-2xl)/4);
+  --button-gap-sm: var(--space-1);
+  --button-gap-md: var(--space-1);
+  --button-gap-lg: var(--space-1);
 
-  --button-padding-y-2xs: calc(var(--font-size-2xs)/3);
-  --button-padding-x-2xs: var(--font-size-2xs);
+  --button-padding-y-sm: var(--space-1); /* 4px */
+  --button-padding-x-sm: var(--space-3); /* 12px */
 
-  --button-padding-y-xs: calc(var(--font-size-xs)/3);
-  --button-padding-x-xs: var(--font-size-xs);
+  --button-padding-y-md: var(--space-2); /* 8px */
+  --button-padding-x-md: var(--space-4); /* 16px */
 
-  --button-padding-y-sm: calc(var(--font-size-sm)/3);
-  --button-padding-x-sm: var(--font-size-sm);
-
-  --button-padding-y-md: calc(var(--font-size-md)/3);
-  --button-padding-x-md: var(--font-size-md);
-
-  --button-padding-y-lg: calc(var(--font-size-lg)/3);
-  --button-padding-x-lg: var(--font-size-lg);
-
-  --button-padding-y-xl: calc(var(--font-size-xl)/3);
-  --button-padding-x-xl: var(--font-size-xl);
-
-  --button-padding-y-2xl: calc(var(--font-size-2xl)/3);
-  --button-padding-x-2xl: var(--font-size-2xl);
-
-  /* Radius */
-  --button-radius-default: 0px;
-  --button-radius-rounded: var(--radius-sm);
-  --button-radius-pill: var(--radius-pill);
+  --button-padding-y-lg: var(--space-3); /* 12px */
+  --button-padding-x-lg: var(--space-5); /* 24px */
 
   /* Tone (default = primary) */
   --button-tone: var(--tone-primary);
@@ -47,29 +29,4 @@
   /* Transition */
   --button-transition-easing: var(--easing-standard);
   --button-transition-duration: var(--duration-medium);
-}
-
-/* Explicit tones */
-.bmd-button[data-tone="danger"] {
-  --button-tone: var(--tone-danger);
-  --button-tone-hover: var(--tone-danger-hover);
-  --button-tone-contrast: var(--tone-danger-contrast);
-}
-
-.bmd-button[data-tone="neutral"] {
-  --button-tone: var(--tone-neutral);
-  --button-tone-hover: var(--tone-neutral-hover);
-  --button-tone-contrast: var(--tone-neutral-contrast);
-}
-
-.bmd-button[data-tone="success"] {
-  --button-tone: var(--tone-success);
-  --button-tone-hover: var(--tone-success-hover);
-  --button-tone-contrast: var(--tone-success-contrast);
-}
-
-.bmd-button[data-tone="warning"] {
-  --button-tone: var(--tone-warning);
-  --button-tone-hover: var(--tone-warning-hover);
-  --button-tone-contrast: var(--tone-warning-contrast);
 }
