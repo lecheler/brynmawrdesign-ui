@@ -69,7 +69,7 @@ declare function Text({ variant, as, bold, children, className, ...props }: Text
 
 type ButtonVariant = "solid" | "outlined" | "soft" | "ghost";
 type ButtonTone = "primary" | "danger" | "success" | "warning" | "neutral";
-type ButtonSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+type ButtonSize = "sm" | "md" | "lg";
 type ButtonShape = "square" | "rounded" | "pill";
 interface ButtonProps extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
     label?: string;

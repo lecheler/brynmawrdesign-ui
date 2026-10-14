@@ -468,7 +468,7 @@ function Table2({ data, columns, hideFilters }) {
         className: "btn-filter-trigger",
         variant: "outlined",
         tone: "neutral",
-        size: "xs",
+        size: "sm",
         icon: { name: "search" },
         popoverTarget: popoverId,
         style: {
@@ -519,7 +519,7 @@ var PaginationControls = ({ table }) => {
       icon: { name: icon },
       onClick,
       disabled,
-      size: "xs",
+      size: "sm",
       shape: "square",
       tone: "neutral",
       variant: "ghost"
@@ -10018,7 +10018,7 @@ var Pie = ({
 // src/components/Bar/BarChart.tsx
 var import_react36 = __toESM(require("react"));
 var BarChart = ({ height = 500, ...props }) => {
-  const maxBarHeight = height - 34;
+  const maxBarHeight = height - 40;
   const columnsMap = props.data.reduce(
     (acc, item) => {
       if (!acc[item.groupId]) {

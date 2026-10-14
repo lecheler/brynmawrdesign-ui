@@ -135,7 +135,7 @@ export function Table({ data, columns, hideFilters }: TableProps) {
                               className="btn-filter-trigger"
                               variant="outlined"
                               tone="neutral"
-                              size="xs"
+                              size="sm"
                               icon={{ name: "search" }} // Or whatever filter icon identifier you use
                               popoverTarget={popoverId}
                               style={
@@ -221,7 +221,7 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
               icon={{ name: icon }}
               onClick={onClick}
               disabled={disabled}
-              size="xs"
+              size="sm"
               shape="square"
               tone="neutral"
               variant="ghost"
