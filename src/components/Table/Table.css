@@ -16,22 +16,23 @@
     /* Subpixel fix if using sticky headers (prevents background-gap bleeding) */
     outline: 1px solid transparent;
     background-clip: padding-box;
-    padding: var(--table-row-padding-y) var(--table-row-padding-x);
   }
 
   th {
-    font-size: var(--table-header-font-size);
     background-color: var(--color-accent);
     &:hover {
       background-color: var(--color-accent-hover);
     }
     color: var(--color-text-inverse);
-
     padding: var(--table-header-padding-y) var(--table-header-padding-x);
   }
 
+  td {
+    padding: var(--table-row-padding-y) var(--table-row-padding-x);
+  }
+
   tr {
-    font-size: var(--table-row-font-size);
+    font: var(--table-row-font);
     background-color: var(--table-row-odd-color);
     &:nth-child(even) {
       background-color: var(--table-row-even-color);
@@ -49,7 +50,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: var(--table-icon-padding-x);
+  gap: var(--space-2);
 }
 .bmd-table__filter-row {
   display: flex;
@@ -59,11 +60,6 @@
   justify-content: flex-end;
 
   border-top: solid 1px var(--table-row-odd-color);
-  font-size: var(--table-row-font-size);
   padding: var(--table-controls-padding-y) var(--table-controls-padding-x);
-  background-color: var(--table-controls-color);
-
-  select {
-    padding: var(--input-padding-y-md) var(--input-padding-x-md);
-  }
+  background-color: var(--color-surface);
 }

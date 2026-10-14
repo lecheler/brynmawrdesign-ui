@@ -8,9 +8,7 @@
     var(--font-family-sans); /* 16px Text */
 
   /* Gap & Padding */
-  --button-gap-sm: var(--space-1);
-  --button-gap-md: var(--space-1);
-  --button-gap-lg: var(--space-1);
+  --button-gap: var(--space-1);
 
   --button-padding-y-sm: var(--space-1); /* 4px */
   --button-padding-x-sm: var(--space-3); /* 12px */

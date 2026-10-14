@@ -1,17 +1,19 @@
 :root {
-  --input-color-text: var(--color-text);
+  --input-color-text: var(--color-text-main);
   /* Sizing */
   --input-height-sm: 2rem;
   --input-height-md: 2.5rem;
   --input-height-lg: 3rem;
 
   /* Padding */
-  --input-padding-y-sm: var(--space-2);
-  --input-padding-x-sm: var(--space-4);
-  --input-padding-y-md: var(--space-3);
-  --input-padding-x-md: var(--space-5);
-  --input-padding-y-lg: var(--space-4);
-  --input-padding-x-lg: var(--space-6);
+  --input-padding-y-sm: var(--space-1); /* 4px */
+  --input-padding-x-sm: var(--space-3); /* 12px */
+
+  --input-padding-y-md: var(--space-2); /* 8px */
+  --input-padding-x-md: var(--space-4); /* 16px */
+
+  --input-padding-y-lg: var(--space-3); /* 12px */
+  --input-padding-x-lg: var(--space-5); /* 24px */
 
   /* Typography */
   --input-font-weight: var(--font-weight-regular);
@@ -21,7 +23,7 @@
 
   /* Borders */
   --input-border-width: 1px;
-  --input-radius: var(--radius-xs);
+  --input-radius: var(--radius-sm);
 
   /* Tone (default = primary) */
   --input-tone: var(--tone-primary);
@@ -30,7 +32,7 @@
 
   /* Colors (semantic) */
   --input-background-color: var(--color-surface);
-  --input-text: var(--color-text);
+  --input-text: var(--color-text-main);
   --input-placeholder: var(--color-text-muted);
 
   --input-border: var(--color-border-subtle);

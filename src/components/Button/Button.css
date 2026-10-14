@@ -4,9 +4,11 @@
   justify-content: center;
   border: 1px solid transparent;
   white-space: nowrap;
+  cursor: pointer;
 
   border-radius: var(--button-radius-rounded);
   font: var(--button-font);
+  gap: var(--button-gap);
 }
 
 /* Variants */
@@ -68,7 +70,7 @@
   border-radius: 0px;
 }
 .bmd-button[data-shape="rounded"] {
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
 }
 .bmd-button[data-shape="pill"] {
   border-radius: var(--radius-pill);

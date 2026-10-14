@@ -1,18 +1,14 @@
 .bmd-input {
   padding: var(--input-padding-y-md) var(--input-padding-x-md);
-
-  font-size: var(--input-font-size);
-  font-weight: var(--input-font-weight);
-
   background-color: var(--input-background-color);
   border: var(--input-border-width) solid var(--input-border);
-  border-radius: var(--input-radius);
+  border-radius: var(--radius-sm);
 
   outline: none;
-  transition:
+  /* transition:
     border-color 120ms ease,
     box-shadow 120ms ease,
-    background-color 120ms ease;
+    background-color 120ms ease; */
 
   &:disabled {
     background-color: var(--input-disabled-bg);

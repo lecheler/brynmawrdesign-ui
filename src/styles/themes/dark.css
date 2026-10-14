@@ -1,6 +1,6 @@
 [data-theme="dark"] {
   /* Text */
-  --color-text: #fff;
+  --color-text-main: #fff;
   --color-text-muted: var(--color-gray-300);
   --color-text-inverse: var(--color-gray-800);
 

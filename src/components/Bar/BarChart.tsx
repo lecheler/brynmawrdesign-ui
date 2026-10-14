@@ -20,7 +20,7 @@ export interface BarChartProps {
 
 /** Primary UI component for user interaction */
 export const BarChart = ({ height = 500, ...props }: BarChartProps) => {
-  const maxBarHeight = height - 34; // Pad for label and value text
+  const maxBarHeight = height - 40; // Pad for label and value text
   const columnsMap = props.data.reduce(
     (acc, item) => {
       if (!acc[item.groupId]) {
