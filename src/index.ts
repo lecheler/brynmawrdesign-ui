@@ -18,6 +18,7 @@ export * from "./components/Map/Map";
 export * from "./components/Modal/Modal";
 export * from "./components/Select/Select";
 export * from "./components/CheckboxGroup/CheckboxGroup";
+export * from "./components/NavBar/NavBar";
 
 /* Charts */
 export * from "./components/Pie/Pie";

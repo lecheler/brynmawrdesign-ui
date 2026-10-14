@@ -45,6 +45,7 @@ __export(index_exports, {
   LayoutContainer: () => LayoutContainer,
   Map: () => Map3,
   Modal: () => Modal,
+  NavBar: () => NavBar,
   Pie: () => Pie,
   Select: () => Select,
   Stack: () => Stack,
@@ -9938,6 +9939,28 @@ var CheckboxGroup = ({
   );
 };
 
+// src/components/NavBar/NavBar.tsx
+var React19 = __toESM(require("react"));
+function NavBar({
+  containerSize = "xl",
+  // Dashboard layouts generally thrive on wider constraints
+  sticky = true,
+  // Contemporary apps default to sticky navigation bars
+  children,
+  className = "",
+  ...props
+}) {
+  return /* @__PURE__ */ React19.createElement(
+    "nav",
+    {
+      className: `bmd-navbar ${className}`,
+      "data-sticky": sticky || void 0,
+      ...props
+    },
+    /* @__PURE__ */ React19.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React19.createElement("div", { className: "bmd-navbar-inner" }, children))
+  );
+}
+
 // src/components/Pie/Pie.tsx
 var import_react34 = __toESM(require("react"));
 var Pie = ({
@@ -10149,6 +10172,7 @@ var BarChart = ({ height = 500, ...props }) => {
   LayoutContainer,
   Map,
   Modal,
+  NavBar,
   Pie,
   Select,
   Stack,

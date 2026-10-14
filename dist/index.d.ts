@@ -212,6 +212,15 @@ interface CheckboxGroupProps {
 }
 declare const CheckboxGroup: ({ options, value, onChange, name, ...props }: CheckboxGroupProps) => React__default.JSX.Element;
 
+interface NavBarProps extends React.HTMLAttributes<HTMLElement> {
+    containerSize?: ContainerSize;
+    sticky?: boolean;
+    children: React.ReactNode;
+}
+declare function NavBar({ containerSize, // Dashboard layouts generally thrive on wider constraints
+sticky, // Contemporary apps default to sticky navigation bars
+children, className, ...props }: NavBarProps): React.JSX.Element;
+
 interface PieData {
     id: number;
     value: number;
@@ -243,4 +252,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, type ContainerSize, Grid, type GridColumns, type GridGap, type GridProps, Heading, type HeadingLevel, type HeadingProps, type HeadingTag, Icon, type IconName, type IconProps, Inline, type InlineAlign, type InlineGap, type InlineJustify, type InlineProps, Input, type InputSize, LayoutContainer, type LayoutContainerProps, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, Pie, type PieData, Select, type SelectSize, Stack, type StackAlign, type StackGap, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps, type TextTag, type TextVariant };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, type ContainerSize, Grid, type GridColumns, type GridGap, type GridProps, Heading, type HeadingLevel, type HeadingProps, type HeadingTag, Icon, type IconName, type IconProps, Inline, type InlineAlign, type InlineGap, type InlineJustify, type InlineProps, Input, type InputSize, LayoutContainer, type LayoutContainerProps, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, NavBar, type NavBarProps, Pie, type PieData, Select, type SelectSize, Stack, type StackAlign, type StackGap, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps, type TextTag, type TextVariant };

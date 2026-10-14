@@ -9904,8 +9904,30 @@ var CheckboxGroup = ({
   );
 };
 
+// src/components/NavBar/NavBar.tsx
+import * as React19 from "react";
+function NavBar({
+  containerSize = "xl",
+  // Dashboard layouts generally thrive on wider constraints
+  sticky = true,
+  // Contemporary apps default to sticky navigation bars
+  children,
+  className = "",
+  ...props
+}) {
+  return /* @__PURE__ */ React19.createElement(
+    "nav",
+    {
+      className: `bmd-navbar ${className}`,
+      "data-sticky": sticky || void 0,
+      ...props
+    },
+    /* @__PURE__ */ React19.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React19.createElement("div", { className: "bmd-navbar-inner" }, children))
+  );
+}
+
 // src/components/Pie/Pie.tsx
-import React19 from "react";
+import React20 from "react";
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -9918,7 +9940,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React19.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React19.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React19.createElement(Heading, null, title), /* @__PURE__ */ React19.createElement(
+  return /* @__PURE__ */ React20.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React20.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React20.createElement(Heading, null, title), /* @__PURE__ */ React20.createElement(
     motion2.svg,
     {
       width: size,
@@ -9926,7 +9948,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React19.createElement(
+    /* @__PURE__ */ React20.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9942,7 +9964,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React19.createElement(
+      return /* @__PURE__ */ React20.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -9982,7 +10004,7 @@ var Pie = ({
 };
 
 // src/components/Bar/BarChart.tsx
-import React20 from "react";
+import React21 from "react";
 var BarChart = ({ height = 500, ...props }) => {
   const maxBarHeight = height - 40;
   const columnsMap = props.data.reduce(
@@ -10015,14 +10037,14 @@ var BarChart = ({ height = 500, ...props }) => {
     type: "spring",
     bounce: 0.4
   };
-  return /* @__PURE__ */ React20.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ React20.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React20.createElement(
+  return /* @__PURE__ */ React21.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ React21.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React21.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React20.createElement(
+      /* @__PURE__ */ React21.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -10040,7 +10062,7 @@ var BarChart = ({ height = 500, ...props }) => {
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React20.createElement(
+      /* @__PURE__ */ React21.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
@@ -10050,8 +10072,8 @@ var BarChart = ({ height = 500, ...props }) => {
           },
           layout: true
         },
-        /* @__PURE__ */ React20.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
-          return /* @__PURE__ */ React20.createElement(
+        /* @__PURE__ */ React21.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
+          return /* @__PURE__ */ React21.createElement(
             motion2.div,
             {
               key: `label-${segment.id}`,
@@ -10075,8 +10097,8 @@ var BarChart = ({ height = 500, ...props }) => {
           );
         }))
       ),
-      /* @__PURE__ */ React20.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React20.createElement(
+      /* @__PURE__ */ React21.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React21.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -10114,6 +10136,7 @@ export {
   LayoutContainer,
   Map3 as Map,
   Modal,
+  NavBar,
   Pie,
   Select,
   Stack,
