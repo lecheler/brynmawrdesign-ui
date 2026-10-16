@@ -45,6 +45,7 @@ __export(index_exports, {
   LayoutContainer: () => LayoutContainer,
   Map: () => Map3,
   Modal: () => Modal,
+  MultiFilter: () => MultiFilter,
   NavBar: () => NavBar,
   Pie: () => Pie,
   Select: () => Select,
@@ -9849,43 +9850,11 @@ var Modal = ({
   ));
 };
 
-// src/components/Select/Select.tsx
-var import_react32 = __toESM(require("react"));
-var Select = ({
-  onChange,
-  value,
-  selectSize = "md",
-  children,
-  ...props
-}) => {
-  const [localValue, setLocalValue] = (0, import_react32.useState)(value || "");
-  (0, import_react32.useEffect)(() => {
-    if (value !== void 0) {
-      setLocalValue(value);
-    }
-  }, [value]);
-  const handleChange = (e) => {
-    const val = e.target.value;
-    setLocalValue(val);
-    if (onChange) {
-      onChange(e);
-    }
-  };
-  return /* @__PURE__ */ import_react32.default.createElement(
-    "select",
-    {
-      className: "bmd-select",
-      value: localValue,
-      onChange: handleChange,
-      "data-select-size": selectSize,
-      ...props
-    },
-    children
-  );
-};
+// src/components/MultiFilter/MultiFilter.tsx
+var import_react33 = __toESM(require("react"));
 
 // src/components/CheckboxGroup/CheckboxGroup.tsx
-var import_react33 = __toESM(require("react"));
+var import_react32 = __toESM(require("react"));
 var CheckboxGroup = ({
   options,
   value = [],
@@ -9905,7 +9874,7 @@ var CheckboxGroup = ({
       onChange(nextValues);
     }
   };
-  return /* @__PURE__ */ import_react33.default.createElement(
+  return /* @__PURE__ */ import_react32.default.createElement(
     "div",
     {
       className: "bmd-checkbox-group",
@@ -9915,14 +9884,14 @@ var CheckboxGroup = ({
     },
     options.map((option) => {
       const isChecked = value.includes(option.value);
-      return /* @__PURE__ */ import_react33.default.createElement(
+      return /* @__PURE__ */ import_react32.default.createElement(
         "label",
         {
           key: option.value,
           className: "bmd-checkbox-item",
           "data-state": isChecked ? "checked" : "unchecked"
         },
-        /* @__PURE__ */ import_react33.default.createElement(
+        /* @__PURE__ */ import_react32.default.createElement(
           "input",
           {
             type: "checkbox",
@@ -9933,14 +9902,108 @@ var CheckboxGroup = ({
             className: "bmd-checkbox-hidden"
           }
         ),
-        /* @__PURE__ */ import_react33.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
+        /* @__PURE__ */ import_react32.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
       );
     })
   );
 };
 
+// src/components/MultiFilter/MultiFilter.tsx
+var MultiFilter = ({
+  label,
+  placeholder = "Search and add filters...",
+  options = [],
+  value = [],
+  onChange,
+  name
+}) => {
+  const datalistId = `bmd-multifilter-list-${name}`;
+  const inputId = `bmd-multifilter-input-${name}`;
+  const activeCheckboxOptions = (0, import_react33.useMemo)(() => {
+    return options.filter((opt) => value.includes(opt.value)).map((opt) => ({
+      label: opt.label,
+      value: opt.value
+    }));
+  }, [options, value]);
+  const handleSearchInput = (inputValue) => {
+    const match = options.find(
+      (opt) => opt.searchString.toLowerCase() === inputValue.toLowerCase()
+    );
+    if (match) {
+      if (!value.includes(match.value)) {
+        onChange([...value, match.value]);
+      }
+      const inputEl = document.getElementById(inputId);
+      if (inputEl) inputEl.value = "";
+    }
+  };
+  return /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 2 }, /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 1 }, label && /* @__PURE__ */ import_react33.default.createElement("label", { htmlFor: inputId, style: { font: "var(--type-ui-sublabel)" } }, label), /* @__PURE__ */ import_react33.default.createElement("datalist", { id: datalistId }, options.map((opt) => /* @__PURE__ */ import_react33.default.createElement("option", { key: opt.value, value: opt.searchString }))), /* @__PURE__ */ import_react33.default.createElement(
+    Input,
+    {
+      id: inputId,
+      type: "text",
+      placeholder,
+      list: datalistId,
+      debounceDelay: 150,
+      onChange: (val) => handleSearchInput(val.toString())
+    }
+  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 1 }, /* @__PURE__ */ import_react33.default.createElement(
+    "span",
+    {
+      style: {
+        font: "var(--type-caption)",
+        color: "var(--color-text-muted)"
+      }
+    },
+    "Active Selections:"
+  ), /* @__PURE__ */ import_react33.default.createElement(
+    CheckboxGroup,
+    {
+      name,
+      options: activeCheckboxOptions,
+      value,
+      onChange
+    }
+  )));
+};
+
+// src/components/Select/Select.tsx
+var import_react34 = __toESM(require("react"));
+var Select = ({
+  onChange,
+  value,
+  selectSize = "md",
+  children,
+  ...props
+}) => {
+  const [localValue, setLocalValue] = (0, import_react34.useState)(value || "");
+  (0, import_react34.useEffect)(() => {
+    if (value !== void 0) {
+      setLocalValue(value);
+    }
+  }, [value]);
+  const handleChange = (e) => {
+    const val = e.target.value;
+    setLocalValue(val);
+    if (onChange) {
+      onChange(e);
+    }
+  };
+  return /* @__PURE__ */ import_react34.default.createElement(
+    "select",
+    {
+      className: "bmd-select",
+      value: localValue,
+      onChange: handleChange,
+      "data-select-size": selectSize,
+      ...props
+    },
+    children
+  );
+};
+
 // src/components/NavBar/NavBar.tsx
-var React19 = __toESM(require("react"));
+var React20 = __toESM(require("react"));
 function NavBar({
   containerSize = "xl",
   // Dashboard layouts generally thrive on wider constraints
@@ -9950,19 +10013,19 @@ function NavBar({
   className = "",
   ...props
 }) {
-  return /* @__PURE__ */ React19.createElement(
+  return /* @__PURE__ */ React20.createElement(
     "nav",
     {
       className: `bmd-navbar ${className}`,
       "data-sticky": sticky || void 0,
       ...props
     },
-    /* @__PURE__ */ React19.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React19.createElement("div", { className: "bmd-navbar-inner" }, children))
+    /* @__PURE__ */ React20.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React20.createElement("div", { className: "bmd-navbar-inner" }, children))
   );
 }
 
 // src/components/Pie/Pie.tsx
-var import_react34 = __toESM(require("react"));
+var import_react35 = __toESM(require("react"));
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -9975,7 +10038,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ import_react34.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react34.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react34.default.createElement(Heading, null, title), /* @__PURE__ */ import_react34.default.createElement(
+  return /* @__PURE__ */ import_react35.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react35.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react35.default.createElement(Heading, null, title), /* @__PURE__ */ import_react35.default.createElement(
     motion2.svg,
     {
       width: size,
@@ -9983,7 +10046,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ import_react34.default.createElement(
+    /* @__PURE__ */ import_react35.default.createElement(
       motion2.circle,
       {
         cx: center,
@@ -9999,7 +10062,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ import_react34.default.createElement(
+      return /* @__PURE__ */ import_react35.default.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -10039,7 +10102,7 @@ var Pie = ({
 };
 
 // src/components/Bar/BarChart.tsx
-var import_react36 = __toESM(require("react"));
+var import_react37 = __toESM(require("react"));
 var BarChart = ({ height = 500, ...props }) => {
   const maxBarHeight = height - 40;
   const columnsMap = props.data.reduce(
@@ -10072,14 +10135,14 @@ var BarChart = ({ height = 500, ...props }) => {
     type: "spring",
     bounce: 0.4
   };
-  return /* @__PURE__ */ import_react36.default.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ import_react36.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ import_react36.default.createElement(
+  return /* @__PURE__ */ import_react37.default.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ import_react37.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ import_react37.default.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ import_react36.default.createElement(
+      /* @__PURE__ */ import_react37.default.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -10097,7 +10160,7 @@ var BarChart = ({ height = 500, ...props }) => {
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ import_react36.default.createElement(
+      /* @__PURE__ */ import_react37.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
@@ -10107,8 +10170,8 @@ var BarChart = ({ height = 500, ...props }) => {
           },
           layout: true
         },
-        /* @__PURE__ */ import_react36.default.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
-          return /* @__PURE__ */ import_react36.default.createElement(
+        /* @__PURE__ */ import_react37.default.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
+          return /* @__PURE__ */ import_react37.default.createElement(
             motion2.div,
             {
               key: `label-${segment.id}`,
@@ -10132,8 +10195,8 @@ var BarChart = ({ height = 500, ...props }) => {
           );
         }))
       ),
-      /* @__PURE__ */ import_react36.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ import_react36.default.createElement(
+      /* @__PURE__ */ import_react37.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ import_react37.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -10172,6 +10235,7 @@ var BarChart = ({ height = 500, ...props }) => {
   LayoutContainer,
   Map,
   Modal,
+  MultiFilter,
   NavBar,
   Pie,
   Select,

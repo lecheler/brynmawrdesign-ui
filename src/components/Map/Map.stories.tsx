@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import preview from "../../../.storybook/preview";
-import { mockBandsData, mockShowsData } from "../../data/shows.mock";
+import { mockShowsData } from "../../data/shows.mock";
+import { mockBandsData } from "../../data/bands.mock";
+
 import {
   CheckboxGroup,
   type CheckboxOption,
@@ -59,7 +61,7 @@ const InteractiveTemplate: React.FC<any> = (args) => {
 
   // Transform bands response into standardized select options
   const bands: CheckboxOption[] = useMemo(() => {
-    return mockBandsData.data.map((band) => ({
+    return mockBandsData.map((band) => ({
       label: band.name,
       value: band.slug,
     }));
@@ -102,7 +104,7 @@ export const Interactive = meta.story({
     zoom: 11,
     center: { lat: 44.9778, lng: -93.265 },
     // ✅ FIX: Carry the band's slug parameter down inside the marker objects for the filter function
-    markers: mockShowsData.data.map((show) => ({
+    markers: mockShowsData.map((show) => ({
       id: show.id,
       lat: Number(show.venue.latitude),
       lng: Number(show.venue.longitude),

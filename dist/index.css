@@ -193,8 +193,8 @@
   --type-body-main: var(--font-weight-regular) var(--font-size-3)/1.5 var(--font-family-sans);
   --type-body-lead: var(--font-weight-regular) var(--font-size-4)/1.6 var(--font-family-sans);
   --type-ui-label: var(--font-weight-bold) var(--font-size-2)/1.2 var(--font-family-sans);
-  --type-ui-sublabel: var(--font-weight-medium) var(--font-size-2)/1.2 var(--font-family-sans);
-  --type-data: var(--font-weight-regular) var(--font-size-1)/1.4 var(--font-family-sans);
+  --type-ui-sublabel: var(--font-weight-medium) var(--font-size-1)/1.2 var(--font-family-sans);
+  --type-data: var(--font-weight-regular) var(--font-size-1)/1.1 var(--font-family-sans);
   --type-caption: var(--font-weight-regular) var(--font-size-1)/1.4 var(--font-family-sans);
   --type-code-block: var(--font-weight-regular) var(--font-size-2)/1.5 var(--font-family-mono);
 }
@@ -631,6 +631,11 @@ ol {
   border-radius: var(--button-radius-rounded);
   font: var(--button-font);
   gap: var(--button-gap);
+  &:disabled {
+    background-color: var(--input-disabled-bg);
+    color: var(--input-disabled-text);
+    cursor: not-allowed;
+  }
 }
 .bmd-button[data-variant=solid] {
   background-color: var(--button-tone);
@@ -974,38 +979,6 @@ input[type=range]::-moz-range-thumb {
   border-top: 1px solid var(--color-border-subtle);
 }
 
-/* src/components/Select/Select.css */
-.bmd-select {
-  width: 100%;
-  background-color: var(--input-background-color);
-  border: var(--input-border-width) solid var(--input-border);
-  border-radius: var(--input-radius);
-  color: var(--color-text);
-  outline: none;
-  cursor: pointer;
-}
-.bmd-select:focus {
-  border-color: var(--input-border-focus);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--input-border-focus), transparent 75%);
-}
-.bmd-select:disabled {
-  background-color: var(--input-disabled-bg);
-  color: var(--input-disabled-text);
-  cursor: not-allowed;
-}
-.bmd-select[data-select-size=sm] {
-  font-size: var(--input-font-size-sm);
-  padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
-}
-.bmd-select[data-select-size=md] {
-  font-size: var(--input-font-size-md);
-  padding: var(--input-padding-y-md) var(--input-padding-x-md);
-}
-.bmd-select[data-select-size=lg] {
-  font-size: var(--input-font-size-lg);
-  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
-}
-
 /* src/components/CheckboxGroup/CheckboxGroup.css */
 .bmd-checkbox-group {
   display: flex;
@@ -1043,6 +1016,38 @@ input[type=range]::-moz-range-thumb {
 }
 .bmd-checkbox-item[data-state=checked]:hover {
   background-color: var(--tone-primary-hover);
+}
+
+/* src/components/Select/Select.css */
+.bmd-select {
+  width: 100%;
+  background-color: var(--input-background-color);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-radius);
+  color: var(--color-text);
+  outline: none;
+  cursor: pointer;
+}
+.bmd-select:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--input-border-focus), transparent 75%);
+}
+.bmd-select:disabled {
+  background-color: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+.bmd-select[data-select-size=sm] {
+  font-size: var(--input-font-size-sm);
+  padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
+}
+.bmd-select[data-select-size=md] {
+  font-size: var(--input-font-size-md);
+  padding: var(--input-padding-y-md) var(--input-padding-x-md);
+}
+.bmd-select[data-select-size=lg] {
+  font-size: var(--input-font-size-lg);
+  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
 }
 
 /* src/components/NavBar/NavBar.css */

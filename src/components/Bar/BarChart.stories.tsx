@@ -2,7 +2,9 @@ import React, { useMemo, useState } from "react";
 
 import preview from "../../../.storybook/preview";
 
-import { mockShowsData, mockBandsData } from "../../data/shows.mock";
+import { mockShowsData } from "../../data/shows.mock";
+import { mockBandsData } from "../../data/bands.mock";
+
 import { prepareShowsForStackedChart } from "../../utils/analyticsTransformers";
 
 import { BarChart } from "./BarChart";
@@ -20,7 +22,7 @@ const meta = preview.meta({
 // Interactive template
 const InteractiveTemplate: React.FC<any> = (args) => {
   const rawShows = { ...args }.data;
-  const bands: CheckboxOption[] = mockBandsData.data.map((band) => {
+  const bands: CheckboxOption[] = mockBandsData.map((band) => {
     return {
       label: band.name,
       value: band.slug,
@@ -59,7 +61,7 @@ const InteractiveTemplate: React.FC<any> = (args) => {
 export const Interactive = meta.story({
   render: (args) => <InteractiveTemplate {...args} />,
   args: {
-    data: prepareShowsForStackedChart(mockShowsData.data, mockShowsData.data),
+    data: prepareShowsForStackedChart(mockShowsData, mockShowsData),
     height: 250,
     maxValue: 67,
   },

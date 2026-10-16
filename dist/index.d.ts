@@ -194,6 +194,21 @@ interface ModalProps {
 }
 declare const Modal: React__default.FC<ModalProps>;
 
+interface MultiFilterOption {
+    label: string;
+    value: string;
+    searchString: string;
+}
+interface MultiFilterProps {
+    label?: string;
+    placeholder?: string;
+    options: MultiFilterOption[];
+    value?: string[];
+    onChange: (nextValues: string[]) => void;
+    name: string;
+}
+declare const MultiFilter: ({ label, placeholder, options, value, onChange, name, }: MultiFilterProps) => React__default.JSX.Element;
+
 type SelectSize = "sm" | "md" | "lg";
 interface SelectProps extends React__default.SelectHTMLAttributes<HTMLSelectElement> {
     selectSize?: SelectSize;
@@ -252,4 +267,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, type ContainerSize, Grid, type GridColumns, type GridGap, type GridProps, Heading, type HeadingLevel, type HeadingProps, type HeadingTag, Icon, type IconName, type IconProps, Inline, type InlineAlign, type InlineGap, type InlineJustify, type InlineProps, Input, type InputSize, LayoutContainer, type LayoutContainerProps, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, NavBar, type NavBarProps, Pie, type PieData, Select, type SelectSize, Stack, type StackAlign, type StackGap, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps, type TextTag, type TextVariant };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, type ContainerSize, Grid, type GridColumns, type GridGap, type GridProps, Heading, type HeadingLevel, type HeadingProps, type HeadingTag, Icon, type IconName, type IconProps, Inline, type InlineAlign, type InlineGap, type InlineJustify, type InlineProps, Input, type InputSize, LayoutContainer, type LayoutContainerProps, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, MultiFilter, type MultiFilterOption, NavBar, type NavBarProps, Pie, type PieData, Select, type SelectSize, Stack, type StackAlign, type StackGap, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps, type TextTag, type TextVariant };

@@ -16,6 +16,8 @@ export * from "./components/Table/Table";
 export * from "./components/Card/Card";
 export * from "./components/Map/Map";
 export * from "./components/Modal/Modal";
+export * from "./components/MultiFilter/MultiFilter";
+
 export * from "./components/Select/Select";
 export * from "./components/CheckboxGroup/CheckboxGroup";
 export * from "./components/NavBar/NavBar";
