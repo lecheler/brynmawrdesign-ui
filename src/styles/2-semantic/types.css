@@ -19,9 +19,9 @@
 
   --type-ui-label: var(--font-weight-bold) var(--font-size-2)/1.2
     var(--font-family-sans);
-  --type-ui-sublabel: var(--font-weight-medium) var(--font-size-2)/1.2
+  --type-ui-sublabel: var(--font-weight-medium) var(--font-size-1)/1.2
     var(--font-family-sans);
-  --type-data: var(--font-weight-regular) var(--font-size-1)/1.4
+  --type-data: var(--font-weight-regular) var(--font-size-1)/1.1
     var(--font-family-sans);
 
   --type-caption: var(--font-weight-regular) var(--font-size-1)/1.4
