@@ -15,6 +15,7 @@ import {
   CheckboxGroup,
   CheckboxOption,
 } from "../../components/CheckboxGroup/CheckboxGroup";
+import { Stack } from "../Stack/Stack";
 
 const meta = preview.meta({
   title: "Analytics/BarChart",
@@ -48,7 +49,7 @@ const InteractiveTemplate: React.FC<any> = (args) => {
   }, [rawShows, selectedBands]); // Only reruns if raw data or active filters actually change!
 
   return (
-    <div>
+    <Stack>
       <CheckboxGroup
         name="bands"
         options={bands} // Stable via useMemo
@@ -58,7 +59,7 @@ const InteractiveTemplate: React.FC<any> = (args) => {
         }}
       />
       <BarChart {...args} data={filteredShows} />
-    </div>
+    </Stack>
   );
 };
 

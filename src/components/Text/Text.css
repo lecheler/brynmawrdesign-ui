@@ -15,6 +15,13 @@
   color: var(--color-text-bright); /* Lead paragraphs can use an accent shade */
 }
 
+.bmd-text[data-variant="label"] {
+  /* Pulls from the semantic UI design tokens you defined earlier */
+  font: var(--type-ui-label);
+  color: var(--color-text-muted);
+  cursor: pointer; /* Labels feel more interactive when they show pointers */
+}
+
 .bmd-text[data-variant="caption"] {
   font: var(--type-caption);
   color: var(

@@ -83,3 +83,23 @@ ol {
   padding: 0;
   list-style: none;
 }
+
+/* src/styles/globals.css */
+
+/* ==========================================================================
+   VISUAL STRUCTURE UTILITIES
+   ========================================================================== */
+
+.bmd-separator {
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+
+  /* ✅ Pulls your crisp, light-gray line token from your semantic variables layer */
+  background-color: var(--color-border-subtle);
+
+  /* Gives it zero vertical margin by default so your <Stack gap={X}> layout component
+     can perfectly dictate the exact amount of spacing above and below it */
+  margin: 0;
+}

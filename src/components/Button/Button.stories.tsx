@@ -144,7 +144,7 @@ export const Sizes = meta.story({
           <Button
             key={size}
             tone={args.tone}
-            label={size}
+            label={`${size} button`}
             variant={args.variant}
             size={size as ButtonSize}
             shape={args.shape}

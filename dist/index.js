@@ -306,7 +306,7 @@ function Text({
   className = "",
   ...props
 }) {
-  const defaultTag = variant === "caption" ? "small" : variant === "code" ? "code" : "p";
+  const defaultTag = variant === "label" ? "label" : variant === "caption" ? "small" : variant === "code" ? "code" : "p";
   const Comp = as || defaultTag;
   return /* @__PURE__ */ React7.createElement(
     Comp,
@@ -9817,8 +9817,6 @@ var Modal = ({
           opacity: 0,
           scale: 0.7,
           y: 0
-          // scale: mobile ? 1.0 : 0.7,
-          // y: mobile ? 40 : 0,
         },
         animate: {
           opacity: 1,
@@ -9830,11 +9828,16 @@ var Modal = ({
           opacity: 0,
           scale: 0.7,
           y: 0
-          //  scale: mobile ? 1.0 : 0.7,
-          // y: mobile ? 40 : 0,
         }
       },
-      /* @__PURE__ */ import_react30.default.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ import_react30.default.createElement(Heading, { level: 1 }, title), /* @__PURE__ */ import_react30.default.createElement(
+      /* @__PURE__ */ import_react30.default.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ import_react30.default.createElement(
+        Heading,
+        {
+          level: 2,
+          style: { color: "var(--color-text-inverse)" }
+        },
+        title
+      ), /* @__PURE__ */ import_react30.default.createElement(
         Button,
         {
           icon: { name: "x" },
@@ -9917,7 +9920,7 @@ var CheckboxGroup = ({
               handleToggle(option.value);
             }
           },
-          "\u2715"
+          /* @__PURE__ */ import_react32.default.createElement(Icon, { name: "x" })
         )
       );
     })
@@ -10134,7 +10137,7 @@ var Pie = ({
 // src/components/Bar/BarChart.tsx
 var import_react37 = __toESM(require("react"));
 var BarChart = ({ height = 500, ...props }) => {
-  const maxBarHeight = height - 40;
+  const maxBarHeight = height - 80;
   const columnsMap = props.data.reduce(
     (acc, item) => {
       if (!acc[item.groupId]) {

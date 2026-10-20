@@ -3,8 +3,10 @@
   --modal-surface: var(--color-surface);
 
   /* Padding */
-  --modal-padding-y: var(--space-8);
-  --modal-padding-x: var(--space-12);
+  --modal-header-padding-y: var(--space-3);
+  --modal-header-padding-x: var(--space-5);
+  --modal-content-padding-y: var(--space-4);
+  --modal-content-padding-x: var(--space-5);
 
   /* Radius */
   --modal-radius: var(--radius-sm);

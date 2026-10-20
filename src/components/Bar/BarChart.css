@@ -2,8 +2,9 @@
   display: flex;
   align-items: flex-end;
   border-radius: var(--radius-lg);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-subtle);
   gap: var(--space-1);
+  padding: var(--space-4);
 }
 
 /* div wrapping value text, bar, and label */
@@ -12,7 +13,7 @@
   flex-direction: column;
   flex: 1;
   align-items: center;
-  /* gap: var(--chart-gap-y); */
+  gap: var(--space-1);
 }
 
 /* total value as text on top of bar (e.g., total shows) */
@@ -22,7 +23,7 @@
   height: 100%;
   align-items: center;
 
-  font: var(--type-caption);
+  font: var(--type-data);
   color: var(--color-text-muted);
 }
 
@@ -52,6 +53,6 @@
 }
 
 .bmd-bar-chart__value-label {
-  font: var(--type-caption);
+  font: var(--type-data);
   color: var(--color-text-muted);
 }

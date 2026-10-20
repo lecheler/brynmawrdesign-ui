@@ -1,23 +1,25 @@
 :root {
   /* Fonts */
-  --button-font-sm: var(--font-weight-bold) var(--font-size-2)/1.2
+  --button-font-sm: var(--font-weight-medium) var(--font-size-1)/1.2
     var(--font-family-sans); /* 14px Text */
-  --button-font-md: var(--font-weight-bold) var(--font-size-3)/1.2
+  --button-font-md: var(--font-weight-medium) var(--font-size-3)/1.2
     var(--font-family-sans); /* 16px Text */
-  --button-font-lg: var(--font-weight-bold) var(--font-size-3)/1.2
+  --button-font-lg: var(--font-weight-bold) var(--font-size-4)/1.2
     var(--font-family-sans); /* 16px Text */
 
   /* Gap & Padding */
-  --button-gap: var(--space-1);
+  --button-gap-sm: var(--space-1);
+  --button-gap-md: var(--space-1);
+  --button-gap-lg: var(--space-2);
 
-  --button-padding-y-sm: var(--space-1); /* 4px */
-  --button-padding-x-sm: var(--space-3); /* 12px */
+  --button-padding-y-sm: var(--space-2);
+  --button-padding-x-sm: var(--space-4);
 
-  --button-padding-y-md: var(--space-2); /* 8px */
-  --button-padding-x-md: var(--space-4); /* 16px */
+  --button-padding-y-md: var(--space-2);
+  --button-padding-x-md: var(--space-4);
 
-  --button-padding-y-lg: var(--space-3); /* 12px */
-  --button-padding-x-lg: var(--space-5); /* 24px */
+  --button-padding-y-lg: var(--space-2);
+  --button-padding-x-lg: var(--space-4);
 
   /* Tone (default = primary) */
   --button-tone: var(--tone-primary);

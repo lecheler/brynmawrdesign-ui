@@ -57,9 +57,9 @@ interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 declare function Heading({ level, as, children, className, ...props }: HeadingProps): React.JSX.Element;
 
-type TextVariant = "body" | "lead" | "caption" | "code";
-type TextTag = "p" | "span" | "div" | "span" | "code" | "small";
-interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+type TextVariant = "body" | "lead" | "caption" | "code" | "label";
+type TextTag = "p" | "span" | "div" | "span" | "code" | "small" | "label";
+interface TextProps extends React.AllHTMLAttributes<HTMLElement> {
     variant?: TextVariant;
     as?: TextTag;
     bold?: boolean;

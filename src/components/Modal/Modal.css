@@ -14,7 +14,7 @@
 
 .bmd-modal__container {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
 
   display: flex;
   flex-direction: column;
@@ -22,12 +22,12 @@
 
   box-shadow: var(--shadow-md);
   background: var(--color-surface);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
 }
 
 .bmd-modal__header {
   color: var(--color-text-inverse);
-  padding: var(--modal-padding-y) var(--modal-padding-x);
+  padding: var(--modal-header-padding-y) var(--modal-header-padding-x);
   background-color: var(--modal-tone);
   border-bottom: 1px solid var(--color-border-subtle);
   display: flex;
@@ -36,12 +36,12 @@
 }
 
 .bmd-modal__content {
-  padding: var(--modal-padding-y) var(--modal-padding-x);
+  padding: var(--modal-content-padding-y) var(--modal-content-padding-x);
 
   overflow-y: auto;
 }
 
 .bmd-modal__footer {
-  /* padding: 16px; */
+  padding: var(--modal-header-padding-y) var(--modal-header-padding-x);
   border-top: 1px solid var(--color-border-subtle);
 }

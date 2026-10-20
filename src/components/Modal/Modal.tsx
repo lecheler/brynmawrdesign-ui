@@ -60,8 +60,6 @@ export const Modal: React.FC<ModalProps> = ({
               opacity: 0,
               scale: 0.7,
               y: 0,
-              // scale: mobile ? 1.0 : 0.7,
-              // y: mobile ? 40 : 0,
             }}
             animate={{
               opacity: 1,
@@ -73,12 +71,17 @@ export const Modal: React.FC<ModalProps> = ({
               opacity: 0,
               scale: 0.7,
               y: 0,
-              //  scale: mobile ? 1.0 : 0.7,
-              // y: mobile ? 40 : 0,
             }}
           >
             <header className="bmd-modal__header">
-              {title && <Heading level={1}>{title}</Heading>}
+              {title && (
+                <Heading
+                  level={2}
+                  style={{ color: "var(--color-text-inverse)" }}
+                >
+                  {title}
+                </Heading>
+              )}
               <Button
                 icon={{ name: "x" }}
                 onClick={onClose}

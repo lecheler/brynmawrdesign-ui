@@ -1,6 +1,7 @@
 // src/components/Primitives/CheckboxGroup/CheckboxGroup.tsx
 import React from "react";
 import "./CheckboxGroup.css";
+import { Icon } from "../Icon/Icon";
 
 export interface CheckboxOption {
   label: string;
@@ -89,7 +90,7 @@ export const CheckboxGroup = ({
                   handleToggle(option.value);
                 }}
               >
-                ✕
+                <Icon name="x" />
               </span>
             )}
           </label>

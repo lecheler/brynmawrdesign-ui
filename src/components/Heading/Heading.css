@@ -2,15 +2,16 @@
 .bmd-heading {
   margin: 0; /* Clear default browser margins */
   color: var(--color-text-main); /* Pull from semantic colors */
+  /* font: var(--type-heading-1); */
 }
 
-/* Map the React size prop straight to your semantic type tokens */
-.bmd-heading[data-size="h1"] {
+/* Map the React level prop straight to your semantic type tokens */
+.bmd-heading[data-level="1"] {
   font: var(--type-heading-1);
 }
-.bmd-heading[data-size="h2"] {
+.bmd-heading[data-level="2"] {
   font: var(--type-heading-2);
 }
-.bmd-heading[data-size="h3"] {
+.bmd-heading[data-level="3"] {
   font: var(--type-heading-3);
 }

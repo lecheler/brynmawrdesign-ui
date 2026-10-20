@@ -1,7 +1,8 @@
 /* src/styles/1-core/typography.css */
 :root {
   /* Font Families */
-  --font-family-sans: "Inter", system-ui, sans-serif;
+  --font-family-sans: "Nunito", system-ui, sans-serif;
+  --font-family-display: "Momo Trust Display", sans-serif;
   --font-family-mono: "JetBrains Mono", monospace;
 
   /* Strict Font Size Scale (Options) */
@@ -14,7 +15,8 @@
   --font-size-7: 3rem; /* 48px */
 
   /* Font Weights */
-  --font-weight-regular: 300;
-  --font-weight-medium: 400;
-  --font-weight-bold: 600;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 700;
+  --font-weight-bold: 900;
 }
