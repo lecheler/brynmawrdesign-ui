@@ -5,7 +5,10 @@ import preview from "../../../.storybook/preview";
 import { mockShowsData } from "../../data/shows.mock";
 import { mockBandsData } from "../../data/bands.mock";
 
-import { prepareShowsForStackedChart } from "../../utils/analyticsTransformers";
+import {
+  getBandTheme,
+  prepareShowsForStackedChart,
+} from "../../utils/analyticsTransformers";
 
 import { BarChart } from "./BarChart";
 import {
@@ -26,6 +29,7 @@ const InteractiveTemplate: React.FC<any> = (args) => {
     return {
       label: band.name,
       value: band.slug,
+      colorToken: getBandTheme(band.slug).colorVar,
     };
   });
   const [selectedBands, setSelectedBands] = useState([

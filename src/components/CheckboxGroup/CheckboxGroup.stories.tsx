@@ -3,6 +3,9 @@ import { useState } from "react";
 import preview from "../../../.storybook/preview";
 import { CheckboxGroup } from "./CheckboxGroup";
 
+import { mockBandsData } from "../../data/bands.mock";
+import { getBandTheme } from "../../utils/analyticsTransformers";
+
 const meta = preview.meta({
   title: "Components/CheckboxGroup",
   component: CheckboxGroup,
@@ -11,18 +14,17 @@ const meta = preview.meta({
   argTypes: {},
 });
 
-const bandOptions = [
-  { label: "🎸 Nirvana", value: "nirvana" },
-  { label: "🥁 The Beats", value: "the-beats" },
-  { label: "🎤 Radiohead", value: "radiohead" },
-  { label: "🎹 Daft Punk", value: "daft-punk" },
-];
-
 export const Default = meta.story({
   args: {
     name: "band-filter",
-    options: bandOptions,
-    value: ["the-beats"],
+    options: mockBandsData.map((band) => {
+      return {
+        label: band.name,
+        value: band.slug,
+        colorToken: getBandTheme(band.slug).colorVar,
+      };
+    }),
+    value: ["right-here"],
   },
   // 💡 The render function attaches a local state hook to make the story fully interactive
   render: (args) => {

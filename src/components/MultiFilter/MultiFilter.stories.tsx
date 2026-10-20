@@ -49,19 +49,19 @@ export const GeographyFilterExample = meta.story({
 
 export const VenueFilterExample = meta.story({
   render: (args) => {
-    const [selectedGeo, setSelectedGeo] = useState<string[]>(["msp"]);
+    const [selectedVenues, setSelectedVenues] = useState<string[]>(["msp"]);
     return (
       <div style={{ maxWidth: "400px" }}>
         <MultiFilter
           {...args}
-          value={selectedGeo}
-          onChange={(next) => setSelectedGeo(next)}
+          value={selectedVenues}
+          onChange={(next) => setSelectedVenues(next)}
         />
       </div>
     );
   },
   args: {
-    name: "geography",
+    name: "venues",
     label: "Filter Performance Venues",
     placeholder: "Type a venue name...",
     options: [...mockVenuesData]

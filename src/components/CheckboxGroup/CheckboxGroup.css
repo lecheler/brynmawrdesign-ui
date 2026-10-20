@@ -1,10 +1,12 @@
+/* src/components/Primitives/CheckboxGroup/CheckboxGroup.css */
+
 .bmd-checkbox-group {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-2, 0.5rem);
 }
 
-/* Hide the native checkbox visually but keep it available for browser tabs & keys */
+/* Visually mask the native system checkboxes completely */
 .bmd-checkbox-hidden {
   position: absolute;
   opacity: 0;
@@ -12,41 +14,67 @@
   height: 0;
 }
 
-/* Base style for your toggle buttons */
+/* 💊 THE PILL WRAPPER LAYOUT */
 .bmd-checkbox-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--color-border);
-  /* border-radius: var(--radius-sm); */
-  /* background-color: var(--color-surface); */
-  /* color: var(--color-text-main); */
-  font: var(--type-ui-label);
-
+  gap: var(--space-1, 0.25rem);
+  padding: var(--space-1, 0.25rem) var(--space-3, 0.75rem);
+  border: 1px solid var(--color-border, #d1d5db);
+  border-radius: var(--radius-full, 9999px); /* Perfect pill round borders */
+  background-color: var(--color-bg-surface, #ffffff);
+  color: var(--color-text-main, #374151);
+  font: var(--type-caption);
+  font-weight: var(--font-weight-medium, 500);
   cursor: pointer;
-  transition: all var(--duration-medium) var(--easing-standard);
+  transition: all 0.2s ease-in-out;
   user-select: none;
 }
 
-/* Hover style states */
 .bmd-checkbox-item:hover {
-  background-color: var(--color-surface-subtle);
-  border-color: var(--color-border-strong);
+  background-color: var(--color-bg-surface-dim, #f3f4f6);
+  border-color: var(--color-border-bright, #9ca3af);
 }
 
-/* Focus indicator ring for keyboard users (Tab navigation accessibility) */
 .bmd-checkbox-item:focus-within {
-  box-shadow: var(--shadow-focus);
+  box-shadow: 0 0 0 2px var(--color-focus-ring, rgba(59, 130, 246, 0.5));
 }
 
-/* Active checked states driven by your React data attributes */
+/* 📌 ACTIVE DISMISSIBLE PILL STATES */
 .bmd-checkbox-item[data-state="checked"] {
-  background-color: var(--tone-primary);
-  border-color: var(--tone-primary-hover);
-  color: var(--color-text-inverse);
+  /*
+     Uses your custom background token variable if passed from React.
+     Falls back to your core brand accent blue if no custom color token is specified.
+  */
+  background-color: var(--bmd-pill-bg, var(--tone-primary, #2563eb));
+  border-color: var(--bmd-pill-bg, var(--tone-primary, #2563eb));
+  color: #ffffff; /* Forces text white for perfect high-contrast readability */
 }
 
 .bmd-checkbox-item[data-state="checked"]:hover {
-  background-color: var(--tone-primary-hover);
+  filter: brightness(
+    0.92
+  ); /* Generates an automated clean hover darkening effect */
+}
+
+/* ✕ DISMISSAL BUTTON LAYOUT ENGINE */
+.bmd-checkbox-dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: var(--space-1, 4px);
+  padding: 2px;
+  font-size: 10px;
+  line-height: 1;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.15s ease-in-out;
+}
+
+.bmd-checkbox-dismiss:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: scale(1.1);
 }

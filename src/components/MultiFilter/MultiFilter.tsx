@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { Stack } from "../Stack/Stack";
 import { Input } from "../Input/Input";
 import { CheckboxGroup } from "../CheckboxGroup/CheckboxGroup";
@@ -7,6 +7,7 @@ export interface MultiFilterOption {
   label: string; // The display name inside the checkboxes/chips (e.g., "The Fillmore")
   value: string; // The unique ID or code (e.g., "42")
   searchString: string; // The searchable datalist text (e.g., "The Fillmore (Denver, CO)")
+  colorToken?: string;
 }
 
 interface MultiFilterProps {
@@ -26,35 +27,54 @@ export const MultiFilter = ({
   onChange,
   name,
 }: MultiFilterProps) => {
+  const [searchValue, setSearchValue] = useState("");
   // Generate a totally unique HTML datalist ID attribute to support having multiple filters on a single page
   const datalistId = `bmd-multifilter-list-${name}`;
   const inputId = `bmd-multifilter-input-${name}`;
 
-  // 1. Filter down your massive options array to ONLY show pills for items currently selected
   const activeCheckboxOptions = useMemo(() => {
-    return options
-      .filter((opt) => value.includes(opt.value))
-      .map((opt) => ({
-        label: opt.label,
-        value: opt.value,
-      }));
-  }, [options, value]);
+    // 1. Iterate over the small array of active string values (e.g., ["42", "109"])
+    return (
+      value
+        .map((selectedValue) => {
+          // 2. Perform a target lookup to find the corresponding master option object block
+          const matchedOption = options.find(
+            (opt) => opt.value === selectedValue,
+          );
+          return matchedOption;
+        })
+        // 3. Clear out any undefined values in case an unmapped ID slips through
+        .filter((opt): opt is MultiFilterOption => !!opt)
+        // 4. Shape the clean primitives payload
+        .map((opt) => ({
+          label: opt.label,
+          value: opt.value,
+          colorToken: opt.colorToken, // ✅ PERFECT: Forwards your color overrides directly to the pills!
+        }))
+    );
+  }, [options, value]); // Recalculates dynamically when selections change
 
-  // 2. Intercept the user input selection
   const handleSearchInput = (inputValue: string) => {
+    setSearchValue(inputValue);
+
     const match = options.find(
       (opt) => opt.searchString.toLowerCase() === inputValue.toLowerCase(),
     );
 
     if (match) {
-      // If it matches a dropdown item and isn't already active, append it!
       if (!value.includes(match.value)) {
         onChange([...value, match.value]);
       }
 
-      // Automatically wipe out the input box text so they can search for the next item immediately
-      const inputEl = document.getElementById(inputId) as HTMLInputElement;
-      if (inputEl) inputEl.value = "";
+      // 1. Instantly clear out your React value state
+      setSearchValue("");
+
+      // 2. 🛟 THE FIX: Force the browser to drop focus from the active text block
+      // This tells the native browser engine to instantly close the dropdown popover menu
+      const activeEl = document.activeElement as HTMLElement;
+      if (activeEl && activeEl.id === inputId) {
+        activeEl.blur(); // Drops browser focus
+      }
     }
   };
 
@@ -81,12 +101,13 @@ export const MultiFilter = ({
           list={datalistId}
           debounceDelay={150}
           onChange={(val) => handleSearchInput(val.toString())}
+          value={searchValue}
         />
       </Stack>
 
       {/* The Selected Tray: Only mounts if at least one checkbox filter is engaged */}
       {activeCheckboxOptions.length > 0 && (
-        <Stack gap={1}>
+        <Stack gap={2} align="start">
           <span
             style={{
               font: "var(--type-caption)",
@@ -100,6 +121,7 @@ export const MultiFilter = ({
             options={activeCheckboxOptions}
             value={value}
             onChange={onChange}
+            dismissible={true}
           />
         </Stack>
       )}

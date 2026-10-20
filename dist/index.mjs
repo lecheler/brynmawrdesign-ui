@@ -9815,16 +9815,16 @@ var Modal = ({
 };
 
 // src/components/MultiFilter/MultiFilter.tsx
-import React18, { useMemo as useMemo8 } from "react";
+import React18, { useMemo as useMemo8, useState as useState3 } from "react";
 
 // src/components/CheckboxGroup/CheckboxGroup.tsx
 import React17 from "react";
 var CheckboxGroup = ({
-  options,
+  options = [],
   value = [],
-  // Read array straight from parent context
   onChange,
   name,
+  dismissible = false,
   ...props
 }) => {
   const handleToggle = (optionValue) => {
@@ -9848,12 +9848,15 @@ var CheckboxGroup = ({
     },
     options.map((option) => {
       const isChecked = value.includes(option.value);
+      console.log("option.colorToken:", option.colorToken);
+      const customStyle = isChecked && option.colorToken ? { "--bmd-pill-bg": option.colorToken } : void 0;
       return /* @__PURE__ */ React17.createElement(
         "label",
         {
           key: option.value,
           className: "bmd-checkbox-item",
-          "data-state": isChecked ? "checked" : "unchecked"
+          "data-state": isChecked ? "checked" : "unchecked",
+          style: customStyle
         },
         /* @__PURE__ */ React17.createElement(
           "input",
@@ -9866,7 +9869,20 @@ var CheckboxGroup = ({
             className: "bmd-checkbox-hidden"
           }
         ),
-        /* @__PURE__ */ React17.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
+        /* @__PURE__ */ React17.createElement("span", { className: "bmd-checkbox-label-text" }, option.label),
+        isChecked && dismissible && /* @__PURE__ */ React17.createElement(
+          "span",
+          {
+            className: "bmd-checkbox-dismiss",
+            role: "button",
+            "aria-label": `Remove ${option.label}`,
+            onClick: (e) => {
+              e.preventDefault();
+              handleToggle(option.value);
+            }
+          },
+          "\u2715"
+        )
       );
     })
   );
@@ -9881,15 +9897,24 @@ var MultiFilter = ({
   onChange,
   name
 }) => {
+  const [searchValue, setSearchValue] = useState3("");
   const datalistId = `bmd-multifilter-list-${name}`;
   const inputId = `bmd-multifilter-input-${name}`;
   const activeCheckboxOptions = useMemo8(() => {
-    return options.filter((opt) => value.includes(opt.value)).map((opt) => ({
+    return value.map((selectedValue) => {
+      const matchedOption = options.find(
+        (opt) => opt.value === selectedValue
+      );
+      return matchedOption;
+    }).filter((opt) => !!opt).map((opt) => ({
       label: opt.label,
-      value: opt.value
+      value: opt.value,
+      colorToken: opt.colorToken
+      // ✅ PERFECT: Forwards your color overrides directly to the pills!
     }));
   }, [options, value]);
   const handleSearchInput = (inputValue) => {
+    setSearchValue(inputValue);
     const match = options.find(
       (opt) => opt.searchString.toLowerCase() === inputValue.toLowerCase()
     );
@@ -9897,8 +9922,11 @@ var MultiFilter = ({
       if (!value.includes(match.value)) {
         onChange([...value, match.value]);
       }
-      const inputEl = document.getElementById(inputId);
-      if (inputEl) inputEl.value = "";
+      setSearchValue("");
+      const activeEl = document.activeElement;
+      if (activeEl && activeEl.id === inputId) {
+        activeEl.blur();
+      }
     }
   };
   return /* @__PURE__ */ React18.createElement(Stack, { gap: 2 }, /* @__PURE__ */ React18.createElement(Stack, { gap: 1 }, label && /* @__PURE__ */ React18.createElement("label", { htmlFor: inputId, style: { font: "var(--type-ui-sublabel)" } }, label), /* @__PURE__ */ React18.createElement("datalist", { id: datalistId }, options.map((opt) => /* @__PURE__ */ React18.createElement("option", { key: opt.value, value: opt.searchString }))), /* @__PURE__ */ React18.createElement(
@@ -9909,9 +9937,10 @@ var MultiFilter = ({
       placeholder,
       list: datalistId,
       debounceDelay: 150,
-      onChange: (val) => handleSearchInput(val.toString())
+      onChange: (val) => handleSearchInput(val.toString()),
+      value: searchValue
     }
-  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ React18.createElement(Stack, { gap: 1 }, /* @__PURE__ */ React18.createElement(
+  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ React18.createElement(Stack, { gap: 2, align: "start" }, /* @__PURE__ */ React18.createElement(
     "span",
     {
       style: {
@@ -9926,13 +9955,14 @@ var MultiFilter = ({
       name,
       options: activeCheckboxOptions,
       value,
-      onChange
+      onChange,
+      dismissible: true
     }
   )));
 };
 
 // src/components/Select/Select.tsx
-import React19, { useState as useState3, useEffect as useEffect8 } from "react";
+import React19, { useState as useState4, useEffect as useEffect8 } from "react";
 var Select = ({
   onChange,
   value,
@@ -9940,7 +9970,7 @@ var Select = ({
   children,
   ...props
 }) => {
-  const [localValue, setLocalValue] = useState3(value || "");
+  const [localValue, setLocalValue] = useState4(value || "");
   useEffect8(() => {
     if (value !== void 0) {
       setLocalValue(value);

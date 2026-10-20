@@ -9856,11 +9856,11 @@ var import_react33 = __toESM(require("react"));
 // src/components/CheckboxGroup/CheckboxGroup.tsx
 var import_react32 = __toESM(require("react"));
 var CheckboxGroup = ({
-  options,
+  options = [],
   value = [],
-  // Read array straight from parent context
   onChange,
   name,
+  dismissible = false,
   ...props
 }) => {
   const handleToggle = (optionValue) => {
@@ -9884,12 +9884,15 @@ var CheckboxGroup = ({
     },
     options.map((option) => {
       const isChecked = value.includes(option.value);
+      console.log("option.colorToken:", option.colorToken);
+      const customStyle = isChecked && option.colorToken ? { "--bmd-pill-bg": option.colorToken } : void 0;
       return /* @__PURE__ */ import_react32.default.createElement(
         "label",
         {
           key: option.value,
           className: "bmd-checkbox-item",
-          "data-state": isChecked ? "checked" : "unchecked"
+          "data-state": isChecked ? "checked" : "unchecked",
+          style: customStyle
         },
         /* @__PURE__ */ import_react32.default.createElement(
           "input",
@@ -9902,7 +9905,20 @@ var CheckboxGroup = ({
             className: "bmd-checkbox-hidden"
           }
         ),
-        /* @__PURE__ */ import_react32.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label)
+        /* @__PURE__ */ import_react32.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label),
+        isChecked && dismissible && /* @__PURE__ */ import_react32.default.createElement(
+          "span",
+          {
+            className: "bmd-checkbox-dismiss",
+            role: "button",
+            "aria-label": `Remove ${option.label}`,
+            onClick: (e) => {
+              e.preventDefault();
+              handleToggle(option.value);
+            }
+          },
+          "\u2715"
+        )
       );
     })
   );
@@ -9917,15 +9933,24 @@ var MultiFilter = ({
   onChange,
   name
 }) => {
+  const [searchValue, setSearchValue] = (0, import_react33.useState)("");
   const datalistId = `bmd-multifilter-list-${name}`;
   const inputId = `bmd-multifilter-input-${name}`;
   const activeCheckboxOptions = (0, import_react33.useMemo)(() => {
-    return options.filter((opt) => value.includes(opt.value)).map((opt) => ({
+    return value.map((selectedValue) => {
+      const matchedOption = options.find(
+        (opt) => opt.value === selectedValue
+      );
+      return matchedOption;
+    }).filter((opt) => !!opt).map((opt) => ({
       label: opt.label,
-      value: opt.value
+      value: opt.value,
+      colorToken: opt.colorToken
+      // ✅ PERFECT: Forwards your color overrides directly to the pills!
     }));
   }, [options, value]);
   const handleSearchInput = (inputValue) => {
+    setSearchValue(inputValue);
     const match = options.find(
       (opt) => opt.searchString.toLowerCase() === inputValue.toLowerCase()
     );
@@ -9933,8 +9958,11 @@ var MultiFilter = ({
       if (!value.includes(match.value)) {
         onChange([...value, match.value]);
       }
-      const inputEl = document.getElementById(inputId);
-      if (inputEl) inputEl.value = "";
+      setSearchValue("");
+      const activeEl = document.activeElement;
+      if (activeEl && activeEl.id === inputId) {
+        activeEl.blur();
+      }
     }
   };
   return /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 2 }, /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 1 }, label && /* @__PURE__ */ import_react33.default.createElement("label", { htmlFor: inputId, style: { font: "var(--type-ui-sublabel)" } }, label), /* @__PURE__ */ import_react33.default.createElement("datalist", { id: datalistId }, options.map((opt) => /* @__PURE__ */ import_react33.default.createElement("option", { key: opt.value, value: opt.searchString }))), /* @__PURE__ */ import_react33.default.createElement(
@@ -9945,9 +9973,10 @@ var MultiFilter = ({
       placeholder,
       list: datalistId,
       debounceDelay: 150,
-      onChange: (val) => handleSearchInput(val.toString())
+      onChange: (val) => handleSearchInput(val.toString()),
+      value: searchValue
     }
-  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 1 }, /* @__PURE__ */ import_react33.default.createElement(
+  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 2, align: "start" }, /* @__PURE__ */ import_react33.default.createElement(
     "span",
     {
       style: {
@@ -9962,7 +9991,8 @@ var MultiFilter = ({
       name,
       options: activeCheckboxOptions,
       value,
-      onChange
+      onChange,
+      dismissible: true
     }
   )));
 };

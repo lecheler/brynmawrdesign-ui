@@ -198,6 +198,7 @@ interface MultiFilterOption {
     label: string;
     value: string;
     searchString: string;
+    colorToken?: string;
 }
 interface MultiFilterProps {
     label?: string;
@@ -218,14 +219,16 @@ declare const Select: ({ onChange, value, selectSize, children, ...props }: Sele
 interface CheckboxOption {
     label: string;
     value: string;
+    colorToken?: string;
 }
 interface CheckboxGroupProps {
     options: CheckboxOption[];
     value: string[];
     onChange: (nextValues: string[]) => void;
     name: string;
+    dismissible?: boolean;
 }
-declare const CheckboxGroup: ({ options, value, onChange, name, ...props }: CheckboxGroupProps) => React__default.JSX.Element;
+declare const CheckboxGroup: ({ options, value, onChange, name, dismissible, ...props }: CheckboxGroupProps) => React__default.JSX.Element;
 
 interface NavBarProps extends React.HTMLAttributes<HTMLElement> {
     containerSize?: ContainerSize;
