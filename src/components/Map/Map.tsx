@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
+import { loadGoogleLibrary } from "../../utils/googleMapsLoader";
 
 import "./Map.css";
 
@@ -39,12 +39,10 @@ const MapComponent = ({
   useEffect(() => {
     if (!mapRef.current || !apiKey) return;
 
-    setOptions({
-      key: apiKey,
-      v: "weekly",
-    });
-
-    Promise.all([importLibrary("maps"), importLibrary("marker")])
+    Promise.all([
+      loadGoogleLibrary<google.maps.MapsLibrary>("maps", apiKey),
+      loadGoogleLibrary<google.maps.MarkerLibrary>("marker", apiKey),
+    ])
       .then(([mapsLib, markerLib]) => {
         if (!mapRef.current) return;
 
@@ -127,7 +125,9 @@ const MapComponent = ({
 
   useEffect(() => {
     if (googleMapInstanceRef.current && clustererRef.current) {
-      importLibrary("marker").then((markerLib) => syncMarkers(markerLib));
+      loadGoogleLibrary<google.maps.MarkerLibrary>("marker", apiKey).then(
+        (markerLib) => syncMarkers(markerLib),
+      );
     }
   }, [markers]);
 
