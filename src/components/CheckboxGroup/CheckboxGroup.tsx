@@ -51,8 +51,6 @@ export const CheckboxGroup = ({
       {options.map((option) => {
         const isChecked = value.includes(option.value);
 
-        console.log("option.colorToken:", option.colorToken);
-
         // Calculate a safe style object mapping if a color token is provided
         const customStyle =
           isChecked && option.colorToken

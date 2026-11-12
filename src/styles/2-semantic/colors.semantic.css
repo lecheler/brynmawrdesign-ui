@@ -5,7 +5,7 @@
   /* Surfaces */
   --color-surface: #ffffff;
   --color-surface-subtle: var(--color-gray-50);
-  --color-surface-strong: var(--color-gray-300);
+  --color-surface-strong: var(--color-gray-500);
   --color-surface-overlay: var(--color-gray-900-trans-10);
 
   /* Text */

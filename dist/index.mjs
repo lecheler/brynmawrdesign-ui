@@ -350,7 +350,7 @@ var Input = ({
 };
 
 // src/components/Table/Table.tsx
-import React10 from "react";
+import React11 from "react";
 import {
   useTable,
   tableFeatures,
@@ -374,6 +374,43 @@ import {
   createFacetedMinMaxValues,
   createFacetedUniqueValues
 } from "@tanstack/react-table";
+
+// src/components/Select/Select.tsx
+import React10, { useState as useState2, useEffect as useEffect2 } from "react";
+var Select = ({
+  onChange,
+  value,
+  selectSize = "md",
+  children,
+  ...props
+}) => {
+  const [localValue, setLocalValue] = useState2(value || "");
+  useEffect2(() => {
+    if (value !== void 0) {
+      setLocalValue(value);
+    }
+  }, [value]);
+  const handleChange = (e) => {
+    const val = e.target.value;
+    setLocalValue(val);
+    if (onChange) {
+      onChange(e);
+    }
+  };
+  return /* @__PURE__ */ React10.createElement(
+    "select",
+    {
+      className: "bmd-select",
+      value: localValue,
+      onChange: handleChange,
+      "data-select-size": selectSize,
+      ...props
+    },
+    children
+  );
+};
+
+// src/components/Table/Table.tsx
 var features = tableFeatures({
   rowSortingFeature,
   columnFacetingFeature,
@@ -398,9 +435,9 @@ var features = tableFeatures({
   },
   columnMeta: metaHelper()
 });
-function Table2({ data, columns, hideFilters }) {
+function Table2({ data, columns, showFilters = false }) {
   const columnHelper = createColumnHelper();
-  const filterColumns = React10.useMemo(() => {
+  const filterColumns = React11.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {
       var _a2;
       return {
@@ -414,22 +451,22 @@ function Table2({ data, columns, hideFilters }) {
     data,
     features
   });
-  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React10.createElement("table", null, /* @__PURE__ */ React10.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React10.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
+  return /* @__PURE__ */ React11.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ React11.createElement("table", null, /* @__PURE__ */ React11.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ React11.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
     const popoverId = `filter-popover-${header.column.id}`;
     const anchorName = `--anchor-${header.column.id}`;
-    return /* @__PURE__ */ React10.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ React10.createElement(
+    return /* @__PURE__ */ React11.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ React11.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ React11.createElement(
       "div",
       {
         className: "bmd-table__sortable-header",
         onClick: header.column.getToggleSortingHandler(),
         title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
       },
-      /* @__PURE__ */ React10.createElement(table.FlexRender, { header }),
+      /* @__PURE__ */ React11.createElement(table.FlexRender, { header }),
       {
-        asc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowUp" }),
-        desc: /* @__PURE__ */ React10.createElement(Icon, { name: "arrowDown" })
+        asc: /* @__PURE__ */ React11.createElement(Icon, { name: "arrowUp" }),
+        desc: /* @__PURE__ */ React11.createElement(Icon, { name: "arrowDown" })
       }[header.column.getIsSorted()] ?? null
-    ), !hideFilters && header.column.getCanFilter() ? /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement(
+    ), showFilters && header.column.getCanFilter() ? /* @__PURE__ */ React11.createElement(React11.Fragment, null, /* @__PURE__ */ React11.createElement(
       Button,
       {
         className: "btn-filter-trigger",
@@ -442,7 +479,7 @@ function Table2({ data, columns, hideFilters }) {
           "--button-anchor": anchorName
         }
       }
-    ), /* @__PURE__ */ React10.createElement(
+    ), /* @__PURE__ */ React11.createElement(
       "div",
       {
         id: popoverId,
@@ -452,9 +489,9 @@ function Table2({ data, columns, hideFilters }) {
           "--button-anchor": anchorName
         }
       },
-      /* @__PURE__ */ React10.createElement(Filter, { column: header.column })
+      /* @__PURE__ */ React11.createElement(Filter, { column: header.column })
     )) : null));
-  })))), /* @__PURE__ */ React10.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React10.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React10.createElement("td", { key: cell.id }, /* @__PURE__ */ React10.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React10.createElement(PaginationControls, { table }));
+  })))), /* @__PURE__ */ React11.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ React11.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ React11.createElement("td", { key: cell.id }, /* @__PURE__ */ React11.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ React11.createElement(PaginationControls, { table }));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [
@@ -479,7 +516,7 @@ var PaginationControls = ({ table }) => {
       disabled: !table.getCanLastPage()
     }
   ];
-  return /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ React10.createElement(Inline, { gap: 3 }, /* @__PURE__ */ React10.createElement(Inline, { gap: 0 }, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ React10.createElement(
+  return /* @__PURE__ */ React11.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ React11.createElement(Inline, { gap: 2, noWrap: true, justify: "end" }, /* @__PURE__ */ React11.createElement(Inline, { gap: 0 }, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ React11.createElement(
     Button,
     {
       key: icon,
@@ -491,7 +528,7 @@ var PaginationControls = ({ table }) => {
       tone: "neutral",
       variant: "ghost"
     }
-  ))), /* @__PURE__ */ React10.createElement(Inline, { gap: 1 }, /* @__PURE__ */ React10.createElement("span", null, "Page"), /* @__PURE__ */ React10.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), /* @__PURE__ */ React10.createElement("span", null, "| Go to page:"), /* @__PURE__ */ React10.createElement(
+  ))), /* @__PURE__ */ React11.createElement(Inline, { gap: 1 }, /* @__PURE__ */ React11.createElement("span", null, "Page"), /* @__PURE__ */ React11.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), /* @__PURE__ */ React11.createElement("span", null, "| Go to page:"), /* @__PURE__ */ React11.createElement(
     Input,
     {
       inputSize: "sm",
@@ -506,17 +543,19 @@ var PaginationControls = ({ table }) => {
         table.setPageIndex(page);
       }
     }
-  )), /* @__PURE__ */ React10.createElement(
-    "select",
+  )), /* @__PURE__ */ React11.createElement(
+    Select,
     {
+      style: { maxWidth: 150 },
+      selectSize: "sm",
       name: "page-row-size",
       value: table.state.pagination.pageSize,
       onChange: (e) => {
         table.setPageSize(Number(e.target.value));
       }
     },
-    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ React10.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
-    /* @__PURE__ */ React10.createElement("option", { value: Infinity }, "Show All")
+    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ React11.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
+    /* @__PURE__ */ React11.createElement("option", { value: Infinity }, "Show All")
   )));
 };
 function Filter({
@@ -526,11 +565,11 @@ function Filter({
   if (filterVariant === "none") return;
   const columnFilterValue = column.getFilterValue();
   const minMaxValues = column.getFacetedMinMaxValues();
-  const sortedUniqueValues = React10.useMemo(
+  const sortedUniqueValues = React11.useMemo(
     () => filterVariant === "range" ? [] : Array.from(column.getFacetedUniqueValues().keys()).sort().slice(0, 5e3),
     [column.getFacetedUniqueValues(), filterVariant]
   );
-  const filterElement = filterVariant === "dateRange" ? /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React10.createElement(
+  const filterElement = filterVariant === "dateRange" ? /* @__PURE__ */ React11.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React11.createElement(
     Input,
     {
       inputSize: "sm",
@@ -543,7 +582,7 @@ function Filter({
         old == null ? void 0 : old[1]
       ])
     }
-  ), /* @__PURE__ */ React10.createElement(
+  ), /* @__PURE__ */ React11.createElement(
     Input,
     {
       inputSize: "sm",
@@ -556,7 +595,7 @@ function Filter({
         value
       ])
     }
-  )) : filterVariant === "range" ? /* @__PURE__ */ React10.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React10.createElement(
+  )) : filterVariant === "range" ? /* @__PURE__ */ React11.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ React11.createElement(
     Input,
     {
       inputSize: "sm",
@@ -570,7 +609,7 @@ function Filter({
       ]),
       placeholder: `Min ${(minMaxValues == null ? void 0 : minMaxValues[0]) !== void 0 ? `(${minMaxValues[0]})` : ""}`
     }
-  ), /* @__PURE__ */ React10.createElement(
+  ), /* @__PURE__ */ React11.createElement(
     Input,
     {
       type: "number",
@@ -584,18 +623,18 @@ function Filter({
       ]),
       placeholder: `Max ${(minMaxValues == null ? void 0 : minMaxValues[1]) ? `(${minMaxValues[1]})` : ""}`
     }
-  )) : filterVariant === "select" ? /* @__PURE__ */ React10.createElement(
+  )) : filterVariant === "select" ? /* @__PURE__ */ React11.createElement(
     "select",
     {
       onChange: (e) => column.setFilterValue(e.target.value),
       value: columnFilterValue == null ? void 0 : columnFilterValue.toString()
     },
-    /* @__PURE__ */ React10.createElement("option", { value: "" }, "All"),
+    /* @__PURE__ */ React11.createElement("option", { value: "" }, "All"),
     sortedUniqueValues.map((value) => (
       // dynamically generated select options from faceted values feature
-      /* @__PURE__ */ React10.createElement("option", { value, key: value }, value)
+      /* @__PURE__ */ React11.createElement("option", { value, key: value }, value)
     ))
-  ) : /* @__PURE__ */ React10.createElement(React10.Fragment, null, /* @__PURE__ */ React10.createElement("datalist", { id: column.id + "list" }, sortedUniqueValues.map((value) => /* @__PURE__ */ React10.createElement("option", { value, key: value }))), /* @__PURE__ */ React10.createElement(
+  ) : /* @__PURE__ */ React11.createElement(React11.Fragment, null, /* @__PURE__ */ React11.createElement("datalist", { id: column.id + "list" }, sortedUniqueValues.map((value) => /* @__PURE__ */ React11.createElement("option", { value, key: value }))), /* @__PURE__ */ React11.createElement(
     Input,
     {
       inputSize: "sm",
@@ -606,11 +645,11 @@ function Filter({
       list: column.id + "list"
     }
   ));
-  return /* @__PURE__ */ React10.createElement("div", null, filterElement);
+  return /* @__PURE__ */ React11.createElement("div", null, filterElement);
 }
 
 // src/components/Card/Card.tsx
-import React11 from "react";
+import React12 from "react";
 function CardRoot({
   as,
   variant = "elevated",
@@ -621,7 +660,7 @@ function CardRoot({
   ...props
 }) {
   const Component3 = as || "div";
-  return /* @__PURE__ */ React11.createElement(
+  return /* @__PURE__ */ React12.createElement(
     Component3,
     {
       className: cx("bmd-card", className),
@@ -634,13 +673,13 @@ function CardRoot({
   );
 }
 function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__header", className), ...props });
+  return /* @__PURE__ */ React12.createElement("div", { className: cx("bmd-card__header", className), ...props });
 }
 function CardBody({ className, ...props }) {
-  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__body", className), ...props });
+  return /* @__PURE__ */ React12.createElement("div", { className: cx("bmd-card__body", className), ...props });
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ React11.createElement("div", { className: cx("bmd-card__footer", className), ...props });
+  return /* @__PURE__ */ React12.createElement("div", { className: cx("bmd-card__footer", className), ...props });
 }
 var Card = Object.assign(CardRoot, {
   Header: CardHeader,
@@ -649,7 +688,7 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/components/Map/Map.tsx
-import React12, { useEffect as useEffect2, useRef } from "react";
+import React13, { useEffect as useEffect3, useRef } from "react";
 import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 var MapComponent = ({
@@ -664,7 +703,7 @@ var MapComponent = ({
   const googleMapInstanceRef = useRef(null);
   const clustererRef = useRef(null);
   const apiKey = userApiKey || import.meta.env.VITE_APP_GOOGLE_MAPS_KEY || "";
-  useEffect2(() => {
+  useEffect3(() => {
     if (!mapRef.current || !apiKey) return;
     setOptions({
       key: apiKey,
@@ -733,33 +772,33 @@ var MapComponent = ({
     });
     clustererInstance.addMarkers(freshAdvancedMarkers);
   };
-  useEffect2(() => {
+  useEffect3(() => {
     if (googleMapInstanceRef.current && clustererRef.current) {
       importLibrary("marker").then((markerLib) => syncMarkers(markerLib));
     }
   }, [markers]);
-  useEffect2(() => {
+  useEffect3(() => {
     if (googleMapInstanceRef.current) {
       googleMapInstanceRef.current.panTo(center);
       googleMapInstanceRef.current.setZoom(zoom);
     }
   }, [center, zoom]);
   if (!apiKey) {
-    return /* @__PURE__ */ React12.createElement("div", { className: "bmd-map-fallback" }, "\u26A0\uFE0F Google Maps API token missing. Add VITE_APP_GOOGLE_MAPS_KEY to environment configs.");
+    return /* @__PURE__ */ React13.createElement("div", { className: "bmd-map-fallback" }, "\u26A0\uFE0F Google Maps API token missing. Add VITE_APP_GOOGLE_MAPS_KEY to environment configs.");
   }
-  return /* @__PURE__ */ React12.createElement("div", { ref: mapRef, className: "bmd-map-viewport", ...props });
+  return /* @__PURE__ */ React13.createElement("div", { ref: mapRef, className: "bmd-map-viewport", ...props });
 };
-var Map3 = React12.memo(MapComponent, (prevProps, nextProps) => {
+var Map3 = React13.memo(MapComponent, (prevProps, nextProps) => {
   var _a2, _b, _c, _d;
   return prevProps.markers === nextProps.markers && prevProps.zoom === nextProps.zoom && ((_a2 = prevProps.center) == null ? void 0 : _a2.lat) === ((_b = nextProps.center) == null ? void 0 : _b.lat) && ((_c = prevProps.center) == null ? void 0 : _c.lng) === ((_d = nextProps.center) == null ? void 0 : _d.lng);
 });
 
 // src/components/Modal/Modal.tsx
-import React16, { useEffect as useEffect7 } from "react";
+import React17, { useEffect as useEffect8 } from "react";
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 import { jsx as jsx3, Fragment } from "react/jsx-runtime";
-import { useMemo as useMemo3, useRef as useRef5, useState as useState2, useContext as useContext3 } from "react";
+import { useMemo as useMemo3, useRef as useRef5, useState as useState3, useContext as useContext3 } from "react";
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
 import { createContext } from "react";
@@ -776,17 +815,17 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-import { useLayoutEffect, useEffect as useEffect3 } from "react";
+import { useLayoutEffect, useEffect as useEffect4 } from "react";
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect3;
+var useIsomorphicLayoutEffect = isBrowser ? useLayoutEffect : useEffect4;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 import { jsx as jsx2 } from "react/jsx-runtime";
-import * as React15 from "react";
+import * as React16 from "react";
 import { useId as useId2, useRef as useRef4, useMemo as useMemo2 } from "react";
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
@@ -7601,7 +7640,7 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-import * as React14 from "react";
+import * as React15 from "react";
 import { useId, useRef as useRef3, useContext, useInsertionEffect } from "react";
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
@@ -7613,7 +7652,7 @@ var MotionConfigContext = createContext3({
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-import * as React13 from "react";
+import * as React14 from "react";
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7646,11 +7685,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React13.useCallback(composeRefs(...refs), refs);
+  return React14.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React14.Component {
+var PopChildMeasure = class extends React15.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7726,7 +7765,7 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React14.cloneElement(children, { ref: composedRef }) });
+  return jsx(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React15.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
@@ -7771,7 +7810,7 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   useMemo2(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React15.useEffect(() => {
+  React16.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = jsx2(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -7782,14 +7821,14 @@ function newChildrenMap() {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-import { useContext as useContext2, useId as useId3, useEffect as useEffect5, useCallback as useCallback2 } from "react";
+import { useContext as useContext2, useId as useId3, useEffect as useEffect6, useCallback as useCallback2 } from "react";
 function usePresence(subscribe = true) {
   const context = useContext2(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
   const id3 = useId3();
-  useEffect5(() => {
+  useEffect6(() => {
     if (subscribe) {
       return register(id3);
     }
@@ -7819,8 +7858,8 @@ var AnimatePresence = ({ children, custom, initial = true, onExitComplete, prese
   const pendingPresentChildren = useRef5(presentChildren);
   const exitComplete = useConstant(() => /* @__PURE__ */ new Map());
   const exitingComponents = useRef5(/* @__PURE__ */ new Set());
-  const [diffedChildren, setDiffedChildren] = useState2(presentChildren);
-  const [renderedChildren, setRenderedChildren] = useState2(presentChildren);
+  const [diffedChildren, setDiffedChildren] = useState3(presentChildren);
+  const [renderedChildren, setRenderedChildren] = useState3(presentChildren);
   useIsomorphicLayoutEffect(() => {
     if (propagate && !isParentPresent && !renderedChildren.length) {
       safeToRemove == null ? void 0 : safeToRemove();
@@ -8295,7 +8334,7 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-import { useContext as useContext6, useRef as useRef7, useInsertionEffect as useInsertionEffect3, useEffect as useEffect6 } from "react";
+import { useContext as useContext6, useRef as useRef7, useInsertionEffect as useInsertionEffect3, useEffect as useEffect7 } from "react";
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
 import { createContext as createContext6 } from "react";
@@ -8358,7 +8397,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  useEffect6(() => {
+  useEffect7(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -9750,7 +9789,7 @@ var Modal = ({
   children,
   footer
 }) => {
-  useEffect7(() => {
+  useEffect8(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") onClose();
     };
@@ -9763,7 +9802,7 @@ var Modal = ({
       document.body.style.overflow = "";
     };
   }, [isOpen, onClose]);
-  return /* @__PURE__ */ React16.createElement(AnimatePresence, null, isOpen && /* @__PURE__ */ React16.createElement(
+  return /* @__PURE__ */ React17.createElement(AnimatePresence, null, isOpen && /* @__PURE__ */ React17.createElement(
     motion2.div,
     {
       className: "bmd-modal__overlay",
@@ -9772,7 +9811,7 @@ var Modal = ({
       animate: { opacity: 1 },
       exit: { opacity: 0, transition: { delay: 0.25 } }
     },
-    /* @__PURE__ */ React16.createElement(
+    /* @__PURE__ */ React17.createElement(
       motion2.div,
       {
         className: "bmd-modal__container",
@@ -9794,14 +9833,14 @@ var Modal = ({
           y: 0
         }
       },
-      /* @__PURE__ */ React16.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ React16.createElement(
+      /* @__PURE__ */ React17.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ React17.createElement(
         Heading,
         {
           level: 2,
           style: { color: "var(--color-text-inverse)" }
         },
         title
-      ), /* @__PURE__ */ React16.createElement(
+      ), /* @__PURE__ */ React17.createElement(
         Button,
         {
           icon: { name: "x" },
@@ -9811,17 +9850,17 @@ var Modal = ({
           shape: "rounded"
         }
       )),
-      /* @__PURE__ */ React16.createElement("main", { className: "bmd-modal__content" }, children),
-      footer && /* @__PURE__ */ React16.createElement("footer", { className: "bmd-modal__footer" }, footer)
+      /* @__PURE__ */ React17.createElement("main", { className: "bmd-modal__content" }, children),
+      footer && /* @__PURE__ */ React17.createElement("footer", { className: "bmd-modal__footer" }, footer)
     )
   ));
 };
 
 // src/components/MultiFilter/MultiFilter.tsx
-import React18, { useMemo as useMemo8, useState as useState3 } from "react";
+import React19, { useMemo as useMemo8, useState as useState4 } from "react";
 
 // src/components/CheckboxGroup/CheckboxGroup.tsx
-import React17 from "react";
+import React18 from "react";
 var CheckboxGroup = ({
   options = [],
   value = [],
@@ -9841,7 +9880,7 @@ var CheckboxGroup = ({
       onChange(nextValues);
     }
   };
-  return /* @__PURE__ */ React17.createElement(
+  return /* @__PURE__ */ React18.createElement(
     "div",
     {
       className: "bmd-checkbox-group",
@@ -9851,9 +9890,8 @@ var CheckboxGroup = ({
     },
     options.map((option) => {
       const isChecked = value.includes(option.value);
-      console.log("option.colorToken:", option.colorToken);
       const customStyle = isChecked && option.colorToken ? { "--bmd-pill-bg": option.colorToken } : void 0;
-      return /* @__PURE__ */ React17.createElement(
+      return /* @__PURE__ */ React18.createElement(
         "label",
         {
           key: option.value,
@@ -9861,7 +9899,7 @@ var CheckboxGroup = ({
           "data-state": isChecked ? "checked" : "unchecked",
           style: customStyle
         },
-        /* @__PURE__ */ React17.createElement(
+        /* @__PURE__ */ React18.createElement(
           "input",
           {
             type: "checkbox",
@@ -9872,8 +9910,8 @@ var CheckboxGroup = ({
             className: "bmd-checkbox-hidden"
           }
         ),
-        /* @__PURE__ */ React17.createElement("span", { className: "bmd-checkbox-label-text" }, option.label),
-        isChecked && dismissible && /* @__PURE__ */ React17.createElement(
+        /* @__PURE__ */ React18.createElement("span", { className: "bmd-checkbox-label-text" }, option.label),
+        isChecked && dismissible && /* @__PURE__ */ React18.createElement(
           "span",
           {
             className: "bmd-checkbox-dismiss",
@@ -9884,7 +9922,7 @@ var CheckboxGroup = ({
               handleToggle(option.value);
             }
           },
-          /* @__PURE__ */ React17.createElement(Icon, { name: "x" })
+          /* @__PURE__ */ React18.createElement(Icon, { name: "x" })
         )
       );
     })
@@ -9900,7 +9938,7 @@ var MultiFilter = ({
   onChange,
   name
 }) => {
-  const [searchValue, setSearchValue] = useState3("");
+  const [searchValue, setSearchValue] = useState4("");
   const datalistId = `bmd-multifilter-list-${name}`;
   const inputId = `bmd-multifilter-input-${name}`;
   const activeCheckboxOptions = useMemo8(() => {
@@ -9932,7 +9970,7 @@ var MultiFilter = ({
       }
     }
   };
-  return /* @__PURE__ */ React18.createElement(Stack, { gap: 2 }, /* @__PURE__ */ React18.createElement(Stack, { gap: 1 }, label && /* @__PURE__ */ React18.createElement("label", { htmlFor: inputId, style: { font: "var(--type-ui-sublabel)" } }, label), /* @__PURE__ */ React18.createElement("datalist", { id: datalistId }, options.map((opt) => /* @__PURE__ */ React18.createElement("option", { key: opt.value, value: opt.searchString }))), /* @__PURE__ */ React18.createElement(
+  return /* @__PURE__ */ React19.createElement(Stack, { gap: 2 }, /* @__PURE__ */ React19.createElement(Stack, { gap: 1 }, label && /* @__PURE__ */ React19.createElement("label", { htmlFor: inputId, style: { font: "var(--type-ui-sublabel)" } }, label), /* @__PURE__ */ React19.createElement("datalist", { id: datalistId }, options.map((opt) => /* @__PURE__ */ React19.createElement("option", { key: opt.value, value: opt.searchString }))), /* @__PURE__ */ React19.createElement(
     Input,
     {
       id: inputId,
@@ -9943,7 +9981,7 @@ var MultiFilter = ({
       onChange: (val) => handleSearchInput(val.toString()),
       value: searchValue
     }
-  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ React18.createElement(Stack, { gap: 2, align: "start" }, /* @__PURE__ */ React18.createElement(
+  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ React19.createElement(Stack, { gap: 2, align: "start" }, /* @__PURE__ */ React19.createElement(
     "span",
     {
       style: {
@@ -9952,7 +9990,7 @@ var MultiFilter = ({
       }
     },
     "Active Selections:"
-  ), /* @__PURE__ */ React18.createElement(
+  ), /* @__PURE__ */ React19.createElement(
     CheckboxGroup,
     {
       name,
@@ -9962,41 +10000,6 @@ var MultiFilter = ({
       dismissible: true
     }
   )));
-};
-
-// src/components/Select/Select.tsx
-import React19, { useState as useState4, useEffect as useEffect8 } from "react";
-var Select = ({
-  onChange,
-  value,
-  selectSize = "md",
-  children,
-  ...props
-}) => {
-  const [localValue, setLocalValue] = useState4(value || "");
-  useEffect8(() => {
-    if (value !== void 0) {
-      setLocalValue(value);
-    }
-  }, [value]);
-  const handleChange = (e) => {
-    const val = e.target.value;
-    setLocalValue(val);
-    if (onChange) {
-      onChange(e);
-    }
-  };
-  return /* @__PURE__ */ React19.createElement(
-    "select",
-    {
-      className: "bmd-select",
-      value: localValue,
-      onChange: handleChange,
-      "data-select-size": selectSize,
-      ...props
-    },
-    children
-  );
 };
 
 // src/components/NavBar/NavBar.tsx

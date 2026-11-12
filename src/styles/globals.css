@@ -103,3 +103,11 @@ ol {
      can perfectly dictate the exact amount of spacing above and below it */
   margin: 0;
 }
+
+.bmd-pill-label {
+  background-color: var(--color-surface-strong);
+  padding: var(--space-1) var(--space-4);
+  color: var(--color-text-inverse);
+  font: var(--type-ui-sublabel);
+  border-radius: var(--radius-pill);
+}

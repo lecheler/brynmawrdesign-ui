@@ -9,7 +9,7 @@
   --table-controls-color: var(--color-surface);
 
   /* Padding and Spacing */
-  --table-header-padding-y: var(--space-4);
+  --table-header-padding-y: var(--space-3);
   --table-header-padding-x: var(--space-4);
 
   --table-row-padding-y: var(--space-3);

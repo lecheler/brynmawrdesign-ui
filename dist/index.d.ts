@@ -97,17 +97,19 @@ declare const Input: ({ onChange, inputSize, placeholder, debounceDelay, ...prop
 interface TableColumnMeta {
     filterVariant?: "text" | "range" | "select" | "dateRange" | "none";
 }
-interface TableColumn {
-    accessorKey: string;
+interface TableColumn<T = any> {
+    id?: string;
+    accessorKey?: string;
+    accessorFn?: (row: T) => unknown;
     header: string;
     cell?: (info: any) => React__default.ReactNode;
     filterFn?: string;
     meta?: TableColumnMeta;
 }
-interface TableProps {
-    data: any[];
-    columns: Array<ColumnDef<typeof features, TableColumn>>;
-    hideFilters?: boolean;
+interface TableProps<T = any> {
+    data: T[];
+    columns: Array<ColumnDef<typeof features, TableColumn<T>>>;
+    showFilters?: boolean;
 }
 declare const features: {
     rowSortingFeature: _tanstack_react_table.TableFeature;
@@ -133,7 +135,7 @@ declare const features: {
     };
     columnMeta: TableColumnMeta;
 };
-declare function Table({ data, columns, hideFilters }: TableProps): React__default.JSX.Element;
+declare function Table({ data, columns, showFilters }: TableProps): React__default.JSX.Element;
 
 type CardVariant = "elevated" | "outlined" | "subtle";
 type CardTone = "neutral" | "danger" | "success";

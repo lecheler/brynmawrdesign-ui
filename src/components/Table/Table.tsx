@@ -31,23 +31,27 @@ import { Icon, IconName } from "../Icon/Icon";
 import { Button } from "../Button/Button";
 import { Inline } from "../Inline/Inline";
 import { Input } from "../Input/Input";
+import { Select } from "../Select/Select";
 
 // allows us to define custom properties for our columns
 export interface TableColumnMeta {
   filterVariant?: "text" | "range" | "select" | "dateRange" | "none";
 }
 
-export interface TableColumn {
-  accessorKey: string;
+export interface TableColumn<T = any> {
+  id?: string;
+  accessorKey?: string;
+  accessorFn?: (row: T) => unknown;
   header: string;
   cell?: (info: any) => React.ReactNode;
   filterFn?: string;
   meta?: TableColumnMeta;
 }
-interface TableProps {
-  data: any[];
-  columns: Array<ColumnDef<typeof features, TableColumn>>;
-  hideFilters?: boolean;
+
+interface TableProps<T = any> {
+  data: T[];
+  columns: Array<ColumnDef<typeof features, TableColumn<T>>>;
+  showFilters?: boolean;
 }
 
 // New in v9: declare which features this table uses
@@ -79,7 +83,7 @@ const features = tableFeatures({
   columnMeta: metaHelper<TableColumnMeta>(),
 });
 
-export function Table({ data, columns, hideFilters }: TableProps) {
+export function Table({ data, columns, showFilters = false }: TableProps) {
   const columnHelper = createColumnHelper<typeof features, TableColumn>();
 
   const filterColumns = React.useMemo(() => {
@@ -129,7 +133,7 @@ export function Table({ data, columns, hideFilters }: TableProps) {
                           }[header.column.getIsSorted() as string] ?? null}
                         </div>
 
-                        {!hideFilters && header.column.getCanFilter() ? (
+                        {showFilters && header.column.getCanFilter() ? (
                           <>
                             <Button
                               className="btn-filter-trigger"
@@ -213,7 +217,7 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
   ];
   return (
     <div className="bmd-table__pagination-controls-wrapper">
-      <Inline gap={3}>
+      <Inline gap={2} noWrap={true} justify="end">
         <Inline gap={0}>
           {paginationButtons.map(({ icon, onClick, disabled }) => (
             <Button
@@ -250,7 +254,9 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
             }}
           />
         </Inline>
-        <select
+        <Select
+          style={{ maxWidth: 150 }}
+          selectSize="sm"
           name="page-row-size"
           value={table.state.pagination.pageSize}
           onChange={(e) => {
@@ -263,7 +269,7 @@ const PaginationControls = ({ table }: PaginationControlsProps) => {
             </option>
           ))}
           <option value={Infinity}>Show All</option>
-        </select>
+        </Select>
       </Inline>
     </div>
   );

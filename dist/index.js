@@ -407,8 +407,45 @@ var Input = ({
 };
 
 // src/components/Table/Table.tsx
-var import_react4 = __toESM(require("react"));
+var import_react5 = __toESM(require("react"));
 var import_react_table = require("@tanstack/react-table");
+
+// src/components/Select/Select.tsx
+var import_react4 = __toESM(require("react"));
+var Select = ({
+  onChange,
+  value,
+  selectSize = "md",
+  children,
+  ...props
+}) => {
+  const [localValue, setLocalValue] = (0, import_react4.useState)(value || "");
+  (0, import_react4.useEffect)(() => {
+    if (value !== void 0) {
+      setLocalValue(value);
+    }
+  }, [value]);
+  const handleChange = (e) => {
+    const val = e.target.value;
+    setLocalValue(val);
+    if (onChange) {
+      onChange(e);
+    }
+  };
+  return /* @__PURE__ */ import_react4.default.createElement(
+    "select",
+    {
+      className: "bmd-select",
+      value: localValue,
+      onChange: handleChange,
+      "data-select-size": selectSize,
+      ...props
+    },
+    children
+  );
+};
+
+// src/components/Table/Table.tsx
 var features = (0, import_react_table.tableFeatures)({
   rowSortingFeature: import_react_table.rowSortingFeature,
   columnFacetingFeature: import_react_table.columnFacetingFeature,
@@ -433,9 +470,9 @@ var features = (0, import_react_table.tableFeatures)({
   },
   columnMeta: (0, import_react_table.metaHelper)()
 });
-function Table2({ data, columns, hideFilters }) {
+function Table2({ data, columns, showFilters = false }) {
   const columnHelper = (0, import_react_table.createColumnHelper)();
-  const filterColumns = import_react4.default.useMemo(() => {
+  const filterColumns = import_react5.default.useMemo(() => {
     return columnHelper.columns(columns).map((col) => {
       var _a2;
       return {
@@ -449,22 +486,22 @@ function Table2({ data, columns, hideFilters }) {
     data,
     features
   });
-  return /* @__PURE__ */ import_react4.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react4.default.createElement("table", null, /* @__PURE__ */ import_react4.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react4.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
+  return /* @__PURE__ */ import_react5.default.createElement("div", { className: "bmd-table" }, /* @__PURE__ */ import_react5.default.createElement("table", null, /* @__PURE__ */ import_react5.default.createElement("thead", null, table.getHeaderGroups().map((headerGroup) => /* @__PURE__ */ import_react5.default.createElement("tr", { key: headerGroup.id }, headerGroup.headers.map((header) => {
     const popoverId = `filter-popover-${header.column.id}`;
     const anchorName = `--anchor-${header.column.id}`;
-    return /* @__PURE__ */ import_react4.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react4.default.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ import_react4.default.createElement(
+    return /* @__PURE__ */ import_react5.default.createElement("th", { key: header.id, colSpan: header.colSpan }, header.isPlaceholder ? null : /* @__PURE__ */ import_react5.default.createElement("div", { className: "bmd-table__header-content" }, /* @__PURE__ */ import_react5.default.createElement(
       "div",
       {
         className: "bmd-table__sortable-header",
         onClick: header.column.getToggleSortingHandler(),
         title: header.column.getCanSort() ? header.column.getNextSortingOrder() === "asc" ? "Sort ascending" : header.column.getNextSortingOrder() === "desc" ? "Sort descending" : "Clear sort" : void 0
       },
-      /* @__PURE__ */ import_react4.default.createElement(table.FlexRender, { header }),
+      /* @__PURE__ */ import_react5.default.createElement(table.FlexRender, { header }),
       {
-        asc: /* @__PURE__ */ import_react4.default.createElement(Icon, { name: "arrowUp" }),
-        desc: /* @__PURE__ */ import_react4.default.createElement(Icon, { name: "arrowDown" })
+        asc: /* @__PURE__ */ import_react5.default.createElement(Icon, { name: "arrowUp" }),
+        desc: /* @__PURE__ */ import_react5.default.createElement(Icon, { name: "arrowDown" })
       }[header.column.getIsSorted()] ?? null
-    ), !hideFilters && header.column.getCanFilter() ? /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, /* @__PURE__ */ import_react4.default.createElement(
+    ), showFilters && header.column.getCanFilter() ? /* @__PURE__ */ import_react5.default.createElement(import_react5.default.Fragment, null, /* @__PURE__ */ import_react5.default.createElement(
       Button,
       {
         className: "btn-filter-trigger",
@@ -477,7 +514,7 @@ function Table2({ data, columns, hideFilters }) {
           "--button-anchor": anchorName
         }
       }
-    ), /* @__PURE__ */ import_react4.default.createElement(
+    ), /* @__PURE__ */ import_react5.default.createElement(
       "div",
       {
         id: popoverId,
@@ -487,9 +524,9 @@ function Table2({ data, columns, hideFilters }) {
           "--button-anchor": anchorName
         }
       },
-      /* @__PURE__ */ import_react4.default.createElement(Filter, { column: header.column })
+      /* @__PURE__ */ import_react5.default.createElement(Filter, { column: header.column })
     )) : null));
-  })))), /* @__PURE__ */ import_react4.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react4.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react4.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react4.default.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ import_react4.default.createElement(PaginationControls, { table }));
+  })))), /* @__PURE__ */ import_react5.default.createElement("tbody", null, table.getRowModel().rows.map((row) => /* @__PURE__ */ import_react5.default.createElement("tr", { key: row.id }, row.getAllCells().map((cell) => /* @__PURE__ */ import_react5.default.createElement("td", { key: cell.id }, /* @__PURE__ */ import_react5.default.createElement(table.FlexRender, { cell }))))))), /* @__PURE__ */ import_react5.default.createElement(PaginationControls, { table }));
 }
 var PaginationControls = ({ table }) => {
   const paginationButtons = [
@@ -514,7 +551,7 @@ var PaginationControls = ({ table }) => {
       disabled: !table.getCanLastPage()
     }
   ];
-  return /* @__PURE__ */ import_react4.default.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ import_react4.default.createElement(Inline, { gap: 3 }, /* @__PURE__ */ import_react4.default.createElement(Inline, { gap: 0 }, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ import_react4.default.createElement(
+  return /* @__PURE__ */ import_react5.default.createElement("div", { className: "bmd-table__pagination-controls-wrapper" }, /* @__PURE__ */ import_react5.default.createElement(Inline, { gap: 2, noWrap: true, justify: "end" }, /* @__PURE__ */ import_react5.default.createElement(Inline, { gap: 0 }, paginationButtons.map(({ icon, onClick, disabled }) => /* @__PURE__ */ import_react5.default.createElement(
     Button,
     {
       key: icon,
@@ -526,7 +563,7 @@ var PaginationControls = ({ table }) => {
       tone: "neutral",
       variant: "ghost"
     }
-  ))), /* @__PURE__ */ import_react4.default.createElement(Inline, { gap: 1 }, /* @__PURE__ */ import_react4.default.createElement("span", null, "Page"), /* @__PURE__ */ import_react4.default.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), /* @__PURE__ */ import_react4.default.createElement("span", null, "| Go to page:"), /* @__PURE__ */ import_react4.default.createElement(
+  ))), /* @__PURE__ */ import_react5.default.createElement(Inline, { gap: 1 }, /* @__PURE__ */ import_react5.default.createElement("span", null, "Page"), /* @__PURE__ */ import_react5.default.createElement("strong", null, (table.state.pagination.pageIndex + 1).toLocaleString(), " of", " ", table.getPageCount().toLocaleString()), /* @__PURE__ */ import_react5.default.createElement("span", null, "| Go to page:"), /* @__PURE__ */ import_react5.default.createElement(
     Input,
     {
       inputSize: "sm",
@@ -541,17 +578,19 @@ var PaginationControls = ({ table }) => {
         table.setPageIndex(page);
       }
     }
-  )), /* @__PURE__ */ import_react4.default.createElement(
-    "select",
+  )), /* @__PURE__ */ import_react5.default.createElement(
+    Select,
     {
+      style: { maxWidth: 150 },
+      selectSize: "sm",
       name: "page-row-size",
       value: table.state.pagination.pageSize,
       onChange: (e) => {
         table.setPageSize(Number(e.target.value));
       }
     },
-    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ import_react4.default.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
-    /* @__PURE__ */ import_react4.default.createElement("option", { value: Infinity }, "Show All")
+    [10, 20, 30, 40, 50].map((pageSize) => /* @__PURE__ */ import_react5.default.createElement("option", { key: pageSize, value: pageSize }, "Show ", pageSize)),
+    /* @__PURE__ */ import_react5.default.createElement("option", { value: Infinity }, "Show All")
   )));
 };
 function Filter({
@@ -561,11 +600,11 @@ function Filter({
   if (filterVariant === "none") return;
   const columnFilterValue = column.getFilterValue();
   const minMaxValues = column.getFacetedMinMaxValues();
-  const sortedUniqueValues = import_react4.default.useMemo(
+  const sortedUniqueValues = import_react5.default.useMemo(
     () => filterVariant === "range" ? [] : Array.from(column.getFacetedUniqueValues().keys()).sort().slice(0, 5e3),
     [column.getFacetedUniqueValues(), filterVariant]
   );
-  const filterElement = filterVariant === "dateRange" ? /* @__PURE__ */ import_react4.default.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ import_react4.default.createElement(
+  const filterElement = filterVariant === "dateRange" ? /* @__PURE__ */ import_react5.default.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ import_react5.default.createElement(
     Input,
     {
       inputSize: "sm",
@@ -578,7 +617,7 @@ function Filter({
         old == null ? void 0 : old[1]
       ])
     }
-  ), /* @__PURE__ */ import_react4.default.createElement(
+  ), /* @__PURE__ */ import_react5.default.createElement(
     Input,
     {
       inputSize: "sm",
@@ -591,7 +630,7 @@ function Filter({
         value
       ])
     }
-  )) : filterVariant === "range" ? /* @__PURE__ */ import_react4.default.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ import_react4.default.createElement(
+  )) : filterVariant === "range" ? /* @__PURE__ */ import_react5.default.createElement("div", { className: "bmd-table__filter-row" }, /* @__PURE__ */ import_react5.default.createElement(
     Input,
     {
       inputSize: "sm",
@@ -605,7 +644,7 @@ function Filter({
       ]),
       placeholder: `Min ${(minMaxValues == null ? void 0 : minMaxValues[0]) !== void 0 ? `(${minMaxValues[0]})` : ""}`
     }
-  ), /* @__PURE__ */ import_react4.default.createElement(
+  ), /* @__PURE__ */ import_react5.default.createElement(
     Input,
     {
       type: "number",
@@ -619,18 +658,18 @@ function Filter({
       ]),
       placeholder: `Max ${(minMaxValues == null ? void 0 : minMaxValues[1]) ? `(${minMaxValues[1]})` : ""}`
     }
-  )) : filterVariant === "select" ? /* @__PURE__ */ import_react4.default.createElement(
+  )) : filterVariant === "select" ? /* @__PURE__ */ import_react5.default.createElement(
     "select",
     {
       onChange: (e) => column.setFilterValue(e.target.value),
       value: columnFilterValue == null ? void 0 : columnFilterValue.toString()
     },
-    /* @__PURE__ */ import_react4.default.createElement("option", { value: "" }, "All"),
+    /* @__PURE__ */ import_react5.default.createElement("option", { value: "" }, "All"),
     sortedUniqueValues.map((value) => (
       // dynamically generated select options from faceted values feature
-      /* @__PURE__ */ import_react4.default.createElement("option", { value, key: value }, value)
+      /* @__PURE__ */ import_react5.default.createElement("option", { value, key: value }, value)
     ))
-  ) : /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, /* @__PURE__ */ import_react4.default.createElement("datalist", { id: column.id + "list" }, sortedUniqueValues.map((value) => /* @__PURE__ */ import_react4.default.createElement("option", { value, key: value }))), /* @__PURE__ */ import_react4.default.createElement(
+  ) : /* @__PURE__ */ import_react5.default.createElement(import_react5.default.Fragment, null, /* @__PURE__ */ import_react5.default.createElement("datalist", { id: column.id + "list" }, sortedUniqueValues.map((value) => /* @__PURE__ */ import_react5.default.createElement("option", { value, key: value }))), /* @__PURE__ */ import_react5.default.createElement(
     Input,
     {
       inputSize: "sm",
@@ -641,11 +680,11 @@ function Filter({
       list: column.id + "list"
     }
   ));
-  return /* @__PURE__ */ import_react4.default.createElement("div", null, filterElement);
+  return /* @__PURE__ */ import_react5.default.createElement("div", null, filterElement);
 }
 
 // src/components/Card/Card.tsx
-var import_react5 = __toESM(require("react"));
+var import_react6 = __toESM(require("react"));
 function CardRoot({
   as,
   variant = "elevated",
@@ -656,7 +695,7 @@ function CardRoot({
   ...props
 }) {
   const Component3 = as || "div";
-  return /* @__PURE__ */ import_react5.default.createElement(
+  return /* @__PURE__ */ import_react6.default.createElement(
     Component3,
     {
       className: cx("bmd-card", className),
@@ -669,13 +708,13 @@ function CardRoot({
   );
 }
 function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ import_react5.default.createElement("div", { className: cx("bmd-card__header", className), ...props });
+  return /* @__PURE__ */ import_react6.default.createElement("div", { className: cx("bmd-card__header", className), ...props });
 }
 function CardBody({ className, ...props }) {
-  return /* @__PURE__ */ import_react5.default.createElement("div", { className: cx("bmd-card__body", className), ...props });
+  return /* @__PURE__ */ import_react6.default.createElement("div", { className: cx("bmd-card__body", className), ...props });
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ import_react5.default.createElement("div", { className: cx("bmd-card__footer", className), ...props });
+  return /* @__PURE__ */ import_react6.default.createElement("div", { className: cx("bmd-card__footer", className), ...props });
 }
 var Card = Object.assign(CardRoot, {
   Header: CardHeader,
@@ -684,7 +723,7 @@ var Card = Object.assign(CardRoot, {
 });
 
 // src/components/Map/Map.tsx
-var import_react6 = __toESM(require("react"));
+var import_react7 = __toESM(require("react"));
 var import_js_api_loader = require("@googlemaps/js-api-loader");
 var import_markerclusterer = require("@googlemaps/markerclusterer");
 var import_meta = {};
@@ -696,11 +735,11 @@ var MapComponent = ({
   apiKey: userApiKey,
   ...props
 }) => {
-  const mapRef = (0, import_react6.useRef)(null);
-  const googleMapInstanceRef = (0, import_react6.useRef)(null);
-  const clustererRef = (0, import_react6.useRef)(null);
+  const mapRef = (0, import_react7.useRef)(null);
+  const googleMapInstanceRef = (0, import_react7.useRef)(null);
+  const clustererRef = (0, import_react7.useRef)(null);
   const apiKey = userApiKey || import_meta.env.VITE_APP_GOOGLE_MAPS_KEY || "";
-  (0, import_react6.useEffect)(() => {
+  (0, import_react7.useEffect)(() => {
     if (!mapRef.current || !apiKey) return;
     (0, import_js_api_loader.setOptions)({
       key: apiKey,
@@ -769,42 +808,42 @@ var MapComponent = ({
     });
     clustererInstance.addMarkers(freshAdvancedMarkers);
   };
-  (0, import_react6.useEffect)(() => {
+  (0, import_react7.useEffect)(() => {
     if (googleMapInstanceRef.current && clustererRef.current) {
       (0, import_js_api_loader.importLibrary)("marker").then((markerLib) => syncMarkers(markerLib));
     }
   }, [markers]);
-  (0, import_react6.useEffect)(() => {
+  (0, import_react7.useEffect)(() => {
     if (googleMapInstanceRef.current) {
       googleMapInstanceRef.current.panTo(center);
       googleMapInstanceRef.current.setZoom(zoom);
     }
   }, [center, zoom]);
   if (!apiKey) {
-    return /* @__PURE__ */ import_react6.default.createElement("div", { className: "bmd-map-fallback" }, "\u26A0\uFE0F Google Maps API token missing. Add VITE_APP_GOOGLE_MAPS_KEY to environment configs.");
+    return /* @__PURE__ */ import_react7.default.createElement("div", { className: "bmd-map-fallback" }, "\u26A0\uFE0F Google Maps API token missing. Add VITE_APP_GOOGLE_MAPS_KEY to environment configs.");
   }
-  return /* @__PURE__ */ import_react6.default.createElement("div", { ref: mapRef, className: "bmd-map-viewport", ...props });
+  return /* @__PURE__ */ import_react7.default.createElement("div", { ref: mapRef, className: "bmd-map-viewport", ...props });
 };
-var Map3 = import_react6.default.memo(MapComponent, (prevProps, nextProps) => {
+var Map3 = import_react7.default.memo(MapComponent, (prevProps, nextProps) => {
   var _a2, _b, _c, _d;
   return prevProps.markers === nextProps.markers && prevProps.zoom === nextProps.zoom && ((_a2 = prevProps.center) == null ? void 0 : _a2.lat) === ((_b = nextProps.center) == null ? void 0 : _b.lat) && ((_c = prevProps.center) == null ? void 0 : _c.lng) === ((_d = nextProps.center) == null ? void 0 : _d.lng);
 });
 
 // src/components/Modal/Modal.tsx
-var import_react30 = __toESM(require("react"));
+var import_react31 = __toESM(require("react"));
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 var import_jsx_runtime3 = require("react/jsx-runtime");
-var import_react16 = require("react");
+var import_react17 = require("react");
 
 // node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
-var import_react7 = require("react");
-var LayoutGroupContext = (0, import_react7.createContext)({});
+var import_react8 = require("react");
+var LayoutGroupContext = (0, import_react8.createContext)({});
 
 // node_modules/framer-motion/dist/es/utils/use-constant.mjs
-var import_react8 = require("react");
+var import_react9 = require("react");
 function useConstant(init) {
-  const ref = (0, import_react8.useRef)(null);
+  const ref = (0, import_react9.useRef)(null);
   if (ref.current === null) {
     ref.current = init();
   }
@@ -812,22 +851,22 @@ function useConstant(init) {
 }
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var import_react9 = require("react");
+var import_react10 = require("react");
 
 // node_modules/framer-motion/dist/es/utils/is-browser.mjs
 var isBrowser = typeof window !== "undefined";
 
 // node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var useIsomorphicLayoutEffect = isBrowser ? import_react9.useLayoutEffect : import_react9.useEffect;
+var useIsomorphicLayoutEffect = isBrowser ? import_react10.useLayoutEffect : import_react10.useEffect;
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var React15 = __toESM(require("react"), 1);
-var import_react13 = require("react");
+var React16 = __toESM(require("react"), 1);
+var import_react14 = require("react");
 
 // node_modules/framer-motion/dist/es/context/PresenceContext.mjs
-var import_react10 = require("react");
-var PresenceContext = /* @__PURE__ */ (0, import_react10.createContext)(null);
+var import_react11 = require("react");
+var PresenceContext = /* @__PURE__ */ (0, import_react11.createContext)(null);
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
 var import_jsx_runtime = require("react/jsx-runtime");
@@ -7637,19 +7676,19 @@ var HTMLProjectionNode = createProjectionNode({
 });
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var React14 = __toESM(require("react"), 1);
-var import_react12 = require("react");
+var React15 = __toESM(require("react"), 1);
+var import_react13 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
-var import_react11 = require("react");
-var MotionConfigContext = (0, import_react11.createContext)({
+var import_react12 = require("react");
+var MotionConfigContext = (0, import_react12.createContext)({
   transformPagePoint: (p) => p,
   isStatic: false,
   reducedMotion: "never"
 });
 
 // node_modules/framer-motion/dist/es/utils/use-composed-ref.mjs
-var React13 = __toESM(require("react"), 1);
+var React14 = __toESM(require("react"), 1);
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -7682,11 +7721,11 @@ function composeRefs(...refs) {
   };
 }
 function useComposedRefs(...refs) {
-  return React13.useCallback(composeRefs(...refs), refs);
+  return React14.useCallback(composeRefs(...refs), refs);
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
-var PopChildMeasure = class extends React14.Component {
+var PopChildMeasure = class extends React15.Component {
   getSnapshotBeforeUpdate(prevProps) {
     const element = this.props.childRef.current;
     if (isHTMLElement(element) && prevProps.isPresent && !this.props.isPresent && this.props.pop !== false) {
@@ -7716,9 +7755,9 @@ var PopChildMeasure = class extends React14.Component {
 };
 function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
   var _a2;
-  const id3 = (0, import_react12.useId)();
-  const ref = (0, import_react12.useRef)(null);
-  const size = (0, import_react12.useRef)({
+  const id3 = (0, import_react13.useId)();
+  const ref = (0, import_react13.useRef)(null);
+  const size = (0, import_react13.useRef)({
     width: 0,
     height: 0,
     top: 0,
@@ -7727,10 +7766,10 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
     bottom: 0,
     direction: "ltr"
   });
-  const { nonce } = (0, import_react12.useContext)(MotionConfigContext);
+  const { nonce } = (0, import_react13.useContext)(MotionConfigContext);
   const childRef = pop !== false ? ((_a2 = children.props) == null ? void 0 : _a2.ref) ?? (children == null ? void 0 : children.ref) : void 0;
   const composedRef = useComposedRefs(ref, childRef);
-  (0, import_react12.useInsertionEffect)(() => {
+  (0, import_react13.useInsertionEffect)(() => {
     const { width, height, top, left, right, bottom, direction } = size.current;
     if (isPresent || pop === false || !ref.current || !width || !height)
       return;
@@ -7762,21 +7801,21 @@ function PopChild({ children, isPresent, anchorX, anchorY, root, pop }) {
       }
     };
   }, [isPresent]);
-  return (0, import_jsx_runtime.jsx)(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React14.cloneElement(children, { ref: composedRef }) });
+  return (0, import_jsx_runtime.jsx)(PopChildMeasure, { isPresent, childRef: ref, sizeRef: size, pop, children: pop === false ? children : React15.cloneElement(children, { ref: composedRef }) });
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, presenceAffectsLayout, mode, anchorX, anchorY, root }) => {
   const presenceChildren = useConstant(newChildrenMap);
-  const id3 = (0, import_react13.useId)();
-  const isPresentRef = (0, import_react13.useRef)(isPresent);
-  const onExitCompleteRef = (0, import_react13.useRef)(onExitComplete);
+  const id3 = (0, import_react14.useId)();
+  const isPresentRef = (0, import_react14.useRef)(isPresent);
+  const onExitCompleteRef = (0, import_react14.useRef)(onExitComplete);
   useIsomorphicLayoutEffect(() => {
     isPresentRef.current = isPresent;
     onExitCompleteRef.current = onExitComplete;
   });
   let isReusedContext = true;
-  let context = (0, import_react13.useMemo)(() => {
+  let context = (0, import_react14.useMemo)(() => {
     isReusedContext = false;
     return {
       id: id3,
@@ -7804,10 +7843,10 @@ var PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, pre
   if (presenceAffectsLayout && isReusedContext) {
     context = { ...context };
   }
-  (0, import_react13.useMemo)(() => {
+  (0, import_react14.useMemo)(() => {
     presenceChildren.forEach((_, key) => presenceChildren.set(key, false));
   }, [isPresent]);
-  React15.useEffect(() => {
+  React16.useEffect(() => {
     !isPresent && !presenceChildren.size && onExitComplete && onExitComplete();
   }, [isPresent]);
   children = (0, import_jsx_runtime2.jsx)(PopChild, { pop: mode === "popLayout", isPresent, anchorX, anchorY, root, children });
@@ -7818,29 +7857,29 @@ function newChildrenMap() {
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
-var import_react14 = require("react");
+var import_react15 = require("react");
 function usePresence(subscribe = true) {
-  const context = (0, import_react14.useContext)(PresenceContext);
+  const context = (0, import_react15.useContext)(PresenceContext);
   if (context === null)
     return [true, null];
   const { isPresent, onExitComplete, register } = context;
-  const id3 = (0, import_react14.useId)();
-  (0, import_react14.useEffect)(() => {
+  const id3 = (0, import_react15.useId)();
+  (0, import_react15.useEffect)(() => {
     if (subscribe) {
       return register(id3);
     }
   }, [subscribe]);
-  const safeToRemove = (0, import_react14.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
+  const safeToRemove = (0, import_react15.useCallback)(() => subscribe && onExitComplete && onExitComplete(id3), [id3, onExitComplete, subscribe]);
   return !isPresent && onExitComplete ? [false, safeToRemove] : [true];
 }
 
 // node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs
-var import_react15 = require("react");
+var import_react16 = require("react");
 var getChildKey = (child) => child.key || "";
 function onlyElements(children) {
   const filtered = [];
-  import_react15.Children.forEach(children, (child) => {
-    if ((0, import_react15.isValidElement)(child))
+  import_react16.Children.forEach(children, (child) => {
+    if ((0, import_react16.isValidElement)(child))
       filtered.push(child);
   });
   return filtered;
@@ -7849,14 +7888,14 @@ function onlyElements(children) {
 // node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 var AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", anchorY = "top", root }) => {
   const [isParentPresent, safeToRemove] = usePresence(propagate);
-  const presentChildren = (0, import_react16.useMemo)(() => onlyElements(children), [children]);
+  const presentChildren = (0, import_react17.useMemo)(() => onlyElements(children), [children]);
   const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(getChildKey);
-  const isInitialRender = (0, import_react16.useRef)(true);
-  const pendingPresentChildren = (0, import_react16.useRef)(presentChildren);
+  const isInitialRender = (0, import_react17.useRef)(true);
+  const pendingPresentChildren = (0, import_react17.useRef)(presentChildren);
   const exitComplete = useConstant(() => /* @__PURE__ */ new Map());
-  const exitingComponents = (0, import_react16.useRef)(/* @__PURE__ */ new Set());
-  const [diffedChildren, setDiffedChildren] = (0, import_react16.useState)(presentChildren);
-  const [renderedChildren, setRenderedChildren] = (0, import_react16.useState)(presentChildren);
+  const exitingComponents = (0, import_react17.useRef)(/* @__PURE__ */ new Set());
+  const [diffedChildren, setDiffedChildren] = (0, import_react17.useState)(presentChildren);
+  const [renderedChildren, setRenderedChildren] = (0, import_react17.useState)(presentChildren);
   useIsomorphicLayoutEffect(() => {
     if (propagate && !isParentPresent && !renderedChildren.length) {
       safeToRemove == null ? void 0 : safeToRemove();
@@ -7900,7 +7939,7 @@ var AnimatePresence = ({ children, custom, initial = true, onExitComplete, prese
   if (process.env.NODE_ENV !== "production" && mode === "wait" && renderedChildren.length > 1) {
     console.warn(`You're attempting to animate multiple children within AnimatePresence, but its mode is set to "wait". This will lead to odd visual behaviour.`);
   }
-  const { forceRender } = (0, import_react16.useContext)(LayoutGroupContext);
+  const { forceRender } = (0, import_react17.useContext)(LayoutGroupContext);
   return (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: renderedChildren.map((child) => {
     const key = getChildKey(child);
     const isPresent = propagate && !isParentPresent ? false : presentChildren === renderedChildren || presentKeys.includes(key);
@@ -7931,8 +7970,8 @@ var AnimatePresence = ({ children, custom, initial = true, onExitComplete, prese
 };
 
 // node_modules/framer-motion/dist/es/context/LazyContext.mjs
-var import_react17 = require("react");
-var LazyContext = (0, import_react17.createContext)({ strict: false });
+var import_react18 = require("react");
+var LazyContext = (0, import_react18.createContext)({ strict: false });
 
 // node_modules/framer-motion/dist/es/motion/features/definitions.mjs
 var featureProps = {
@@ -7987,14 +8026,14 @@ function loadFeatures(features2) {
 
 // node_modules/framer-motion/dist/es/motion/index.mjs
 var import_jsx_runtime4 = require("react/jsx-runtime");
-var import_react27 = require("react");
+var import_react28 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
-var import_react18 = require("react");
-var MotionContext = /* @__PURE__ */ (0, import_react18.createContext)({});
+var import_react19 = require("react");
+var MotionContext = /* @__PURE__ */ (0, import_react19.createContext)({});
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
-var import_react19 = require("react");
+var import_react20 = require("react");
 
 // node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
 function getCurrentTreeVariants(props, context) {
@@ -8010,18 +8049,18 @@ function getCurrentTreeVariants(props, context) {
 
 // node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
 function useCreateMotionContext(props) {
-  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react19.useContext)(MotionContext));
-  return (0, import_react19.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
+  const { initial, animate } = getCurrentTreeVariants(props, (0, import_react20.useContext)(MotionContext));
+  return (0, import_react20.useMemo)(() => ({ initial, animate }), [variantLabelsAsDependency(initial), variantLabelsAsDependency(animate)]);
 }
 function variantLabelsAsDependency(prop) {
   return Array.isArray(prop) ? prop.join(" ") : prop;
 }
 
 // node_modules/framer-motion/dist/es/render/dom/use-render.mjs
-var import_react22 = require("react");
+var import_react23 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/use-props.mjs
-var import_react20 = require("react");
+var import_react21 = require("react");
 
 // node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
 var createHtmlRenderState = () => ({
@@ -8040,7 +8079,7 @@ function copyRawValuesOnly(target, source, props) {
   }
 }
 function useInitialMotionValues({ transformTemplate }, visualState) {
-  return (0, import_react20.useMemo)(() => {
+  return (0, import_react21.useMemo)(() => {
     const state = createHtmlRenderState();
     buildHTMLStyles(state, visualState, transformTemplate);
     return Object.assign({}, state.vars, state.style);
@@ -8069,7 +8108,7 @@ function useHTMLProps(props, visualState) {
 }
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
-var import_react21 = require("react");
+var import_react22 = require("react");
 
 // node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
 var createSvgRenderState = () => ({
@@ -8079,7 +8118,7 @@ var createSvgRenderState = () => ({
 
 // node_modules/framer-motion/dist/es/render/svg/use-props.mjs
 function useSVGProps(props, visualState, _isStatic, Component3) {
-  const visualProps = (0, import_react21.useMemo)(() => {
+  const visualProps = (0, import_react22.useMemo)(() => {
     const state = createSvgRenderState();
     buildSVGAttrs(state, visualState, isSVGTag(Component3), props.transformTemplate, props.style);
     return {
@@ -8213,17 +8252,17 @@ function useRender(Component3, props, ref, { latestValues }, isStatic, forwardMo
   const useVisualProps = isSVG ?? isSVGComponent(Component3) ? useSVGProps : useHTMLProps;
   const visualProps = useVisualProps(props, latestValues, isStatic, Component3);
   const filteredProps = filterProps(props, typeof Component3 === "string", forwardMotionProps, isValidProp);
-  const elementProps = Component3 !== import_react22.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
+  const elementProps = Component3 !== import_react23.Fragment ? { ...filteredProps, ...visualProps, ref } : {};
   const { children } = props;
-  const renderedChildren = (0, import_react22.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
-  return (0, import_react22.createElement)(Component3, {
+  const renderedChildren = (0, import_react23.useMemo)(() => isMotionValue(children) ? children.get() : children, [children]);
+  return (0, import_react23.createElement)(Component3, {
     ...elementProps,
     children: renderedChildren
   });
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
-var import_react23 = require("react");
+var import_react24 = require("react");
 function makeState({ scrapeMotionValuesFromProps: scrapeMotionValuesFromProps3, createRenderState }, props, context, presenceContext) {
   const state = {
     latestValues: makeLatestValues(props, context, presenceContext, scrapeMotionValuesFromProps3),
@@ -8274,8 +8313,8 @@ function makeLatestValues(props, context, presenceContext, scrapeMotionValues) {
   return values;
 }
 var makeUseVisualState = (config) => (props, isStatic) => {
-  const context = (0, import_react23.useContext)(MotionContext);
-  const presenceContext = (0, import_react23.useContext)(PresenceContext);
+  const context = (0, import_react24.useContext)(MotionContext);
+  const presenceContext = (0, import_react24.useContext)(PresenceContext);
   const make = () => makeState(config, props, context, presenceContext);
   return isStatic ? make() : useConstant(make);
 };
@@ -8296,14 +8335,14 @@ var useSVGVisualState = /* @__PURE__ */ makeUseVisualState({
 var motionComponentSymbol = /* @__PURE__ */ Symbol.for("motionComponentSymbol");
 
 // node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
-var import_react24 = require("react");
+var import_react25 = require("react");
 function useMotionRef(visualState, visualElement, externalRef) {
-  const externalRefContainer = (0, import_react24.useRef)(externalRef);
-  (0, import_react24.useInsertionEffect)(() => {
+  const externalRefContainer = (0, import_react25.useRef)(externalRef);
+  (0, import_react25.useInsertionEffect)(() => {
     externalRefContainer.current = externalRef;
   });
-  const refCleanup = (0, import_react24.useRef)(null);
-  return (0, import_react24.useCallback)((instance) => {
+  const refCleanup = (0, import_react25.useRef)(null);
+  return (0, import_react25.useCallback)((instance) => {
     var _a2;
     if (instance) {
       (_a2 = visualState.onMount) == null ? void 0 : _a2.call(visualState, instance);
@@ -8331,11 +8370,11 @@ function useMotionRef(visualState, visualElement, externalRef) {
 }
 
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
-var import_react26 = require("react");
+var import_react27 = require("react");
 
 // node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
-var import_react25 = require("react");
-var SwitchLayoutGroupContext = (0, import_react25.createContext)({});
+var import_react26 = require("react");
+var SwitchLayoutGroupContext = (0, import_react26.createContext)({});
 
 // node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
 function isRefObject(ref) {
@@ -8345,14 +8384,14 @@ function isRefObject(ref) {
 // node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
 function useVisualElement(Component3, visualState, props, createVisualElement, ProjectionNodeConstructor, isSVG) {
   var _a2, _b;
-  const { visualElement: parent } = (0, import_react26.useContext)(MotionContext);
-  const lazyContext = (0, import_react26.useContext)(LazyContext);
-  const presenceContext = (0, import_react26.useContext)(PresenceContext);
-  const motionConfig = (0, import_react26.useContext)(MotionConfigContext);
+  const { visualElement: parent } = (0, import_react27.useContext)(MotionContext);
+  const lazyContext = (0, import_react27.useContext)(LazyContext);
+  const presenceContext = (0, import_react27.useContext)(PresenceContext);
+  const motionConfig = (0, import_react27.useContext)(MotionConfigContext);
   const reducedMotionConfig = motionConfig.reducedMotion;
   const skipAnimations = motionConfig.skipAnimations;
-  const visualElementRef = (0, import_react26.useRef)(null);
-  const hasMountedOnce = (0, import_react26.useRef)(false);
+  const visualElementRef = (0, import_react27.useRef)(null);
+  const hasMountedOnce = (0, import_react27.useRef)(false);
   createVisualElement = createVisualElement || lazyContext.renderer;
   if (!visualElementRef.current && createVisualElement) {
     visualElementRef.current = createVisualElement(Component3, {
@@ -8370,18 +8409,18 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
     }
   }
   const visualElement = visualElementRef.current;
-  const initialLayoutGroupConfig = (0, import_react26.useContext)(SwitchLayoutGroupContext);
+  const initialLayoutGroupConfig = (0, import_react27.useContext)(SwitchLayoutGroupContext);
   if (visualElement && !visualElement.projection && ProjectionNodeConstructor && (visualElement.type === "html" || visualElement.type === "svg")) {
     createProjectionNode2(visualElementRef.current, props, ProjectionNodeConstructor, initialLayoutGroupConfig);
   }
-  const isMounted = (0, import_react26.useRef)(false);
-  (0, import_react26.useInsertionEffect)(() => {
+  const isMounted = (0, import_react27.useRef)(false);
+  (0, import_react27.useInsertionEffect)(() => {
     if (visualElement && isMounted.current) {
       visualElement.update(props, presenceContext);
     }
   });
   const optimisedAppearId = props[optimizedAppearDataAttribute];
-  const wantsHandoff = (0, import_react26.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
+  const wantsHandoff = (0, import_react27.useRef)(Boolean(optimisedAppearId) && typeof window !== "undefined" && !((_a2 = window.MotionHandoffIsComplete) == null ? void 0 : _a2.call(window, optimisedAppearId)) && ((_b = window.MotionHasOptimisedAnimation) == null ? void 0 : _b.call(window, optimisedAppearId)));
   useIsomorphicLayoutEffect(() => {
     hasMountedOnce.current = true;
     if (!visualElement)
@@ -8394,7 +8433,7 @@ function useVisualElement(Component3, visualState, props, createVisualElement, P
       visualElement.animationState.animateChanges();
     }
   });
-  (0, import_react26.useEffect)(() => {
+  (0, import_react27.useEffect)(() => {
     if (!visualElement)
       return;
     if (!wantsHandoff.current && visualElement.animationState) {
@@ -8448,7 +8487,7 @@ function createMotionComponent(Component3, { forwardMotionProps = false, type } 
   function MotionDOMComponent(props, externalRef) {
     let MeasureLayout2;
     const configAndProps = {
-      ...(0, import_react27.useContext)(MotionConfigContext),
+      ...(0, import_react28.useContext)(MotionConfigContext),
       ...props,
       layoutId: useLayoutId(props)
     };
@@ -8464,16 +8503,16 @@ function createMotionComponent(Component3, { forwardMotionProps = false, type } 
     return (0, import_jsx_runtime4.jsxs)(MotionContext.Provider, { value: context, children: [MeasureLayout2 && context.visualElement ? (0, import_jsx_runtime4.jsx)(MeasureLayout2, { visualElement: context.visualElement, ...configAndProps }) : null, useRender(Component3, props, useMotionRef(visualState, context.visualElement, externalRef), visualState, isStatic, forwardMotionProps, isSVG, isValidProp)] });
   }
   MotionDOMComponent.displayName = `motion.${typeof Component3 === "string" ? Component3 : `create(${Component3.displayName ?? Component3.name ?? ""})`}`;
-  const ForwardRefMotionComponent = (0, import_react27.forwardRef)(MotionDOMComponent);
+  const ForwardRefMotionComponent = (0, import_react28.forwardRef)(MotionDOMComponent);
   ForwardRefMotionComponent[motionComponentSymbol] = Component3;
   return ForwardRefMotionComponent;
 }
 function useLayoutId({ layoutId }) {
-  const layoutGroupId = (0, import_react27.useContext)(LayoutGroupContext).id;
+  const layoutGroupId = (0, import_react28.useContext)(LayoutGroupContext).id;
   return layoutGroupId && layoutId !== void 0 ? layoutGroupId + "-" + layoutId : layoutId;
 }
 function useStrictMode(configAndProps, preloadedFeatures) {
-  const isStrict = (0, import_react27.useContext)(LazyContext).strict;
+  const isStrict = (0, import_react28.useContext)(LazyContext).strict;
   if (process.env.NODE_ENV !== "production" && preloadedFeatures && isStrict) {
     const strictMessage = "You have rendered a `motion` component within a `LazyMotion` component. This will break tree shaking. Import and render a `m` component instead.";
     configAndProps.ignoreStrict ? warning(false, strictMessage, "lazy-strict-mode") : invariant(false, strictMessage, "lazy-strict-mode");
@@ -8524,11 +8563,11 @@ function createMotionProxy(preloadedFeatures, createVisualElement) {
 }
 
 // node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
-var import_react28 = require("react");
+var import_react29 = require("react");
 var createDomVisualElement = (Component3, options) => {
   const isSVG = options.isSVG ?? isSVGComponent(Component3);
   return isSVG ? new SVGVisualElement(options) : new HTMLVisualElement(options, {
-    allowProjection: Component3 !== import_react28.Fragment
+    allowProjection: Component3 !== import_react29.Fragment
   });
 };
 
@@ -9441,9 +9480,9 @@ var PanGesture = class extends Feature {
 
 // node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
 var import_jsx_runtime5 = require("react/jsx-runtime");
-var import_react29 = require("react");
+var import_react30 = require("react");
 var hasTakenAnySnapshot = false;
-var MeasureLayoutWithContext = class extends import_react29.Component {
+var MeasureLayoutWithContext = class extends import_react30.Component {
   /**
    * This only mounts projection nodes for components that
    * need measuring, we might want to do it for all components
@@ -9539,8 +9578,8 @@ var MeasureLayoutWithContext = class extends import_react29.Component {
 };
 function MeasureLayout(props) {
   const [isPresent, safeToRemove] = usePresence();
-  const layoutGroup = (0, import_react29.useContext)(LayoutGroupContext);
-  return (0, import_jsx_runtime5.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react29.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
+  const layoutGroup = (0, import_react30.useContext)(LayoutGroupContext);
+  return (0, import_jsx_runtime5.jsx)(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: (0, import_react30.useContext)(SwitchLayoutGroupContext), isPresent, safeToRemove });
 }
 
 // node_modules/framer-motion/dist/es/motion/features/drag.mjs
@@ -9786,7 +9825,7 @@ var Modal = ({
   children,
   footer
 }) => {
-  (0, import_react30.useEffect)(() => {
+  (0, import_react31.useEffect)(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") onClose();
     };
@@ -9799,7 +9838,7 @@ var Modal = ({
       document.body.style.overflow = "";
     };
   }, [isOpen, onClose]);
-  return /* @__PURE__ */ import_react30.default.createElement(AnimatePresence, null, isOpen && /* @__PURE__ */ import_react30.default.createElement(
+  return /* @__PURE__ */ import_react31.default.createElement(AnimatePresence, null, isOpen && /* @__PURE__ */ import_react31.default.createElement(
     motion2.div,
     {
       className: "bmd-modal__overlay",
@@ -9808,7 +9847,7 @@ var Modal = ({
       animate: { opacity: 1 },
       exit: { opacity: 0, transition: { delay: 0.25 } }
     },
-    /* @__PURE__ */ import_react30.default.createElement(
+    /* @__PURE__ */ import_react31.default.createElement(
       motion2.div,
       {
         className: "bmd-modal__container",
@@ -9830,14 +9869,14 @@ var Modal = ({
           y: 0
         }
       },
-      /* @__PURE__ */ import_react30.default.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ import_react30.default.createElement(
+      /* @__PURE__ */ import_react31.default.createElement("header", { className: "bmd-modal__header" }, title && /* @__PURE__ */ import_react31.default.createElement(
         Heading,
         {
           level: 2,
           style: { color: "var(--color-text-inverse)" }
         },
         title
-      ), /* @__PURE__ */ import_react30.default.createElement(
+      ), /* @__PURE__ */ import_react31.default.createElement(
         Button,
         {
           icon: { name: "x" },
@@ -9847,17 +9886,17 @@ var Modal = ({
           shape: "rounded"
         }
       )),
-      /* @__PURE__ */ import_react30.default.createElement("main", { className: "bmd-modal__content" }, children),
-      footer && /* @__PURE__ */ import_react30.default.createElement("footer", { className: "bmd-modal__footer" }, footer)
+      /* @__PURE__ */ import_react31.default.createElement("main", { className: "bmd-modal__content" }, children),
+      footer && /* @__PURE__ */ import_react31.default.createElement("footer", { className: "bmd-modal__footer" }, footer)
     )
   ));
 };
 
 // src/components/MultiFilter/MultiFilter.tsx
-var import_react33 = __toESM(require("react"));
+var import_react34 = __toESM(require("react"));
 
 // src/components/CheckboxGroup/CheckboxGroup.tsx
-var import_react32 = __toESM(require("react"));
+var import_react33 = __toESM(require("react"));
 var CheckboxGroup = ({
   options = [],
   value = [],
@@ -9877,7 +9916,7 @@ var CheckboxGroup = ({
       onChange(nextValues);
     }
   };
-  return /* @__PURE__ */ import_react32.default.createElement(
+  return /* @__PURE__ */ import_react33.default.createElement(
     "div",
     {
       className: "bmd-checkbox-group",
@@ -9887,9 +9926,8 @@ var CheckboxGroup = ({
     },
     options.map((option) => {
       const isChecked = value.includes(option.value);
-      console.log("option.colorToken:", option.colorToken);
       const customStyle = isChecked && option.colorToken ? { "--bmd-pill-bg": option.colorToken } : void 0;
-      return /* @__PURE__ */ import_react32.default.createElement(
+      return /* @__PURE__ */ import_react33.default.createElement(
         "label",
         {
           key: option.value,
@@ -9897,7 +9935,7 @@ var CheckboxGroup = ({
           "data-state": isChecked ? "checked" : "unchecked",
           style: customStyle
         },
-        /* @__PURE__ */ import_react32.default.createElement(
+        /* @__PURE__ */ import_react33.default.createElement(
           "input",
           {
             type: "checkbox",
@@ -9908,8 +9946,8 @@ var CheckboxGroup = ({
             className: "bmd-checkbox-hidden"
           }
         ),
-        /* @__PURE__ */ import_react32.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label),
-        isChecked && dismissible && /* @__PURE__ */ import_react32.default.createElement(
+        /* @__PURE__ */ import_react33.default.createElement("span", { className: "bmd-checkbox-label-text" }, option.label),
+        isChecked && dismissible && /* @__PURE__ */ import_react33.default.createElement(
           "span",
           {
             className: "bmd-checkbox-dismiss",
@@ -9920,7 +9958,7 @@ var CheckboxGroup = ({
               handleToggle(option.value);
             }
           },
-          /* @__PURE__ */ import_react32.default.createElement(Icon, { name: "x" })
+          /* @__PURE__ */ import_react33.default.createElement(Icon, { name: "x" })
         )
       );
     })
@@ -9936,10 +9974,10 @@ var MultiFilter = ({
   onChange,
   name
 }) => {
-  const [searchValue, setSearchValue] = (0, import_react33.useState)("");
+  const [searchValue, setSearchValue] = (0, import_react34.useState)("");
   const datalistId = `bmd-multifilter-list-${name}`;
   const inputId = `bmd-multifilter-input-${name}`;
-  const activeCheckboxOptions = (0, import_react33.useMemo)(() => {
+  const activeCheckboxOptions = (0, import_react34.useMemo)(() => {
     return value.map((selectedValue) => {
       const matchedOption = options.find(
         (opt) => opt.value === selectedValue
@@ -9968,7 +10006,7 @@ var MultiFilter = ({
       }
     }
   };
-  return /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 2 }, /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 1 }, label && /* @__PURE__ */ import_react33.default.createElement("label", { htmlFor: inputId, style: { font: "var(--type-ui-sublabel)" } }, label), /* @__PURE__ */ import_react33.default.createElement("datalist", { id: datalistId }, options.map((opt) => /* @__PURE__ */ import_react33.default.createElement("option", { key: opt.value, value: opt.searchString }))), /* @__PURE__ */ import_react33.default.createElement(
+  return /* @__PURE__ */ import_react34.default.createElement(Stack, { gap: 2 }, /* @__PURE__ */ import_react34.default.createElement(Stack, { gap: 1 }, label && /* @__PURE__ */ import_react34.default.createElement("label", { htmlFor: inputId, style: { font: "var(--type-ui-sublabel)" } }, label), /* @__PURE__ */ import_react34.default.createElement("datalist", { id: datalistId }, options.map((opt) => /* @__PURE__ */ import_react34.default.createElement("option", { key: opt.value, value: opt.searchString }))), /* @__PURE__ */ import_react34.default.createElement(
     Input,
     {
       id: inputId,
@@ -9979,7 +10017,7 @@ var MultiFilter = ({
       onChange: (val) => handleSearchInput(val.toString()),
       value: searchValue
     }
-  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ import_react33.default.createElement(Stack, { gap: 2, align: "start" }, /* @__PURE__ */ import_react33.default.createElement(
+  )), activeCheckboxOptions.length > 0 && /* @__PURE__ */ import_react34.default.createElement(Stack, { gap: 2, align: "start" }, /* @__PURE__ */ import_react34.default.createElement(
     "span",
     {
       style: {
@@ -9988,7 +10026,7 @@ var MultiFilter = ({
       }
     },
     "Active Selections:"
-  ), /* @__PURE__ */ import_react33.default.createElement(
+  ), /* @__PURE__ */ import_react34.default.createElement(
     CheckboxGroup,
     {
       name,
@@ -9998,41 +10036,6 @@ var MultiFilter = ({
       dismissible: true
     }
   )));
-};
-
-// src/components/Select/Select.tsx
-var import_react34 = __toESM(require("react"));
-var Select = ({
-  onChange,
-  value,
-  selectSize = "md",
-  children,
-  ...props
-}) => {
-  const [localValue, setLocalValue] = (0, import_react34.useState)(value || "");
-  (0, import_react34.useEffect)(() => {
-    if (value !== void 0) {
-      setLocalValue(value);
-    }
-  }, [value]);
-  const handleChange = (e) => {
-    const val = e.target.value;
-    setLocalValue(val);
-    if (onChange) {
-      onChange(e);
-    }
-  };
-  return /* @__PURE__ */ import_react34.default.createElement(
-    "select",
-    {
-      className: "bmd-select",
-      value: localValue,
-      onChange: handleChange,
-      "data-select-size": selectSize,
-      ...props
-    },
-    children
-  );
 };
 
 // src/components/NavBar/NavBar.tsx

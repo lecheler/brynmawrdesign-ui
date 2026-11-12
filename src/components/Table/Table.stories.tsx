@@ -1,7 +1,10 @@
+import React from "react";
+
 import preview from "../../../.storybook/preview";
 import { mockShowsData } from "../../data/shows.mock";
 
 import { Table, TableColumn } from "./Table";
+import { getBandTheme } from "../../utils/analyticsTransformers";
 
 const meta = preview.meta({
   title: "Components/Table",
@@ -32,10 +35,25 @@ const showColumns: TableColumn[] = [
     },
   },
   {
-    accessorKey: "band_name",
+    accessorFn: (row) => row.band.name,
+    id: "band",
+    // sortingFn: "text",
     header: "Band",
     meta: {
       filterVariant: "select",
+    },
+
+    cell: (info) => {
+      const value = info.getValue();
+      const colorToken = getBandTheme(value.slug).colorVar;
+      return (
+        <span
+          className="bmd-pill-label"
+          style={{ backgroundColor: colorToken }}
+        >
+          {value.name}
+        </span>
+      );
     },
   },
   { accessorKey: "venue_name", header: "Venue" },
@@ -62,13 +80,13 @@ export const DefaultLayout = meta.story({
     columns: showColumns,
     data: mockShowsData.map((show) => ({
       date: show.date, // Convert date strings to Date objects for proper sorting/filtering
-      band_name: show.band.name || "Unknown Band",
+      band: show.band || "Unknown Band",
       venue_name: show.venue.name || "Unknown Venue",
       locality: show.venue.locality || "Unknown City",
       administrative_area:
         show.venue.administrative_area || "Unknown State/Region",
       country_code: show.venue.country_code || "Unknown Country",
     })),
-    hideFilters: true,
+    showFilters: false,
   },
 });

@@ -139,7 +139,7 @@
 :root {
   --color-surface: #ffffff;
   --color-surface-subtle: var(--color-gray-50);
-  --color-surface-strong: var(--color-gray-300);
+  --color-surface-strong: var(--color-gray-500);
   --color-surface-overlay: var(--color-gray-900-trans-10);
   --color-text-main: #636262;
   --color-text-muted: var(--color-gray-600);
@@ -337,7 +337,7 @@
   --table-row-even-color: var(--color-surface);
   --table-row-odd-color: var(--color-surface-subtle);
   --table-controls-color: var(--color-surface);
-  --table-header-padding-y: var(--space-4);
+  --table-header-padding-y: var(--space-3);
   --table-header-padding-x: var(--space-4);
   --table-row-padding-y: var(--space-3);
   --table-row-padding-x: var(--space-4);
@@ -401,6 +401,13 @@ ol {
   border: 0;
   background-color: var(--color-border-subtle);
   margin: 0;
+}
+.bmd-pill-label {
+  background-color: var(--color-surface-strong);
+  padding: var(--space-1) var(--space-4);
+  color: var(--color-text-inverse);
+  font: var(--type-ui-sublabel);
+  border-radius: var(--radius-pill);
 }
 
 /* src/styles/index.css */
@@ -815,6 +822,8 @@ input[type=range]::-moz-range-thumb {
 /* src/components/Table/Table.css */
 .bmd-table {
   text-align: left;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
   table {
     width: 100%;
     border-collapse: collapse;
@@ -861,11 +870,41 @@ input[type=range]::-moz-range-thumb {
   display: flex;
 }
 .bmd-table__pagination-controls-wrapper {
-  display: flex;
-  justify-content: flex-end;
   border-top: solid 1px var(--table-row-odd-color);
   padding: var(--table-controls-padding-y) var(--table-controls-padding-x);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-subtle);
+}
+
+/* src/components/Select/Select.css */
+.bmd-select {
+  width: 100%;
+  background-color: var(--input-background-color);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-radius);
+  color: var(--color-text);
+  outline: none;
+  cursor: pointer;
+}
+.bmd-select:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--input-border-focus), transparent 75%);
+}
+.bmd-select:disabled {
+  background-color: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+.bmd-select[data-select-size=sm] {
+  font-size: var(--input-font-size-sm);
+  padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
+}
+.bmd-select[data-select-size=md] {
+  font-size: var(--input-font-size-md);
+  padding: var(--input-padding-y-md) var(--input-padding-x-md);
+}
+.bmd-select[data-select-size=lg] {
+  font-size: var(--input-font-size-lg);
+  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
 }
 
 /* src/components/Card/Card.css */
@@ -1061,38 +1100,6 @@ input[type=range]::-moz-range-thumb {
   background-color: rgba(255, 255, 255, 0.35);
   color: #ffffff;
   transform: scale(1.1);
-}
-
-/* src/components/Select/Select.css */
-.bmd-select {
-  width: 100%;
-  background-color: var(--input-background-color);
-  border: var(--input-border-width) solid var(--input-border);
-  border-radius: var(--input-radius);
-  color: var(--color-text);
-  outline: none;
-  cursor: pointer;
-}
-.bmd-select:focus {
-  border-color: var(--input-border-focus);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--input-border-focus), transparent 75%);
-}
-.bmd-select:disabled {
-  background-color: var(--input-disabled-bg);
-  color: var(--input-disabled-text);
-  cursor: not-allowed;
-}
-.bmd-select[data-select-size=sm] {
-  font-size: var(--input-font-size-sm);
-  padding: var(--input-padding-y-sm) var(--input-padding-x-sm);
-}
-.bmd-select[data-select-size=md] {
-  font-size: var(--input-font-size-md);
-  padding: var(--input-padding-y-md) var(--input-padding-x-md);
-}
-.bmd-select[data-select-size=lg] {
-  font-size: var(--input-font-size-lg);
-  padding: var(--input-padding-y-lg) var(--input-padding-x-lg);
 }
 
 /* src/components/NavBar/NavBar.css */
