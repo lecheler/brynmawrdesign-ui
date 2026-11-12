@@ -48,6 +48,7 @@ __export(index_exports, {
   MultiFilter: () => MultiFilter,
   NavBar: () => NavBar,
   Pie: () => Pie,
+  PlaceAutocomplete: () => PlaceAutocomplete,
   Select: () => Select,
   Stack: () => Stack,
   Table: () => Table2,
@@ -724,9 +725,27 @@ var Card = Object.assign(CardRoot, {
 
 // src/components/Map/Map.tsx
 var import_react7 = __toESM(require("react"));
-var import_js_api_loader = require("@googlemaps/js-api-loader");
 var import_markerclusterer = require("@googlemaps/markerclusterer");
+
+// src/utils/googleMapsLoader.ts
+var import_js_api_loader = require("@googlemaps/js-api-loader");
 var import_meta = {};
+var isConfigured = false;
+var loadGoogleLibrary = (library, userApiKey) => {
+  var _a2;
+  const apiKey = userApiKey || import_meta.env.VITE_APP_GOOGLE_MAPS_KEY || "";
+  if (!isConfigured && !((_a2 = window.google) == null ? void 0 : _a2.maps) && apiKey) {
+    (0, import_js_api_loader.setOptions)({
+      key: apiKey,
+      v: "weekly"
+    });
+    isConfigured = true;
+  }
+  return (0, import_js_api_loader.importLibrary)(library);
+};
+
+// src/components/Map/Map.tsx
+var import_meta2 = {};
 var MapComponent = ({
   markers = [],
   center = { lat: 44.9778, lng: -93.265 },
@@ -738,14 +757,13 @@ var MapComponent = ({
   const mapRef = (0, import_react7.useRef)(null);
   const googleMapInstanceRef = (0, import_react7.useRef)(null);
   const clustererRef = (0, import_react7.useRef)(null);
-  const apiKey = userApiKey || import_meta.env.VITE_APP_GOOGLE_MAPS_KEY || "";
+  const apiKey = userApiKey || import_meta2.env.VITE_APP_GOOGLE_MAPS_KEY || "";
   (0, import_react7.useEffect)(() => {
     if (!mapRef.current || !apiKey) return;
-    (0, import_js_api_loader.setOptions)({
-      key: apiKey,
-      v: "weekly"
-    });
-    Promise.all([(0, import_js_api_loader.importLibrary)("maps"), (0, import_js_api_loader.importLibrary)("marker")]).then(([mapsLib, markerLib]) => {
+    Promise.all([
+      loadGoogleLibrary("maps", apiKey),
+      loadGoogleLibrary("marker", apiKey)
+    ]).then(([mapsLib, markerLib]) => {
       if (!mapRef.current) return;
       const map = new mapsLib.Map(mapRef.current, {
         center,
@@ -810,7 +828,9 @@ var MapComponent = ({
   };
   (0, import_react7.useEffect)(() => {
     if (googleMapInstanceRef.current && clustererRef.current) {
-      (0, import_js_api_loader.importLibrary)("marker").then((markerLib) => syncMarkers(markerLib));
+      loadGoogleLibrary("marker", apiKey).then(
+        (markerLib) => syncMarkers(markerLib)
+      );
     }
   }, [markers]);
   (0, import_react7.useEffect)(() => {
@@ -10038,8 +10058,76 @@ var MultiFilter = ({
   )));
 };
 
+// src/components/PlaceAutocomplete/PlaceAutocomplete.tsx
+var import_react35 = __toESM(require("react"));
+var PlaceAutocomplete = ({
+  onPlaceSelect,
+  placeholder = "Search for a business or venue...",
+  includedPrimaryTypes,
+  disabled = false,
+  apiKey,
+  className = ""
+}) => {
+  const containerRef = (0, import_react35.useRef)(null);
+  const callbackRef = (0, import_react35.useRef)(onPlaceSelect);
+  (0, import_react35.useEffect)(() => {
+    callbackRef.current = onPlaceSelect;
+  }, [onPlaceSelect]);
+  (0, import_react35.useEffect)(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    let autocompleteEl = null;
+    let isCancelled = false;
+    const handleSelect = async (event) => {
+      var _a2, _b;
+      const placePrediction = event.placePrediction;
+      if (!placePrediction) return;
+      const place = placePrediction.toPlace();
+      await place.fetchFields({
+        fields: ["id", "displayName", "formattedAddress", "location"]
+      });
+      callbackRef.current({
+        placeId: place.id,
+        name: place.displayName || "",
+        address: place.formattedAddress || "",
+        lat: (_a2 = place.location) == null ? void 0 : _a2.lat(),
+        lng: (_b = place.location) == null ? void 0 : _b.lng()
+      });
+    };
+    loadGoogleLibrary("places", apiKey).then((placesLib) => {
+      if (isCancelled || !containerRef.current) return;
+      autocompleteEl = new placesLib.PlaceAutocompleteElement({
+        ...includedPrimaryTypes ? { includedPrimaryTypes } : {}
+      });
+      autocompleteEl.setAttribute("placeholder", placeholder);
+      if (disabled) {
+        autocompleteEl.setAttribute("disabled", "true");
+      }
+      autocompleteEl.addEventListener("gmp-select", handleSelect);
+      containerRef.current.appendChild(autocompleteEl);
+    }).catch((err) => {
+      console.error("Failed to load Google Places library:", err);
+    });
+    return () => {
+      isCancelled = true;
+      if (autocompleteEl) {
+        autocompleteEl.removeEventListener("gmp-select", handleSelect);
+        autocompleteEl.remove();
+      }
+    };
+  }, [apiKey, placeholder, disabled, includedPrimaryTypes]);
+  return /* @__PURE__ */ import_react35.default.createElement(
+    "div",
+    {
+      ref: containerRef,
+      className: `bmd-place-autocomplete ${className}`,
+      "data-disabled": disabled || void 0
+    }
+  );
+};
+
 // src/components/NavBar/NavBar.tsx
-var React20 = __toESM(require("react"));
+var React21 = __toESM(require("react"));
 function NavBar({
   containerSize = "xl",
   // Dashboard layouts generally thrive on wider constraints
@@ -10049,19 +10137,19 @@ function NavBar({
   className = "",
   ...props
 }) {
-  return /* @__PURE__ */ React20.createElement(
+  return /* @__PURE__ */ React21.createElement(
     "nav",
     {
       className: `bmd-navbar ${className}`,
       "data-sticky": sticky || void 0,
       ...props
     },
-    /* @__PURE__ */ React20.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React20.createElement("div", { className: "bmd-navbar-inner" }, children))
+    /* @__PURE__ */ React21.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React21.createElement("div", { className: "bmd-navbar-inner" }, children))
   );
 }
 
 // src/components/Pie/Pie.tsx
-var import_react35 = __toESM(require("react"));
+var import_react36 = __toESM(require("react"));
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -10074,7 +10162,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ import_react35.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react35.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react35.default.createElement(Heading, null, title), /* @__PURE__ */ import_react35.default.createElement(
+  return /* @__PURE__ */ import_react36.default.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ import_react36.default.createElement(Stack, { gap: 4 }, /* @__PURE__ */ import_react36.default.createElement(Heading, null, title), /* @__PURE__ */ import_react36.default.createElement(
     motion2.svg,
     {
       width: size,
@@ -10082,7 +10170,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ import_react35.default.createElement(
+    /* @__PURE__ */ import_react36.default.createElement(
       motion2.circle,
       {
         cx: center,
@@ -10098,7 +10186,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ import_react35.default.createElement(
+      return /* @__PURE__ */ import_react36.default.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -10138,7 +10226,7 @@ var Pie = ({
 };
 
 // src/components/Bar/BarChart.tsx
-var import_react37 = __toESM(require("react"));
+var import_react38 = __toESM(require("react"));
 var BarChart = ({ height = 500, ...props }) => {
   const maxBarHeight = height - 80;
   const columnsMap = props.data.reduce(
@@ -10171,14 +10259,14 @@ var BarChart = ({ height = 500, ...props }) => {
     type: "spring",
     bounce: 0.4
   };
-  return /* @__PURE__ */ import_react37.default.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ import_react37.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ import_react37.default.createElement(
+  return /* @__PURE__ */ import_react38.default.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ import_react38.default.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ import_react38.default.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ import_react37.default.createElement(
+      /* @__PURE__ */ import_react38.default.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -10196,7 +10284,7 @@ var BarChart = ({ height = 500, ...props }) => {
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ import_react37.default.createElement(
+      /* @__PURE__ */ import_react38.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
@@ -10206,8 +10294,8 @@ var BarChart = ({ height = 500, ...props }) => {
           },
           layout: true
         },
-        /* @__PURE__ */ import_react37.default.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
-          return /* @__PURE__ */ import_react37.default.createElement(
+        /* @__PURE__ */ import_react38.default.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
+          return /* @__PURE__ */ import_react38.default.createElement(
             motion2.div,
             {
               key: `label-${segment.id}`,
@@ -10231,8 +10319,8 @@ var BarChart = ({ height = 500, ...props }) => {
           );
         }))
       ),
-      /* @__PURE__ */ import_react37.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ import_react37.default.createElement(
+      /* @__PURE__ */ import_react38.default.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ import_react38.default.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -10274,6 +10362,7 @@ var BarChart = ({ height = 500, ...props }) => {
   MultiFilter,
   NavBar,
   Pie,
+  PlaceAutocomplete,
   Select,
   Stack,
   Table,

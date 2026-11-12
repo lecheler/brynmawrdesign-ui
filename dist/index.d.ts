@@ -212,6 +212,23 @@ interface MultiFilterProps {
 }
 declare const MultiFilter: ({ label, placeholder, options, value, onChange, name, }: MultiFilterProps) => React__default.JSX.Element;
 
+interface PlaceSelection {
+    placeId: string;
+    name: string;
+    address: string;
+    lat?: number;
+    lng?: number;
+}
+interface PlaceAutocompleteProps {
+    onPlaceSelect: (place: PlaceSelection) => void;
+    placeholder?: string;
+    includedPrimaryTypes?: string[];
+    disabled?: boolean;
+    apiKey?: string;
+    className?: string;
+}
+declare const PlaceAutocomplete: ({ onPlaceSelect, placeholder, includedPrimaryTypes, disabled, apiKey, className, }: PlaceAutocompleteProps) => React__default.JSX.Element;
+
 type SelectSize = "sm" | "md" | "lg";
 interface SelectProps extends React__default.SelectHTMLAttributes<HTMLSelectElement> {
     selectSize?: SelectSize;
@@ -272,4 +289,4 @@ interface BarChartProps {
 /** Primary UI component for user interaction */
 declare const BarChart: ({ height, ...props }: BarChartProps) => React__default.JSX.Element;
 
-export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, type ContainerSize, Grid, type GridColumns, type GridGap, type GridProps, Heading, type HeadingLevel, type HeadingProps, type HeadingTag, Icon, type IconName, type IconProps, Inline, type InlineAlign, type InlineGap, type InlineJustify, type InlineProps, Input, type InputSize, LayoutContainer, type LayoutContainerProps, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, MultiFilter, type MultiFilterOption, NavBar, type NavBarProps, Pie, type PieData, Select, type SelectSize, Stack, type StackAlign, type StackGap, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps, type TextTag, type TextVariant };
+export { BarChart, type BarChartItem, type BarChartProps, Button, type ButtonShape, type ButtonSize, type ButtonTone, type ButtonVariant, Card, CardBody, CardFooter, CardHeader, type CardProps, CardRoot, type CardSectionProps, CheckboxGroup, type CheckboxOption, type ContainerSize, Grid, type GridColumns, type GridGap, type GridProps, Heading, type HeadingLevel, type HeadingProps, type HeadingTag, Icon, type IconName, type IconProps, Inline, type InlineAlign, type InlineGap, type InlineJustify, type InlineProps, Input, type InputSize, LayoutContainer, type LayoutContainerProps, Map$1 as Map, type MapMarkerData, Modal, type ModalProps, MultiFilter, type MultiFilterOption, NavBar, type NavBarProps, Pie, type PieData, PlaceAutocomplete, type PlaceAutocompleteProps, type PlaceSelection, Select, type SelectSize, Stack, type StackAlign, type StackGap, type StackProps, Table, type TableColumn, type TableColumnMeta, Text, type TextProps, type TextTag, type TextVariant };

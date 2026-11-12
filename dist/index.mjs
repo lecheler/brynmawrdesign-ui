@@ -689,8 +689,25 @@ var Card = Object.assign(CardRoot, {
 
 // src/components/Map/Map.tsx
 import React13, { useEffect as useEffect3, useRef } from "react";
-import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
+
+// src/utils/googleMapsLoader.ts
+import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
+var isConfigured = false;
+var loadGoogleLibrary = (library, userApiKey) => {
+  var _a2;
+  const apiKey = userApiKey || import.meta.env.VITE_APP_GOOGLE_MAPS_KEY || "";
+  if (!isConfigured && !((_a2 = window.google) == null ? void 0 : _a2.maps) && apiKey) {
+    setOptions({
+      key: apiKey,
+      v: "weekly"
+    });
+    isConfigured = true;
+  }
+  return importLibrary(library);
+};
+
+// src/components/Map/Map.tsx
 var MapComponent = ({
   markers = [],
   center = { lat: 44.9778, lng: -93.265 },
@@ -705,11 +722,10 @@ var MapComponent = ({
   const apiKey = userApiKey || import.meta.env.VITE_APP_GOOGLE_MAPS_KEY || "";
   useEffect3(() => {
     if (!mapRef.current || !apiKey) return;
-    setOptions({
-      key: apiKey,
-      v: "weekly"
-    });
-    Promise.all([importLibrary("maps"), importLibrary("marker")]).then(([mapsLib, markerLib]) => {
+    Promise.all([
+      loadGoogleLibrary("maps", apiKey),
+      loadGoogleLibrary("marker", apiKey)
+    ]).then(([mapsLib, markerLib]) => {
       if (!mapRef.current) return;
       const map = new mapsLib.Map(mapRef.current, {
         center,
@@ -774,7 +790,9 @@ var MapComponent = ({
   };
   useEffect3(() => {
     if (googleMapInstanceRef.current && clustererRef.current) {
-      importLibrary("marker").then((markerLib) => syncMarkers(markerLib));
+      loadGoogleLibrary("marker", apiKey).then(
+        (markerLib) => syncMarkers(markerLib)
+      );
     }
   }, [markers]);
   useEffect3(() => {
@@ -10002,8 +10020,76 @@ var MultiFilter = ({
   )));
 };
 
+// src/components/PlaceAutocomplete/PlaceAutocomplete.tsx
+import React20, { useEffect as useEffect9, useRef as useRef8 } from "react";
+var PlaceAutocomplete = ({
+  onPlaceSelect,
+  placeholder = "Search for a business or venue...",
+  includedPrimaryTypes,
+  disabled = false,
+  apiKey,
+  className = ""
+}) => {
+  const containerRef = useRef8(null);
+  const callbackRef = useRef8(onPlaceSelect);
+  useEffect9(() => {
+    callbackRef.current = onPlaceSelect;
+  }, [onPlaceSelect]);
+  useEffect9(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    let autocompleteEl = null;
+    let isCancelled = false;
+    const handleSelect = async (event) => {
+      var _a2, _b;
+      const placePrediction = event.placePrediction;
+      if (!placePrediction) return;
+      const place = placePrediction.toPlace();
+      await place.fetchFields({
+        fields: ["id", "displayName", "formattedAddress", "location"]
+      });
+      callbackRef.current({
+        placeId: place.id,
+        name: place.displayName || "",
+        address: place.formattedAddress || "",
+        lat: (_a2 = place.location) == null ? void 0 : _a2.lat(),
+        lng: (_b = place.location) == null ? void 0 : _b.lng()
+      });
+    };
+    loadGoogleLibrary("places", apiKey).then((placesLib) => {
+      if (isCancelled || !containerRef.current) return;
+      autocompleteEl = new placesLib.PlaceAutocompleteElement({
+        ...includedPrimaryTypes ? { includedPrimaryTypes } : {}
+      });
+      autocompleteEl.setAttribute("placeholder", placeholder);
+      if (disabled) {
+        autocompleteEl.setAttribute("disabled", "true");
+      }
+      autocompleteEl.addEventListener("gmp-select", handleSelect);
+      containerRef.current.appendChild(autocompleteEl);
+    }).catch((err) => {
+      console.error("Failed to load Google Places library:", err);
+    });
+    return () => {
+      isCancelled = true;
+      if (autocompleteEl) {
+        autocompleteEl.removeEventListener("gmp-select", handleSelect);
+        autocompleteEl.remove();
+      }
+    };
+  }, [apiKey, placeholder, disabled, includedPrimaryTypes]);
+  return /* @__PURE__ */ React20.createElement(
+    "div",
+    {
+      ref: containerRef,
+      className: `bmd-place-autocomplete ${className}`,
+      "data-disabled": disabled || void 0
+    }
+  );
+};
+
 // src/components/NavBar/NavBar.tsx
-import * as React20 from "react";
+import * as React21 from "react";
 function NavBar({
   containerSize = "xl",
   // Dashboard layouts generally thrive on wider constraints
@@ -10013,19 +10099,19 @@ function NavBar({
   className = "",
   ...props
 }) {
-  return /* @__PURE__ */ React20.createElement(
+  return /* @__PURE__ */ React21.createElement(
     "nav",
     {
       className: `bmd-navbar ${className}`,
       "data-sticky": sticky || void 0,
       ...props
     },
-    /* @__PURE__ */ React20.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React20.createElement("div", { className: "bmd-navbar-inner" }, children))
+    /* @__PURE__ */ React21.createElement(LayoutContainer, { size: containerSize }, /* @__PURE__ */ React21.createElement("div", { className: "bmd-navbar-inner" }, children))
   );
 }
 
 // src/components/Pie/Pie.tsx
-import React21 from "react";
+import React22 from "react";
 var Pie = ({
   title = "Pie Chart",
   size = 150,
@@ -10038,7 +10124,7 @@ var Pie = ({
   const denominator = props.data.reduce((sum, item) => sum + item.value, 0);
   const safeDenominator = denominator === 0 ? 1 : denominator;
   let accumulatedPercentage = 0;
-  return /* @__PURE__ */ React21.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React21.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React21.createElement(Heading, null, title), /* @__PURE__ */ React21.createElement(
+  return /* @__PURE__ */ React22.createElement("div", { className: "bmd-pie", "data-size": size }, /* @__PURE__ */ React22.createElement(Stack, { gap: 4 }, /* @__PURE__ */ React22.createElement(Heading, null, title), /* @__PURE__ */ React22.createElement(
     motion2.svg,
     {
       width: size,
@@ -10046,7 +10132,7 @@ var Pie = ({
       viewBox: `0 0 ${size} ${size}`,
       style: { transform: "rotate(-90deg)" }
     },
-    /* @__PURE__ */ React21.createElement(
+    /* @__PURE__ */ React22.createElement(
       motion2.circle,
       {
         cx: center,
@@ -10062,7 +10148,7 @@ var Pie = ({
       const strokeDashoffset = circumference - slicePercentage / 100 * circumference;
       const rotationAngle = accumulatedPercentage * 3.6;
       accumulatedPercentage += slicePercentage;
-      return /* @__PURE__ */ React21.createElement(
+      return /* @__PURE__ */ React22.createElement(
         motion2.circle,
         {
           fill: "transparent",
@@ -10102,7 +10188,7 @@ var Pie = ({
 };
 
 // src/components/Bar/BarChart.tsx
-import React22 from "react";
+import React23 from "react";
 var BarChart = ({ height = 500, ...props }) => {
   const maxBarHeight = height - 80;
   const columnsMap = props.data.reduce(
@@ -10135,14 +10221,14 @@ var BarChart = ({ height = 500, ...props }) => {
     type: "spring",
     bounce: 0.4
   };
-  return /* @__PURE__ */ React22.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ React22.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
-    return /* @__PURE__ */ React22.createElement(
+  return /* @__PURE__ */ React23.createElement("div", { className: "bmd-bar-chart", style: { height } }, /* @__PURE__ */ React23.createElement(AnimatePresence, null, columnsList.map((bar, index) => {
+    return /* @__PURE__ */ React23.createElement(
       motion2.div,
       {
         key: `bar-${bar.groupId}-${index}`,
         className: "bmd-bar-chart__value-wrapper"
       },
-      /* @__PURE__ */ React22.createElement(
+      /* @__PURE__ */ React23.createElement(
         motion2.div,
         {
           key: `val-${bar.groupId}`,
@@ -10160,7 +10246,7 @@ var BarChart = ({ height = 500, ...props }) => {
         },
         bar.totalValue
       ),
-      /* @__PURE__ */ React22.createElement(
+      /* @__PURE__ */ React23.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-bar-wrapper",
@@ -10170,8 +10256,8 @@ var BarChart = ({ height = 500, ...props }) => {
           },
           layout: true
         },
-        /* @__PURE__ */ React22.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
-          return /* @__PURE__ */ React22.createElement(
+        /* @__PURE__ */ React23.createElement(motion2.div, { className: "bmd-bar-chart__value-bar-total" }, bar.segments.map((segment) => {
+          return /* @__PURE__ */ React23.createElement(
             motion2.div,
             {
               key: `label-${segment.id}`,
@@ -10195,8 +10281,8 @@ var BarChart = ({ height = 500, ...props }) => {
           );
         }))
       ),
-      /* @__PURE__ */ React22.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
-      /* @__PURE__ */ React22.createElement(
+      /* @__PURE__ */ React23.createElement(motion2.div, { className: "bmd-bar-chart__value-sep" }),
+      /* @__PURE__ */ React23.createElement(
         motion2.div,
         {
           className: "bmd-bar-chart__value-label",
@@ -10237,6 +10323,7 @@ export {
   MultiFilter,
   NavBar,
   Pie,
+  PlaceAutocomplete,
   Select,
   Stack,
   Table2 as Table,
