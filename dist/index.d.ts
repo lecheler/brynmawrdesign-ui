@@ -214,14 +214,13 @@ declare const MultiFilter: ({ label, placeholder, options, value, onChange, name
 
 interface PlaceSelection {
     name: string;
-    address: string;
-    latitude?: number;
-    longitude?: number;
-    locality?: string;
-    administrative_area?: string;
-    place_id?: string;
-    formatted_address?: string;
-    country_code?: string;
+    latitude: number;
+    longitude: number;
+    locality: string | null;
+    administrative_area: string | null;
+    place_id: string;
+    formatted_address: string | null;
+    country_code: string | null;
 }
 interface PlaceAutocompleteProps {
     onPlaceSelect: (place: PlaceSelection) => void;

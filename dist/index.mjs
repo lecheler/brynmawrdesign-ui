@@ -10062,8 +10062,8 @@ var PlaceAutocomplete = ({
         return comp ? short ? comp.shortText : comp.longText : "";
       };
       callbackRef.current({
+        place_id: place.id,
         name: place.displayName || "",
-        address: place.formattedAddress || "",
         locality: getComponent("locality") || getComponent("postal_town"),
         administrative_area: getComponent("administrative_area_level_1", true),
         // e.g., "MN"
@@ -10071,7 +10071,6 @@ var PlaceAutocomplete = ({
         // e.g., "US"
         latitude: (_a2 = place.location) == null ? void 0 : _a2.lat(),
         longitude: (_b = place.location) == null ? void 0 : _b.lng(),
-        place_id: place.id,
         formatted_address: place.formattedAddress
       });
     };

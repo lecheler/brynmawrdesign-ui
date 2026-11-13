@@ -4,14 +4,13 @@ import "./PlaceAutocomplete.css";
 
 export interface PlaceSelection {
   name: string;
-  address: string;
-  latitude?: number;
-  longitude?: number;
-  locality?: string;
-  administrative_area?: string;
-  place_id?: string;
-  formatted_address?: string;
-  country_code?: string;
+  latitude: number;
+  longitude: number;
+  locality: string | null;
+  administrative_area: string | null;
+  place_id: string;
+  formatted_address: string | null;
+  country_code: string | null;
 }
 
 export interface PlaceAutocompleteProps {
@@ -70,14 +69,13 @@ export const PlaceAutocomplete = ({
       };
 
       callbackRef.current({
+        place_id: place.id,
         name: place.displayName || "",
-        address: place.formattedAddress || "",
         locality: getComponent("locality") || getComponent("postal_town"),
         administrative_area: getComponent("administrative_area_level_1", true), // e.g., "MN"
         country_code: getComponent("country", true), // e.g., "US"
         latitude: place.location?.lat(),
         longitude: place.location?.lng(),
-        place_id: place.id,
         formatted_address: place.formattedAddress,
       });
     };
