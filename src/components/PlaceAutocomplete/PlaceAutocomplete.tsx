@@ -3,11 +3,15 @@ import { loadGoogleLibrary } from "../../utils/googleMapsLoader";
 import "./PlaceAutocomplete.css";
 
 export interface PlaceSelection {
-  placeId: string;
   name: string;
   address: string;
-  lat?: number;
-  lng?: number;
+  latitude?: number;
+  longitude?: number;
+  locality?: string;
+  administrative_area?: string;
+  place_id?: string;
+  formatted_address?: string;
+  country_code?: string;
 }
 
 export interface PlaceAutocompleteProps {
@@ -49,15 +53,32 @@ export const PlaceAutocomplete = ({
 
       const place = placePrediction.toPlace();
       await place.fetchFields({
-        fields: ["id", "displayName", "formattedAddress", "location"],
+        fields: [
+          "id",
+          "displayName",
+          "formattedAddress",
+          "location",
+          "addressComponents",
+        ],
       });
 
+      const getComponent = (type: string, short = false) => {
+        const comp = place.addressComponents?.find((c: any) =>
+          c.types.includes(type),
+        );
+        return comp ? (short ? comp.shortText : comp.longText) : "";
+      };
+
       callbackRef.current({
-        placeId: place.id,
         name: place.displayName || "",
         address: place.formattedAddress || "",
-        lat: place.location?.lat(),
-        lng: place.location?.lng(),
+        locality: getComponent("locality") || getComponent("postal_town"),
+        administrative_area: getComponent("administrative_area_level_1", true), // e.g., "MN"
+        country_code: getComponent("country", true), // e.g., "US"
+        latitude: place.location?.lat(),
+        longitude: place.location?.lng(),
+        place_id: place.id,
+        formatted_address: place.formattedAddress,
       });
     };
 

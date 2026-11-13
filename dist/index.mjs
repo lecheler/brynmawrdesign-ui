@@ -10046,14 +10046,33 @@ var PlaceAutocomplete = ({
       if (!placePrediction) return;
       const place = placePrediction.toPlace();
       await place.fetchFields({
-        fields: ["id", "displayName", "formattedAddress", "location"]
+        fields: [
+          "id",
+          "displayName",
+          "formattedAddress",
+          "location",
+          "addressComponents"
+        ]
       });
+      const getComponent = (type, short = false) => {
+        var _a3;
+        const comp = (_a3 = place.addressComponents) == null ? void 0 : _a3.find(
+          (c) => c.types.includes(type)
+        );
+        return comp ? short ? comp.shortText : comp.longText : "";
+      };
       callbackRef.current({
-        placeId: place.id,
         name: place.displayName || "",
         address: place.formattedAddress || "",
-        lat: (_a2 = place.location) == null ? void 0 : _a2.lat(),
-        lng: (_b = place.location) == null ? void 0 : _b.lng()
+        locality: getComponent("locality") || getComponent("postal_town"),
+        administrative_area: getComponent("administrative_area_level_1", true),
+        // e.g., "MN"
+        country_code: getComponent("country", true),
+        // e.g., "US"
+        latitude: (_a2 = place.location) == null ? void 0 : _a2.lat(),
+        longitude: (_b = place.location) == null ? void 0 : _b.lng(),
+        place_id: place.id,
+        formatted_address: place.formattedAddress
       });
     };
     loadGoogleLibrary("places", apiKey).then((placesLib) => {

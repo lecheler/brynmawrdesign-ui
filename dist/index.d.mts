@@ -213,11 +213,15 @@ interface MultiFilterProps {
 declare const MultiFilter: ({ label, placeholder, options, value, onChange, name, }: MultiFilterProps) => React__default.JSX.Element;
 
 interface PlaceSelection {
-    placeId: string;
     name: string;
     address: string;
-    lat?: number;
-    lng?: number;
+    latitude?: number;
+    longitude?: number;
+    locality?: string;
+    administrative_area?: string;
+    place_id?: string;
+    formatted_address?: string;
+    country_code?: string;
 }
 interface PlaceAutocompleteProps {
     onPlaceSelect: (place: PlaceSelection) => void;
